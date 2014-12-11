@@ -22,7 +22,7 @@ int main ( int argc, char** argv )
     // s'assure que la SDL quitte correctement sans fuite de mémoire
     atexit(SDL_Quit);
 
-    // create a new window
+    // ouvrir une nouvelle fenêtre
     SDL_Surface* screen = SDL_SetVideoMode(640, 480, 16,
                                            SDL_HWSURFACE|SDL_DOUBLEBUF);
     if ( !screen )
