@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include "Grille.h"
+#include "InterfaceGraphique.h"
 #include <SDL.h>
 
 using namespace std;

@@ -41,6 +41,8 @@
 		</Linker>
 		<Unit filename="Grille.cpp" />
 		<Unit filename="Grille.h" />
+		<Unit filename="InterfaceGraphique.cpp" />
+		<Unit filename="InterfaceGraphique.h" />
 		<Unit filename="cb.bmp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
