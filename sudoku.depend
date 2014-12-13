@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1418475250 source:/home/sylvain/C++/sudoku/main.cpp
+1418477832 source:/home/sylvain/C++/sudoku/main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<iostream>
@@ -194,7 +194,8 @@
 1418392095 /home/sylvain/C++/sudoku/Grille.h
 	<array>
 
-<<<<<<< HEAD
+1418392095 D
+
 1418468282 source:c:\users\théo\desktop\sudoku\grille.cpp
 	"Grille.h"
 
@@ -419,12 +420,9 @@
 	"begin_code.h"
 	"close_code.h"
 
-1418475249 source:/home/sylvain/C++/sudoku/InterfaceGraphique.cpp
-	<stdio.h>
+1418477832 source:/home/sylvain/C++/sudoku/InterfaceGraphique.cpp
+	"InterfaceGraphique.h"
 	<SDL.h>
-	<SDL_image.h>
-	<SDL_ttf.h>
-	<math.h>
 
 1418475250 /home/sylvain/C++/sudoku/include/SDL.h
 	"SDL_main.h"
@@ -629,5 +627,5 @@
 
 1418392085 /home/sylvain/C++/sudoku/InterfaceGraphique.h
 
-=======
->>>>>>> 2e5692c8e4bca87bcbbc5b535a59070b5837fe33
+1418392085 692c8e4bca87bcbbc5b535a59070b5837fe33
+

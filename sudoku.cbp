@@ -36,8 +36,6 @@
 		</Compiler>
 		<Linker>
 			<Add option="`sdl-config --libs`" />
-			<Add library="/lib/libSDLmain.a" />
-			<Add library="/lib/libSDL.dll.a" />
 		</Linker>
 		<Unit filename="Grille.cpp" />
 		<Unit filename="Grille.h" />
