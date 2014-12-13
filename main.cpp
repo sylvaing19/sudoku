@@ -4,8 +4,8 @@
     #include <stdlib.h>
 #endif
 
-#include <iostream>
-#include "Grille.h"
+#include <iostream>/*
+#include "Grille.h"*/
 #include "InterfaceGraphique.h"
 #include <SDL.h>
 
@@ -13,7 +13,8 @@ using namespace std;
 
 int main ( int argc, char** argv )
 {
-//*
+    InterfaceGraphique();
+/*
     // initialiser la SDL
     if ( SDL_Init( SDL_INIT_VIDEO ) < 0 )
     {
@@ -88,6 +89,6 @@ int main ( int argc, char** argv )
 
     // free loaded bitmap
     SDL_FreeSurface(bmp);
-    //*/
+    */
     return 0;
 }
