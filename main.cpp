@@ -13,7 +13,7 @@ using namespace std;
 
 int main ( int argc, char** argv )
 {
-    InterfaceGraphique();
+
 /*
     // initialiser la SDL
     if ( SDL_Init( SDL_INIT_VIDEO ) < 0 )
