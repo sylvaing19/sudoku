@@ -194,6 +194,7 @@
 1418392095 /home/sylvain/C++/sudoku/Grille.h
 	<array>
 
+<<<<<<< HEAD
 1418468282 source:c:\users\théo\desktop\sudoku\grille.cpp
 	"Grille.h"
 
@@ -628,3 +629,5 @@
 
 1418392085 /home/sylvain/C++/sudoku/InterfaceGraphique.h
 
+=======
+>>>>>>> 2e5692c8e4bca87bcbbc5b535a59070b5837fe33
