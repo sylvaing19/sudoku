@@ -2,9 +2,9 @@
 /*author Théo*/
 
 #include <stdio.h>
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
+#include <SDL/SDL.h>
+#include <SDL/SDL_image.h>
+#include <SDL/SDL_ttf.h>
 #include <math.h>
 
 /*********************************************************************************/
@@ -39,22 +39,22 @@ void initImages();
 void intro();
 void menu();
 void afficherBoutons();
-void Interface();
 
 /*********************************************************************************/
 
-
-
-void Interface()
+InterfaceGraphique::InterfaceGraphique()
 {
-     initTout();
+    initTout();
     intro();
     while(continuer)
     {
       menu();
     }
-    if(quitter==1);
+    if(quitter==1)
+        return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
+
 /*********************************************************************************/
 
 //initialise les positions de chaque surface
