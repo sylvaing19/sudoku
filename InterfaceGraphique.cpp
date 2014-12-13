@@ -5,8 +5,3 @@ InterfaceGraphique::InterfaceGraphique()
 {
 
 }
-
-InterfaceGraphique::~InterfaceGraphique()
-{
-    //dtor
-}
