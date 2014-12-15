@@ -1,4 +1,4 @@
-#include "Grille.h"
+/*#include "Grille.h"
 
 using namespace std;
 
@@ -54,4 +54,4 @@ bool Grille::estPlacable(int8_t valeur, int8_t ligne, int8_t colonne)
 bool Grille::completer()
 {
     return false;
-}
+}*/

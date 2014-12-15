@@ -5,14 +5,15 @@ InterfaceGraphique::InterfaceGraphique()
 {
     SDL_WM_SetCaption("SuDoKu-Solver", NULL);
     TTF_Init();
-    fond = SDL_SetVideoMode(1200, 600, 32, SDL_HWSURFACE| SDL_DOUBLEBUF);
+    fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE| SDL_DOUBLEBUF | SDL_FULLSCREEN);
 }
+
 
 //initialisation des differentes positions des images / textes
 void InterfaceGraphique::initPositions()
 {
     positionTitre.x = 270, positionTitre.y = 40;
-    positionBoutonQuitter.x = 10, positionBoutonQuitter.y = 10;
+    positionBoutonQuitter.x = tailleX-50, positionBoutonQuitter.y = 10;
     positionFond.x=0,positionFond.y=0;
     positionAuRevoir.x=200,positionAuRevoir.y=150;
     positionMenu1.x=350, positionMenu1.y=170;
@@ -38,6 +39,7 @@ void InterfaceGraphique::initImages()
     imageFond = SDL_LoadBMP("images/fond1.bmp");
     boutonMenu1=SDL_LoadBMP("images/BoutonMenu.bmp");
     boutonMenu2=SDL_LoadBMP("images/BoutonMenu.bmp");
+    SDL_SetColorKey(arret, SDL_SRCCOLORKEY, SDL_MapRGB(arret->format, 255, 255, 255)); // met le blanc en transparent pour le bouton d'arret
     SDL_SetColorKey(boutonMenu1, SDL_SRCCOLORKEY, SDL_MapRGB(boutonMenu1->format, 255, 255, 255)); // met le blanc en transparent pour le bouton de menu
     SDL_SetColorKey(boutonMenu2, SDL_SRCCOLORKEY, SDL_MapRGB(boutonMenu2->format, 255, 255, 255)); // met le blanc en transparent pour le bouton de menu
 }
@@ -51,7 +53,7 @@ void InterfaceGraphique::initTout()
     initImages();
     initPolices();
     afficherFixe();
-    SDL_Delay(00);
+    SDL_Delay(300);
 }
 
 //affichagee des boutons cliquables

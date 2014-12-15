@@ -4,8 +4,8 @@
     #include <stdlib.h>
 #endif
 
-#include <iostream>
-#include "Grille.h"
+#include <iostream>/*
+#include "Grille.h"*/
 #include "InterfaceGraphique.h"
 
 
@@ -14,8 +14,6 @@ using namespace std;
 int main ( int argc, char** argv )
 {
     InterfaceGraphique interface;
-char center_env[] = "SDL_VIDEO_CENTERED=center";
-SDL_putenv(center_env);
 
     interface.initTout();
     interface.intro();
@@ -24,6 +22,10 @@ SDL_putenv(center_env);
       interface.menu();
     }
     if(interface.quitter==1)
+    {
+        SDL_Quit();
         return EXIT_SUCCESS;
+    }
+    SDL_Quit();
     return EXIT_SUCCESS;
 }
