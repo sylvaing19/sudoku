@@ -668,6 +668,14 @@
 1418725532 source:/home/sylvain/C++/sudoku/src/Fenetre.cpp
 	"Fenetre.h"
 
-1418725533 /home/sylvain/C++/sudoku/include/Fenetre.h
+1418743513 /home/sylvain/C++/sudoku/include/Fenetre.h
 	"FenetreMgr.h"
+
+1418725721 source:/home/sylvain/C++/sudoku/src/Bouton.cpp
+	"Bouton.h"
+
+1418742828 /home/sylvain/C++/sudoku/include/Bouton.h
+	<SDL.h>
+	<SDL_ttf.h>
+	<string>
 
