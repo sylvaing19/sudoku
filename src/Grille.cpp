@@ -27,6 +27,27 @@ void Grille::setBloc(int8_t valeur, int8_t surCase, int8_t sousCase)
     data[(surCase%3)*3 + sousCase%3 + 9*((surCase/3)*3 + sousCase/3)] = valeur;
 }
 
+void Grille::afficherConsole()
+{
+    for(int ligne=0; ligne<9; ligne++)
+    {
+        for(int colonne=0; colonne<9; colonne++)
+        {
+            int8_t val = getLC(ligne, colonne);
+            if(val>0 && val<=9)
+                printf("%d ", val);
+            else
+                printf("  ");
+            if(colonne == 2 || colonne == 5)
+                printf("│");
+        }
+        printf("\n");
+        if(ligne == 2 || ligne == 5)
+            printf("──────┼──────┼──────\n");
+    }
+    printf("\n");
+}
+
 bool Grille::estPlacable(int8_t valeur, int8_t ligne, int8_t colonne)
 {
     if(valeur > 9 || valeur <= 0)

@@ -15,6 +15,9 @@ class Grille
 {
     public:
         Grille();
+
+        void afficherConsole();
+
         int8_t getLC(int8_t ligne, int8_t colonne);///Renvoie la valeur de la case repérée en ligne/colonne (idexé de 0 à 8)
         int8_t getBloc(int8_t surCase, int8_t sousCase);///Renvoie la valeur de la case repérée en bloc/sous-bloc (indexé de 0 à 8)
         void setLC(int8_t valeur, int8_t ligne, int8_t colonne);///Place 'valeur' dans la case repérée en ligne/colonne
