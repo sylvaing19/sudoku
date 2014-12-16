@@ -2,7 +2,7 @@
 #define FENETRE_H
 #include "FenetreMgr.h"
 
-class Fenetre : protected FenetreMgr
+class Fenetre
 {
     public:
         Fenetre();
