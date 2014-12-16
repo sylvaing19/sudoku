@@ -35,22 +35,25 @@
 			<Add option="-Wall" />
 			<Add option="`sdl-config --cflags`" />
 		</Compiler>
-		<Linker>
-			<Add option="`sdl-config --libs`" />
-		</Linker>
-		<Unit filename="Grille.cpp" />
-		<Unit filename="Grille.h" />
-		<Unit filename="InterfaceGraphique.cpp" />
-		<Unit filename="InterfaceGraphique.h" />
 		<Unit filename="images/BoutonMenu.bmp" />
 		<Unit filename="images/arret.bmp" />
 		<Unit filename="images/cb.bmp" />
 		<Unit filename="images/fond1.bmp" />
+		<Unit filename="include/Bouton.h" />
+		<Unit filename="include/Fenetre.h" />
+		<Unit filename="include/FenetreMgr.h" />
+		<Unit filename="include/Grille.h" />
+		<Unit filename="include/InterfaceGraphique.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="polices/A Simple Life.ttf" />
 		<Unit filename="polices/Cybernetica_Normal.ttf" />
 		<Unit filename="polices/SF_Toontime.ttf" />
 		<Unit filename="polices/angelina.TTF" />
+		<Unit filename="src/Bouton.cpp" />
+		<Unit filename="src/Fenetre.cpp" />
+		<Unit filename="src/FenetreMgr.cpp" />
+		<Unit filename="src/Grille.cpp" />
+		<Unit filename="src/InterfaceGraphique.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

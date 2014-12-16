@@ -19,7 +19,7 @@ int main ( int argc, char** argv )
     interface.intro();
     while(interface.continuerEvent)
     {
-        interface.menu();
+      interface.menu();
     }
     SDL_Quit();
     return EXIT_SUCCESS;
