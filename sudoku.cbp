@@ -36,11 +36,13 @@
 			<Add option="`sdl-config --cflags`" />
 		</Compiler>
 		<Unit filename="cb.bmp" />
+		<Unit filename="include/Bouton.h" />
 		<Unit filename="include/Fenetre.h" />
 		<Unit filename="include/FenetreMgr.h" />
 		<Unit filename="include/Grille.h" />
 		<Unit filename="include/InterfaceGraphique.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Bouton.cpp" />
 		<Unit filename="src/Fenetre.cpp" />
 		<Unit filename="src/FenetreMgr.cpp" />
 		<Unit filename="src/Grille.cpp" />

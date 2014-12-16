@@ -4,8 +4,3 @@ Fenetre::Fenetre()
 {
     //ctor
 }
-
-Fenetre::~Fenetre()
-{
-    //dtor
-}

@@ -1,12 +1,11 @@
 #ifndef FENETRE_H
 #define FENETRE_H
+#include "FenetreMgr.h"
 
-
-class Fenetre
+class Fenetre : protected FenetreMgr
 {
     public:
         Fenetre();
-        virtual ~Fenetre();
     protected:
     private:
 };
