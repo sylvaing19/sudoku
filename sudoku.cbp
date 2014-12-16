@@ -42,8 +42,15 @@
 		<Unit filename="Grille.h" />
 		<Unit filename="InterfaceGraphique.cpp" />
 		<Unit filename="InterfaceGraphique.h" />
-		<Unit filename="cb.bmp" />
+		<Unit filename="images/BoutonMenu.bmp" />
+		<Unit filename="images/arret.bmp" />
+		<Unit filename="images/cb.bmp" />
+		<Unit filename="images/fond1.bmp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="polices/A Simple Life.ttf" />
+		<Unit filename="polices/Cybernetica_Normal.ttf" />
+		<Unit filename="polices/SF_Toontime.ttf" />
+		<Unit filename="polices/angelina.TTF" />
 		<Extensions>
 			<code_completion />
 			<debugger />

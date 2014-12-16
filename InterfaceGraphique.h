@@ -4,6 +4,13 @@
 #include <SDL_ttf.h>
 #include <SDL_image.h>
 #include <SDL_getenv.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <SDL_rotozoom.h>
+
+
+
+
 
 class InterfaceGraphique
 {
@@ -16,11 +23,11 @@ class InterfaceGraphique
         SDL_Rect positionTexteMenu1, positionTexteMenu2, positionTexteMenu3;
 
         //initialisation des surfaces (images)
-        SDL_Surface *imageFond = NULL, *arret = NULL, *fond = NULL, *texteTitre = NULL;
-        SDL_Surface *boutonMenu1=NULL,*boutonMenu2=NULL,*boutonMenu3=NULL,*texteMenu1=NULL,*texteMenu2=NULL,*texteMenu3=NULL;
+        SDL_Surface *imageFond = NULL, *arret = NULL, *fond = NULL, *rotation = NULL, *texteTitre = NULL;
+        SDL_Surface *boutonMenu1=NULL, *boutonMenu2=NULL, *boutonMenu3=NULL, *texteMenu1=NULL, *texteMenu2=NULL, *texteMenu3=NULL;
 
         //initialisation des polices
-        TTF_Font *policeTitre= NULL, *policeMenu = NULL,*policeAuRevoir=NULL;
+        TTF_Font *policeTitre= NULL, *policeMenu = NULL, *policeAuRevoir=NULL;
 
         SDL_Event event;
 
@@ -31,13 +38,17 @@ class InterfaceGraphique
         SDL_Color  couleurR = {255, 0, 0};
         SDL_Color  couleurGri = {200, 240, 255};
 
-        //change si l'user veux quitter, continuer
-        int continuer=1;
-        int quitter=0;
+        bool continuerEvent;
+        bool quitterAppli;
 
-        //TODO : regler problemes resolution : si > ecran, créé un nouvel ecran
-        int tailleX=1280;
-        int tailleY=640;
+        int tailleX;
+        int tailleY;
+        int tailleXArret;
+        int tailleYArret;
+        int tailleXMenu;
+        int tailleYMenu;
+
+        double zoomX,zoomY;
 
         void initPositions();
         void initPolices();
@@ -47,6 +58,7 @@ class InterfaceGraphique
         void intro();
         void menu();
         void afficherBoutons();
+        void quitter();
 
     private:
 

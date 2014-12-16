@@ -17,14 +17,9 @@ int main ( int argc, char** argv )
 
     interface.initTout();
     interface.intro();
-    while(interface.continuer)
+    while(interface.continuerEvent)
     {
       interface.menu();
-    }
-    if(interface.quitter==1)
-    {
-        SDL_Quit();
-        return EXIT_SUCCESS;
     }
     SDL_Quit();
     return EXIT_SUCCESS;
