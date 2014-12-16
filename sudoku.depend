@@ -1,11 +1,10 @@
 # depslib dependency file v1.0
-1418477832 source:/home/sylvain/C++/sudoku/main.cpp
+1418647310 source:/home/sylvain/C++/sudoku/main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<iostream>
 	"Grille.h"
 	"InterfaceGraphique.h"
-	<SDL.h>
 
 1399696839 /usr/include/SDL/SDL.h
 	"SDL_main.h"
@@ -188,10 +187,10 @@
 	"begin_code.h"
 	"close_code.h"
 
-1418127026 source:/home/sylvain/C++/sudoku/Grille.cpp
+1418639714 source:/home/sylvain/C++/sudoku/Grille.cpp
 	"Grille.h"
 
-1418392095 /home/sylvain/C++/sudoku/Grille.h
+1418639696 /home/sylvain/C++/sudoku/Grille.h
 	<array>
 
 1418392095 D
@@ -420,9 +419,8 @@
 	"begin_code.h"
 	"close_code.h"
 
-1418477832 source:/home/sylvain/C++/sudoku/InterfaceGraphique.cpp
+1418718861 source:/home/sylvain/C++/sudoku/InterfaceGraphique.cpp
 	"InterfaceGraphique.h"
-	<SDL.h>
 
 1418475250 /home/sylvain/C++/sudoku/include/SDL.h
 	"SDL_main.h"
@@ -625,7 +623,25 @@
 	"begin_code.h"
 	"close_code.h"
 
-1418392085 /home/sylvain/C++/sudoku/InterfaceGraphique.h
+1418722207 /home/sylvain/C++/sudoku/InterfaceGraphique.h
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<SDL_getenv.h>
 
 1418392085 692c8e4bca87bcbbc5b535a59070b5837fe33
+
+1387745250 /usr/include/SDL/SDL_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+1390221529 /usr/include/SDL/SDL_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1399696839 /usr/include/SDL/SDL_getenv.h
+	"SDL_stdinc.h"
 

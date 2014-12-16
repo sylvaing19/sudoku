@@ -36,8 +36,8 @@ class InterfaceGraphique
         int quitter=0;
 
         //TODO : regler problemes resolution : si > ecran, créé un nouvel ecran
-        int tailleX=1280;
-        int tailleY=640;
+        int tailleX=800;
+        int tailleY=600;
 
         void initPositions();
         void initPolices();
