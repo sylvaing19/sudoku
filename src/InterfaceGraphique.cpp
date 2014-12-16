@@ -8,8 +8,8 @@ InterfaceGraphique::InterfaceGraphique()
     quitterAppli=false;
 
     //TODO : regler problemes resolution : si > ecran, créé un nouvel ecran
-    tailleX=1280;
-    tailleY=640;
+    tailleX=1024;
+    tailleY=600;
 
     zoomX=((double)tailleX/1200);
     zoomY=((double)tailleY/640);

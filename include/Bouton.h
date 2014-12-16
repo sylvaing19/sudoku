@@ -9,6 +9,7 @@ class Bouton
 {
     public:
         Bouton();
+        void mise_en_buffer();
         SDL_Rect position;
         std::string imageFond;
         std::string imageFondFocus;
