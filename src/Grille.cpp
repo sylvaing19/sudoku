@@ -50,29 +50,31 @@ void Grille::afficherConsole()
 
 bool Grille::estPlacable(int8_t valeur, int8_t ligne, int8_t colonne)
 {
-    if(valeur > 9 || valeur <= 0)
+    if(valeur > 9 || valeur <= 0)//Vérifie que la valeur n'est pas absurde
         return false;
     else
     {
         int8_t
         surCase = colonne/3 + (ligne/3)*3,
-        sousCase = colonne%3 + (ligne%3)*3;
+        sousCase = colonne%3 + (ligne%3)*3;//Conversion des coordonnées ligne/colonne en sous-case/sur-case
         for(int i=0; i<9; i++)
         {
-            if(i!=ligne && Grille::getLC(i, colonne) == valeur)
+            if(i!=ligne && Grille::getLC(i, colonne) == valeur)//Test règle : un seul chiffre par colonne
                 return false;
-            if(i!=colonne && Grille::getLC(ligne, i) == valeur)
+            if(i!=colonne && Grille::getLC(ligne, i) == valeur)//Test règle : un seul chiffre par ligne
                 return false;
-            if(i!=sousCase && Grille::getBloc(surCase, i) == valeur)
+            if(i!=sousCase && Grille::getBloc(surCase, i) == valeur)//Test règle : un seul chiffre par sur-case
                 return false;
         }
-
-
         return true;
     }
 }
 
 bool Grille::completer()
 {
+    array<int8_t,81> data_backup = data;
+
+
+
     return false;
 }

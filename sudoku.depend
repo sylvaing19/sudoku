@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1418759352 source:/home/sylvain/C++/sudoku/main.cpp
+1418761546 source:/home/sylvain/C++/sudoku/main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<iostream>
@@ -683,8 +683,9 @@
 	<math.h>
 	"SDL.h"
 
-1418758122 /home/sylvain/C++/sudoku/include/Grille.h
+1418823431 /home/sylvain/C++/sudoku/include/Grille.h
 	<array>
+	<vector>
 
 1418748469 /home/sylvain/C++/sudoku/include/InterfaceGraphique.h
 	<SDL.h>
@@ -700,7 +701,7 @@
 
 1418748469 /home/sylvain/C++/sudoku/include/FenetreMgr.h
 
-1418759766 source:/home/sylvain/C++/sudoku/src/Grille.cpp
+1418823586 source:/home/sylvain/C++/sudoku/src/Grille.cpp
 	"Grille.h"
 
 1418749066 source:/home/sylvain/C++/sudoku/src/InterfaceGraphique.cpp
