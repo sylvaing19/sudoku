@@ -70,11 +70,51 @@ bool Grille::estPlacable(int8_t valeur, int8_t ligne, int8_t colonne)
     }
 }
 
+void Grille::remplirGrille()
+{
+    for(int ligne=0; ligne<9; ligne++)
+    {
+        for(int colonne=0; colonne<9; colonne++)
+        {
+            grille[ligne][colonne].clear();
+            for(int i=1; i<=9; i++)
+            {
+                if(estPlacable(i, ligne, colonne) && Grille::getLC(ligne, colonne) == 0)
+                {
+                    grille[ligne][colonne].push_back(i);
+                }
+            }
+        }
+    }
+}
+
+bool Grille::placerSingletons()
+{
+    bool valeurRetour = false;
+    for(int ligne=0; ligne<9; ligne++)
+    {
+        for(int colonne=0; colonne<9; colonne++)
+        {
+            if(grille[ligne][colonne].size() == 1)
+            {
+                valeurRetour = true;
+                Grille::setLC(grille[ligne][colonne][0], ligne, colonne);
+            }
+        }
+    }
+
+    return valeurRetour;
+}
+
 bool Grille::completer()
 {
-    array<int8_t,81> data_backup = data;
+    //array<int8_t,81> data_backup = data;
 
+    do
+    {
+        Grille::remplirGrille();
+    }
+    while(Grille::placerSingletons());
 
-
-    return false;
+    return true;
 }

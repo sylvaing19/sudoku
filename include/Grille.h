@@ -28,8 +28,8 @@ class Grille
     private:
         std::array<int8_t,81> data;//Tableau de taille fixe contenant la grille de sudoku
         std::array<std::array<std::vector<int8_t>,9>,9> grille;//Tableau contenant la liste des chiffres possibles pour chaque case
-        void placerSingletons();
-
+        void remplirGrille();///Remplis les possibilitées dans Grille à partir de 'data'.
+        bool placerSingletons();///Parcours 'grille' et pour chaque case ayant une seule possibilité, place la valeur dans 'data'. Renvoie False s'il n'y a aucun singleton, True sinon.
 };
 
 #endif // GRILLE_H
