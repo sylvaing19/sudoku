@@ -1,6 +1,7 @@
 #ifndef GRILLE_H
 #define GRILLE_H
 #include <array>
+#include <vector>
 
 /**
 La classe Grille définit une grille de sudoku de 9*9 cases.
@@ -25,7 +26,10 @@ class Grille
         bool estPlacable(int8_t valeur, int8_t ligne, int8_t colonne);///Ne modifie pas la grille. Renvoi Vrai si 'valeur' est un chiffre plaçable compte tenu des valeurs présentes dans la grille, selon les règles du sudoku
         bool completer();///Complète la grille si possible. Renvoi 'vrai' si la résolution a réussi, 'faux' sinon, en cas d'échec la grille n'est pas modifiée
     private:
-        std::array<int8_t,81> data;//Tableau de taille fixe contenant la donnée
+        std::array<int8_t,81> data;//Tableau de taille fixe contenant la grille de sudoku
+        std::array<std::array<std::vector<int8_t>,9>,9> grille;//Tableau contenant la liste des chiffres possibles pour chaque case
+        void remplirGrille();///Remplis les possibilitées dans Grille à partir de 'data'.
+        bool placerSingletons();///Parcours 'grille' et pour chaque case ayant une seule possibilité, place la valeur dans 'data'. Renvoie False s'il n'y a aucun singleton, True sinon.
 };
 
 #endif // GRILLE_H
