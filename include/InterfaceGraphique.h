@@ -28,6 +28,7 @@ class InterfaceGraphique
         //initialisation des surfaces (images)
         SDL_Surface *imageFond = NULL, *arret = NULL, *fond = NULL, *rotation = NULL, *texteTitre = NULL;
         SDL_Surface *boutonMenu1=NULL, *boutonMenu2=NULL, *boutonMenu3=NULL, *texteMenu1=NULL, *texteMenu2=NULL, *texteMenu3=NULL;
+        SDL_Surface *textePret=NULL, *textePretAussi=NULL,*texteAdieu=NULL;
 
         //initialisation des polices
         TTF_Font *policeTitre= NULL, *policeMenu = NULL, *policeAuRevoir=NULL;
