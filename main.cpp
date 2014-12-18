@@ -14,7 +14,10 @@ using namespace std;
 enum TypeDeTest
 {MODE_CONSOLE, MODE_GRAPHIQUE, MODE_COMPOSITE};
 
-TypeDeTest typeDeTest = MODE_CONSOLE;/// Permet de choisir le type de test à effectuer
+TypeDeTest typeDeTest = MODE_GRAPHIQUE;/// Permet de choisir le type de test à effectuer
+/*  MODE_GRAPHIQUE
+*   MODE_CONSOLE
+*/
 
 int main ( int argc, char** argv )
 {
