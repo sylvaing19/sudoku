@@ -108,7 +108,7 @@ bool Grille::placerSingletons()
 
 bool Grille::completer()
 {
-    //array<int8_t,81> data_backup = data;
+    array<int8_t,81> data_backup = data;
 
     do
     {
@@ -116,5 +116,15 @@ bool Grille::completer()
     }
     while(Grille::placerSingletons());
 
+    return true;
+}
+
+bool Grille::estResolu()
+{
+    for(int i=0; i<81; i++)
+    {
+        if(data[i] == 0)
+            return false;
+    }
     return true;
 }
