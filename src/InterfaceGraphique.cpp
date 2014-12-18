@@ -1,27 +1,36 @@
 #include "InterfaceGraphique.h"
 
-
+//Constructeur
 InterfaceGraphique::InterfaceGraphique()
 {
+    //INitialisation du systeme  SDL
+    SDL_Init(SDL_INIT_VIDEO);
+
+    //Recuperation des informations de l'utilisateur
+    info = SDL_GetVideoInfo();
+
     //change si l'user veux quitter, continuer
     continuerEvent=true;
     quitterAppli=false;
 
     //TODO : regler problemes resolution : si > ecran, créé un nouvel ecran
-    tailleX=1024;
-    tailleY=600;
+    tailleX=info->current_w ;
+    tailleY=info->current_h ;
 
-    zoomX=((double)tailleX/1200);
+    //Zoom : mon ecran sert de reference (1280*640), et on divise la taille de tout le reste suivant les resolutions
+    zoomX=((double)tailleX/1280);
     zoomY=((double)tailleY/640);
 
+    //titre de la fenetre, initialisation de TTF, creation de la fenetre de fond
     SDL_WM_SetCaption("SuDoKu-Solver", NULL);
     TTF_Init();
     fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_FULLSCREEN); //Definition du fond : fullscreen, etc
-    }
+}
 
 //initialisation des differentes positions des images / textes et leurs tailles
 void InterfaceGraphique::initPositions()
 {
+
     tailleXArret=45*zoomX;
     tailleYArret=45*zoomY;
     tailleXMenu=613*zoomX;
@@ -32,8 +41,8 @@ void InterfaceGraphique::initPositions()
     positionFond.x=0,positionFond.y=0;
     positionAuRevoir.x=tailleX*0.2*zoomX,positionAuRevoir.y=tailleY*0.25*zoomY;
 
-    positionMenu1.x=tailleX*0.25*zoomX, positionMenu1.y=tailleY/3*zoomY;
-    positionMenu2.x=positionMenu1.x, positionMenu2.y=positionMenu1.y+1.5*tailleYMenu;
+    positionMenu1.x=tailleX*0.25*zoomX, positionMenu1.y=tailleY/4*zoomY;
+    positionMenu2.x=positionMenu1.x, positionMenu2.y=(tailleY-tailleY/4-tailleYMenu)*zoomY;
 
     //texte des menus, centrée dans l'image
     positionTexteMenu1.x= positionMenu1.x+60*zoomX,positionTexteMenu1.y= (positionMenu1.y+50*zoomY);
@@ -57,38 +66,38 @@ void InterfaceGraphique::initImages()
     boutonMenu1=SDL_LoadBMP("images/BoutonMenu.bmp");
     boutonMenu2=SDL_LoadBMP("images/BoutonMenu.bmp");
 
+
     SDL_SetColorKey(boutonMenu1, SDL_SRCCOLORKEY, SDL_MapRGB(boutonMenu1->format, 255, 255, 255)); // met le blanc en transparent pour le bouton de menu
     SDL_SetColorKey(boutonMenu2, SDL_SRCCOLORKEY, SDL_MapRGB(boutonMenu2->format, 255, 255, 255)); // met le blanc en transparent pour le bouton de menu
     SDL_SetColorKey(arret, SDL_SRCCOLORKEY, SDL_MapRGB(arret->format, 255, 255, 255)); // met le blanc en transparent pour le bouton d'arret
 
 
-    boutonMenu1 = zoomSurface(boutonMenu1, zoomX, zoomY, 0); //On zoome / dezoome sur le menu
+    boutonMenu1 = zoomSurface(boutonMenu1, zoomX, zoomY, 0); //On zoome / dezoome suivant les tailles d'ecran
     boutonMenu2 = zoomSurface(boutonMenu2, zoomX, zoomY, 0);
     arret = zoomSurface(arret, zoomX, zoomX, 0);
     imageFond = zoomSurface(imageFond, zoomX, zoomX, 0);
-
-
 }
 
 //fonction pour le debut de l'interface : initialisation de tout (polices, images, positions, affichage du debut)
 void InterfaceGraphique::initTout()
 {
-
     initPositions();
-    SDL_Init(SDL_INIT_VIDEO);
+
+
     initImages();
     initPolices();
     afficherFixe();
     SDL_Delay(300);
 }
 
-//affichagee des boutons cliquables
+//affichage des boutons cliquables
 void InterfaceGraphique::afficherBoutons()
 {
     SDL_BlitSurface(boutonMenu1 , NULL, fond, &positionMenu1);
     SDL_BlitSurface(boutonMenu2 , NULL, fond, &positionMenu2);
     SDL_BlitSurface(arret, NULL, fond, &positionBoutonQuitter);
 
+    //textes dans les boutons de menu
     texteMenu1 = TTF_RenderText_Blended(policeMenu, "Nouvelle Partie", couleurN );
     texteMenu2 = TTF_RenderText_Blended(policeMenu, "Photo-doku", couleurN );
 
@@ -109,9 +118,10 @@ void InterfaceGraphique::intro()
 {
     int i;
     int a=positionTitre.y;
+    //animation, titre qui descend
     for(i=-50;i<=a;i++)
     {
-        SDL_Delay(20);
+        SDL_Delay(10);
         SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
         positionTitre.y=i;
         texteTitre = TTF_RenderText_Blended(policeTitre, "SuDoKu Solver", couleurN );
@@ -122,15 +132,16 @@ void InterfaceGraphique::intro()
     afficherBoutons();
 }
 
+//gestion de l'event "quitter" : clic sur le bouton d'arret ou echap
 void InterfaceGraphique::quitter()
 {
         continuerEvent = false;
         quitterAppli = true;
         SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
-        texteTitre = TTF_RenderText_Blended(policeAuRevoir, "Au revoir !", couleurR );
+        texteTitre = TTF_RenderText_Blended(policeAuRevoir, "Au revoir !", couleurR ); //affichage à la sortie*/
         SDL_BlitSurface(texteTitre, NULL, fond, &positionAuRevoir);
         SDL_Flip(fond);
-        SDL_Delay(500);
+        SDL_Delay(300);
 }
 
 //gestion des events, clic sur les boutons
@@ -195,4 +206,10 @@ rotation = rotozoomSurface(boutonMenu1, 10, 1, 0); //On transforme la surface im
 //On repositionne l'image en fonction de sa taille.
 
 SDL_BlitSurface(rotation , NULL, fond, &positionMenu1); //On affiche la rotation de la surface image.
-SDL_Flip(fond);*/
+SDL_Flip(fond);
+
+
+Taille :        (arret->w); ?
+Pareil texte
+
+*/
