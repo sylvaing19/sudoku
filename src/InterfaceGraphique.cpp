@@ -3,7 +3,7 @@
 //Constructeur
 InterfaceGraphique::InterfaceGraphique()
 {
-    //INitialisation du systeme  SDL
+    //Initialisation du systeme SDL
     SDL_Init(SDL_INIT_VIDEO);
 
     //Recuperation des informations de l'utilisateur
@@ -30,12 +30,6 @@ InterfaceGraphique::InterfaceGraphique()
 //initialisation des differentes positions des images / textes et leurs tailles
 void InterfaceGraphique::initPositions()
 {
-    //Variables tailles des boutons, pas super utile
-    tailleXArret=(arret->w);
-    tailleYArret=(arret->h);
-    tailleXMenu=(boutonMenu1->w);
-    tailleYMenu=(boutonMenu1->h);
-
     //Le fond sert d'origine, 0;0
     positionFond.x=0,positionFond.y=0;
 
@@ -141,13 +135,13 @@ void InterfaceGraphique::intro()
     int i;
     int a=positionTitre.y;
     //animation, titre qui descend
-   /*for(i=-50;i<=a;i++)
+    for(i=-50;i<=a;i++)
     {
-        SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
         positionTitre.y=i;
+        SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
         SDL_BlitSurface(texteTitre, NULL, fond, &positionTitre);
         SDL_Flip(fond);
-    }*/
+    }
     SDL_Delay(200);
     SDL_BlitSurface(texteTitre, NULL, fond, &positionTitre);
     SDL_Flip(fond);
@@ -199,7 +193,6 @@ void InterfaceGraphique::menu()
                         afficherBoutons();
                         SDL_BlitSurface(textePret, NULL, fond, &positionTitre);
                         SDL_Flip(fond);
-
                     }
 
                     //clic sur le menu 2
@@ -216,20 +209,3 @@ void InterfaceGraphique::menu()
              }
     }
 }
-
-
-
-/*Rotation :
-#include <SDL_rotozoom.h>
-rotation = rotozoomSurface(boutonMenu1, 10, 1, 0); //On transforme la surface image.
-
-//On repositionne l'image en fonction de sa taille.
-
-SDL_BlitSurface(rotation , NULL, fond, &positionMenu1); //On affiche la rotation de la surface image.
-SDL_Flip(fond);
-
-
-Taille :        (arret->w); ?
-Pareil texte
-
-*/
