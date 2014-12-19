@@ -7,6 +7,7 @@
 #include <iostream>
 #include "Grille.h"
 #include "InterfaceGraphique.h"
+#include "Bouton.h"
 
 
 using namespace std;
@@ -14,10 +15,12 @@ using namespace std;
 enum TypeDeTest
 {MODE_CONSOLE, MODE_GRAPHIQUE, MODE_COMPOSITE};
 
+enum TestGraph
+{CLASSE_BOUTON,MENU_PRINCIPAL};
+
 TypeDeTest typeDeTest = MODE_GRAPHIQUE;/// Permet de choisir le type de test à effectuer
-/*  MODE_GRAPHIQUE
-*   MODE_CONSOLE
-*/
+
+TestGraph testGraphique = CLASSE_BOUTON; /// Permet de choisir le type  de test graphique
 
 int main ( int argc, char** argv )
 {
@@ -109,15 +112,26 @@ int main ( int argc, char** argv )
 
     if(typeDeTest != MODE_CONSOLE)//Permet de tester l'interface graphique
     {
-        InterfaceGraphique interface;
-
-        interface.initTout();
-        interface.intro();
-        while(interface.continuerEvent)
+        if(testGraphique==MENU_PRINCIPAL)
         {
-            interface.menu();
+            InterfaceGraphique interface;
+
+            interface.initTout();
+            interface.intro();
+            while(interface.continuerEvent)
+            {
+                interface.menu();
+            }
+            SDL_Quit();
         }
-        SDL_Quit();
+        if(testGraphique==CLASSE_BOUTON) // permet de tester la classe bouton
+        {
+            Bouton boutonMenu;
+            boutonMenu.creerBouton("images/fond1.bmp","images/BoutonMenu.bmp","polices/A Simple Life.ttf",{255, 0, 0}, "Coucou toi !", 100,300);
+            SDL_Quit();
+
+        }
+
     }
 
     return EXIT_SUCCESS;
