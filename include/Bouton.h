@@ -6,7 +6,7 @@
 #include <string>
 
 class Bouton
-{
+{/// http://www.cplusplus.com/reference/stl/
     public:
         Bouton();
 
@@ -19,23 +19,25 @@ class Bouton
 
         //position des objets
         SDL_Rect positionBouton;
-        SDL_Rect positionFond;
-        SDL_Rect positionTexte;
+        SDL_Rect positionFond;///Pourquoi publique ?
+        SDL_Rect positionTexte;///Pourquoi publique ?
 
-
+        /// http://www.cplusplus.com/reference/string/
         //Prototypes
         void creerBouton(const char* imageFond, const char* imageBouton ,const char* police,SDL_Color couleur,const char* message,int x, int y);
 
         //images
-        SDL_Surface* fond;
-        SDL_Surface* menu;
-        SDL_Surface* imageBouton;
-        SDL_Surface* texteBouton;
+        SDL_Surface* fond;///Pourquoi publique ?
+        SDL_Surface* menu;///Pourquoi publique ?
+        SDL_Surface* imageBouton;///Pourquoi publique ?
+        SDL_Surface* texteBouton;///Pourquoi publique ?
 
         //Polices
-        TTF_Font *policeBouton=NULL;
+        TTF_Font *policeBouton=NULL;///Pourquoi publique ?
 
     private:
+        ///Une méthode ou un attribut doit être PIRVE. Sauf si il est judicieux de l'utiliser depuis l'extérieur.
+        ///A priori seules les méthodes d'affichage ou de mise en buffer seront publiques
 
 };
 

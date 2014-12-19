@@ -127,6 +127,7 @@ int main ( int argc, char** argv )
         if(testGraphique==CLASSE_BOUTON) // permet de tester la classe bouton
         {
             Bouton boutonMenu;
+            //pas très joli, il vaudrait mieux considérer les paramètres de cette fonction comme des attributs de la classe, et les initialiser un par un.
             boutonMenu.creerBouton("images/fond1.bmp","images/BoutonMenu.bmp","polices/A Simple Life.ttf",{255, 0, 0}, "Coucou toi !", 100,300);
             SDL_Quit();
 
