@@ -115,6 +115,15 @@ bool Grille::completer()
         Grille::remplirGrille();
     }
     while(Grille::placerSingletons());
+    if(!Grille::estResolu())
+    {
+        int8_t ligne, colonne;
+        Grille::minGrille(ligne, colonne);
+        vector<Grille> hypGrilles;
+
+
+    }
+
 
     return true;
 }
@@ -127,4 +136,22 @@ bool Grille::estResolu()
             return false;
     }
     return true;
+}
+
+void Grille::minGrille(int8_t& ligne, int8_t& colonne)
+{
+    unsigned int tailleMin = grille[0][0].size();
+
+    for(int l=0; l<9; l++)
+    {
+        for(int c=1; c<9; c++)
+        {
+            if(grille[l][c].size() < tailleMin)
+            {
+                tailleMin = grille[l][c].size();
+                ligne = l;
+                colonne = c;
+            }
+        }
+    }
 }

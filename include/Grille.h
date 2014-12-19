@@ -30,7 +30,8 @@ class Grille
         std::array<std::array<std::vector<int8_t>,9>,9> grille;//Tableau contenant la liste des chiffres possibles pour chaque case
         void remplirGrille();///Remplis les possibilitées dans Grille à partir de 'data'.
         bool placerSingletons();///Parcours 'grille' et pour chaque case ayant une seule possibilité, place la valeur dans 'data'. Renvoie False s'il n'y a aucun singleton, True sinon.
-        bool estResolu();
+        bool estResolu();///Renvoi vrai si la grille ne contient aucune case valant 0, mais ne vérifie pas le respect des règles !
+        void minGrille(int8_t& ligne, int8_t& colonne);///Place dans les arguments (passés en référence) les coordonnées de la case de 'grille' qui contient le tableau le plus petit. Si il en existe plusieurs, on choisi la première rencontrée.
 };
 
 #endif // GRILLE_H
