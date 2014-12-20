@@ -132,27 +132,26 @@ bool Grille::completer()
         grille, on choisit donc celle ayant le moins de possibilitées.
         */
         unsigned int nbHyp = Grille::minGrille(ligne, colonne);
-        //Grille uneHypothese;//Nouvelle grille qui servira à tester les hypothèses
-        /*for(int l=0; l<9; l++)//On rend cette grille identique à notre grille actuelle
+        Grille uneHypothese;//Nouvelle grille qui servira à tester les hypothèses
+        for(int l=0; l<9; l++)//On rend cette grille identique à notre grille actuelle
         {
             for(int c=0; c<9; c++)
             {
                 uneHypothese.setLC(Grille::getLC(l,c),l,c);
             }
-        }*/
+        }
         for(unsigned int i=0; i<nbHyp; i++)//On teste successivement chacune des hypothèses
         {
-            //uneHypothese.setLC(Grille::grille[ligne][colonne][i], ligne, colonne);
-            Grille::setLC(Grille::grille[ligne][colonne][i], ligne, colonne);
-            if(Grille::completer())//Si cette hypothèse était la bonne
-            {/*
+            uneHypothese.setLC(Grille::grille[ligne][colonne][i], ligne, colonne);
+            if(uneHypothese.completer())//Si cette hypothèse était la bonne
+            {
                 for(int l=0; l<9; l++)//On recopie la grille hypothétique dans la grille réelle
                 {
                     for(int c=0; c<9; c++)
                     {
                         Grille::setLC(uneHypothese.getLC(l,c),l,c);
                     }
-                }*/
+                }
                 return true;
             }
             //Si cette hypothèse était mauvaise, on passe à la suivante
