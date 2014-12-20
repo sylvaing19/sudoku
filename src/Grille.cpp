@@ -173,7 +173,7 @@ unsigned int Grille::minGrille(int8_t& ligne, int8_t& colonne)
     {
         for(int c=1; c<9; c++)
         {
-            if(grille[l][c].size() < tailleMin && grille[l][c].size() != 0 || tailleMin == 0)
+            if((grille[l][c].size() < tailleMin && grille[l][c].size() != 0) || tailleMin == 0)
             {
                 tailleMin = grille[l][c].size();
                 ligne = l;
