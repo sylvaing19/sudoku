@@ -102,52 +102,64 @@ bool Grille::placerSingletons()
             }
         }
     }
-
     return valeurRetour;
 }
 
 bool Grille::completer()
 {
-    array<int8_t,81> data_backup = data;
+    array<int8_t,81> data_backup = data;//permet de restaurer les données initiales en cas d'échec de la résolution
 
-    do
+    do//méthode de résolution par simple élimination des valeurs impossibles.
     {
         Grille::remplirGrille();
     }
-    while(Grille::placerSingletons());
+    while(Grille::placerSingletons());//fin de la résolution par élimination
+    /*
+    Les grilles difficiles ne peuvent pas être intégralement résolues par élimination,
+    à ce stade de l'algorithme elles sont seulement partiellement résolues. On vérifie
+    si la grille est résolue ou non. Si elle ne l'est pas on passe à une résolution par
+    hypothèses. On choisi la case qui contient le moins de possibilitées, et on teste
+    successivement la résolution de la grille pour chaque possibilité. L'algorithme est
+    récursif car on réutilise la méthode compéter() pour tenter compléter les grilles
+    hypothétiques, et on utilise la valeur de retour pour savoir si l'hypothèse est bonne
+    ou non. La garantie de non modification de la grille en cas d'échec de résolution par
+    la méthode compléter() est fondamentale ici.
+    */
     if(!Grille::estResolu())
     {
         int8_t ligne, colonne;
+        /*Il suffit d'explorer les hypothèses d'une seule case pour toujours résoudre la
+        grille, on choisit donc celle ayant le moins de possibilitées.
+        */
         unsigned int nbHyp = Grille::minGrille(ligne, colonne);
-        Grille uneHypothese;
-        for(int l=0; l<9; l++)
+        //Grille uneHypothese;//Nouvelle grille qui servira à tester les hypothèses
+        /*for(int l=0; l<9; l++)//On rend cette grille identique à notre grille actuelle
         {
             for(int c=0; c<9; c++)
             {
                 uneHypothese.setLC(Grille::getLC(l,c),l,c);
             }
-        }
-        for(unsigned int i=0; i<nbHyp; i++)
+        }*/
+        for(unsigned int i=0; i<nbHyp; i++)//On teste successivement chacune des hypothèses
         {
-            uneHypothese.setLC(Grille::grille[ligne][colonne][i], ligne, colonne);
-            if(uneHypothese.completer())
-            {
-                for(int l=0; l<9; l++)
+            //uneHypothese.setLC(Grille::grille[ligne][colonne][i], ligne, colonne);
+            Grille::setLC(Grille::grille[ligne][colonne][i], ligne, colonne);
+            if(Grille::completer())//Si cette hypothèse était la bonne
+            {/*
+                for(int l=0; l<9; l++)//On recopie la grille hypothétique dans la grille réelle
                 {
                     for(int c=0; c<9; c++)
                     {
                         Grille::setLC(uneHypothese.getLC(l,c),l,c);
                     }
-                }
+                }*/
                 return true;
             }
-            else
-            {
-                uneHypothese.setLC(0, ligne, colonne);
-            }
+            //Si cette hypothèse était mauvaise, on passe à la suivante
         }
-        data = data_backup;
-        return false;
+        //Si on arrive à cet endroit, c'est qu'aucune hypothèse n'était valide, la grille n'est donc pas soluble.
+        data = data_backup;//On restaure la grille initiale
+        return false;//On indique l'échec de la résolution
     }
     else
     {
