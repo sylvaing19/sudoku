@@ -31,7 +31,7 @@ class Grille
         void remplirGrille();///Remplis les possibilitées dans Grille à partir de 'data'.
         bool placerSingletons();///Parcours 'grille' et pour chaque case ayant une seule possibilité, place la valeur dans 'data'. Renvoie False s'il n'y a aucun singleton, True sinon.
         bool estResolu();///Renvoi vrai si la grille ne contient aucune case valant 0, mais ne vérifie pas le respect des règles !
-        void minGrille(int8_t& ligne, int8_t& colonne);///Place dans les arguments (passés en référence) les coordonnées de la case de 'grille' qui contient le tableau le plus petit. Si il en existe plusieurs, on choisi la première rencontrée.
+        unsigned int minGrille(int8_t& ligne, int8_t& colonne);///Place dans les arguments (passés en référence) les coordonnées de la case de 'grille' qui contient le tableau le plus petit. Si il en existe plusieurs, on choisi la dernière rencontrée. La fonction renvoie la longueur du tableau en question.
 };
 
 #endif // GRILLE_H

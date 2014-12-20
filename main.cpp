@@ -18,7 +18,7 @@ enum TypeDeTest
 enum TestGraph
 {CLASSE_BOUTON,MENU_PRINCIPAL};
 
-TypeDeTest typeDeTest = MODE_GRAPHIQUE;/// Permet de choisir le type de test à effectuer
+TypeDeTest typeDeTest = MODE_CONSOLE;/// Permet de choisir le type de test à effectuer
 
 TestGraph testGraphique = CLASSE_BOUTON; /// Permet de choisir le type  de test graphique
 
@@ -29,7 +29,7 @@ int main ( int argc, char** argv )
     {
         Grille grille;
         ///Grille difficile
-        /*
+        //*
         grille.setLC(3,0,2);
         grille.setLC(7,0,4);
         grille.setLC(5,1,0);
@@ -61,7 +61,7 @@ int main ( int argc, char** argv )
         //*/
 
         ///Grille facile
-        //*
+        /*
         grille.setBloc(5,0,3);
         grille.setBloc(3,0,4);
         grille.setBloc(8,0,8);
@@ -107,7 +107,10 @@ int main ( int argc, char** argv )
             grille.afficherConsole();
         }
         else
+        {
             printf("Grille non résolue\n");
+            grille.afficherConsole();
+        }
     }
 
     if(typeDeTest != MODE_CONSOLE)//Permet de tester l'interface graphique

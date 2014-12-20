@@ -118,14 +118,41 @@ bool Grille::completer()
     if(!Grille::estResolu())
     {
         int8_t ligne, colonne;
-        Grille::minGrille(ligne, colonne);
-        vector<Grille> hypGrilles;
-
-
+        unsigned int nbHyp = Grille::minGrille(ligne, colonne);
+        Grille uneHypothese;
+        for(int l=0; l<9; l++)
+        {
+            for(int c=0; c<9; c++)
+            {
+                uneHypothese.setLC(Grille::getLC(l,c),l,c);
+            }
+        }
+        for(unsigned int i=0; i<nbHyp; i++)
+        {
+            uneHypothese.setLC(Grille::grille[ligne][colonne][i], ligne, colonne);
+            if(uneHypothese.completer())
+            {
+                for(int l=0; l<9; l++)
+                {
+                    for(int c=0; c<9; c++)
+                    {
+                        Grille::setLC(uneHypothese.getLC(l,c),l,c);
+                    }
+                }
+                return true;
+            }
+            else
+            {
+                uneHypothese.setLC(0, ligne, colonne);
+            }
+        }
+        data = data_backup;
+        return false;
     }
-
-
-    return true;
+    else
+    {
+        return true;
+    }
 }
 
 bool Grille::estResolu()
@@ -138,7 +165,7 @@ bool Grille::estResolu()
     return true;
 }
 
-void Grille::minGrille(int8_t& ligne, int8_t& colonne)
+unsigned int Grille::minGrille(int8_t& ligne, int8_t& colonne)
 {
     unsigned int tailleMin = grille[0][0].size();
 
@@ -146,7 +173,7 @@ void Grille::minGrille(int8_t& ligne, int8_t& colonne)
     {
         for(int c=1; c<9; c++)
         {
-            if(grille[l][c].size() < tailleMin)
+            if(grille[l][c].size() < tailleMin && grille[l][c].size() != 0 || tailleMin == 0)
             {
                 tailleMin = grille[l][c].size();
                 ligne = l;
@@ -154,4 +181,5 @@ void Grille::minGrille(int8_t& ligne, int8_t& colonne)
             }
         }
     }
+    return tailleMin;
 }
