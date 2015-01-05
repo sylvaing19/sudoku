@@ -6,7 +6,7 @@
 #include <string>
 
 class Bouton
-{/// http://www.cplusplus.com/reference/stl/
+{
     public:
         Bouton();
 
@@ -17,16 +17,12 @@ class Bouton
         int tailleX;
         int tailleY;
 
-        /// http://www.cplusplus.com/reference/string/
         //Prototypes
-        void creerBouton(const char* imageFond, const char* nomImageBouton ,const char* police,SDL_Color couleur,const char* message,int x, int y);
+        void afficherBouton();
 
-
-    private:
         //position des objets
         SDL_Rect positionBouton;//position
         SDL_Rect positionFond;// position du fond : 0,0
-        SDL_Rect positionTexte;// position du texte sur les boutons
 
         //images
         SDL_Surface* fond; //image du fond : rien
@@ -36,6 +32,13 @@ class Bouton
 
         //Polices
         TTF_Font *policeBouton=NULL; //POlice sur les boutons principaux
+
+        //Noms à entrer
+        std::string nomImageFond, nomImageBouton , nomPolice, messageBouton;
+        SDL_Color couleurTexteBouton;
+
+    private:
+        SDL_Rect positionTexte;// position du texte sur les boutons
 
 }
 ;

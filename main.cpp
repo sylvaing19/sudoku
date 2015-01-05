@@ -18,9 +18,9 @@ enum TypeDeTest
 enum TestGraph
 {CLASSE_BOUTON,MENU_PRINCIPAL};
 
-TypeDeTest typeDeTest = MODE_CONSOLE;/// Permet de choisir le type de test à effectuer
+TypeDeTest typeDeTest = MODE_GRAPHIQUE;/// Permet de choisir le type de test à effectuer
 
-TestGraph testGraphique = CLASSE_BOUTON; /// Permet de choisir le type  de test graphique
+TestGraph testGraphique = MENU_PRINCIPAL; /// Permet de choisir le type  de test graphique
 
 int main ( int argc, char** argv )
 {
@@ -28,7 +28,9 @@ int main ( int argc, char** argv )
     if(typeDeTest != MODE_GRAPHIQUE)//Permet de tester le code en console
     {
         Grille grille;
+        {
         ///Grille difficile
+
         //*
         grille.setLC(3,0,2);
         grille.setLC(7,0,4);
@@ -99,7 +101,7 @@ int main ( int argc, char** argv )
         grille.setBloc(4,8,4);
         grille.setBloc(5,8,5);
         //*/
-
+        }
         grille.afficherConsole();
         if(grille.completer())
         {
@@ -130,15 +132,46 @@ int main ( int argc, char** argv )
 
         if(testGraphique==CLASSE_BOUTON) // permet de tester la classe bouton
         {
-            Bouton boutonMenu;
-            //pas très joli, il vaudrait mieux considérer les paramètres de cette fonction comme des attributs de la classe, et les initialiser un par un.
 
-            boutonMenu.creerBouton("images/fond1.bmp","images/BoutonMenu.bmp","polices/A Simple Life.ttf",{255, 0, 0}, "Coucou !", 10,100);
-            boutonMenu.creerBouton("images/fond1.bmp","images/BoutonMenu.bmp","polices/angelina.ttf",{255, 255, 0}, "Hellow !", 500,500);
-            boutonMenu.creerBouton("images/fond1.bmp","images/BoutonMenu.bmp","polices/SF_Toontime.ttf",{0, 0, 255}, "Hey !", 400,200);
+            Bouton boutonMenu1;
+            //paramètres du bouton 1
+            {
+                boutonMenu1.positionBouton.x=500;
+                boutonMenu1.positionBouton.y=200;
+                std::string a="images/BoutonMenu.bmp";
+                boutonMenu1.nomImageBouton=a;
+                a="images/fond1.bmp";
+                boutonMenu1.nomImageFond=a;
+                a="polices/A Simple Life.ttf";
+                boutonMenu1.nomPolice=a;
+                a="Coucou !";
+                boutonMenu1.messageBouton=a;
+                boutonMenu1.couleurTexteBouton={255, 0, 0};
+            }
+            boutonMenu1.afficherBouton();
+
+            SDL_Delay(1000);
+
+            Bouton boutonMenu2;
+            //paramètres du bouton 2
+            {
+                boutonMenu2.positionBouton.x=1000;
+                boutonMenu2.positionBouton.y=600;
+                std::string a="images/BoutonMenu.bmp";
+                boutonMenu2.nomImageBouton=a;
+                a="images/fond1.bmp";
+                boutonMenu2.nomImageFond=a;
+                a="polices/SF_Toontime.ttf";
+                boutonMenu2.nomPolice=a;
+                a="Hey !";
+                boutonMenu2.messageBouton=a;
+                boutonMenu2.couleurTexteBouton={255, 255, 255};
+            }
+            boutonMenu2.afficherBouton();
+
+            SDL_Delay(2000);
             SDL_Quit();
         }
     }
-
     return EXIT_SUCCESS;
 }

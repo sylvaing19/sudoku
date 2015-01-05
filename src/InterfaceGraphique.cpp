@@ -142,7 +142,6 @@ void InterfaceGraphique::intro()
         SDL_BlitSurface(texteTitre, NULL, fond, &positionTitre);
         SDL_Flip(fond);
     }
-    SDL_Delay(200);
     SDL_BlitSurface(texteTitre, NULL, fond, &positionTitre);
     SDL_Flip(fond);
     afficherBoutons();
@@ -156,7 +155,7 @@ void InterfaceGraphique::quitter()
         SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
         SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
         SDL_Flip(fond);
-        SDL_Delay(500);
+        SDL_Delay(2000);
 }
 
 //gestion des events, clic sur les boutons
@@ -181,13 +180,13 @@ void InterfaceGraphique::menu()
                 case SDL_BUTTON_LEFT ://Cas clic gauche souris
 
                     //clic sur le bouton d'arret
-                    if( event.button.x>positionBoutonQuitter.x && event.button.x<(positionBoutonQuitter.x+tailleXArret) && event.button.y>positionBoutonQuitter.y && event.button.y<(positionBoutonQuitter.y+tailleYArret))
+                    if( event.button.x>positionBoutonQuitter.x && event.button.x<(positionBoutonQuitter.x+positionBoutonQuitter.w) && event.button.y>positionBoutonQuitter.y && event.button.y<(positionBoutonQuitter.y+positionBoutonQuitter.h))
                     {
                         quitter();
                     }
 
                     //clic sur le menu 1
-                    else if( event.button.x>positionMenu1.x && event.button.x<(positionMenu1.x+tailleXMenu) && event.button.y>positionMenu1.y && event.button.y<(positionMenu1.y+tailleYMenu))
+                    else if( event.button.x>positionMenu1.x && event.button.x<(positionMenu1.x+positionMenu1.w) && event.button.y>positionMenu1.y && event.button.y<(positionMenu1.y+positionMenu1.h))
                     {
                         afficherFixe();
                         afficherBoutons();
@@ -196,7 +195,7 @@ void InterfaceGraphique::menu()
                     }
 
                     //clic sur le menu 2
-                    else if( event.button.x>positionMenu2.x && event.button.x<(positionMenu2.x+tailleXMenu) && event.button.y>positionMenu2.y && event.button.y<(positionMenu2.y+tailleYMenu))
+                    else if( event.button.x>positionMenu2.x && event.button.x<(positionMenu2.x+positionMenu2.w) && event.button.y>positionMenu2.y && event.button.y<(positionMenu2.y+positionMenu2.h))
                     {
                         afficherFixe();
                         afficherBoutons();
