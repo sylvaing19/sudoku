@@ -8,6 +8,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <SDL_rotozoom.h>
+#include <string>
+
 
 
 class InterfaceGraphique
@@ -54,8 +56,10 @@ class InterfaceGraphique
         int tailleXMenu;
         int tailleYMenu;
 
-        //zoom : gestion des differences de reslotion et taile d'ecran
+        //zoom : gestion des differences de reslotion et taille d'ecran
         double zoomX,zoomY;
+
+        std::string nomImageFond;
 
         //prototypes de fonction
         void initPositions();
@@ -67,6 +71,8 @@ class InterfaceGraphique
         void menu();
         void afficherBoutons();
         void quitter();
+        void chargerMenu();
+
 
     private:
 

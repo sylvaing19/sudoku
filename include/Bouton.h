@@ -17,8 +17,11 @@ class Bouton
         int tailleX;
         int tailleY;
 
+        //taille de la police
+        int taillePolice;
+
         //Prototypes
-        void afficherBouton();
+        void chargerBouton();
 
         //position des objets
         SDL_Rect positionBouton;//position
@@ -37,7 +40,7 @@ class Bouton
         std::string nomImageFond, nomImageBouton , nomPolice, messageBouton;
         SDL_Color couleurTexteBouton;
 
-    private:
+   private:
         SDL_Rect positionTexte;// position du texte sur les boutons
 
 }

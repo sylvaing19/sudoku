@@ -20,7 +20,7 @@ enum TestGraph
 
 TypeDeTest typeDeTest = MODE_GRAPHIQUE;/// Permet de choisir le type de test à effectuer
 
-TestGraph testGraphique = MENU_PRINCIPAL; /// Permet de choisir le type  de test graphique
+TestGraph testGraphique = CLASSE_BOUTON; /// Permet de choisir le type  de test graphique
 
 int main ( int argc, char** argv )
 {
@@ -129,47 +129,67 @@ int main ( int argc, char** argv )
             }
             SDL_Quit();
         }
-
         if(testGraphique==CLASSE_BOUTON) // permet de tester la classe bouton
         {
 
             Bouton boutonMenu1;
+            Bouton boutonMenu2;
+            Bouton boutonQuitter;
+            InterfaceGraphique menuPrincipal;
+
+            //affichage fond : le menu principal
+            menuPrincipal.chargerMenu();
+            SDL_Flip(menuPrincipal.fond);
+            SDL_Delay(1500);
+
+            //attribution du fond
+            boutonMenu1.fond=menuPrincipal.fond;
+            boutonMenu2.fond=menuPrincipal.fond;
+            boutonQuitter.fond=menuPrincipal.fond;
+
             //paramètres du bouton 1
             {
-                boutonMenu1.positionBouton.x=500;
-                boutonMenu1.positionBouton.y=200;
                 std::string a="images/BoutonMenu.bmp";
                 boutonMenu1.nomImageBouton=a;
-                a="images/fond1.bmp";
-                boutonMenu1.nomImageFond=a;
-                a="polices/A Simple Life.ttf";
+                a="polices/Cybernetica_Normal.ttf";
                 boutonMenu1.nomPolice=a;
-                a="Coucou !";
+                a="Menu Principal";
                 boutonMenu1.messageBouton=a;
                 boutonMenu1.couleurTexteBouton={255, 0, 0};
+                boutonMenu1.taillePolice=60*menuPrincipal.zoomX;
+                boutonMenu1.positionBouton.x=600;//(menuPrincipal.tailleX-(boutonMenu1.SDL_LoadBMP(nomImageBouton.c_str())->w))/2;
+                boutonMenu1.positionBouton.y=200;
             }
-            boutonMenu1.afficherBouton();
+            boutonMenu1.chargerBouton();
 
-            SDL_Delay(1000);
-
-            Bouton boutonMenu2;
             //paramètres du bouton 2
             {
                 boutonMenu2.positionBouton.x=1000;
                 boutonMenu2.positionBouton.y=600;
                 std::string a="images/BoutonMenu.bmp";
                 boutonMenu2.nomImageBouton=a;
-                a="images/fond1.bmp";
-                boutonMenu2.nomImageFond=a;
-                a="polices/SF_Toontime.ttf";
+                a="polices/Cybernetica_Normal.ttf";
                 boutonMenu2.nomPolice=a;
-                a="Hey !";
+                a="Photo-Doku";
                 boutonMenu2.messageBouton=a;
-                boutonMenu2.couleurTexteBouton={255, 255, 255};
+                boutonMenu2.couleurTexteBouton={255, 0, 0};
+                boutonMenu2.taillePolice=60;//*menuPrincipal.zoomX;
             }
-            boutonMenu2.afficherBouton();
+            boutonMenu2.chargerBouton();
 
-            SDL_Delay(2000);
+            //paramètres du bouton quitter
+            {
+                boutonQuitter.positionBouton.x=200;
+                boutonQuitter.positionBouton.y=200;
+                std::string a="images/arret.bmp";
+                boutonQuitter.nomImageBouton=a;
+            }
+            boutonQuitter.chargerBouton();
+
+            SDL_Flip(boutonMenu2.fond);//Les boutons sont alors apparus.
+            SDL_Delay(1000);
+
+
             SDL_Quit();
         }
     }

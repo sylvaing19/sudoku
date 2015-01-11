@@ -27,6 +27,13 @@ InterfaceGraphique::InterfaceGraphique()
     fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_FULLSCREEN); //Definition du fond : fullscreen, etc
 }
 
+void InterfaceGraphique::chargerMenu()
+{
+            imageFond = SDL_LoadBMP("images/fond1.bmp");
+            positionFond.x=0,positionFond.y=0;
+            SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
+}
+
 //initialisation des differentes positions des images / textes et leurs tailles
 void InterfaceGraphique::initPositions()
 {
@@ -35,7 +42,7 @@ void InterfaceGraphique::initPositions()
 
     //POsition du titre : centré en x, 40(arbitraire)*zoom en y
     positionTitre.x = (tailleX-(texteTitre->w))/2;
-    positionTitre.y = 40*zoomY;
+    positionTitre.y = 50*zoomY;
 
     //Position bouton quitter
     positionBoutonQuitter.x = tailleX-50*zoomX;
@@ -76,7 +83,6 @@ void InterfaceGraphique::initImages()
     imageFond = SDL_LoadBMP("images/fond1.bmp");
     boutonMenu1=SDL_LoadBMP("images/BoutonMenu.bmp");
     boutonMenu2=SDL_LoadBMP("images/BoutonMenu.bmp");
-
 
     //Transparence
     SDL_SetColorKey(boutonMenu1, SDL_SRCCOLORKEY, SDL_MapRGB(boutonMenu1->format, 255, 255, 255)); // met le blanc en transparent pour le bouton de menu
@@ -138,9 +144,10 @@ void InterfaceGraphique::intro()
     for(i=-50;i<=a;i++)
     {
         positionTitre.y=i;
+        SDL_Flip(fond);
         SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
         SDL_BlitSurface(texteTitre, NULL, fond, &positionTitre);
-        SDL_Flip(fond);
+
     }
     SDL_BlitSurface(texteTitre, NULL, fond, &positionTitre);
     SDL_Flip(fond);
@@ -155,7 +162,7 @@ void InterfaceGraphique::quitter()
         SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
         SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
         SDL_Flip(fond);
-        SDL_Delay(2000);
+        SDL_Delay(1500);
 }
 
 //gestion des events, clic sur les boutons
