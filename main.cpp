@@ -147,6 +147,21 @@ int main ( int argc, char** argv )
             boutonMenu2.fond=menuPrincipal.fond;
             boutonQuitter.fond=menuPrincipal.fond;
 
+            //gestion du zoom, de la taille
+            boutonMenu1.zoomX=menuPrincipal.zoomX;
+            boutonMenu1.zoomY=menuPrincipal.zoomY;
+            boutonMenu2.zoomX=menuPrincipal.zoomX;
+            boutonMenu2.zoomY=menuPrincipal.zoomY;
+            boutonQuitter.zoomX=menuPrincipal.zoomX;
+            boutonQuitter.zoomY=menuPrincipal.zoomY;
+            boutonMenu1.tailleX=menuPrincipal.tailleX;
+            boutonMenu1.tailleY=menuPrincipal.tailleY;
+            boutonMenu2.tailleX=menuPrincipal.tailleX;
+            boutonMenu2.tailleY=menuPrincipal.tailleY;
+            boutonQuitter.tailleX=menuPrincipal.tailleX;
+            boutonQuitter.tailleY=menuPrincipal.tailleY;
+
+
             //paramètres du bouton 1
             {
                 std::string a="images/BoutonMenu.bmp";
@@ -157,15 +172,13 @@ int main ( int argc, char** argv )
                 boutonMenu1.messageBouton=a;
                 boutonMenu1.couleurTexteBouton={255, 0, 0};
                 boutonMenu1.taillePolice=60*menuPrincipal.zoomX;
-                boutonMenu1.positionBouton.x=600;//(menuPrincipal.tailleX-(boutonMenu1.SDL_LoadBMP(nomImageBouton.c_str())->w))/2;
-                boutonMenu1.positionBouton.y=200;
+                boutonMenu1.centreX="oui";
+                boutonMenu1.positionBouton.y+=60;
             }
             boutonMenu1.chargerBouton();
 
             //paramètres du bouton 2
             {
-                boutonMenu2.positionBouton.x=1000;
-                boutonMenu2.positionBouton.y=600;
                 std::string a="images/BoutonMenu.bmp";
                 boutonMenu2.nomImageBouton=a;
                 a="polices/Cybernetica_Normal.ttf";
@@ -173,14 +186,16 @@ int main ( int argc, char** argv )
                 a="Photo-Doku";
                 boutonMenu2.messageBouton=a;
                 boutonMenu2.couleurTexteBouton={255, 0, 0};
-                boutonMenu2.taillePolice=60;//*menuPrincipal.zoomX;
+                boutonMenu2.taillePolice=60*menuPrincipal.zoomX;
+                boutonMenu2.centreX="oui";
+                boutonMenu2.positionBouton.y+=(boutonMenu1.positionBouton.y+(boutonMenu1.imageBouton->h)*3/2);
             }
             boutonMenu2.chargerBouton();
 
             //paramètres du bouton quitter
             {
-                boutonQuitter.positionBouton.x=200;
-                boutonQuitter.positionBouton.y=200;
+                boutonQuitter.positionBouton.x=(menuPrincipal.tailleX-100)*menuPrincipal.zoomX;
+                boutonQuitter.positionBouton.y=40*menuPrincipal.zoomY;
                 std::string a="images/arret.bmp";
                 boutonQuitter.nomImageBouton=a;
             }
@@ -188,7 +203,6 @@ int main ( int argc, char** argv )
 
             SDL_Flip(boutonMenu2.fond);//Les boutons sont alors apparus.
             SDL_Delay(1000);
-
 
             SDL_Quit();
         }

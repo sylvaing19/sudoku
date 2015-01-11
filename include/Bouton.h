@@ -4,6 +4,9 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <string>
+#include <SDL_rotozoom.h>
+#include <cmath>
+
 
 class Bouton
 {
@@ -17,6 +20,13 @@ class Bouton
         int tailleX;
         int tailleY;
 
+        //zoom : gestion des differences de reslotion et taille d'ecran
+        double zoomX,zoomY;
+
+        //Non vides si le bouton est centré quelque part
+        std::string centreX;
+        std::string centreY;
+
         //taille de la police
         int taillePolice;
 
@@ -28,10 +38,10 @@ class Bouton
         SDL_Rect positionFond;// position du fond : 0,0
 
         //images
-        SDL_Surface* fond; //image du fond : rien
-        SDL_Surface* menu; //image du menu principal
-        SDL_Surface* imageBouton; //image des boutons principaux
-        SDL_Surface* texteBouton; //texte qu'il y a sur les boutons
+        SDL_Surface* fond=NULL; //image du fond : rien
+        SDL_Surface* menu=NULL; //image du menu principal
+        SDL_Surface* imageBouton=NULL; //image des boutons principaux
+        SDL_Surface* texteBouton=NULL; //texte qu'il y a sur les boutons
 
         //Polices
         TTF_Font *policeBouton=NULL; //POlice sur les boutons principaux

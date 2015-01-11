@@ -9,6 +9,17 @@ void Bouton::chargerBouton()
 {
     imageBouton=SDL_LoadBMP(nomImageBouton.c_str()); //zoom a faire
     SDL_SetColorKey(imageBouton, SDL_SRCCOLORKEY, SDL_MapRGB(imageBouton->format, 255, 255, 255)); // met le blanc en transparent pour le bouton
+    imageBouton = zoomSurface(imageBouton, zoomX, zoomY, 0);
+
+    //gestioon du centre
+    if(centreX.size()!=0)
+    {
+        positionBouton.x+= abs(imageBouton->w-tailleX)/2;
+    }
+    if(centreY.size()!=0)
+    {
+        positionBouton.y+= abs(imageBouton->h-tailleY)/2;
+    }
 
     SDL_BlitSurface(imageBouton, NULL, fond, &positionBouton);
 
@@ -24,5 +35,6 @@ void Bouton::chargerBouton()
 
         SDL_BlitSurface(texteBouton, NULL, fond, &positionTexte);
     }
+
 
 }

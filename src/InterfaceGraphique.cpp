@@ -18,8 +18,8 @@ InterfaceGraphique::InterfaceGraphique()
     tailleY=info->current_h ;
 
     //Zoom : mon ecran sert de reference (1280*640), et on divise la taille de tout le reste suivant les resolutions
-    zoomX=((double)tailleX/1280);
-    zoomY=((double)tailleY/640);
+    zoomX=((double)tailleX/1600);
+    zoomY=((double)tailleY/900);
 
     //titre de la fenetre, initialisation de TTF, creation de la fenetre de fond
     SDL_WM_SetCaption("SuDoKu-Solver", NULL);
@@ -29,9 +29,9 @@ InterfaceGraphique::InterfaceGraphique()
 
 void InterfaceGraphique::chargerMenu()
 {
-            imageFond = SDL_LoadBMP("images/fond1.bmp");
-            positionFond.x=0,positionFond.y=0;
-            SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
+    imageFond = SDL_LoadBMP("images/fond1.bmp");
+    positionFond.x=0,positionFond.y=0;
+    SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
 }
 
 //initialisation des differentes positions des images / textes et leurs tailles
@@ -40,7 +40,7 @@ void InterfaceGraphique::initPositions()
     //Le fond sert d'origine, 0;0
     positionFond.x=0,positionFond.y=0;
 
-    //POsition du titre : centré en x, 40(arbitraire)*zoom en y
+    //Position du titre : centré en x, 40(arbitraire)*zoom en y
     positionTitre.x = (tailleX-(texteTitre->w))/2;
     positionTitre.y = 50*zoomY;
 
