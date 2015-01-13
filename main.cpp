@@ -123,6 +123,8 @@ int main ( int argc, char** argv )
 
             interface.initTout();
             interface.intro();
+            //SDL_Flip(fond);
+            //afficherBoutons();
             while(interface.continuerEvent)
             {
                 interface.menu();
@@ -141,6 +143,12 @@ int main ( int argc, char** argv )
             menuPrincipal.chargerMenu();
             SDL_Flip(menuPrincipal.fond);
             SDL_Delay(1500);
+/*
+            //initialisations diverses
+            menuPrincipal.initPositions();
+            menuPrincipal.initPolices();
+            menuPrincipal.initTextes();
+            menuPrincipal.initTextes();*/
 
             //attribution du fond
             boutonMenu1.fond=menuPrincipal.fond;
@@ -154,6 +162,7 @@ int main ( int argc, char** argv )
             boutonMenu2.zoomY=menuPrincipal.zoomY;
             boutonQuitter.zoomX=menuPrincipal.zoomX;
             boutonQuitter.zoomY=menuPrincipal.zoomY;
+
             boutonMenu1.tailleX=menuPrincipal.tailleX;
             boutonMenu1.tailleY=menuPrincipal.tailleY;
             boutonMenu2.tailleX=menuPrincipal.tailleX;
@@ -173,7 +182,7 @@ int main ( int argc, char** argv )
                 boutonMenu1.couleurTexteBouton={255, 0, 0};
                 boutonMenu1.taillePolice=60*menuPrincipal.zoomX;
                 boutonMenu1.centreX="oui";
-                boutonMenu1.positionBouton.y+=60;
+                boutonMenu1.positionBouton.y+=(60);//+menuPrincipal.positionTitre.y+menuPrincipal.positionTitre.h);
             }
             boutonMenu1.chargerBouton();
 
@@ -201,7 +210,7 @@ int main ( int argc, char** argv )
             }
             boutonQuitter.chargerBouton();
 
-            SDL_Flip(boutonMenu2.fond);//Les boutons sont alors apparus.
+            SDL_Flip(boutonMenu1.fond);//Les boutons sont alors apparus.
             SDL_Delay(1000);
 
             SDL_Quit();

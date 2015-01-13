@@ -72,6 +72,9 @@ class InterfaceGraphique
         void afficherBoutons();
         void quitter();
         void chargerMenu();
+        void chargerTitre();
+        void initTextes();
+
 
 
     private:

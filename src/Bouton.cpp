@@ -2,7 +2,8 @@
 
 Bouton::Bouton()
 {
-
+    positionBouton.x=0;
+    positionBouton.y=0;
 }
 
 void Bouton::chargerBouton()
@@ -11,7 +12,7 @@ void Bouton::chargerBouton()
     SDL_SetColorKey(imageBouton, SDL_SRCCOLORKEY, SDL_MapRGB(imageBouton->format, 255, 255, 255)); // met le blanc en transparent pour le bouton
     imageBouton = zoomSurface(imageBouton, zoomX, zoomY, 0);
 
-    //gestioon du centre
+    //gestion du centre
     if(centreX.size()!=0)
     {
         positionBouton.x+= abs(imageBouton->w-tailleX)/2;

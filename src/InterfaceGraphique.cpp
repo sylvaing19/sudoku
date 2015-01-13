@@ -27,6 +27,14 @@ InterfaceGraphique::InterfaceGraphique()
     fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_FULLSCREEN); //Definition du fond : fullscreen, etc
 }
 
+
+void InterfaceGraphique::chargerTitre()
+{
+    SDL_BlitSurface(texteTitre, NULL, fond, &positionTitre);
+}
+
+
+
 void InterfaceGraphique::chargerMenu()
 {
     imageFond = SDL_LoadBMP("images/fond1.bmp");
@@ -37,6 +45,11 @@ void InterfaceGraphique::chargerMenu()
 //initialisation des differentes positions des images / textes et leurs tailles
 void InterfaceGraphique::initPositions()
 {
+
+    //Position du titre : centré en x, 40(arbitraire)*zoom en y
+    positionTitre.x = (tailleX-(texteTitre->w))/2;
+    positionTitre.y = 50*zoomY;
+
     //Le fond sert d'origine, 0;0
     positionFond.x=0,positionFond.y=0;
 
@@ -94,7 +107,10 @@ void InterfaceGraphique::initImages()
     boutonMenu2 = zoomSurface(boutonMenu2, zoomX, zoomY, 0);
     arret = zoomSurface(arret, zoomX, zoomX, 0);
     imageFond = zoomSurface(imageFond, zoomX, zoomX, 0);
+}
 
+void InterfaceGraphique::initTextes()
+{
     //textes initisalisés
     texteMenu1 = TTF_RenderText_Blended(policeMenu, "Nouvelle Partie", couleurN );
     texteMenu2 = TTF_RenderText_Blended(policeMenu, "Photo-doku", couleurN );
@@ -147,11 +163,8 @@ void InterfaceGraphique::intro()
         SDL_Flip(fond);
         SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
         SDL_BlitSurface(texteTitre, NULL, fond, &positionTitre);
-
     }
     SDL_BlitSurface(texteTitre, NULL, fond, &positionTitre);
-    SDL_Flip(fond);
-    afficherBoutons();
 }
 
 //gestion de l'event "quitter" : clic sur le bouton d'arret ou echap
