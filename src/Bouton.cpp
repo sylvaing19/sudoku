@@ -6,6 +6,7 @@ Bouton::Bouton()
     positionBouton.y=0;
 }
 
+/*Charge le bouton dans le buffer, gere ses positions*/
 void Bouton::chargerBouton()
 {
     imageBouton=SDL_LoadBMP(nomImageBouton.c_str()); //zoom a faire
@@ -22,6 +23,7 @@ void Bouton::chargerBouton()
         positionBouton.y+= abs(imageBouton->h-tailleY)/2;
     }
 
+    imageBouton = rotozoomSurface (imageBouton, 0, zoomX, 0);
     SDL_BlitSurface(imageBouton, NULL, fond, &positionBouton);
 
     if(nomPolice.size()!=0)
@@ -34,8 +36,7 @@ void Bouton::chargerBouton()
         positionTexte.x= positionBouton.x+(imageBouton->w-texteBouton->w)/2;
         positionTexte.y= positionBouton.y+(imageBouton->h-texteBouton->h)/2;
 
+        texteBouton = rotozoomSurface (texteBouton, 0, zoomX, 0);
         SDL_BlitSurface(texteBouton, NULL, fond, &positionTexte);
     }
-
-
 }

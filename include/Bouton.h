@@ -47,8 +47,9 @@ class Bouton
         TTF_Font *policeBouton=NULL; //POlice sur les boutons principaux
 
         //Noms à entrer
-        std::string nomImageFond, nomImageBouton , nomPolice, messageBouton;
+        std::string nomImageFond, nomImageBouton , nomPolice, messageBouton,event;
         SDL_Color couleurTexteBouton;
+
 
    private:
         SDL_Rect positionTexte;// position du texte sur les boutons

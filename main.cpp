@@ -117,101 +117,98 @@ int main ( int argc, char** argv )
 
     if(typeDeTest != MODE_CONSOLE)//Permet de tester l'interface graphique
     {
-        if(testGraphique==MENU_PRINCIPAL)
-        {
-            InterfaceGraphique interface;
-
-            interface.initTout();
-            interface.intro();
-            //SDL_Flip(fond);
-            //afficherBoutons();
-            while(interface.continuerEvent)
-            {
-                interface.menu();
-            }
-            SDL_Quit();
-        }
         if(testGraphique==CLASSE_BOUTON) // permet de tester la classe bouton
         {
-
             Bouton boutonMenu1;
             Bouton boutonMenu2;
             Bouton boutonQuitter;
             InterfaceGraphique menuPrincipal;
 
+            /*Partie Menu Principal*/
+
             //affichage fond : le menu principal
             menuPrincipal.chargerMenu();
             SDL_Flip(menuPrincipal.fond);
-            SDL_Delay(1500);
-/*
+            SDL_Delay(100);
+
             //initialisations diverses
-            menuPrincipal.initPositions();
             menuPrincipal.initPolices();
-            menuPrincipal.initTextes();
-            menuPrincipal.initTextes();*/
+            menuPrincipal.texteTitre="Sudoku-Solveur";
 
-            //attribution du fond
-            boutonMenu1.fond=menuPrincipal.fond;
-            boutonMenu2.fond=menuPrincipal.fond;
-            boutonQuitter.fond=menuPrincipal.fond;
+            //affiche le titre et intro
+            menuPrincipal.initTitre();
+            menuPrincipal.intro();
 
-            //gestion du zoom, de la taille
-            boutonMenu1.zoomX=menuPrincipal.zoomX;
-            boutonMenu1.zoomY=menuPrincipal.zoomY;
-            boutonMenu2.zoomX=menuPrincipal.zoomX;
-            boutonMenu2.zoomY=menuPrincipal.zoomY;
-            boutonQuitter.zoomX=menuPrincipal.zoomX;
-            boutonQuitter.zoomY=menuPrincipal.zoomY;
-
-            boutonMenu1.tailleX=menuPrincipal.tailleX;
-            boutonMenu1.tailleY=menuPrincipal.tailleY;
-            boutonMenu2.tailleX=menuPrincipal.tailleX;
-            boutonMenu2.tailleY=menuPrincipal.tailleY;
-            boutonQuitter.tailleX=menuPrincipal.tailleX;
-            boutonQuitter.tailleY=menuPrincipal.tailleY;
-
-
-            //paramètres du bouton 1
+            /*Partie boutons*/
             {
-                std::string a="images/BoutonMenu.bmp";
-                boutonMenu1.nomImageBouton=a;
-                a="polices/Cybernetica_Normal.ttf";
-                boutonMenu1.nomPolice=a;
-                a="Menu Principal";
-                boutonMenu1.messageBouton=a;
-                boutonMenu1.couleurTexteBouton={255, 0, 0};
-                boutonMenu1.taillePolice=60*menuPrincipal.zoomX;
-                boutonMenu1.centreX="oui";
-                boutonMenu1.positionBouton.y+=(60);//+menuPrincipal.positionTitre.y+menuPrincipal.positionTitre.h);
-            }
-            boutonMenu1.chargerBouton();
+                //attribution du fond
+                boutonMenu1.fond=menuPrincipal.fond;
+                boutonMenu2.fond=menuPrincipal.fond;
+                boutonQuitter.fond=menuPrincipal.fond;
 
-            //paramètres du bouton 2
-            {
-                std::string a="images/BoutonMenu.bmp";
-                boutonMenu2.nomImageBouton=a;
-                a="polices/Cybernetica_Normal.ttf";
-                boutonMenu2.nomPolice=a;
-                a="Photo-Doku";
-                boutonMenu2.messageBouton=a;
-                boutonMenu2.couleurTexteBouton={255, 0, 0};
-                boutonMenu2.taillePolice=60*menuPrincipal.zoomX;
-                boutonMenu2.centreX="oui";
-                boutonMenu2.positionBouton.y+=(boutonMenu1.positionBouton.y+(boutonMenu1.imageBouton->h)*3/2);
-            }
-            boutonMenu2.chargerBouton();
+                //gestion du zoom, de la taille
+                boutonMenu1.zoomX=menuPrincipal.zoomX;
+                boutonMenu1.zoomY=menuPrincipal.zoomY;
+                boutonMenu2.zoomX=menuPrincipal.zoomX;
+                boutonMenu2.zoomY=menuPrincipal.zoomY;
+                boutonQuitter.zoomX=menuPrincipal.zoomX;
+                boutonQuitter.zoomY=menuPrincipal.zoomY;
 
-            //paramètres du bouton quitter
-            {
-                boutonQuitter.positionBouton.x=(menuPrincipal.tailleX-100)*menuPrincipal.zoomX;
-                boutonQuitter.positionBouton.y=40*menuPrincipal.zoomY;
-                std::string a="images/arret.bmp";
-                boutonQuitter.nomImageBouton=a;
-            }
-            boutonQuitter.chargerBouton();
+                boutonMenu1.tailleX=menuPrincipal.tailleX;
+                boutonMenu1.tailleY=menuPrincipal.tailleY;
+                boutonMenu2.tailleX=menuPrincipal.tailleX;
+                boutonMenu2.tailleY=menuPrincipal.tailleY;
+                boutonQuitter.tailleX=menuPrincipal.tailleX;
+                boutonQuitter.tailleY=menuPrincipal.tailleY;
 
-            SDL_Flip(boutonMenu1.fond);//Les boutons sont alors apparus.
-            SDL_Delay(1000);
+                //paramètres du bouton 1
+                {
+                    std::string a="images/BoutonMenu.bmp";
+                    boutonMenu1.nomImageBouton=a;
+                    a="polices/Cybernetica_Normal.ttf";
+                    boutonMenu1.nomPolice=a;
+                    a="Resolution";
+                    boutonMenu1.messageBouton=a;
+                    a="Resoudre";
+                    boutonMenu1.event=a;
+                    boutonMenu1.couleurTexteBouton={255, 0, 0};
+                    boutonMenu1.taillePolice=60*menuPrincipal.zoomX;
+                    boutonMenu1.centreX="oui";
+                    boutonMenu1.positionBouton.y+=(60+menuPrincipal.positionTitre.y+menuPrincipal.imageTitre->h);
+                }
+                boutonMenu1.chargerBouton();
+
+                //paramètres du bouton 2
+                {
+                    std::string a="images/BoutonMenu.bmp";
+                    boutonMenu2.nomImageBouton=a;
+                    a="polices/Cybernetica_Normal.ttf";
+                    boutonMenu2.nomPolice=a;
+                    a="Photo-Doku";
+                    boutonMenu2.messageBouton=a;
+                    a="Photodoku";
+                    boutonMenu1.messageBouton=a;
+                    boutonMenu2.couleurTexteBouton={255, 0, 0};
+                    boutonMenu2.taillePolice=60*menuPrincipal.zoomX;
+                    boutonMenu2.centreX="oui";
+                    boutonMenu2.positionBouton.y+=(boutonMenu1.positionBouton.y+(boutonMenu1.imageBouton->h)*3/2);
+                }
+                boutonMenu2.chargerBouton();
+
+                //paramètres du bouton quitter
+                {
+                    std::string a="Quitter";
+                    boutonMenu1.messageBouton=a;
+                    boutonQuitter.positionBouton.x=(menuPrincipal.tailleX-65);
+                    boutonQuitter.positionBouton.y=15;
+                    a="images/arret.bmp";
+                    boutonQuitter.nomImageBouton=a;
+                }
+                boutonQuitter.chargerBouton();
+
+                SDL_Flip(boutonMenu1.fond);//Les boutons sont alors apparus.
+                SDL_Delay(1000);
+            }
 
             SDL_Quit();
         }

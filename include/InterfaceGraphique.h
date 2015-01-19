@@ -27,9 +27,9 @@ class InterfaceGraphique
         const SDL_VideoInfo* info;
 
         //initialisation des surfaces (images)
-        SDL_Surface *imageFond = NULL, *arret = NULL, *fond = NULL, *rotation = NULL, *texteTitre = NULL;
+        SDL_Surface *imageFond = NULL, *arret = NULL, *fond = NULL, *rotation = NULL, *titre = NULL;
         SDL_Surface *boutonMenu1=NULL, *boutonMenu2=NULL, *boutonMenu3=NULL, *texteMenu1=NULL, *texteMenu2=NULL, *texteMenu3=NULL;
-        SDL_Surface *textePret=NULL, *textePretAussi=NULL,*texteAdieu=NULL;
+        SDL_Surface *textePret=NULL, *textePretAussi=NULL,*texteAdieu=NULL,*imageTitre;
 
         //initialisation des polices
         TTF_Font *policeTitre= NULL, *policeMenu = NULL, *policeAuRevoir=NULL;
@@ -59,7 +59,8 @@ class InterfaceGraphique
         //zoom : gestion des differences de reslotion et taille d'ecran
         double zoomX,zoomY;
 
-        std::string nomImageFond;
+        std::string nomImageFond, texteTitre;
+
 
         //prototypes de fonction
         void initPositions();
@@ -68,14 +69,13 @@ class InterfaceGraphique
         void afficherFixe();
         void initImages();
         void intro();
-        void menu();
+        void eventMenu();
         void afficherBoutons();
         void quitter();
         void chargerMenu();
         void chargerTitre();
         void initTextes();
-
-
+        void initTitre();
 
     private:
 
