@@ -16,14 +16,13 @@ void Bouton::chargerBouton()
     //gestion du centre
     if(centreX.size()!=0)
     {
-        positionBouton.x+= abs(imageBouton->w-tailleX)/2;
+        positionBouton.x+= (abs(imageBouton->w-tailleX)/2);
     }
     if(centreY.size()!=0)
     {
-        positionBouton.y+= abs(imageBouton->h-tailleY)/2;
+        positionBouton.y+= (abs(imageBouton->h-tailleY)/2);
     }
 
-    imageBouton = rotozoomSurface (imageBouton, 0, zoomX, 0);
     SDL_BlitSurface(imageBouton, NULL, fond, &positionBouton);
 
     if(nomPolice.size()!=0)
@@ -31,12 +30,13 @@ void Bouton::chargerBouton()
         //chargement du texte et police
         policeBouton = TTF_OpenFont(nomPolice.c_str(), taillePolice);
         texteBouton = TTF_RenderText_Blended(policeBouton, messageBouton.c_str(), couleurTexteBouton);
+        texteBouton = rotozoomSurface (texteBouton, 0, zoomX, 0);
+
 
         //gestion de la position du texte, centré
-        positionTexte.x= positionBouton.x+(imageBouton->w-texteBouton->w)/2;
-        positionTexte.y= positionBouton.y+(imageBouton->h-texteBouton->h)/2;
+        positionTexte.x= (positionBouton.x+(imageBouton->w-texteBouton->w)/2);
+        positionTexte.y= (positionBouton.y+(imageBouton->h-texteBouton->h)/2);
 
-        texteBouton = rotozoomSurface (texteBouton, 0, zoomX, 0);
         SDL_BlitSurface(texteBouton, NULL, fond, &positionTexte);
     }
 }

@@ -24,7 +24,7 @@ InterfaceGraphique::InterfaceGraphique()
     //titre de la fenetre, initialisation de TTF, creation de la fenetre de fond
     SDL_WM_SetCaption("SuDoKu-Solver", NULL);
     TTF_Init();
-    fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_FULLSCREEN); //Definition du fond : fullscreen, etc
+    fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF ); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
 }
 
 //polices avec leurs tailles
@@ -89,58 +89,5 @@ void InterfaceGraphique::quitter()
         SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
         SDL_Flip(fond);
 
-        SDL_Delay(500);
+        SDL_Delay(100);
 }
-
-
-//gestion des events, clic sur les boutons
-void InterfaceGraphique::eventMenu()
-{
-    SDL_WaitEvent(&event);
-    switch(event.type)
-    {
-        case SDL_KEYDOWN:  //Gestion clavier
-            switch(event.key.keysym.sym)
-            {
-                case SDLK_ESCAPE: //Appuyer sur echap : quitte
-                    quitter();
-                    break;
-                default:
-                    ;
-            }
-            break;
-        case SDL_MOUSEBUTTONDOWN: //Gestion souris
-            switch (event.button.button)
-             {
-                case SDL_BUTTON_LEFT ://Cas clic gauche souris
-/*
-                    //clic sur le bouton d'arret
-                    if( event.button.x>positionBoutonQuitter.x && event.button.x<(positionBoutonQuitter.x+positionBoutonQuitter.w) && event.button.y>positionBoutonQuitter.y && event.button.y<(positionBoutonQuitter.y+positionBoutonQuitter.h))
-                    {
-                        quitter();
-                    }
-
-                    //clic sur le menu 1
-                    else if( event.button.x>positionMenu1.x && event.button.x<(positionMenu1.x+positionMenu1.w) && event.button.y>positionMenu1.y && event.button.y<(positionMenu1.y+positionMenu1.h))
-                    {
-                        afficherFixe();
-                        afficherBoutons();
-                        SDL_BlitSurface(textePret, NULL, fond, &positionTitre);
-                        SDL_Flip(fond);
-                    }
-
-                    //clic sur le menu 2
-                    else if( event.button.x>positionMenu2.x && event.button.x<(positionMenu2.x+positionMenu2.w) && event.button.y>positionMenu2.y && event.button.y<(positionMenu2.y+positionMenu2.h))
-                    {
-                        afficherFixe();
-                        afficherBoutons();
-                        SDL_BlitSurface(textePretAussi, NULL, fond, &positionTitre);
-                        SDL_Flip(fond);
-                    }*/
-                    break;
-                default:
-                    ;
-             }
-    }
-}
-

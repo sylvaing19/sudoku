@@ -172,9 +172,10 @@ int main ( int argc, char** argv )
                     a="Resoudre";
                     boutonMenu1.event=a;
                     boutonMenu1.couleurTexteBouton={255, 0, 0};
-                    boutonMenu1.taillePolice=60*menuPrincipal.zoomX;
+                    boutonMenu1.taillePolice=70*menuPrincipal.zoomX;
                     boutonMenu1.centreX="oui";
-                    boutonMenu1.positionBouton.y+=(60+menuPrincipal.positionTitre.y+menuPrincipal.imageTitre->h);
+                    boutonMenu1.positionBouton.y+=(menuPrincipal.positionTitre.y+menuPrincipal.positionTitre.h
+                                                  +menuPrincipal.positionTitre.y+menuPrincipal.imageTitre->h)*menuPrincipal.zoomX;
                 }
                 boutonMenu1.chargerBouton();
 
@@ -189,7 +190,7 @@ int main ( int argc, char** argv )
                     a="Photodoku";
                     boutonMenu1.messageBouton=a;
                     boutonMenu2.couleurTexteBouton={255, 0, 0};
-                    boutonMenu2.taillePolice=60*menuPrincipal.zoomX;
+                    boutonMenu2.taillePolice=70*menuPrincipal.zoomX;
                     boutonMenu2.centreX="oui";
                     boutonMenu2.positionBouton.y+=(boutonMenu1.positionBouton.y+(boutonMenu1.imageBouton->h)*3/2);
                 }
@@ -199,8 +200,8 @@ int main ( int argc, char** argv )
                 {
                     std::string a="Quitter";
                     boutonMenu1.messageBouton=a;
-                    boutonQuitter.positionBouton.x=(menuPrincipal.tailleX-65);
-                    boutonQuitter.positionBouton.y=15;
+                    boutonQuitter.positionBouton.x=(menuPrincipal.tailleX-65*menuPrincipal.zoomX);
+                    boutonQuitter.positionBouton.y=15*menuPrincipal.zoomY;
                     a="images/arret.bmp";
                     boutonQuitter.nomImageBouton=a;
                     a="Quitter";
