@@ -48,6 +48,9 @@ class InterfaceGraphique
         bool continuerEvent;
         bool quitterAppli;
 
+        //liste des boutons apppartenant à ce menu
+
+
         //taille des boutons / images
         int tailleX;
         int tailleY;

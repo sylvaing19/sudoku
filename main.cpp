@@ -211,18 +211,71 @@ int main ( int argc, char** argv )
                 SDL_Flip(boutonMenu1.fond);//Les boutons sont alors apparus.
 
                 /*gestion des events : */
-
-                //si le bouton est concu pour quitter l'application :
-                if(boutonQuitter.event=="Quitter")
+                while(menuPrincipal.continuerEvent)
                 {
-                    menuPrincipal.quitter();
+                     SDL_WaitEvent(&menuPrincipal.event);
+                        switch(menuPrincipal.event.type)
+                        {
+                            case SDL_KEYDOWN:  //Gestion clavier
+                                switch(menuPrincipal.event.key.keysym.sym)
+                                {
+                                    case SDLK_ESCAPE: //Appuyer sur echap : quitte
+                                        menuPrincipal.quitter();
+                                        break;
+                                    default:
+                                        ;
+                                }
+                                break;
+                            case SDL_MOUSEBUTTONDOWN: //Gestion souris
+                                switch (menuPrincipal.event.button.button)
+                                {
+                                    case SDL_BUTTON_LEFT :
+
+
+                                            //clic gauche souris
+                                            if( menuPrincipal.event.button.x>boutonQuitter.positionBouton.x &&
+                                                menuPrincipal.event.button.x<(boutonQuitter.positionBouton.x+boutonQuitter.positionBouton.w) &&
+                                                menuPrincipal.event.button.y>boutonQuitter.positionBouton.y &&
+                                                menuPrincipal.event.button.y<(boutonQuitter.positionBouton.y+boutonQuitter.positionBouton.h))
+                                            {
+                                                if(boutonQuitter.event=="Quitter")
+                                                    menuPrincipal.quitter();
+                                            }
+
+
+                                            //clic sur le menu 1
+                                            else if( menuPrincipal.event.button.x>boutonMenu1.positionBouton.x &&
+                                                     menuPrincipal.event.button.x<(boutonMenu1.positionBouton.x+boutonMenu1.positionBouton.w) &&
+                                                     menuPrincipal.event.button.y>boutonMenu1.positionBouton.y &&
+                                                     menuPrincipal.event.button.y<(boutonMenu1.positionBouton.y+boutonMenu1.positionBouton.h))
+                                            {
+                                               if(boutonMenu1.event=="Quitter")
+                                                    menuPrincipal.quitter();
+                                            }
+
+
+                                            //clic sur le menu 2
+                                            else if( menuPrincipal.event.button.x>boutonMenu2.positionBouton.x &&
+                                                     menuPrincipal.event.button.x<(boutonMenu2.positionBouton.x+boutonMenu2.positionBouton.w) &&
+                                                     menuPrincipal.event.button.y>boutonMenu2.positionBouton.y &&
+                                                     menuPrincipal.event.button.y<(boutonMenu2.positionBouton.y+boutonMenu2.positionBouton.h))
+                                            {
+                                               if(boutonMenu2.event=="Quitter")
+                                                    menuPrincipal.quitter();
+                                            }
+
+
+                                        break;
+                                    default:
+                                        ;
+                                }
+                                break;
+                            default:
+                                ;
+                        }
                 }
-
-
                 SDL_Delay(1000);
             }
-
-            SDL_Quit();
         }
     }
     return EXIT_SUCCESS;
