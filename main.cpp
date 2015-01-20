@@ -203,10 +203,22 @@ int main ( int argc, char** argv )
                     boutonQuitter.positionBouton.y=15;
                     a="images/arret.bmp";
                     boutonQuitter.nomImageBouton=a;
+                    a="Quitter";
+                    boutonQuitter.event=a;
                 }
                 boutonQuitter.chargerBouton();
 
                 SDL_Flip(boutonMenu1.fond);//Les boutons sont alors apparus.
+
+                /*gestion des events : */
+
+                //si le bouton est concu pour quitter l'application :
+                if(boutonQuitter.event=="Quitter")
+                {
+                    menuPrincipal.quitter();
+                }
+
+
                 SDL_Delay(1000);
             }
 

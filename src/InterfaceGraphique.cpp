@@ -79,10 +79,17 @@ void InterfaceGraphique::quitter()
 {
         continuerEvent = false;
         quitterAppli = true;
+
         SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
+
+        texteAdieu = TTF_RenderText_Blended(policeAuRevoir, "Au revoir !" , couleurN );
+        positionAuRevoir.x = (tailleX-(texteAdieu->w))/2;
+        positionAuRevoir.y = (tailleY-(texteAdieu->h))/2;
+
         SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
         SDL_Flip(fond);
-        SDL_Delay(1500);
+
+        SDL_Delay(500);
 }
 
 

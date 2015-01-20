@@ -40,3 +40,5 @@ void Bouton::chargerBouton()
         SDL_BlitSurface(texteBouton, NULL, fond, &positionTexte);
     }
 }
+
+
