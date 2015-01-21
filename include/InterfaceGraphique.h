@@ -40,7 +40,7 @@ class InterfaceGraphique
         SDL_Event event;
 
         //diffferentes couleurs en RGB
-        SDL_Color  couleurN = {255, 255, 255};
+        SDL_Color  couleurN = {0, 0, 0};
         SDL_Color  couleurB = {0, 0, 255};
         SDL_Color  couleurV = {0, 255, 0};
         SDL_Color  couleurR = {255, 0, 0};

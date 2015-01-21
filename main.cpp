@@ -15,11 +15,11 @@ enum TypeDeTest
 {MODE_CONSOLE, MODE_GRAPHIQUE, MODE_COMPOSITE};
 
 enum TestGraph
-{CLASSE_BOUTON,MENU_PRINCIPAL};
+{RESOLUTION,MENU_PRINCIPAL};
 
 TypeDeTest typeDeTest = MODE_GRAPHIQUE;/// Permet de choisir le type de test à effectuer
 
-TestGraph testGraphique = CLASSE_BOUTON; /// Permet de choisir le type  de test graphique
+TestGraph testGraphique = RESOLUTION; /// Permet de choisir le type  de test graphique
 
 int main ( int argc, char** argv )
 {
@@ -116,7 +116,7 @@ int main ( int argc, char** argv )
 
     if(typeDeTest != MODE_CONSOLE)//Permet de tester l'interface graphique
     {
-        if(testGraphique==CLASSE_BOUTON) // permet de tester la classe bouton
+        if(testGraphique==MENU_PRINCIPAL) // permet de tester la classe bouton
         {
             Bouton boutonMenu1;
             Bouton boutonMenu2;
@@ -125,7 +125,7 @@ int main ( int argc, char** argv )
 
             std::string menuACreer;//Constante permettant de savoir le prochain menu affiché
 
-            /*Partie Menu Principal*/
+            ///Partie Menu Principal
 
             //affichage fond : le menu principal
             menuPrincipal.nomImageFond="images/fond1.bmp";
@@ -141,7 +141,7 @@ int main ( int argc, char** argv )
             menuPrincipal.initTitre();
             menuPrincipal.intro();
 
-            /*Partie boutons*/
+            ///Partie boutons
             {
                 //attribution du fond
                 boutonMenu1.fond=menuPrincipal.fond;
@@ -213,7 +213,7 @@ int main ( int argc, char** argv )
 
                 SDL_Flip(boutonMenu1.fond);//Les boutons sont alors apparus.
 
-                /*gestion des events : */
+                ///gestion des events :
                 while(menuPrincipal.continuerEvent)
                 {
                      SDL_WaitEvent(&menuPrincipal.event);
@@ -293,7 +293,7 @@ int main ( int argc, char** argv )
                         }
                 }
             }
-            /*Partie creation des menus */
+            ///Partie creation des menus
             if(menuACreer=="Resoudre")
             {
                 InterfaceGraphique menuResoudre;
@@ -359,7 +359,83 @@ int main ( int argc, char** argv )
             }
 
 
-            return EXIT_SUCCESS;
+
+
+        }
+        if(testGraphique==RESOLUTION) // permet de tester la classe bouton
+        {
+            InterfaceGraphique menuResoudre;
+
+            menuResoudre.nomImageFond="images/fond2.bmp";
+            menuResoudre.chargerMenu();
+
+            //initialisations diverses
+            menuResoudre.initPolices();
+            menuResoudre.texteTitre="Resolution de Sudoku";
+
+            SDL_Flip(menuResoudre.fond);
+            SDL_Delay(2000);
+
+            ///Partie resolution
+
+            std::string tableauCases[20];//tableau contenant les valeurs de chaque ligne (taille : 9 ligne + 2 traits)
+            SDL_Surface *imageNombres[12]; // pareil mais pour les images
+            char chiffres[100];
+            menuResoudre.positionSudoku.x=30;
+            menuResoudre.positionSudoku.y=30;
+
+            Grille grille;
+            {
+            ///Grille difficile
+            grille.setLC(3,0,2);grille.setLC(7,0,4);grille.setLC(5,1,0);
+            grille.setLC(1,1,2);grille.setLC(2,1,3);grille.setLC(2,2,0);
+            grille.setLC(6,2,4);grille.setLC(1,2,6);grille.setLC(8,2,7);
+            grille.setLC(7,3,3);grille.setLC(5,3,4);grille.setLC(6,3,6);
+            grille.setLC(3,3,7);grille.setLC(8,4,0);grille.setLC(7,4,8);
+            grille.setLC(4,5,1);grille.setLC(6,5,2);grille.setLC(9,5,4);
+            grille.setLC(3,5,5);grille.setLC(5,6,1);grille.setLC(7,6,2);
+            grille.setLC(4,6,4);grille.setLC(6,6,8);grille.setLC(7,7,5);
+            grille.setLC(3,7,6);grille.setLC(3,8,4);grille.setLC(7,8,6);
+            }
+
+            //affectation de la grille à des images
+            int line=0;
+            for(int ligne=0; ligne<9; ligne++)
+            {
+                for(int colonne=0; colonne<9; colonne++)
+                {
+                    int8_t val = grille.getLC(ligne, colonne);
+                    if(val>0 && val<=9)
+                    {
+                        sprintf(chiffres, " %d ", val);
+                        tableauCases[line]+=std::to_string(val);
+                    }
+                    else
+                        tableauCases[line]+=" X ";
+                    if(colonne == 2 || colonne == 5)
+                        tableauCases[line]+=" | ";
+                }
+                line++;
+                if(ligne == 2 || ligne == 5)
+                {
+                    tableauCases[line]+="//////////////////////";
+                    line++;
+                }
+                line++;
+            }
+
+
+            //affichage de la grille
+            for(int ligne=0; ligne<20; ligne++)
+            {
+                imageNombres[ligne] = TTF_RenderText_Blended(menuResoudre.policeSudoku,tableauCases[ligne].c_str() ,menuResoudre.couleurN );
+                SDL_BlitSurface(imageNombres[ligne], NULL, menuResoudre.fond, &menuResoudre.positionSudoku);
+                menuResoudre.positionSudoku.y+=30;
+            }
+            SDL_Flip(menuResoudre.fond);
+            SDL_Delay(4000);
         }
     }
+  return EXIT_SUCCESS;
+
 }
