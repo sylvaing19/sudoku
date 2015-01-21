@@ -32,7 +32,6 @@ void Bouton::chargerBouton()
         texteBouton = TTF_RenderText_Blended(policeBouton, messageBouton.c_str(), couleurTexteBouton);
         texteBouton = rotozoomSurface (texteBouton, 0, zoomX, 0);
 
-
         //gestion de la position du texte, centré
         positionTexte.x= (positionBouton.x+(imageBouton->w-texteBouton->w)/2);
         positionTexte.y= (positionBouton.y+(imageBouton->h-texteBouton->h)/2);

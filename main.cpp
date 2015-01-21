@@ -306,9 +306,58 @@ int main ( int argc, char** argv )
                 menuResoudre.texteTitre="Resolution de Sudoku";
 
                 SDL_Flip(menuResoudre.fond);
-
                 SDL_Delay(2000);
+
+                /*Partie resolution desudoku*/
+
+                std::string tableauCases[12];//tableau contenant les valeurs de chaque ligne (taille : 9 ligne + 2 traits)
+                SDL_Surface *imageNombres[12]; // pareil mais pour les images
+                menuResoudre.positionSudoku.x=30;
+                menuResoudre.positionSudoku.y=30;
+
+                Grille grille;
+                {
+                ///Grille difficile
+                grille.setLC(3,0,2);grille.setLC(7,0,4);grille.setLC(5,1,0);
+                grille.setLC(1,1,2);grille.setLC(2,1,3);grille.setLC(2,2,0);
+                grille.setLC(6,2,4);grille.setLC(1,2,6);grille.setLC(8,2,7);
+                grille.setLC(7,3,3);grille.setLC(5,3,4);grille.setLC(6,3,6);
+                grille.setLC(3,3,7);grille.setLC(8,4,0);grille.setLC(7,4,8);
+                grille.setLC(4,5,1);grille.setLC(6,5,2);grille.setLC(9,5,4);
+                grille.setLC(3,5,5);grille.setLC(5,6,1);grille.setLC(7,6,2);
+                grille.setLC(4,6,4);grille.setLC(6,6,8);grille.setLC(7,7,5);
+                grille.setLC(3,7,6);grille.setLC(3,8,4);grille.setLC(7,8,6);
+                }
+                //affectation de la gille à des images
+                for(int ligne=0; ligne<9; ligne++)
+                {
+                    if(ligne != 2 && ligne != 5)
+                        for(int colonne=0; colonne<9; colonne++)
+                        {
+                            if(colonne != 2 && colonne != 5)
+                            {
+                                int8_t val = grille.getLC(ligne, colonne);
+                                if(val>0 && val<=9)
+                                    tableauCases[ligne]+=(int)val;
+                                else
+                                    tableauCases[ligne]+="  ";
+                            }
+                        }
+                }
+                /*
+                //affichage de la grille
+                for(int ligne=0; ligne<9; ligne++)
+                {
+                   imageNombres[ligne] = TTF_RenderText_Blended(menuResoudre.policeSudoku,tableauCases[ligne].c_str() , menuResoudre.couleurN );
+                   SDL_BlitSurface(imageNombres[ligne], NULL, menuResoudre.fond, &menuResoudre.positionSudoku);
+                   menuResoudre.positionSudoku.y+=30;
+
+                   printf("%s", tableauCases[ligne].c_str());
+                }
+                SDL_Flip(menuResoudre.fond);
+                SDL_Delay(100);*/
             }
+
 
             return EXIT_SUCCESS;
         }

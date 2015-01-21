@@ -22,6 +22,7 @@ class InterfaceGraphique
         SDL_Rect positionTitre, positionBoutonQuitter,positionFond,positionAuRevoir;
         SDL_Rect positionMenu1,positionMenu2,positionMenu3;
         SDL_Rect positionTexteMenu1, positionTexteMenu2, positionTexteMenu3;
+        SDL_Rect positionSudoku;
 
         //Recupere les données d'affichage
         const SDL_VideoInfo* info;
@@ -31,8 +32,9 @@ class InterfaceGraphique
         SDL_Surface *boutonMenu1=NULL, *boutonMenu2=NULL, *boutonMenu3=NULL, *texteMenu1=NULL, *texteMenu2=NULL, *texteMenu3=NULL;
         SDL_Surface *textePret=NULL, *textePretAussi=NULL,*texteAdieu=NULL,*imageTitre;
 
+
         //initialisation des polices
-        TTF_Font *policeTitre= NULL, *policeMenu = NULL, *policeAuRevoir=NULL;
+        TTF_Font *policeTitre= NULL, *policeMenu = NULL, *policeAuRevoir=NULL, *policeSudoku=NULL;
 
         //creation des evenements
         SDL_Event event;
