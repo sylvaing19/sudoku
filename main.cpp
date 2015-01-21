@@ -9,7 +9,6 @@
 #include "InterfaceGraphique.h"
 #include "Bouton.h"
 
-
 using namespace std;
 
 enum TypeDeTest
@@ -124,9 +123,12 @@ int main ( int argc, char** argv )
             Bouton boutonQuitter;
             InterfaceGraphique menuPrincipal;
 
+            std::string menuACreer;//Constante permettant de savoir le prochain menu affiché
+
             /*Partie Menu Principal*/
 
             //affichage fond : le menu principal
+            menuPrincipal.nomImageFond="images/fond1.bmp";
             menuPrincipal.chargerMenu();
             SDL_Flip(menuPrincipal.fond);
             SDL_Delay(100);
@@ -241,6 +243,11 @@ int main ( int argc, char** argv )
                                             {
                                                 if(boutonQuitter.event=="Quitter")
                                                     menuPrincipal.quitter();
+                                                else if(boutonQuitter.event=="Resoudre")
+                                                {
+                                                    menuACreer="Resoudre";
+                                                    menuPrincipal.continuerEvent=false;
+                                                }
                                             }
 
 
@@ -252,6 +259,11 @@ int main ( int argc, char** argv )
                                             {
                                                if(boutonMenu1.event=="Quitter")
                                                     menuPrincipal.quitter();
+                                                else if(boutonMenu1.event=="Resoudre")
+                                                {
+                                                    menuACreer="Resoudre";
+                                                    menuPrincipal.continuerEvent=false;
+                                                }
                                             }
 
 
@@ -263,6 +275,11 @@ int main ( int argc, char** argv )
                                             {
                                                if(boutonMenu2.event=="Quitter")
                                                     menuPrincipal.quitter();
+                                                else if(boutonMenu2.event=="Resoudre")
+                                                {
+                                                    menuACreer="Resoudre";
+                                                    menuPrincipal.continuerEvent=false;
+                                                }
                                             }
 
 
@@ -275,9 +292,25 @@ int main ( int argc, char** argv )
                                 ;
                         }
                 }
-                SDL_Delay(1000);
             }
+            /*Partie creation des menus */
+            if(menuACreer=="Resoudre")
+            {
+                InterfaceGraphique menuResoudre;
+
+                menuResoudre.nomImageFond="images/fond2.bmp";
+                menuResoudre.chargerMenu();
+
+                //initialisations diverses
+                menuResoudre.initPolices();
+                menuResoudre.texteTitre="Resolution de Sudoku";
+
+                SDL_Flip(menuResoudre.fond);
+
+                SDL_Delay(2000);
+            }
+
+            return EXIT_SUCCESS;
         }
     }
-    return EXIT_SUCCESS;
 }

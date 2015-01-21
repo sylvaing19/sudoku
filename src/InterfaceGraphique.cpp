@@ -24,7 +24,7 @@ InterfaceGraphique::InterfaceGraphique()
     //titre de la fenetre, initialisation de TTF, creation de la fenetre de fond
     SDL_WM_SetCaption("SuDoKu-Solver", NULL);
     TTF_Init();
-    fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF ); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
+    fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_FULLSCREEN); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
 }
 
 //polices avec leurs tailles
@@ -37,7 +37,7 @@ void InterfaceGraphique::initPolices()
 
 void InterfaceGraphique::chargerMenu()
 {
-    imageFond = SDL_LoadBMP("images/fond1.bmp");
+    imageFond = SDL_LoadBMP(nomImageFond.c_str());
     positionFond.x=0,positionFond.y=0;
     SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
 }
@@ -73,7 +73,7 @@ void InterfaceGraphique::intro()
     SDL_BlitSurface(imageTitre, NULL, fond, &positionTitre);
 }
 
-//gestion de l'event "quitter" : clic sur le bouton d'arret ou echap
+//gestion de l'event "quitter" : clic sur le bouton d'arret ou echap : coupe toute l'application directement.
 
 void InterfaceGraphique::quitter()
 {
@@ -88,6 +88,5 @@ void InterfaceGraphique::quitter()
 
         SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
         SDL_Flip(fond);
-
-        SDL_Delay(100);
+        SDL_Delay(1000);
 }
