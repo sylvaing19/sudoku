@@ -362,6 +362,7 @@ int main ( int argc, char** argv )
 
 
         }
+
         if(testGraphique==RESOLUTION) // permet de tester la classe bouton
         {
             InterfaceGraphique menuResoudre;
@@ -380,9 +381,8 @@ int main ( int argc, char** argv )
 
             std::string tableauCases[20];//tableau contenant les valeurs de chaque ligne (taille : 9 ligne + 2 traits)
             SDL_Surface *imageNombres[12]; // pareil mais pour les images
-            char chiffres[100];
-            menuResoudre.positionSudoku.x=30;
-            menuResoudre.positionSudoku.y=30;
+            menuResoudre.positionSudoku.x=300*menuResoudre.zoomX;
+            menuResoudre.positionSudoku.y=100*menuResoudre.zoomY;
 
             Grille grille;
             {
@@ -398,7 +398,8 @@ int main ( int argc, char** argv )
             grille.setLC(3,7,6);grille.setLC(3,8,4);grille.setLC(7,8,6);
             }
 
-            //affectation de la grille à des images
+            //affectation de la grille à des images sous forme de tableau :
+            // 1 ligne = 1 case
             int line=0;
             for(int ligne=0; ligne<9; ligne++)
             {
@@ -407,25 +408,33 @@ int main ( int argc, char** argv )
                     int8_t val = grille.getLC(ligne, colonne);
                     if(val>0 && val<=9)
                     {
-                        sprintf(chiffres, " %d ", val);
+                        tableauCases[line]+=" ";
                         tableauCases[line]+=std::to_string(val);
+                        tableauCases[line]+=" ";
                     }
                     else
-                        tableauCases[line]+=" X ";
+                    {
+                        tableauCases[line]+=" ";
+                        tableauCases[line]+="X";
+                        tableauCases[line]+=" ";
+                    }
                     if(colonne == 2 || colonne == 5)
-                        tableauCases[line]+=" | ";
+                    {
+                        tableauCases[line]+=" ";
+                        tableauCases[line]+="|";
+                        tableauCases[line]+=" ";
+                    }
                 }
                 line++;
                 if(ligne == 2 || ligne == 5)
                 {
-                    tableauCases[line]+="//////////////////////";
-                    line++;
+                    tableauCases[line]+=" ///////////////////////////// ";
                 }
                 line++;
             }
 
 
-            //affichage de la grille
+            //affichage de la grille, ligne par ligne
             for(int ligne=0; ligne<20; ligne++)
             {
                 imageNombres[ligne] = TTF_RenderText_Blended(menuResoudre.policeSudoku,tableauCases[ligne].c_str() ,menuResoudre.couleurN );
@@ -433,9 +442,71 @@ int main ( int argc, char** argv )
                 menuResoudre.positionSudoku.y+=30;
             }
             SDL_Flip(menuResoudre.fond);
-            SDL_Delay(4000);
+            SDL_Delay(2500);
+
+            //Resolution
+            grille.completer();
+
+            //On enleve la precedente
+            menuResoudre.chargerMenu();
+            SDL_Flip(menuResoudre.fond);
+
+            //initialisation des parametres pour l'affichage
+            std::string tableauCasesResolu[20];//tableau contenant les valeurs de chaque ligne (taille : 9 ligne + 2 traits)
+            SDL_Surface *imageNombresResolu[12]; // pareil mais pour les images
+            menuResoudre.positionSudoku.x=300*menuResoudre.zoomX;
+            menuResoudre.positionSudoku.y=100*menuResoudre.zoomY;
+
+            //On crée la grille resolue
+            int lineResolu=0;
+            for(int ligne=0; ligne<9; ligne++)
+            {
+                for(int colonne=0; colonne<9; colonne++)
+                {
+                    int8_t val = grille.getLC(ligne, colonne);
+                    if(val>0 && val<=9)
+                    {
+                        tableauCasesResolu[lineResolu]+=" ";
+                        tableauCases[lineResolu]+=std::to_string(val);
+                        tableauCases[lineResolu]+=" ";
+                    }
+                    else
+                    {
+                        tableauCasesResolu[lineResolu]+=" ";
+                        tableauCasesResolu[lineResolu]+="X";
+                        tableauCasesResolu[lineResolu]+=" ";
+                    }
+                    if(colonne == 2 || colonne == 5)
+                    {
+                        tableauCasesResolu[lineResolu]+=" ";
+                        tableauCasesResolu[lineResolu]+="|";
+                        tableauCasesResolu[lineResolu]+=" ";
+                    }
+                }
+                lineResolu++;
+                if(ligne == 2 || ligne == 5)
+                {
+                    tableauCasesResolu[lineResolu]+=" ///////////////////////////// ";
+                }
+                lineResolu++;
+            }
+
+            //affichage de la grille resolue, ligne par ligne
+            for(int ligne=0; ligne<20; ligne++)
+            {
+                imageNombresResolu[ligne] = TTF_RenderText_Blended(menuResoudre.policeSudoku,tableauCasesResolu[ligne].c_str() ,menuResoudre.couleurN );
+                SDL_BlitSurface(imageNombresResolu[ligne], NULL, menuResoudre.fond, &menuResoudre.positionSudoku);
+                menuResoudre.positionSudoku.y+=30;
+            }
+
+            SDL_Flip(menuResoudre.fond);
+            SDL_Delay(2500);
+
+
+
+
         }
     }
-  return EXIT_SUCCESS;
 
+  return EXIT_SUCCESS;
 }
