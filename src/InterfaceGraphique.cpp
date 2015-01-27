@@ -50,8 +50,8 @@ void InterfaceGraphique::chargerTitre()
 
 void InterfaceGraphique::initTitre()
 {
-    policeTitre = TTF_OpenFont("polices/A Simple Life.ttf", 100*zoomX);
-    imageTitre = TTF_RenderText_Blended(policeTitre,texteTitre.c_str() , couleurN );
+    policeTitre = TTF_OpenFont("polices/A Simple Life.ttf", 120*zoomX);
+    imageTitre = TTF_RenderText_Blended(policeTitre,texteTitre.c_str() , couleurR );
 
     //Position du titre : centré en x, (arbitraire)*zoom en y
     positionTitre.x = (tailleX-(imageTitre->w))/2;
@@ -83,11 +83,12 @@ void InterfaceGraphique::quitter()
 
         SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
 
-        texteAdieu = TTF_RenderText_Blended(policeAuRevoir, "Au revoir !" , couleurN );
+        texteAdieu = TTF_RenderText_Blended(policeAuRevoir, "Au revoir !" , couleurB );
         positionAuRevoir.x = (tailleX-(texteAdieu->w))/2;
-        positionAuRevoir.y = (tailleY-(texteAdieu->h))/2;
+        positionAuRevoir.y = (tailleY-(texteAdieu->h)-100*zoomY)/2;
 
         SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
         SDL_Flip(fond);
         SDL_Delay(1000);
+        SDL_Quit();
 }

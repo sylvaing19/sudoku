@@ -19,7 +19,9 @@ enum TestGraph
 
 TypeDeTest typeDeTest = MODE_GRAPHIQUE;/// Permet de choisir le type de test à effectuer
 
-TestGraph testGraphique = RESOLUTION; /// Permet de choisir le type  de test graphique
+TestGraph testGraphique = MENU_PRINCIPAL; /// Permet de choisir le type  de test graphique
+
+/********************************************************************************************************/
 
 int main ( int argc, char** argv )
 {
@@ -113,6 +115,9 @@ int main ( int argc, char** argv )
             grille.afficherConsole();
         }
     }
+
+
+/********************************************************************************************************/
 
     if(typeDeTest != MODE_CONSOLE)//Permet de tester l'interface graphique
     {
@@ -293,10 +298,13 @@ int main ( int argc, char** argv )
                         }
                 }
             }
+
             ///Partie creation des menus
             if(menuACreer=="Resoudre")
             {
+                bool sudokuApparait,sudokuAResoudre;
                 InterfaceGraphique menuResoudre;
+                Bouton boutonAleatoire;
 
                 menuResoudre.nomImageFond="images/fond2.bmp";
                 menuResoudre.chargerMenu();
@@ -306,64 +314,263 @@ int main ( int argc, char** argv )
                 menuResoudre.texteTitre="Resolution de Sudoku";
 
                 SDL_Flip(menuResoudre.fond);
-                SDL_Delay(2000);
 
-                /*Partie resolution desudoku*/
+                boutonAleatoire.fond=menuResoudre.fond;
+                boutonAleatoire.zoomX=menuResoudre.zoomX;
+                boutonAleatoire.zoomY=menuResoudre.zoomY;
+                boutonAleatoire.tailleX=menuResoudre.tailleX;
+                boutonAleatoire.tailleY=menuResoudre.tailleY;
 
-                std::string tableauCases[12];//tableau contenant les valeurs de chaque ligne (taille : 9 ligne + 2 traits)
-                SDL_Surface *imageNombres[12]; // pareil mais pour les images
-                menuResoudre.positionSudoku.x=30;
-                menuResoudre.positionSudoku.y=30;
-
-                Grille grille;
+                //paramètres du bouton aleatoire
                 {
-                ///Grille difficile
-                grille.setLC(3,0,2);grille.setLC(7,0,4);grille.setLC(5,1,0);
-                grille.setLC(1,1,2);grille.setLC(2,1,3);grille.setLC(2,2,0);
-                grille.setLC(6,2,4);grille.setLC(1,2,6);grille.setLC(8,2,7);
-                grille.setLC(7,3,3);grille.setLC(5,3,4);grille.setLC(6,3,6);
-                grille.setLC(3,3,7);grille.setLC(8,4,0);grille.setLC(7,4,8);
-                grille.setLC(4,5,1);grille.setLC(6,5,2);grille.setLC(9,5,4);
-                grille.setLC(3,5,5);grille.setLC(5,6,1);grille.setLC(7,6,2);
-                grille.setLC(4,6,4);grille.setLC(6,6,8);grille.setLC(7,7,5);
-                grille.setLC(3,7,6);grille.setLC(3,8,4);grille.setLC(7,8,6);
+                    std::string a="images/BoutonSudoku.bmp";
+                    boutonAleatoire.nomImageBouton=a;
+                    a="polices/Cybernetica_Normal.ttf";
+                    boutonAleatoire.nomPolice=a;
+                    a="Apparition";
+                    boutonAleatoire.messageBouton=a;
+                    a="Apparaitre";
+                    boutonAleatoire.event=a;
+                    boutonAleatoire.couleurTexteBouton={255, 255, 255};
+                    boutonAleatoire.taillePolice=70*menuResoudre.zoomX;
+                    boutonAleatoire.positionBouton.x+=30*boutonAleatoire.zoomX;
+                    boutonAleatoire.positionBouton.y+=30*boutonAleatoire.zoomY;
                 }
-                //affectation de la gille à des images
-                for(int ligne=0; ligne<9; ligne++)
+                boutonAleatoire.chargerBouton();
+                SDL_Flip(menuResoudre.fond);
+
+                ///gestion des events :
+                menuResoudre.continuerEvent=true;
+                while(menuResoudre.continuerEvent)
                 {
-                    if(ligne != 2 && ligne != 5)
-                        for(int colonne=0; colonne<9; colonne++)
+                     SDL_WaitEvent(&menuResoudre.event);
+                        switch(menuResoudre.event.type)
                         {
-                            if(colonne != 2 && colonne != 5)
-                            {
-                                int8_t val = grille.getLC(ligne, colonne);
-                                if(val>0 && val<=9)
-                                    tableauCases[ligne]+=(int)val;
-                                else
-                                    tableauCases[ligne]+="  ";
-                            }
+                            case SDL_KEYDOWN:  //Gestion clavier
+                                switch(menuResoudre.event.key.keysym.sym)
+                                {
+                                    case SDLK_ESCAPE: //Appuyer sur echap : quitte
+                                        menuResoudre.quitter();
+                                        break;
+                                    default:
+                                        ;
+                                }
+                                break;
+                            case SDL_MOUSEBUTTONDOWN: //Gestion souris
+                                switch (menuResoudre.event.button.button)
+                                {
+                                    case SDL_BUTTON_LEFT :
+                                            //clic gauche souris
+                                            if( menuResoudre.event.button.x>boutonAleatoire.positionBouton.x &&
+                                                menuResoudre.event.button.x<(boutonAleatoire.positionBouton.x+boutonAleatoire.positionBouton.w) &&
+                                                menuResoudre.event.button.y>boutonAleatoire.positionBouton.y &&
+                                                menuResoudre.event.button.y<(boutonAleatoire.positionBouton.y+boutonAleatoire.positionBouton.h))
+                                                {
+                                                    if(boutonAleatoire.event=="Quitter")
+                                                        menuResoudre.quitter();
+                                                    else if(boutonAleatoire.event=="Apparaitre")
+                                                    {
+                                                        sudokuApparait=true;
+                                                        menuResoudre.continuerEvent=false;
+                                                        std::string a="Resolution";
+                                                        boutonAleatoire.messageBouton=a;
+                                                        boutonAleatoire.event=a;
+                                                    }
+                                                }
+                                        break;
+                                    default:
+                                        ;
+                                }
+                                break;
+                            default:
+                                ;
                         }
                 }
-                /*
-                //affichage de la grille
-                for(int ligne=0; ligne<9; ligne++)
+
+                if(sudokuApparait)
                 {
-                   imageNombres[ligne] = TTF_RenderText_Blended(menuResoudre.policeSudoku,tableauCases[ligne].c_str() , menuResoudre.couleurN );
-                   SDL_BlitSurface(imageNombres[ligne], NULL, menuResoudre.fond, &menuResoudre.positionSudoku);
-                   menuResoudre.positionSudoku.y+=30;
+                    ///Partie resolution
 
-                   printf("%s", tableauCases[ligne].c_str());
+                    std::string tableauCases[20];//tableau contenant les valeurs de chaque ligne (taille : 9 ligne + 2 traits)
+                    SDL_Surface *imageNombres[12]; // pareil mais pour les images
+
+
+                    Grille grille;
+                    {
+                    ///Grille difficile
+                    grille.setLC(3,0,2);grille.setLC(7,0,4);grille.setLC(5,1,0);
+                    grille.setLC(1,1,2);grille.setLC(2,1,3);grille.setLC(2,2,0);
+                    grille.setLC(6,2,4);grille.setLC(1,2,6);grille.setLC(8,2,7);
+                    grille.setLC(7,3,3);grille.setLC(5,3,4);grille.setLC(6,3,6);
+                    grille.setLC(3,3,7);grille.setLC(8,4,0);grille.setLC(7,4,8);
+                    grille.setLC(4,5,1);grille.setLC(6,5,2);grille.setLC(9,5,4);
+                    grille.setLC(3,5,5);grille.setLC(5,6,1);grille.setLC(7,6,2);
+                    grille.setLC(4,6,4);grille.setLC(6,6,8);grille.setLC(7,7,5);
+                    grille.setLC(3,7,6);grille.setLC(3,8,4);grille.setLC(7,8,6);
+                    }
+
+                    //affectation de la grille à des images sous forme de tableau :
+                    // 1 ligne = 1 case
+                    int line=0;
+                    for(int ligne=0; ligne<9; ligne++)
+                    {
+                        for(int colonne=0; colonne<9; colonne++)
+                        {
+                            int8_t val = grille.getLC(ligne, colonne);
+                            if(val>0 && val<=9)
+                            {
+                                tableauCases[line]+=" ";
+                                tableauCases[line]+=std::to_string(val);
+                                tableauCases[line]+=" ";
+                            }
+                            else
+                            {
+                                tableauCases[line]+=" ";
+                                tableauCases[line]+="*";
+                                tableauCases[line]+=" ";
+                            }
+                            if(colonne == 2 || colonne == 5)
+                            {
+                                tableauCases[line]+=" ";
+                                tableauCases[line]+="|";
+                                tableauCases[line]+=" ";
+                            }
+                        }
+                        line++;
+                        if(ligne == 2 || ligne == 5)
+                        {
+                            tableauCases[line]+=" ///////////////////////////// ";
+                        }
+                        line++;
+                    }
+
+                    menuResoudre.positionSudoku.x=(menuResoudre.tailleX-350*menuResoudre.zoomX)/2;
+                    menuResoudre.positionSudoku.y=(menuResoudre.tailleY-400*menuResoudre.zoomY)/2;
+
+                    //affichage de la grille, ligne par ligne
+                    for(int ligne=0; ligne<20; ligne++)
+                    {
+                        imageNombres[ligne] = TTF_RenderText_Blended(menuResoudre.policeSudoku,tableauCases[ligne].c_str() ,menuResoudre.couleurN );
+                        SDL_BlitSurface(imageNombres[ligne], NULL, menuResoudre.fond, &menuResoudre.positionSudoku);
+                        menuResoudre.positionSudoku.y+=30;
+                    }
+                    boutonAleatoire.chargerBouton();
+                    SDL_Flip(menuResoudre.fond);
+
+                    menuResoudre.continuerEvent=true;
+                    while(menuResoudre.continuerEvent)
+                    {
+                     SDL_WaitEvent(&menuResoudre.event);
+                        switch(menuResoudre.event.type)
+                        {
+                            case SDL_KEYDOWN:  //Gestion clavier
+                                switch(menuResoudre.event.key.keysym.sym)
+                                {
+                                    case SDLK_ESCAPE: //Appuyer sur echap : quitte
+                                        menuResoudre.quitter();
+                                        break;
+                                    default:
+                                        ;
+                                }
+                                break;
+                            case SDL_MOUSEBUTTONDOWN: //Gestion souris
+                                switch (menuResoudre.event.button.button)
+                                {
+                                    case SDL_BUTTON_LEFT :
+                                            //clic gauche souris
+                                            if( menuResoudre.event.button.x>boutonAleatoire.positionBouton.x &&
+                                                menuResoudre.event.button.x<(boutonAleatoire.positionBouton.x+boutonAleatoire.positionBouton.w) &&
+                                                menuResoudre.event.button.y>boutonAleatoire.positionBouton.y &&
+                                                menuResoudre.event.button.y<(boutonAleatoire.positionBouton.y+boutonAleatoire.positionBouton.h))
+                                                {
+                                                    if(boutonAleatoire.event=="Quitter")
+                                                        menuResoudre.quitter();
+                                                    else if(boutonAleatoire.event=="Resolution")
+                                                    {
+                                                        sudokuAResoudre=true;
+                                                        menuResoudre.continuerEvent=false;
+                                                    }
+                                                }
+                                        break;
+                                    default:
+                                        ;
+                                }
+                                break;
+                            default:
+                                ;
+                        }
+                    }
+
+                    if(sudokuAResoudre)
+                    {
+                        //Resolution
+                        grille.completer();
+
+                        //On enleve la precedente
+                        menuResoudre.chargerMenu();
+                        SDL_Flip(menuResoudre.fond);
+
+                        //initialisation des parametres pour l'affichage
+                        std::string tableauCasesResolu[20];//tableau contenant les valeurs de chaque ligne (taille : 9 ligne + 2 traits)
+                        SDL_Surface *imageNombresResolu[12]; // pareil mais pour les images
+
+
+                        //On crée la grille resolue
+                        int lineResolu=0;
+                        for(int ligne=0; ligne<9; ligne++)
+                        {
+                            for(int colonne=0; colonne<9; colonne++)
+                            {
+                                int8_t valResolu = grille.getLC(ligne, colonne);
+                                if(valResolu>0 && valResolu<=9)
+                                {
+                                    tableauCasesResolu[lineResolu]+=" ";
+                                    tableauCasesResolu[lineResolu]+=std::to_string(valResolu);
+                                    tableauCasesResolu[lineResolu]+=" ";
+                                }
+                                else
+                                {
+                                    tableauCasesResolu[lineResolu]+=" ";
+                                    tableauCasesResolu[lineResolu]+="X";
+                                    tableauCasesResolu[lineResolu]+=" ";
+                                }
+                                if(colonne == 2 || colonne == 5)
+                                {
+                                    tableauCasesResolu[lineResolu]+=" ";
+                                    tableauCasesResolu[lineResolu]+="|";
+                                    tableauCasesResolu[lineResolu]+=" ";
+                                }
+                            }
+                            lineResolu++;
+                            if(ligne == 2 || ligne == 5)
+                            {
+                                tableauCasesResolu[lineResolu]+=" ///////////////////////////// ";
+                            }
+                            lineResolu++;
+                        }
+
+                        menuResoudre.positionSudoku.x=(menuResoudre.tailleX-350*menuResoudre.zoomX)/2;
+                        menuResoudre.positionSudoku.y=(menuResoudre.tailleY-400*menuResoudre.zoomY)/2;
+
+
+                        //affichage de la grille resolue, ligne par ligne
+                        for(int ligne=0; ligne<20; ligne++)
+                        {
+                            imageNombresResolu[ligne] = TTF_RenderText_Blended(menuResoudre.policeSudoku,tableauCasesResolu[ligne].c_str() ,menuResoudre.couleurN );
+                            SDL_BlitSurface(imageNombresResolu[ligne], NULL, menuResoudre.fond, &menuResoudre.positionSudoku);
+                            menuResoudre.positionSudoku.y+=30;
+                        }
+
+                        SDL_Flip(menuResoudre.fond);
+                        SDL_Delay(2500);
+                    }
                 }
-                SDL_Flip(menuResoudre.fond);
-                SDL_Delay(100);*/
             }
-
-
-
-
         }
 
-        if(testGraphique==RESOLUTION) // permet de tester la classe bouton
+/**********************************************************************************************************/
+
+        if(testGraphique==RESOLUTION) // permet de tester la classe Resolution directement, sans passer par le menu
         {
             InterfaceGraphique menuResoudre;
 
@@ -381,8 +588,6 @@ int main ( int argc, char** argv )
 
             std::string tableauCases[20];//tableau contenant les valeurs de chaque ligne (taille : 9 ligne + 2 traits)
             SDL_Surface *imageNombres[12]; // pareil mais pour les images
-            menuResoudre.positionSudoku.x=300*menuResoudre.zoomX;
-            menuResoudre.positionSudoku.y=100*menuResoudre.zoomY;
 
             Grille grille;
             {
@@ -433,6 +638,8 @@ int main ( int argc, char** argv )
                 line++;
             }
 
+            menuResoudre.positionSudoku.x=(menuResoudre.tailleX-350*menuResoudre.zoomX)/2;
+            menuResoudre.positionSudoku.y=(menuResoudre.tailleY-400*menuResoudre.zoomY)/2;
 
             //affichage de la grille, ligne par ligne
             for(int ligne=0; ligne<20; ligne++)
@@ -454,8 +661,7 @@ int main ( int argc, char** argv )
             //initialisation des parametres pour l'affichage
             std::string tableauCasesResolu[20];//tableau contenant les valeurs de chaque ligne (taille : 9 ligne + 2 traits)
             SDL_Surface *imageNombresResolu[12]; // pareil mais pour les images
-            menuResoudre.positionSudoku.x=300*menuResoudre.zoomX;
-            menuResoudre.positionSudoku.y=100*menuResoudre.zoomY;
+
 
             //On crée la grille resolue
             int lineResolu=0;
@@ -491,6 +697,9 @@ int main ( int argc, char** argv )
                 lineResolu++;
             }
 
+            menuResoudre.positionSudoku.x=(menuResoudre.tailleX-350*menuResoudre.zoomX)/2;
+            menuResoudre.positionSudoku.y=(menuResoudre.tailleY-400*menuResoudre.zoomY)/2;
+
             //affichage de la grille resolue, ligne par ligne
             for(int ligne=0; ligne<20; ligne++)
             {
@@ -498,13 +707,8 @@ int main ( int argc, char** argv )
                 SDL_BlitSurface(imageNombresResolu[ligne], NULL, menuResoudre.fond, &menuResoudre.positionSudoku);
                 menuResoudre.positionSudoku.y+=30;
             }
-
             SDL_Flip(menuResoudre.fond);
-            SDL_Delay(2500);
-
-
-
-
+            SDL_Delay(5000);
         }
     }
 
