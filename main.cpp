@@ -463,12 +463,12 @@ int main ( int argc, char** argv )
             {
                 for(int colonne=0; colonne<9; colonne++)
                 {
-                    int8_t val = grille.getLC(ligne, colonne);
-                    if(val>0 && val<=9)
+                    int8_t valResolu = grille.getLC(ligne, colonne);
+                    if(valResolu>0 && valResolu<=9)
                     {
                         tableauCasesResolu[lineResolu]+=" ";
-                        tableauCases[lineResolu]+=std::to_string(val);
-                        tableauCases[lineResolu]+=" ";
+                        tableauCasesResolu[lineResolu]+=std::to_string(valResolu);
+                        tableauCasesResolu[lineResolu]+=" ";
                     }
                     else
                     {
