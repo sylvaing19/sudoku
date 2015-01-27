@@ -34,8 +34,8 @@ class Bouton
         void chargerBouton();
 
         //position des objets
-        SDL_Rect positionBouton;//position
         SDL_Rect positionFond;// position du fond : 0,0
+        SDL_Rect positionBouton;
 
         //images
         SDL_Surface* fond=NULL; //image du fond : rien

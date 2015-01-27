@@ -337,6 +337,8 @@ int main ( int argc, char** argv )
                     boutonAleatoire.positionBouton.y+=30*boutonAleatoire.zoomY;
                 }
                 boutonAleatoire.chargerBouton();
+                boutonQuitter.chargerBouton();
+
                 SDL_Flip(menuResoudre.fond);
 
                 ///gestion des events :
@@ -376,6 +378,32 @@ int main ( int argc, char** argv )
                                                         boutonAleatoire.messageBouton=a;
                                                         boutonAleatoire.event=a;
                                                     }
+                                                    else if(boutonAleatoire.event=="Resoudre")
+                                                    {
+                                                        menuACreer="Resoudre";
+                                                        menuPrincipal.continuerEvent=false;
+                                                    }
+                                                }
+                                            else if( menuPrincipal.event.button.x>boutonQuitter.positionBouton.x &&
+                                                     menuPrincipal.event.button.x<(boutonQuitter.positionBouton.x+boutonQuitter.positionBouton.w) &&
+                                                     menuPrincipal.event.button.y>boutonQuitter.positionBouton.y &&
+                                                     menuPrincipal.event.button.y<(boutonQuitter.positionBouton.y+boutonQuitter.positionBouton.h))
+                                                {
+                                                    if(boutonQuitter.event=="Quitter")
+                                                        menuResoudre.quitter();
+                                                    else if(boutonQuitter.event=="Apparaitre")
+                                                        {
+                                                            sudokuApparait=true;
+                                                            menuResoudre.continuerEvent=false;
+                                                            std::string a="Resolution";
+                                                            boutonQuitter.messageBouton=a;
+                                                            boutonQuitter.event=a;
+                                                        }
+                                                    else if(boutonQuitter.event=="Resoudre")
+                                                        {
+                                                            menuACreer="Resoudre";
+                                                            menuPrincipal.continuerEvent=false;
+                                                        }
                                                 }
                                         break;
                                     default:
@@ -426,7 +454,7 @@ int main ( int argc, char** argv )
                             else
                             {
                                 tableauCases[line]+=" ";
-                                tableauCases[line]+="*";
+                                tableauCases[line]+="_";
                                 tableauCases[line]+=" ";
                             }
                             if(colonne == 2 || colonne == 5)
@@ -455,6 +483,7 @@ int main ( int argc, char** argv )
                         menuResoudre.positionSudoku.y+=30;
                     }
                     boutonAleatoire.chargerBouton();
+                    boutonQuitter.chargerBouton();
                     SDL_Flip(menuResoudre.fond);
 
                     menuResoudre.continuerEvent=true;
@@ -489,6 +518,35 @@ int main ( int argc, char** argv )
                                                     {
                                                         sudokuAResoudre=true;
                                                         menuResoudre.continuerEvent=false;
+                                                    }
+                                                    else if(boutonAleatoire.event=="Apparaitre")
+                                                    {
+                                                        sudokuApparait=true;
+                                                        menuResoudre.continuerEvent=false;
+                                                        std::string a="Resolution";
+                                                        boutonQuitter.messageBouton=a;
+                                                        boutonQuitter.event=a;
+                                                    }
+                                                }
+                                            else if( menuPrincipal.event.button.x>boutonQuitter.positionBouton.x &&
+                                                     menuPrincipal.event.button.x<(boutonQuitter.positionBouton.x+boutonQuitter.positionBouton.w) &&
+                                                     menuPrincipal.event.button.y>boutonQuitter.positionBouton.y &&
+                                                     menuPrincipal.event.button.y<(boutonQuitter.positionBouton.y+boutonQuitter.positionBouton.h))
+                                            {
+                                                if(boutonQuitter.event=="Quitter")
+                                                    menuResoudre.quitter();
+                                                else if(boutonQuitter.event=="Apparaitre")
+                                                    {
+                                                        sudokuApparait=true;
+                                                        menuResoudre.continuerEvent=false;
+                                                        std::string a="Resolution";
+                                                        boutonQuitter.messageBouton=a;
+                                                        boutonQuitter.event=a;
+                                                    }
+                                                else if(boutonQuitter.event=="Resoudre")
+                                                    {
+                                                        menuACreer="Resoudre";
+                                                        menuPrincipal.continuerEvent=false;
                                                     }
                                                 }
                                         break;
@@ -692,7 +750,7 @@ int main ( int argc, char** argv )
                 lineResolu++;
                 if(ligne == 2 || ligne == 5)
                 {
-                    tableauCasesResolu[lineResolu]+=" ///////////////////////////// ";
+                    tableauCasesResolu[lineResolu]+="/////////////////////////////";
                 }
                 lineResolu++;
             }

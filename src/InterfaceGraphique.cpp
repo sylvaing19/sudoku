@@ -31,7 +31,6 @@ InterfaceGraphique::InterfaceGraphique()
 void InterfaceGraphique::initPolices()
 {
     policeTitre = TTF_OpenFont("polices/A Simple Life.ttf", 100*zoomX);
-    policeMenu= TTF_OpenFont("polices/Cybernetica_Normal.ttf", 65*zoomX);
     policeAuRevoir= TTF_OpenFont("polices/SF_Toontime.ttf", 150*zoomX);
     policeSudoku = TTF_OpenFont("polices/Cybernetica_Normal.ttf", 30*zoomX);
 }

@@ -11,7 +11,6 @@
 #include <string>
 
 
-
 class InterfaceGraphique
 {
     public:
@@ -28,13 +27,12 @@ class InterfaceGraphique
         const SDL_VideoInfo* info;
 
         //initialisation des surfaces (images)
-        SDL_Surface *imageFond = NULL, *arret = NULL, *fond = NULL, *rotation = NULL, *titre = NULL;
-        SDL_Surface *boutonMenu1=NULL, *boutonMenu2=NULL, *boutonMenu3=NULL, *texteMenu1=NULL, *texteMenu2=NULL, *texteMenu3=NULL;
+        SDL_Surface *imageFond = NULL, *fond = NULL, *rotation = NULL, *titre = NULL;
         SDL_Surface *textePret=NULL, *textePretAussi=NULL,*texteAdieu=NULL,*imageTitre;
 
 
         //initialisation des polices
-        TTF_Font *policeTitre= NULL, *policeMenu = NULL, *policeAuRevoir=NULL, *policeSudoku=NULL;
+        TTF_Font *policeTitre= NULL,*policeAuRevoir=NULL, *policeSudoku=NULL;
 
         //creation des evenements
         SDL_Event event;
@@ -52,12 +50,9 @@ class InterfaceGraphique
 
         //liste des boutons apppartenant à ce menu
 
-
         //taille des boutons / images
         int tailleX;
         int tailleY;
-        int tailleXArret;
-        int tailleYArret;
         int tailleXMenu;
         int tailleYMenu;
 
@@ -66,21 +61,13 @@ class InterfaceGraphique
 
         std::string nomImageFond, texteTitre;
 
-
         //prototypes de fonction
-        void initPositions();
         void initPolices();
-        void initTout();
-        void afficherFixe();
-        void initImages();
+        void initTitre();
         void intro();
-        void eventMenu();
-        void afficherBoutons();
         void quitter();
         void chargerMenu();
         void chargerTitre();
-        void initTextes();
-        void initTitre();
 
     private:
 
