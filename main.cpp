@@ -116,7 +116,6 @@ int main ( int argc, char** argv )
         }
     }
 
-
 /********************************************************************************************************/
 
     if(typeDeTest != MODE_CONSOLE)//Permet de tester l'interface graphique
@@ -239,7 +238,6 @@ int main ( int argc, char** argv )
                                 {
                                     case SDL_BUTTON_LEFT :
 
-
                                             //clic gauche souris
                                             if( menuPrincipal.event.button.x>boutonQuitter.positionBouton.x &&
                                                 menuPrincipal.event.button.x<(boutonQuitter.positionBouton.x+boutonQuitter.positionBouton.w) &&
@@ -302,9 +300,10 @@ int main ( int argc, char** argv )
             ///Partie creation des menus
             if(menuACreer=="Resoudre")
             {
-                bool sudokuApparait,sudokuAResoudre;
+                bool sudokuApparaitAleatoire=false,sudokuAResoudre=false,sudokuVide;
                 InterfaceGraphique menuResoudre;
                 Bouton boutonAleatoire;
+                Bouton boutonManuel;
 
                 menuResoudre.nomImageFond="images/fond2.bmp";
                 menuResoudre.chargerMenu();
@@ -321,15 +320,21 @@ int main ( int argc, char** argv )
                 boutonAleatoire.tailleX=menuResoudre.tailleX;
                 boutonAleatoire.tailleY=menuResoudre.tailleY;
 
+                boutonManuel.fond=menuResoudre.fond;
+                boutonManuel.zoomX=menuResoudre.zoomX;
+                boutonManuel.zoomY=menuResoudre.zoomY;
+                boutonManuel.tailleX=menuResoudre.tailleX;
+                boutonManuel.tailleY=menuResoudre.tailleY;
+
                 //paramètres du bouton aleatoire
                 {
                     std::string a="images/BoutonSudoku.bmp";
                     boutonAleatoire.nomImageBouton=a;
                     a="polices/Cybernetica_Normal.ttf";
                     boutonAleatoire.nomPolice=a;
-                    a="Apparition";
+                    a="Aleatoire";
                     boutonAleatoire.messageBouton=a;
-                    a="Apparaitre";
+                    a="ApparitionAleatoire";
                     boutonAleatoire.event=a;
                     boutonAleatoire.couleurTexteBouton={255, 255, 255};
                     boutonAleatoire.taillePolice=70*menuResoudre.zoomX;
@@ -337,6 +342,24 @@ int main ( int argc, char** argv )
                     boutonAleatoire.positionBouton.y+=30*boutonAleatoire.zoomY;
                 }
                 boutonAleatoire.chargerBouton();
+
+                 //paramètres du bouton de generation à la main
+                {
+                    std::string a="images/BoutonSudoku.bmp";
+                    boutonManuel.nomImageBouton=a;
+                    a="polices/Cybernetica_Normal.ttf";
+                    boutonManuel.nomPolice=a;
+                    a="Manuel";
+                    boutonManuel.messageBouton=a;
+                    a="Manuel";
+                    boutonManuel.event=a;
+                    boutonManuel.couleurTexteBouton={255, 255, 255};
+                    boutonManuel.taillePolice=70*boutonManuel.zoomX;
+                    boutonManuel.positionBouton.x+=boutonAleatoire.positionBouton.x;
+                    boutonManuel.positionBouton.y+=30*boutonAleatoire.zoomY+boutonAleatoire.positionBouton.y+ boutonAleatoire.positionBouton.h;
+                }
+                boutonManuel.chargerBouton();
+
                 boutonQuitter.chargerBouton();
 
                 SDL_Flip(menuResoudre.fond);
@@ -370,40 +393,79 @@ int main ( int argc, char** argv )
                                                 {
                                                     if(boutonAleatoire.event=="Quitter")
                                                         menuResoudre.quitter();
-                                                    else if(boutonAleatoire.event=="Apparaitre")
+                                                    else if(boutonAleatoire.event=="ApparitionAleatoire")
                                                     {
-                                                        sudokuApparait=true;
+                                                        menuACreer="Aleatoire";
                                                         menuResoudre.continuerEvent=false;
-                                                        std::string a="Resolution";
+                                                        std::string a="Resoudre";
                                                         boutonAleatoire.messageBouton=a;
                                                         boutonAleatoire.event=a;
                                                     }
                                                     else if(boutonAleatoire.event=="Resoudre")
                                                     {
                                                         menuACreer="Resoudre";
-                                                        menuPrincipal.continuerEvent=false;
+                                                        menuResoudre.continuerEvent=false;
+                                                        sudokuAResoudre=true;
+                                                   }
+                                                    else if(boutonAleatoire.event=="Manuel")
+                                                    {
+                                                            menuACreer="Manuel";
+                                                            menuResoudre.continuerEvent=false;
+                                                            sudokuVide=true;
                                                     }
                                                 }
-                                            else if( menuPrincipal.event.button.x>boutonQuitter.positionBouton.x &&
-                                                     menuPrincipal.event.button.x<(boutonQuitter.positionBouton.x+boutonQuitter.positionBouton.w) &&
-                                                     menuPrincipal.event.button.y>boutonQuitter.positionBouton.y &&
-                                                     menuPrincipal.event.button.y<(boutonQuitter.positionBouton.y+boutonQuitter.positionBouton.h))
+                                            else if( menuResoudre.event.button.x>boutonQuitter.positionBouton.x &&
+                                                     menuResoudre.event.button.x<(boutonQuitter.positionBouton.x+boutonQuitter.positionBouton.w) &&
+                                                     menuResoudre.event.button.y>boutonQuitter.positionBouton.y &&
+                                                     menuResoudre.event.button.y<(boutonQuitter.positionBouton.y+boutonQuitter.positionBouton.h))
                                                 {
                                                     if(boutonQuitter.event=="Quitter")
                                                         menuResoudre.quitter();
-                                                    else if(boutonQuitter.event=="Apparaitre")
-                                                        {
-                                                            sudokuApparait=true;
+                                                    else if(boutonQuitter.event=="ApparitionAleatoire")
+                                                    {
+                                                            menuACreer="Aleatoire";
                                                             menuResoudre.continuerEvent=false;
-                                                            std::string a="Resolution";
+                                                            std::string a="Resoudre";
                                                             boutonQuitter.messageBouton=a;
                                                             boutonQuitter.event=a;
-                                                        }
+                                                    }
                                                     else if(boutonQuitter.event=="Resoudre")
-                                                        {
+                                                    {
                                                             menuACreer="Resoudre";
-                                                            menuPrincipal.continuerEvent=false;
-                                                        }
+                                                            menuResoudre.continuerEvent=false;
+                                                    }
+                                                    else if(boutonQuitter.event=="Manuel")
+                                                    {
+                                                            menuACreer="Manuel";
+                                                            menuResoudre.continuerEvent=false;
+                                                    }
+                                                }
+                                            else if( menuResoudre.event.button.x>boutonManuel.positionBouton.x &&
+                                                     menuResoudre.event.button.x<(boutonManuel.positionBouton.x+boutonManuel.positionBouton.w) &&
+                                                     menuResoudre.event.button.y>boutonManuel.positionBouton.y &&
+                                                     menuResoudre.event.button.y<(boutonManuel.positionBouton.y+boutonManuel.positionBouton.h))
+                                                {
+                                                    if(boutonManuel.event=="Quitter")
+                                                        menuResoudre.quitter();
+                                                    else if(boutonManuel.event=="ApparitionAleatoire")
+                                                    {
+                                                            menuResoudre.continuerEvent=false;
+                                                            std::string a="Resoudre";
+                                                            boutonManuel.messageBouton=a;
+                                                            boutonManuel.event=a;
+                                                            menuACreer="Aleatoire";
+                                                    }
+                                                    else if(boutonManuel.event=="Resoudre")
+                                                    {
+                                                            menuACreer="Resoudre";
+                                                            menuResoudre.continuerEvent=false;
+
+                                                    }
+                                                    else if(boutonManuel.event=="Manuel")
+                                                    {
+                                                            menuACreer="Manuel";
+                                                            menuResoudre.continuerEvent=false;
+                                                    }
                                                 }
                                         break;
                                     default:
@@ -415,17 +477,17 @@ int main ( int argc, char** argv )
                         }
                 }
 
-                if(sudokuApparait)
+
+                if( menuACreer=="Aleatoire")
                 {
                     ///Partie resolution
 
                     std::string tableauCases[20];//tableau contenant les valeurs de chaque ligne (taille : 9 ligne + 2 traits)
                     SDL_Surface *imageNombres[12]; // pareil mais pour les images
 
-
                     Grille grille;
                     {
-                    ///Grille difficile
+                    ///Grille difficile a remplir aleatoire ?
                     grille.setLC(3,0,2);grille.setLC(7,0,4);grille.setLC(5,1,0);
                     grille.setLC(1,1,2);grille.setLC(2,1,3);grille.setLC(2,2,0);
                     grille.setLC(6,2,4);grille.setLC(1,2,6);grille.setLC(8,2,7);
@@ -507,46 +569,82 @@ int main ( int argc, char** argv )
                                 {
                                     case SDL_BUTTON_LEFT :
                                             //clic gauche souris
-                                            if( menuResoudre.event.button.x>boutonAleatoire.positionBouton.x &&
+                                           if( menuResoudre.event.button.x>boutonAleatoire.positionBouton.x &&
                                                 menuResoudre.event.button.x<(boutonAleatoire.positionBouton.x+boutonAleatoire.positionBouton.w) &&
                                                 menuResoudre.event.button.y>boutonAleatoire.positionBouton.y &&
                                                 menuResoudre.event.button.y<(boutonAleatoire.positionBouton.y+boutonAleatoire.positionBouton.h))
                                                 {
                                                     if(boutonAleatoire.event=="Quitter")
                                                         menuResoudre.quitter();
-                                                    else if(boutonAleatoire.event=="Resolution")
+                                                    else if(boutonAleatoire.event=="ApparitionAleatoire")
                                                     {
-                                                        sudokuAResoudre=true;
+                                                        menuACreer="Aleatoire";
                                                         menuResoudre.continuerEvent=false;
+                                                        std::string a="Resoudre";
+                                                        boutonAleatoire.messageBouton=a;
+                                                        boutonAleatoire.event=a;
                                                     }
-                                                    else if(boutonAleatoire.event=="Apparaitre")
-                                                    {
-                                                        sudokuApparait=true;
-                                                        menuResoudre.continuerEvent=false;
-                                                        std::string a="Resolution";
-                                                        boutonQuitter.messageBouton=a;
-                                                        boutonQuitter.event=a;
-                                                    }
-                                                }
-                                            else if( menuPrincipal.event.button.x>boutonQuitter.positionBouton.x &&
-                                                     menuPrincipal.event.button.x<(boutonQuitter.positionBouton.x+boutonQuitter.positionBouton.w) &&
-                                                     menuPrincipal.event.button.y>boutonQuitter.positionBouton.y &&
-                                                     menuPrincipal.event.button.y<(boutonQuitter.positionBouton.y+boutonQuitter.positionBouton.h))
-                                            {
-                                                if(boutonQuitter.event=="Quitter")
-                                                    menuResoudre.quitter();
-                                                else if(boutonQuitter.event=="Apparaitre")
-                                                    {
-                                                        sudokuApparait=true;
-                                                        menuResoudre.continuerEvent=false;
-                                                        std::string a="Resolution";
-                                                        boutonQuitter.messageBouton=a;
-                                                        boutonQuitter.event=a;
-                                                    }
-                                                else if(boutonQuitter.event=="Resoudre")
+                                                    else if(boutonAleatoire.event=="Resoudre")
                                                     {
                                                         menuACreer="Resoudre";
-                                                        menuPrincipal.continuerEvent=false;
+                                                        menuResoudre.continuerEvent=false;
+                                                    }
+                                                    else if(boutonAleatoire.event=="Manuel")
+                                                    {
+                                                        menuACreer="Manuel";
+                                                        menuResoudre.continuerEvent=false;
+                                                    }
+                                                }
+                                            else if( menuResoudre.event.button.x>boutonQuitter.positionBouton.x &&
+                                                     menuResoudre.event.button.x<(boutonQuitter.positionBouton.x+boutonQuitter.positionBouton.w) &&
+                                                     menuResoudre.event.button.y>boutonQuitter.positionBouton.y &&
+                                                     menuResoudre.event.button.y<(boutonQuitter.positionBouton.y+boutonQuitter.positionBouton.h))
+                                                {
+                                                    if(boutonQuitter.event=="Quitter")
+                                                        menuResoudre.quitter();
+                                                    else if(boutonQuitter.event=="ApparitionAleatoire")
+                                                    {
+                                                            menuACreer="Aleatoire";
+                                                            menuResoudre.continuerEvent=false;
+                                                            std::string a="Resoudre";
+                                                            boutonQuitter.messageBouton=a;
+                                                            boutonQuitter.event=a;
+                                                    }
+                                                    else if(boutonQuitter.event=="Resoudre")
+                                                    {
+                                                            menuACreer="Resoudre";
+                                                            menuResoudre.continuerEvent=false;
+                                                    }
+                                                    else if(boutonQuitter.event=="Manuel")
+                                                    {
+                                                            menuACreer="Manuel";
+                                                            menuResoudre.continuerEvent=false;
+                                                    }
+                                                }
+                                            else if( menuResoudre.event.button.x>boutonManuel.positionBouton.x &&
+                                                     menuResoudre.event.button.x<(boutonManuel.positionBouton.x+boutonManuel.positionBouton.w) &&
+                                                     menuResoudre.event.button.y>boutonManuel.positionBouton.y &&
+                                                     menuResoudre.event.button.y<(boutonManuel.positionBouton.y+boutonManuel.positionBouton.h))
+                                                {
+                                                    if(boutonManuel.event=="Quitter")
+                                                        menuResoudre.quitter();
+                                                    else if(boutonManuel.event=="ApparitionAleatoire")
+                                                    {
+                                                            menuACreer="Aleatoire";
+                                                            menuResoudre.continuerEvent=false;
+                                                            std::string a="Resoudre";
+                                                            boutonManuel.messageBouton=a;
+                                                            boutonManuel.event=a;
+                                                    }
+                                                    else if(boutonManuel.event=="Resoudre")
+                                                    {
+                                                            menuACreer="Resoudre";
+                                                            menuResoudre.continuerEvent=false;
+                                                    }
+                                                    else if(boutonManuel.event=="Manuel")
+                                                    {
+                                                            menuACreer="Manuel";
+                                                            menuResoudre.continuerEvent=false;
                                                     }
                                                 }
                                         break;
@@ -559,7 +657,8 @@ int main ( int argc, char** argv )
                         }
                     }
 
-                    if(sudokuAResoudre)
+
+                    if(menuACreer=="Resoudre")
                     {
                         //Resolution
                         grille.completer();
@@ -610,7 +709,6 @@ int main ( int argc, char** argv )
                         menuResoudre.positionSudoku.x=(menuResoudre.tailleX-350*menuResoudre.zoomX)/2;
                         menuResoudre.positionSudoku.y=(menuResoudre.tailleY-400*menuResoudre.zoomY)/2;
 
-
                         //affichage de la grille resolue, ligne par ligne
                         for(int ligne=0; ligne<20; ligne++)
                         {
@@ -621,6 +719,55 @@ int main ( int argc, char** argv )
 
                         SDL_Flip(menuResoudre.fond);
                         SDL_Delay(2500);
+                    }
+
+                    if(menuACreer=="Manuel")
+                    {
+                        menuResoudre.continuerEvent=true;
+                        while(menuResoudre.continuerEvent)
+                        {
+                         SDL_WaitEvent(&menuResoudre.event);
+                            switch(menuResoudre.event.type)
+                            {
+                                case SDL_KEYDOWN:  //Gestion clavier
+                                    switch(menuResoudre.event.key.keysym.sym)
+                                    {
+                                        case SDLK_ESCAPE: //Appuyer sur echap : quitte
+                                            menuResoudre.quitter();
+                                            break;
+                                        case (SDLK_1 || SDLK_KP1):
+                                        ;
+                                            break; // On entre le nombre, au NUMPAD ou clavier classique
+                                        case (SDLK_2 || SDLK_KP2):
+                                        ;
+                                            break; // On entre le nombre, au NUMPAD ou clavier classique
+                                        case (SDLK_3 || SDLK_KP3):
+                                        ;
+                                            break; // On entre le nombre, au NUMPAD ou clavier classique
+                                        case (SDLK_4 || SDLK_KP4):
+                                        ;
+                                            break; // On entre le nombre, au NUMPAD ou clavier classique
+                                        case (SDLK_5 || SDLK_KP5):
+                                        ;
+                                            break; // On entre le nombre, au NUMPAD ou clavier classique
+                                        case (SDLK_6 || SDLK_KP6):
+                                        ;
+                                            break; // On entre le nombre, au NUMPAD ou clavier classique
+                                        case (SDLK_7 || SDLK_KP7):
+                                        ;
+                                            break; // On entre le nombre, au NUMPAD ou clavier classique
+                                        case (SDLK_8 || SDLK_KP8):
+                                        ;
+                                            break; // On entre le nombre, au NUMPAD ou clavier classique
+                                        case (SDLK_9 || SDLK_KP9):
+                                        ;
+                                            break; // On entre le nombre, au NUMPAD ou clavier classique
+                                        default:
+                                            ;
+                                    }
+                                    break;
+                            }
+                        }
                     }
                 }
             }
@@ -769,6 +916,5 @@ int main ( int argc, char** argv )
             SDL_Delay(5000);
         }
     }
-
   return EXIT_SUCCESS;
 }
