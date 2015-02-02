@@ -630,21 +630,21 @@ int main ( int argc, char** argv )
                                                         menuResoudre.quitter();
                                                     else if(boutonManuel.event=="ApparitionAleatoire")
                                                     {
-                                                            menuACreer="Aleatoire";
-                                                            menuResoudre.continuerEvent=false;
-                                                            std::string a="Resoudre";
-                                                            boutonManuel.messageBouton=a;
-                                                            boutonManuel.event=a;
+                                                        menuACreer="Aleatoire";
+                                                        menuResoudre.continuerEvent=false;
+                                                        std::string a="Resoudre";
+                                                        boutonManuel.messageBouton=a;
+                                                        boutonManuel.event=a;
                                                     }
                                                     else if(boutonManuel.event=="Resoudre")
                                                     {
-                                                            menuACreer="Resoudre";
-                                                            menuResoudre.continuerEvent=false;
+                                                        menuACreer="Resoudre";
+                                                        menuResoudre.continuerEvent=false;
                                                     }
                                                     else if(boutonManuel.event=="Manuel")
                                                     {
-                                                            menuACreer="Manuel";
-                                                            menuResoudre.continuerEvent=false;
+                                                        menuACreer="Manuel";
+                                                        menuResoudre.continuerEvent=false;
                                                     }
                                                 }
                                         break;
@@ -724,196 +724,75 @@ int main ( int argc, char** argv )
                     if(menuACreer=="Manuel")
                     {
                         menuResoudre.continuerEvent=true;
+                        int valeurChangee=0;
                         while(menuResoudre.continuerEvent)
                         {
-                         SDL_WaitEvent(&menuResoudre.event);
-                            switch(menuResoudre.event.type)
-                            {
-                                case SDL_KEYDOWN:  //Gestion clavier
+                        ///GESTION CLICS SUR LES CASES
+                                SDL_WaitEvent(&menuResoudre.event);
+                                switch(menuResoudre.event.type)
+                                {
+                                    case SDL_KEYDOWN:  //Gestion clavier
                                     switch(menuResoudre.event.key.keysym.sym)
                                     {
                                         case SDLK_ESCAPE: //Appuyer sur echap : quitte
                                             menuResoudre.quitter();
                                             break;
-                                        case (SDLK_1 || SDLK_KP1):
-                                        ;
+                                        case SDLK_1:
+                                        case SDLK_KP1:
+                                            valeurChangee=1;
                                             break; // On entre le nombre, au NUMPAD ou clavier classique
-                                        case (SDLK_2 || SDLK_KP2):
-                                        ;
+                                        case SDLK_2:
+                                        case SDLK_KP2:
+                                            valeurChangee=2;
                                             break; // On entre le nombre, au NUMPAD ou clavier classique
-                                        case (SDLK_3 || SDLK_KP3):
-                                        ;
+                                        case SDLK_3:
+                                        case SDLK_KP3:
+                                            valeurChangee=3;
                                             break; // On entre le nombre, au NUMPAD ou clavier classique
-                                        case (SDLK_4 || SDLK_KP4):
-                                        ;
+                                        case SDLK_4:
+                                        case SDLK_KP4:
+                                            valeurChangee=4;
                                             break; // On entre le nombre, au NUMPAD ou clavier classique
-                                        case (SDLK_5 || SDLK_KP5):
-                                        ;
+                                        case SDLK_5:
+                                        case SDLK_KP5:
+                                            valeurChangee=5;
                                             break; // On entre le nombre, au NUMPAD ou clavier classique
-                                        case (SDLK_6 || SDLK_KP6):
-                                        ;
+                                        case SDLK_6:
+                                        case SDLK_KP6:
+                                            valeurChangee=6;
                                             break; // On entre le nombre, au NUMPAD ou clavier classique
-                                        case (SDLK_7 || SDLK_KP7):
-                                        ;
+                                        case SDLK_7:
+                                        case SDLK_KP7:
+                                            valeurChangee=7;
                                             break; // On entre le nombre, au NUMPAD ou clavier classique
-                                        case (SDLK_8 || SDLK_KP8):
-                                        ;
+                                        case SDLK_8:
+                                        case SDLK_KP8:
+                                            valeurChangee=8;
                                             break; // On entre le nombre, au NUMPAD ou clavier classique
-                                        case (SDLK_9 || SDLK_KP9):
-                                        ;
+                                        case SDLK_9:
+                                        case SDLK_KP9:
+                                            valeurChangee=9;
                                             break; // On entre le nombre, au NUMPAD ou clavier classique
                                         default:
-                                            ;
+                                            break;//autre : rien.
                                     }
-                                    break;
-                            }
+                                menuResoudre.continuerEvent=false;
+                                break;
+                                }
+                        }
+                        //sortie du while; traitement de la valeur
+
+                        if(valeurChangee==0)
+                        {//La valeur n'a pas été changée
+                            ;
+                        }
+                        else
+                        {//On change la valeur de la case
+                            ;
                         }
                     }
                 }
             }
-        }
-
-/**********************************************************************************************************/
-
-        if(testGraphique==RESOLUTION) // permet de tester la classe Resolution directement, sans passer par le menu
-        {
-            InterfaceGraphique menuResoudre;
-
-            menuResoudre.nomImageFond="images/fond2.bmp";
-            menuResoudre.chargerMenu();
-
-            //initialisations diverses
-            menuResoudre.initPolices();
-            menuResoudre.texteTitre="Resolution de Sudoku";
-
-            SDL_Flip(menuResoudre.fond);
-            SDL_Delay(2000);
-
-            ///Partie resolution
-
-            std::string tableauCases[20];//tableau contenant les valeurs de chaque ligne (taille : 9 ligne + 2 traits)
-            SDL_Surface *imageNombres[12]; // pareil mais pour les images
-
-            Grille grille;
-            {
-            ///Grille difficile
-            grille.setLC(3,0,2);grille.setLC(7,0,4);grille.setLC(5,1,0);
-            grille.setLC(1,1,2);grille.setLC(2,1,3);grille.setLC(2,2,0);
-            grille.setLC(6,2,4);grille.setLC(1,2,6);grille.setLC(8,2,7);
-            grille.setLC(7,3,3);grille.setLC(5,3,4);grille.setLC(6,3,6);
-            grille.setLC(3,3,7);grille.setLC(8,4,0);grille.setLC(7,4,8);
-            grille.setLC(4,5,1);grille.setLC(6,5,2);grille.setLC(9,5,4);
-            grille.setLC(3,5,5);grille.setLC(5,6,1);grille.setLC(7,6,2);
-            grille.setLC(4,6,4);grille.setLC(6,6,8);grille.setLC(7,7,5);
-            grille.setLC(3,7,6);grille.setLC(3,8,4);grille.setLC(7,8,6);
-            }
-
-            //affectation de la grille à des images sous forme de tableau :
-            // 1 ligne = 1 case
-            int line=0;
-            for(int ligne=0; ligne<9; ligne++)
-            {
-                for(int colonne=0; colonne<9; colonne++)
-                {
-                    int8_t val = grille.getLC(ligne, colonne);
-                    if(val>0 && val<=9)
-                    {
-                        tableauCases[line]+=" ";
-                        tableauCases[line]+=std::to_string(val);
-                        tableauCases[line]+=" ";
-                    }
-                    else
-                    {
-                        tableauCases[line]+=" ";
-                        tableauCases[line]+="X";
-                        tableauCases[line]+=" ";
-                    }
-                    if(colonne == 2 || colonne == 5)
-                    {
-                        tableauCases[line]+=" ";
-                        tableauCases[line]+="|";
-                        tableauCases[line]+=" ";
-                    }
-                }
-                line++;
-                if(ligne == 2 || ligne == 5)
-                {
-                    tableauCases[line]+=" ///////////////////////////// ";
-                }
-                line++;
-            }
-
-            menuResoudre.positionSudoku.x=(menuResoudre.tailleX-350*menuResoudre.zoomX)/2;
-            menuResoudre.positionSudoku.y=(menuResoudre.tailleY-400*menuResoudre.zoomY)/2;
-
-            //affichage de la grille, ligne par ligne
-            for(int ligne=0; ligne<20; ligne++)
-            {
-                imageNombres[ligne] = TTF_RenderText_Blended(menuResoudre.policeSudoku,tableauCases[ligne].c_str() ,menuResoudre.couleurN );
-                SDL_BlitSurface(imageNombres[ligne], NULL, menuResoudre.fond, &menuResoudre.positionSudoku);
-                menuResoudre.positionSudoku.y+=30;
-            }
-            SDL_Flip(menuResoudre.fond);
-            SDL_Delay(2500);
-
-            //Resolution
-            grille.completer();
-
-            //On enleve la precedente
-            menuResoudre.chargerMenu();
-            SDL_Flip(menuResoudre.fond);
-
-            //initialisation des parametres pour l'affichage
-            std::string tableauCasesResolu[20];//tableau contenant les valeurs de chaque ligne (taille : 9 ligne + 2 traits)
-            SDL_Surface *imageNombresResolu[12]; // pareil mais pour les images
-
-
-            //On crée la grille resolue
-            int lineResolu=0;
-            for(int ligne=0; ligne<9; ligne++)
-            {
-                for(int colonne=0; colonne<9; colonne++)
-                {
-                    int8_t valResolu = grille.getLC(ligne, colonne);
-                    if(valResolu>0 && valResolu<=9)
-                    {
-                        tableauCasesResolu[lineResolu]+=" ";
-                        tableauCasesResolu[lineResolu]+=std::to_string(valResolu);
-                        tableauCasesResolu[lineResolu]+=" ";
-                    }
-                    else
-                    {
-                        tableauCasesResolu[lineResolu]+=" ";
-                        tableauCasesResolu[lineResolu]+="X";
-                        tableauCasesResolu[lineResolu]+=" ";
-                    }
-                    if(colonne == 2 || colonne == 5)
-                    {
-                        tableauCasesResolu[lineResolu]+=" ";
-                        tableauCasesResolu[lineResolu]+="|";
-                        tableauCasesResolu[lineResolu]+=" ";
-                    }
-                }
-                lineResolu++;
-                if(ligne == 2 || ligne == 5)
-                {
-                    tableauCasesResolu[lineResolu]+="/////////////////////////////";
-                }
-                lineResolu++;
-            }
-
-            menuResoudre.positionSudoku.x=(menuResoudre.tailleX-350*menuResoudre.zoomX)/2;
-            menuResoudre.positionSudoku.y=(menuResoudre.tailleY-400*menuResoudre.zoomY)/2;
-
-            //affichage de la grille resolue, ligne par ligne
-            for(int ligne=0; ligne<20; ligne++)
-            {
-                imageNombresResolu[ligne] = TTF_RenderText_Blended(menuResoudre.policeSudoku,tableauCasesResolu[ligne].c_str() ,menuResoudre.couleurN );
-                SDL_BlitSurface(imageNombresResolu[ligne], NULL, menuResoudre.fond, &menuResoudre.positionSudoku);
-                menuResoudre.positionSudoku.y+=30;
-            }
-            SDL_Flip(menuResoudre.fond);
-            SDL_Delay(5000);
         }
     }
   return EXIT_SUCCESS;
