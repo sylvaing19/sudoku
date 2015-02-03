@@ -30,8 +30,8 @@ int main ( int argc, char** argv )
     if(typeDeTest != MODE_GRAPHIQUE)//Permet de tester le code en console
     {
         Grille grille;
-        grille.setLC(9,2,0);grille.setLC(9,3,1);/*
-        grille.setLC(3,5,0);*/grille.setLC(5,4,1);
+        grille.setLC(9,2,0);grille.setLC(9,3,1);
+        grille.setLC(3,5,0);grille.setLC(5,4,1);
         grille.setLC(2,6,0);grille.setLC(6,6,1);
         grille.setLC(1,8,0);grille.setLC(5,2,2);grille.setLC(6,0,3);
         grille.setLC(6,3,2);grille.setLC(1,3,3);
@@ -44,7 +44,20 @@ int main ( int argc, char** argv )
         grille.setLC(9,6,6);grille.setLC(9,0,8);grille.setLC(3,2,8);
         grille.setLC(2,3,8);grille.setLC(4,6,8);
 
+        //Soluce :
+        //781 643 259
+        //634 529 817
+        //925 871 463
+        //
+        //896 157 342
+        //452 398 176
+        //317 462 598
+        //
+        //263 715 984
+        //578 934 621
+        //149 286 735
 
+        ///FIXME T_T
 
         grille.afficherConsole();
         if(grille.completer())
@@ -421,6 +434,19 @@ int main ( int argc, char** argv )
                         grille.setLC(3,5,5);grille.setLC(5,6,1);grille.setLC(7,6,2);
                         grille.setLC(4,6,4);grille.setLC(6,6,8);grille.setLC(7,7,5);
                         grille.setLC(3,7,6);grille.setLC(3,8,4);grille.setLC(7,8,6);
+
+                        //Soluce :
+                        //781 643 259
+                        //634 529 817
+                        //925 871 463
+                        //
+                        //896 157 342
+                        //452 398 176
+                        //317 462 598
+                        //
+                        //263 715 984
+                        //578 934 621
+                        //149 286 735
                     }
 
                     grilleGraphique.grille=grille;
