@@ -39,3 +39,12 @@ void Bouton::chargerBouton()
         SDL_BlitSurface(texteBouton, NULL, fond, &positionTexte);
     }
 }
+
+bool Bouton::estClique(SDL_Event event)
+{
+    return event.button.x>(positionBouton.x) &&
+           event.button.x<(positionBouton.x+positionBouton.w) &&
+           event.button.y>(positionBouton.y) &&
+           event.button.y<(positionBouton.y+positionBouton.h);
+}
+

@@ -8,6 +8,7 @@
 #include "Grille.h"
 #include "InterfaceGraphique.h"
 #include "Bouton.h"
+#include "GrilleGraphique.h"
 
 using namespace std;
 
@@ -237,12 +238,8 @@ int main ( int argc, char** argv )
                                 switch (menuPrincipal.event.button.button)
                                 {
                                     case SDL_BUTTON_LEFT :
-
                                             //clic gauche souris
-                                            if( menuPrincipal.event.button.x>boutonQuitter.positionBouton.x &&
-                                                menuPrincipal.event.button.x<(boutonQuitter.positionBouton.x+boutonQuitter.positionBouton.w) &&
-                                                menuPrincipal.event.button.y>boutonQuitter.positionBouton.y &&
-                                                menuPrincipal.event.button.y<(boutonQuitter.positionBouton.y+boutonQuitter.positionBouton.h))
+                                            if(boutonQuitter.estClique(menuPrincipal.event))
                                             {
                                                 if(boutonQuitter.event=="Quitter")
                                                     menuPrincipal.quitter();
@@ -253,12 +250,8 @@ int main ( int argc, char** argv )
                                                 }
                                             }
 
-
                                             //clic sur le menu 1
-                                            else if( menuPrincipal.event.button.x>boutonMenu1.positionBouton.x &&
-                                                     menuPrincipal.event.button.x<(boutonMenu1.positionBouton.x+boutonMenu1.positionBouton.w) &&
-                                                     menuPrincipal.event.button.y>boutonMenu1.positionBouton.y &&
-                                                     menuPrincipal.event.button.y<(boutonMenu1.positionBouton.y+boutonMenu1.positionBouton.h))
+                                            else if(boutonMenu1.estClique(menuPrincipal.event))
                                             {
                                                if(boutonMenu1.event=="Quitter")
                                                     menuPrincipal.quitter();
@@ -269,12 +262,8 @@ int main ( int argc, char** argv )
                                                 }
                                             }
 
-
                                             //clic sur le menu 2
-                                            else if( menuPrincipal.event.button.x>boutonMenu2.positionBouton.x &&
-                                                     menuPrincipal.event.button.x<(boutonMenu2.positionBouton.x+boutonMenu2.positionBouton.w) &&
-                                                     menuPrincipal.event.button.y>boutonMenu2.positionBouton.y &&
-                                                     menuPrincipal.event.button.y<(boutonMenu2.positionBouton.y+boutonMenu2.positionBouton.h))
+                                            else if(boutonMenu2.estClique(menuPrincipal.event))
                                             {
                                                if(boutonMenu2.event=="Quitter")
                                                     menuPrincipal.quitter();
@@ -284,8 +273,6 @@ int main ( int argc, char** argv )
                                                     menuPrincipal.continuerEvent=false;
                                                 }
                                             }
-
-
                                         break;
                                     default:
                                         ;
@@ -386,10 +373,7 @@ int main ( int argc, char** argv )
                                 {
                                     case SDL_BUTTON_LEFT :
                                             //clic gauche souris
-                                            if( menuResoudre.event.button.x>boutonAleatoire.positionBouton.x &&
-                                                menuResoudre.event.button.x<(boutonAleatoire.positionBouton.x+boutonAleatoire.positionBouton.w) &&
-                                                menuResoudre.event.button.y>boutonAleatoire.positionBouton.y &&
-                                                menuResoudre.event.button.y<(boutonAleatoire.positionBouton.y+boutonAleatoire.positionBouton.h))
+                                            if(boutonAleatoire.estClique(menuResoudre.event))
                                                 {
                                                     if(boutonAleatoire.event=="Quitter")
                                                         menuResoudre.quitter();
@@ -414,10 +398,7 @@ int main ( int argc, char** argv )
                                                             sudokuVide=true;
                                                     }
                                                 }
-                                            else if( menuResoudre.event.button.x>boutonQuitter.positionBouton.x &&
-                                                     menuResoudre.event.button.x<(boutonQuitter.positionBouton.x+boutonQuitter.positionBouton.w) &&
-                                                     menuResoudre.event.button.y>boutonQuitter.positionBouton.y &&
-                                                     menuResoudre.event.button.y<(boutonQuitter.positionBouton.y+boutonQuitter.positionBouton.h))
+                                            else if(boutonQuitter.estClique(menuResoudre.event))
                                                 {
                                                     if(boutonQuitter.event=="Quitter")
                                                         menuResoudre.quitter();
@@ -440,10 +421,7 @@ int main ( int argc, char** argv )
                                                             menuResoudre.continuerEvent=false;
                                                     }
                                                 }
-                                            else if( menuResoudre.event.button.x>boutonManuel.positionBouton.x &&
-                                                     menuResoudre.event.button.x<(boutonManuel.positionBouton.x+boutonManuel.positionBouton.w) &&
-                                                     menuResoudre.event.button.y>boutonManuel.positionBouton.y &&
-                                                     menuResoudre.event.button.y<(boutonManuel.positionBouton.y+boutonManuel.positionBouton.h))
+                                            else if(boutonManuel.estClique(menuResoudre.event))
                                                 {
                                                     if(boutonManuel.event=="Quitter")
                                                         menuResoudre.quitter();
@@ -482,68 +460,29 @@ int main ( int argc, char** argv )
                 {
                     ///Partie resolution
 
-                    std::string tableauCases[20];//tableau contenant les valeurs de chaque ligne (taille : 9 ligne + 2 traits)
-                    SDL_Surface *imageNombres[12]; // pareil mais pour les images
+                    GrilleGraphique grilleGraphique;
+
+                    grilleGraphique.fond=menuResoudre.fond;
+                    grilleGraphique.zoomX=menuResoudre.zoomX;
+                    grilleGraphique.zoomY=menuResoudre.zoomY;
+                    grilleGraphique.tailleX=menuResoudre.tailleX;
+                    grilleGraphique.tailleY=menuResoudre.tailleY;
 
                     Grille grille;
                     {
-                    ///Grille difficile a remplir aleatoire ?
-                    grille.setLC(3,0,2);grille.setLC(7,0,4);grille.setLC(5,1,0);
-                    grille.setLC(1,1,2);grille.setLC(2,1,3);grille.setLC(2,2,0);
-                    grille.setLC(6,2,4);grille.setLC(1,2,6);grille.setLC(8,2,7);
-                    grille.setLC(7,3,3);grille.setLC(5,3,4);grille.setLC(6,3,6);
-                    grille.setLC(3,3,7);grille.setLC(8,4,0);grille.setLC(7,4,8);
-                    grille.setLC(4,5,1);grille.setLC(6,5,2);grille.setLC(9,5,4);
-                    grille.setLC(3,5,5);grille.setLC(5,6,1);grille.setLC(7,6,2);
-                    grille.setLC(4,6,4);grille.setLC(6,6,8);grille.setLC(7,7,5);
-                    grille.setLC(3,7,6);grille.setLC(3,8,4);grille.setLC(7,8,6);
+                        grille.setLC(3,0,2);grille.setLC(7,0,4);grille.setLC(5,1,0);
+                        grille.setLC(1,1,2);grille.setLC(2,1,3);grille.setLC(2,2,0);
+                        grille.setLC(6,2,4);grille.setLC(1,2,6);grille.setLC(8,2,7);
+                        grille.setLC(7,3,3);grille.setLC(5,3,4);grille.setLC(6,3,6);
+                        grille.setLC(3,3,7);grille.setLC(8,4,0);grille.setLC(7,4,8);
+                        grille.setLC(4,5,1);grille.setLC(6,5,2);grille.setLC(9,5,4);
+                        grille.setLC(3,5,5);grille.setLC(5,6,1);grille.setLC(7,6,2);
+                        grille.setLC(4,6,4);grille.setLC(6,6,8);grille.setLC(7,7,5);
+                        grille.setLC(3,7,6);grille.setLC(3,8,4);grille.setLC(7,8,6);
                     }
+                    grilleGraphique.grille=grille;
+                    grilleGraphique.afficherGrilleGraph();
 
-                    //affectation de la grille à des images sous forme de tableau :
-                    // 1 ligne = 1 case
-                    int line=0;
-                    for(int ligne=0; ligne<9; ligne++)
-                    {
-                        for(int colonne=0; colonne<9; colonne++)
-                        {
-                            int8_t val = grille.getLC(ligne, colonne);
-                            if(val>0 && val<=9)
-                            {
-                                tableauCases[line]+=" ";
-                                tableauCases[line]+=std::to_string(val);
-                                tableauCases[line]+=" ";
-                            }
-                            else
-                            {
-                                tableauCases[line]+=" ";
-                                tableauCases[line]+="_";
-                                tableauCases[line]+=" ";
-                            }
-                            if(colonne == 2 || colonne == 5)
-                            {
-                                tableauCases[line]+=" ";
-                                tableauCases[line]+="|";
-                                tableauCases[line]+=" ";
-                            }
-                        }
-                        line++;
-                        if(ligne == 2 || ligne == 5)
-                        {
-                            tableauCases[line]+=" ///////////////////////////// ";
-                        }
-                        line++;
-                    }
-
-                    menuResoudre.positionSudoku.x=(menuResoudre.tailleX-350*menuResoudre.zoomX)/2;
-                    menuResoudre.positionSudoku.y=(menuResoudre.tailleY-400*menuResoudre.zoomY)/2;
-
-                    //affichage de la grille, ligne par ligne
-                    for(int ligne=0; ligne<20; ligne++)
-                    {
-                        imageNombres[ligne] = TTF_RenderText_Blended(menuResoudre.policeSudoku,tableauCases[ligne].c_str() ,menuResoudre.couleurN );
-                        SDL_BlitSurface(imageNombres[ligne], NULL, menuResoudre.fond, &menuResoudre.positionSudoku);
-                        menuResoudre.positionSudoku.y+=30;
-                    }
                     boutonAleatoire.chargerBouton();
                     boutonQuitter.chargerBouton();
                     SDL_Flip(menuResoudre.fond);
@@ -569,10 +508,7 @@ int main ( int argc, char** argv )
                                 {
                                     case SDL_BUTTON_LEFT :
                                             //clic gauche souris
-                                           if( menuResoudre.event.button.x>boutonAleatoire.positionBouton.x &&
-                                                menuResoudre.event.button.x<(boutonAleatoire.positionBouton.x+boutonAleatoire.positionBouton.w) &&
-                                                menuResoudre.event.button.y>boutonAleatoire.positionBouton.y &&
-                                                menuResoudre.event.button.y<(boutonAleatoire.positionBouton.y+boutonAleatoire.positionBouton.h))
+                                           if(boutonAleatoire.estClique(menuResoudre.event))
                                                 {
                                                     if(boutonAleatoire.event=="Quitter")
                                                         menuResoudre.quitter();
@@ -595,10 +531,7 @@ int main ( int argc, char** argv )
                                                         menuResoudre.continuerEvent=false;
                                                     }
                                                 }
-                                            else if( menuResoudre.event.button.x>boutonQuitter.positionBouton.x &&
-                                                     menuResoudre.event.button.x<(boutonQuitter.positionBouton.x+boutonQuitter.positionBouton.w) &&
-                                                     menuResoudre.event.button.y>boutonQuitter.positionBouton.y &&
-                                                     menuResoudre.event.button.y<(boutonQuitter.positionBouton.y+boutonQuitter.positionBouton.h))
+                                            else if(boutonQuitter.estClique(menuResoudre.event))
                                                 {
                                                     if(boutonQuitter.event=="Quitter")
                                                         menuResoudre.quitter();
@@ -621,10 +554,7 @@ int main ( int argc, char** argv )
                                                             menuResoudre.continuerEvent=false;
                                                     }
                                                 }
-                                            else if( menuResoudre.event.button.x>boutonManuel.positionBouton.x &&
-                                                     menuResoudre.event.button.x<(boutonManuel.positionBouton.x+boutonManuel.positionBouton.w) &&
-                                                     menuResoudre.event.button.y>boutonManuel.positionBouton.y &&
-                                                     menuResoudre.event.button.y<(boutonManuel.positionBouton.y+boutonManuel.positionBouton.h))
+                                            else if( boutonManuel.estClique(menuResoudre.event))
                                                 {
                                                     if(boutonManuel.event=="Quitter")
                                                         menuResoudre.quitter();
@@ -667,56 +597,16 @@ int main ( int argc, char** argv )
                         menuResoudre.chargerMenu();
                         SDL_Flip(menuResoudre.fond);
 
-                        //initialisation des parametres pour l'affichage
-                        std::string tableauCasesResolu[20];//tableau contenant les valeurs de chaque ligne (taille : 9 ligne + 2 traits)
-                        SDL_Surface *imageNombresResolu[12]; // pareil mais pour les images
+                        GrilleGraphique grilleGraphiqueResolue;
 
+                        grilleGraphiqueResolue.fond=menuResoudre.fond;
+                        grilleGraphiqueResolue.zoomX=menuResoudre.zoomX;
+                        grilleGraphiqueResolue.zoomY=menuResoudre.zoomY;
+                        grilleGraphiqueResolue.tailleX=menuResoudre.tailleX;
+                        grilleGraphiqueResolue.tailleY=menuResoudre.tailleY;
 
-                        //On crée la grille resolue
-                        int lineResolu=0;
-                        for(int ligne=0; ligne<9; ligne++)
-                        {
-                            for(int colonne=0; colonne<9; colonne++)
-                            {
-                                int8_t valResolu = grille.getLC(ligne, colonne);
-                                if(valResolu>0 && valResolu<=9)
-                                {
-                                    tableauCasesResolu[lineResolu]+=" ";
-                                    tableauCasesResolu[lineResolu]+=std::to_string(valResolu);
-                                    tableauCasesResolu[lineResolu]+=" ";
-                                }
-                                else
-                                {
-                                    tableauCasesResolu[lineResolu]+=" ";
-                                    tableauCasesResolu[lineResolu]+="X";
-                                    tableauCasesResolu[lineResolu]+=" ";
-                                }
-                                if(colonne == 2 || colonne == 5)
-                                {
-                                    tableauCasesResolu[lineResolu]+=" ";
-                                    tableauCasesResolu[lineResolu]+="|";
-                                    tableauCasesResolu[lineResolu]+=" ";
-                                }
-                            }
-                            lineResolu++;
-                            if(ligne == 2 || ligne == 5)
-                            {
-                                tableauCasesResolu[lineResolu]+=" ///////////////////////////// ";
-                            }
-                            lineResolu++;
-                        }
-
-                        menuResoudre.positionSudoku.x=(menuResoudre.tailleX-350*menuResoudre.zoomX)/2;
-                        menuResoudre.positionSudoku.y=(menuResoudre.tailleY-400*menuResoudre.zoomY)/2;
-
-                        //affichage de la grille resolue, ligne par ligne
-                        for(int ligne=0; ligne<20; ligne++)
-                        {
-                            imageNombresResolu[ligne] = TTF_RenderText_Blended(menuResoudre.policeSudoku,tableauCasesResolu[ligne].c_str() ,menuResoudre.couleurN );
-                            SDL_BlitSurface(imageNombresResolu[ligne], NULL, menuResoudre.fond, &menuResoudre.positionSudoku);
-                            menuResoudre.positionSudoku.y+=30;
-                        }
-
+                        grilleGraphiqueResolue.grille=grille;
+                        grilleGraphiqueResolue.afficherGrilleGraph();
                         SDL_Flip(menuResoudre.fond);
                         SDL_Delay(2500);
                     }
@@ -727,7 +617,7 @@ int main ( int argc, char** argv )
                         int valeurChangee=0;
                         while(menuResoudre.continuerEvent)
                         {
-                        ///GESTION CLICS SUR LES CASES
+                            ///GESTION CLICS SUR LES CASES
                                 SDL_WaitEvent(&menuResoudre.event);
                                 switch(menuResoudre.event.type)
                                 {
@@ -737,40 +627,31 @@ int main ( int argc, char** argv )
                                         case SDLK_ESCAPE: //Appuyer sur echap : quitte
                                             menuResoudre.quitter();
                                             break;
-                                        case SDLK_1:
-                                        case SDLK_KP1:
+                                        case SDLK_1:case SDLK_KP1:
                                             valeurChangee=1;
                                             break; // On entre le nombre, au NUMPAD ou clavier classique
-                                        case SDLK_2:
-                                        case SDLK_KP2:
+                                        case SDLK_2:case SDLK_KP2:
                                             valeurChangee=2;
                                             break; // On entre le nombre, au NUMPAD ou clavier classique
-                                        case SDLK_3:
-                                        case SDLK_KP3:
+                                        case SDLK_3:case SDLK_KP3:
                                             valeurChangee=3;
                                             break; // On entre le nombre, au NUMPAD ou clavier classique
-                                        case SDLK_4:
-                                        case SDLK_KP4:
+                                        case SDLK_4:case SDLK_KP4:
                                             valeurChangee=4;
                                             break; // On entre le nombre, au NUMPAD ou clavier classique
-                                        case SDLK_5:
-                                        case SDLK_KP5:
+                                        case SDLK_5:case SDLK_KP5:
                                             valeurChangee=5;
                                             break; // On entre le nombre, au NUMPAD ou clavier classique
-                                        case SDLK_6:
-                                        case SDLK_KP6:
+                                        case SDLK_6:case SDLK_KP6:
                                             valeurChangee=6;
                                             break; // On entre le nombre, au NUMPAD ou clavier classique
-                                        case SDLK_7:
-                                        case SDLK_KP7:
+                                        case SDLK_7:case SDLK_KP7:
                                             valeurChangee=7;
                                             break; // On entre le nombre, au NUMPAD ou clavier classique
-                                        case SDLK_8:
-                                        case SDLK_KP8:
+                                        case SDLK_8:case SDLK_KP8:
                                             valeurChangee=8;
                                             break; // On entre le nombre, au NUMPAD ou clavier classique
-                                        case SDLK_9:
-                                        case SDLK_KP9:
+                                        case SDLK_9:case SDLK_KP9:
                                             valeurChangee=9;
                                             break; // On entre le nombre, au NUMPAD ou clavier classique
                                         default:
@@ -793,6 +674,9 @@ int main ( int argc, char** argv )
                     }
                 }
             }
+
+       //TODO faire la partie "manuelle"
+
         }
     }
   return EXIT_SUCCESS;

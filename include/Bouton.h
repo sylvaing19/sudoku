@@ -32,6 +32,7 @@ class Bouton
 
         //Prototypes
         void chargerBouton();
+        bool estClique(SDL_Event event);
 
         //position des objets
         SDL_Rect positionFond;// position du fond : 0,0
@@ -39,7 +40,6 @@ class Bouton
 
         //images
         SDL_Surface* fond=NULL; //image du fond : rien
-        SDL_Surface* menu=NULL; //image du menu principal
         SDL_Surface* imageBouton=NULL; //image des boutons principaux
         SDL_Surface* texteBouton=NULL; //texte qu'il y a sur les boutons
 

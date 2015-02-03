@@ -4,7 +4,6 @@
 #include <SDL_ttf.h>
 #include <SDL_image.h>
 #include <SDL_getenv.h>
-#include <SDL_video.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <SDL_rotozoom.h>
