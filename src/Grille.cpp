@@ -128,7 +128,8 @@ bool Grille::completer()
     if(!Grille::estResolu())
     {
         int8_t ligne, colonne;
-        /*Il suffit d'explorer les hypothèses d'une seule case pour toujours résoudre la
+        /*
+        Il suffit d'explorer les hypothèses d'une seule case pour toujours résoudre la
         grille, on choisit donc celle ayant le moins de possibilitées.
         */
         unsigned int nbHyp = Grille::minGrille(ligne, colonne);
@@ -141,7 +142,8 @@ bool Grille::completer()
             }
         }
         for(unsigned int i=0; i<nbHyp; i++)//On teste successivement chacune des hypothèses
-        {
+        {    Grille::afficherConsole();
+
             uneHypothese.setLC(Grille::grille[ligne][colonne][i], ligne, colonne);
             if(uneHypothese.completer())//Si cette hypothèse était la bonne
             {
