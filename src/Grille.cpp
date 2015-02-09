@@ -142,8 +142,7 @@ bool Grille::completer()
             }
         }
         for(unsigned int i=0; i<nbHyp; i++)//On teste successivement chacune des hypothèses
-        {    Grille::afficherConsole();
-
+        {
             uneHypothese.setLC(Grille::grille[ligne][colonne][i], ligne, colonne);
             if(uneHypothese.completer())//Si cette hypothèse était la bonne
             {

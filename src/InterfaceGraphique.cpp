@@ -65,10 +65,11 @@ void InterfaceGraphique::intro()
     //animation, titre qui descend
     for(i=-50;i<=a;i++)
     {
+        //TODO : probleme de latence ici
         positionTitre.y=i;
         SDL_Flip(fond);
         SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
-        chargerTitre();
+        SDL_BlitSurface(imageTitre, NULL, fond, &positionTitre);
     }
     SDL_BlitSurface(imageTitre, NULL, fond, &positionTitre);
 }

@@ -59,4 +59,5 @@ void GrilleGraphique::afficherGrilleGraph()
         SDL_BlitSurface(imageNombres[ligne], NULL, fond, &positionSudoku);
         positionSudoku.y+=30;
     }
+
 }

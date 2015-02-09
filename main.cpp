@@ -18,7 +18,7 @@ enum TypeDeTest
 enum TestGraph
 {RESOLUTION,MENU_PRINCIPAL};
 
-TypeDeTest typeDeTest = MODE_CONSOLE;/// Permet de choisir le type de test à effectuer
+TypeDeTest typeDeTest = MODE_GRAPHIQUE;/// Permet de choisir le type de test à effectuer
 
 TestGraph testGraphique = MENU_PRINCIPAL; /// Permet de choisir le type  de test graphique
 
@@ -91,7 +91,6 @@ int main ( int argc, char** argv )
             menuPrincipal.nomImageFond="images/fond1.bmp";
             menuPrincipal.chargerMenu();
             SDL_Flip(menuPrincipal.fond);
-            SDL_Delay(100);
 
             //initialisations diverses
             menuPrincipal.initPolices();
@@ -415,6 +414,7 @@ int main ( int argc, char** argv )
                 {
                     ///Partie resolution
 
+                    //initialisations et definition de la  grille  utilisée par la partie graphique
                     GrilleGraphique grilleGraphique;
 
                     grilleGraphique.fond=menuResoudre.fond;
@@ -423,6 +423,7 @@ int main ( int argc, char** argv )
                     grilleGraphique.tailleX=menuResoudre.tailleX;
                     grilleGraphique.tailleY=menuResoudre.tailleY;
 
+                    //definition de la grille, attribition (Numero, ligne, colonne)
                     Grille grille;
                     {
                         grille.setLC(3,0,2);grille.setLC(7,0,4);grille.setLC(5,1,0);
@@ -451,11 +452,13 @@ int main ( int argc, char** argv )
 
                     grilleGraphique.grille=grille;
                     grilleGraphique.afficherGrilleGraph();
+                    grilleGraphique.grille.afficherConsole();
 
                     boutonAleatoire.chargerBouton();
                     boutonQuitter.chargerBouton();
                     SDL_Flip(menuResoudre.fond);
 
+                    //gestion des evenements
                     menuResoudre.continuerEvent=true;
                     while(menuResoudre.continuerEvent)
                     {
@@ -566,8 +569,10 @@ int main ( int argc, char** argv )
                         menuResoudre.chargerMenu();
                         SDL_Flip(menuResoudre.fond);
 
+                        //definition de la grille utilisée en mode graphique
                         GrilleGraphique grilleGraphiqueResolue;
 
+                        //initialisations diverses
                         grilleGraphiqueResolue.fond=menuResoudre.fond;
                         grilleGraphiqueResolue.zoomX=menuResoudre.zoomX;
                         grilleGraphiqueResolue.zoomY=menuResoudre.zoomY;
@@ -575,15 +580,17 @@ int main ( int argc, char** argv )
                         grilleGraphiqueResolue.tailleY=menuResoudre.tailleY;
 
                         grilleGraphiqueResolue.grille=grille;
+                        grilleGraphiqueResolue.grille.afficherConsole(); //affichage dans la console, pour le debug
+
                         grilleGraphiqueResolue.afficherGrilleGraph();
                         SDL_Flip(menuResoudre.fond);
-                        SDL_Delay(2500);
+                        SDL_Delay(2500);//laisse letemps pour voir la grille
                     }
 
                     if(menuACreer=="Manuel")
                     {
                         menuResoudre.continuerEvent=true;
-                        int valeurChangee=0;
+                        int valeurChangee=0;// initialisation de la valeur : si reste à 0, n'a pas été touchée par l'user
                         while(menuResoudre.continuerEvent)
                         {
                             ///GESTION CLICS SUR LES CASES
@@ -629,17 +636,18 @@ int main ( int argc, char** argv )
                                 menuResoudre.continuerEvent=false;
                                 break;
                                 }
+                            if(valeurChangee==0)
+                            {//La valeur n'a pas été changée
+                                ;
+                            }
+                            else
+                            {//On change la valeur de la case
+                                ;
+                            }
+
                         }
                         //sortie du while; traitement de la valeur
 
-                        if(valeurChangee==0)
-                        {//La valeur n'a pas été changée
-                            ;
-                        }
-                        else
-                        {//On change la valeur de la case
-                            ;
-                        }
                     }
                 }
             }
