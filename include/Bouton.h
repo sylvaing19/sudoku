@@ -30,10 +30,6 @@ class Bouton
         //taille de la police
         int taillePolice;
 
-        //Prototypes
-        void chargerBouton();
-        bool estClique(SDL_Event event);
-
         //position des objets
         SDL_Rect positionFond;// position du fond : 0,0
         SDL_Rect positionBouton;
@@ -49,6 +45,13 @@ class Bouton
         //Noms à entrer
         std::string nomImageFond, nomImageBouton , nomPolice, messageBouton,event;
         SDL_Color couleurTexteBouton;
+
+        ///Prototypes de fonctions
+
+        // charge le bouton dans le buffer, pret à flipper
+        void chargerBouton();
+        // renvoie un booleen : vrai si le bouton est cliqué, faux sinon
+        bool estClique(SDL_Event event);
 
 
    private:

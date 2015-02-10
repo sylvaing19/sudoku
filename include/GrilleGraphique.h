@@ -41,7 +41,8 @@ class GrilleGraphique
         ///La grille en elle meme : on la charge arès les algorithmes, cette classe ne fais qu'afficher  / gerer les clics
         Grille grille;
 
-        //prototypes de fonctions
+        ///prototypes de fonctions
+        // affiche la grille en version Graphique, prete à etre flippée
         void afficherGrilleGraph();
 
 

@@ -57,7 +57,7 @@ int main ( int argc, char** argv )
         //578 934 621
         //149 286 735
 
-        ///FIXME T_T
+        ///FIXME T_T ou save me plutot
 
         grille.afficherConsole();
         if(grille.completer())

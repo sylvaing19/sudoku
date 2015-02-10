@@ -58,14 +58,22 @@ class InterfaceGraphique
         //zoom : gestion des differences de reslotion et taille d'ecran
         double zoomX,zoomY;
 
+        //string d'entrée
         std::string nomImageFond, texteTitre;
 
-        //prototypes de fonction
+        ///prototypes de fonction
+
+        //initialise les differentes polices utilisées
         void initPolices();
+        //initialise le titre affiché
         void initTitre();
+        //animation d'introduction
         void intro();
+        //fonction quitter , quitte la SDL et l'application
         void quitter();
+        //charge le menu dans le buffer, pret à etre flippé
         void chargerMenu();
+        //charge le titre dans le buffer, pret à etre flippé
         void chargerTitre();
 
     private:
