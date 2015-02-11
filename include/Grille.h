@@ -2,6 +2,7 @@
 #define GRILLE_H
 #include <stdio.h>
 #include <stdlib.h>
+#include <cstdint>
 #include <array>
 #include <vector>
 
