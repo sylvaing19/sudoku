@@ -1,0 +1,19 @@
+﻿La génération a démarré 11/02/2015 15:36:09.
+     1>Projet "D:\Documents\Git\sudoku\sudoku\sudoku\sudoku.vcxproj" sur le nœud 2 (Build cible(s)).
+     1>Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Documents\Git\sudoku\sudoku\Release\sudoku.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\Documents\Git\sudoku\SDL-1.2.15\lib\x86" /LIBPATH:"D:\Documents\Git\sudoku\SDL_ttf-2.0.11\lib\x86" /LIBPATH:"D:\Documents\Git\sudoku\SDL_image-1.2.12\lib\x86" SDL.lib SDLmain.lib SDL_ttf.lib SDL_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Documents\Git\sudoku\sudoku\Release\sudoku.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Documents\Git\sudoku\sudoku\Release\sudoku.lib" /MACHINE:X86 /SAFESEH Release\main.obj
+         Release\SDL_rotozoom.obj
+         Release\Bouton.obj
+         Release\Fenetre.obj
+         Release\FenetreMgr.obj
+         Release\Grille.obj
+         Release\GrilleGraphique.obj
+         Release\InterfaceGraphique.obj
+         Génération de code en cours
+         Fin de la génération du code
+         sudoku.vcxproj -> D:\Documents\Git\sudoku\sudoku\Release\sudoku.exe
+     1>Génération du projet "D:\Documents\Git\sudoku\sudoku\sudoku\sudoku.vcxproj" terminée (Build cible(s)).
+
+La génération a réussi.
+
+Temps écoulé 00:00:01.46

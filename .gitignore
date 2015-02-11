@@ -1,3 +1,7 @@
+#Fichier de configuration du git
+#Liste des fichier à ignorer lors du versionnement
+
+#Fichiers de CodeBlocks, gedit, emacs...
 *.[oa]
 *.html
 *~
@@ -5,3 +9,16 @@ bin/
 obj/
 sudoku.depend
 sudoku.layout
+
+
+#Fichiers de Visual Studio
+*.sdf
+*.suo
+*.exe
+*.ilk
+*.pdb
+*.filters
+*.user
+*.opensdf
+sudoku/sudoku/Debug
+sudoku/sudoku/Release
