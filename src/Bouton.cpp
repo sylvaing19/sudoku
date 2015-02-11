@@ -16,7 +16,7 @@ void Bouton::chargerBouton()
     //gestion du centre
     if(centreX.size()!=0)
     {
-        positionBouton.x+= (abs(imageBouton->w-tailleX)/2);
+        positionBouton.x= (abs(imageBouton->w-tailleX)/2);
     }
     if(centreY.size()!=0)
     {

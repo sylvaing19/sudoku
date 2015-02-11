@@ -30,6 +30,7 @@ int main ( int argc, char** argv )
     if(typeDeTest != MODE_GRAPHIQUE)//Permet de tester le code en console
     {
         Grille grille;
+
         grille.setLC(9,2,0);grille.setLC(9,3,1);
         grille.setLC(3,5,0);grille.setLC(5,4,1);
         grille.setLC(2,6,0);grille.setLC(6,6,1);
@@ -41,8 +42,7 @@ int main ( int argc, char** argv )
         grille.setLC(9,4,4);grille.setLC(6,8,5);grille.setLC(1,6,4);
         grille.setLC(3,7,4);grille.setLC(8,1,6);grille.setLC(6,2,7);
         grille.setLC(1,4,6);grille.setLC(7,4,7);grille.setLC(5,5,6);grille.setLC(9,5,7);
-        grille.setLC(9,6,6);grille.setLC(9,0,8);grille.setLC(3,2,8);
-        grille.setLC(2,3,8);grille.setLC(4,6,8);
+        grille.setLC(9,6,6);grille.setLC(9,0,8);grille.setLC(3,2,8);grille.setLC(2,3,8);grille.setLC(4,6,8);
 
         //Soluce :
         //781 643 259
@@ -78,166 +78,19 @@ int main ( int argc, char** argv )
     {
         if(testGraphique==MENU_PRINCIPAL) // permet de tester la classe bouton
         {
-            Bouton boutonMenu1;
-            Bouton boutonMenu2;
-            Bouton boutonQuitter;
             InterfaceGraphique menuPrincipal;
 
-            std::string menuACreer;//Constante permettant de savoir le prochain menu affiché
-
-            ///Partie Menu Principal
-
-            //affichage fond : le menu principal
-            menuPrincipal.nomImageFond="images/fond1.bmp";
-            menuPrincipal.chargerMenu();
-            SDL_Flip(menuPrincipal.fond);
-
-            //initialisations diverses
-            menuPrincipal.initPolices();
-            menuPrincipal.texteTitre="Sudoku-Solveur";
-
-            //affiche le titre et intro
-            menuPrincipal.initTitre();
-            menuPrincipal.intro();
-
-            ///Partie boutons
+            menuPrincipal.menuPrincipal();
+            if(menuPrincipal.menuACreer=="Resoudre")
             {
-                //attribution du fond
-                boutonMenu1.fond=menuPrincipal.fond;
-                boutonMenu2.fond=menuPrincipal.fond;
-                boutonQuitter.fond=menuPrincipal.fond;
-
-                //gestion du zoom, de la taille
-                boutonMenu1.zoomX=menuPrincipal.zoomX;
-                boutonMenu1.zoomY=menuPrincipal.zoomY;
-                boutonMenu2.zoomX=menuPrincipal.zoomX;
-                boutonMenu2.zoomY=menuPrincipal.zoomY;
-                boutonQuitter.zoomX=menuPrincipal.zoomX;
-                boutonQuitter.zoomY=menuPrincipal.zoomY;
-
-                boutonMenu1.tailleX=menuPrincipal.tailleX;
-                boutonMenu1.tailleY=menuPrincipal.tailleY;
-                boutonMenu2.tailleX=menuPrincipal.tailleX;
-                boutonMenu2.tailleY=menuPrincipal.tailleY;
-                boutonQuitter.tailleX=menuPrincipal.tailleX;
-                boutonQuitter.tailleY=menuPrincipal.tailleY;
-
-                //paramètres du bouton 1
-                {
-                    std::string a="images/BoutonMenu.bmp";
-                    boutonMenu1.nomImageBouton=a;
-                    a="polices/Cybernetica_Normal.ttf";
-                    boutonMenu1.nomPolice=a;
-                    a="Resolution";
-                    boutonMenu1.messageBouton=a;
-                    a="Resoudre";
-                    boutonMenu1.event=a;
-                    boutonMenu1.couleurTexteBouton={255, 0, 0};
-                    boutonMenu1.taillePolice=70*menuPrincipal.zoomX;
-                    boutonMenu1.centreX="oui";
-                    boutonMenu1.positionBouton.y+=(menuPrincipal.positionTitre.y+menuPrincipal.positionTitre.h
-                                                  +menuPrincipal.positionTitre.y+menuPrincipal.imageTitre->h)*menuPrincipal.zoomX;
-                }
-                boutonMenu1.chargerBouton();
-
-                //paramètres du bouton 2
-                {
-                    std::string a="images/BoutonMenu.bmp";
-                    boutonMenu2.nomImageBouton=a;
-                    a="polices/Cybernetica_Normal.ttf";
-                    boutonMenu2.nomPolice=a;
-                    a="Photo-Doku";
-                    boutonMenu2.messageBouton=a;
-                    a="Photodoku";
-                    boutonMenu1.messageBouton=a;
-                    boutonMenu2.couleurTexteBouton={255, 0, 0};
-                    boutonMenu2.taillePolice=70*menuPrincipal.zoomX;
-                    boutonMenu2.centreX="oui";
-                    boutonMenu2.positionBouton.y+=(boutonMenu1.positionBouton.y+(boutonMenu1.imageBouton->h)*3/2);
-                }
-                boutonMenu2.chargerBouton();
-
-                //paramètres du bouton quitter
-                {
-                    std::string a="Quitter";
-                    boutonMenu1.messageBouton=a;
-                    boutonQuitter.positionBouton.x=(menuPrincipal.tailleX-65*menuPrincipal.zoomX);
-                    boutonQuitter.positionBouton.y=15*menuPrincipal.zoomY;
-                    a="images/arret.bmp";
-                    boutonQuitter.nomImageBouton=a;
-                    a="Quitter";
-                    boutonQuitter.event=a;
-                }
-                boutonQuitter.chargerBouton();
-
-                SDL_Flip(boutonMenu1.fond);//Les boutons sont alors apparus.
-
-                ///gestion des events :
-                while(menuPrincipal.continuerEvent)
-                {
-                     SDL_WaitEvent(&menuPrincipal.event);
-                        switch(menuPrincipal.event.type)
-                        {
-                            case SDL_KEYDOWN:  //Gestion clavier
-                                switch(menuPrincipal.event.key.keysym.sym)
-                                {
-                                    case SDLK_ESCAPE: //Appuyer sur echap : quitte
-                                        menuPrincipal.quitter();
-                                        break;
-                                    default:
-                                        ;
-                                }
-                                break;
-                            case SDL_MOUSEBUTTONDOWN: //Gestion souris
-                                switch (menuPrincipal.event.button.button)
-                                {
-                                    case SDL_BUTTON_LEFT :
-                                            //clic gauche souris
-                                            if(boutonQuitter.estClique(menuPrincipal.event))
-                                            {
-                                                if(boutonQuitter.event=="Quitter")
-                                                    menuPrincipal.quitter();
-                                                else if(boutonQuitter.event=="Resoudre")
-                                                {
-                                                    menuACreer="Resoudre";
-                                                    menuPrincipal.continuerEvent=false;
-                                                }
-                                            }
-
-                                            //clic sur le menu 1
-                                            else if(boutonMenu1.estClique(menuPrincipal.event))
-                                            {
-                                               if(boutonMenu1.event=="Quitter")
-                                                    menuPrincipal.quitter();
-                                                else if(boutonMenu1.event=="Resoudre")
-                                                {
-                                                    menuACreer="Resoudre";
-                                                    menuPrincipal.continuerEvent=false;
-                                                }
-                                            }
-
-                                            //clic sur le menu 2
-                                            else if(boutonMenu2.estClique(menuPrincipal.event))
-                                            {
-                                               if(boutonMenu2.event=="Quitter")
-                                                    menuPrincipal.quitter();
-                                                else if(boutonMenu2.event=="Resoudre")
-                                                {
-                                                    menuACreer="Resoudre";
-                                                    menuPrincipal.continuerEvent=false;
-                                                }
-                                            }
-                                        break;
-                                    default:
-                                        ;
-                                }
-                                break;
-                            default:
-                                ;
-                        }
-                }
+                ;
+            }
+            if(menuPrincipal.menuACreer=="Photo-Doku")
+            {
+                ;
             }
 
+/*
             ///Partie creation des menus
             if(menuACreer=="Resoudre")
             {
@@ -652,7 +505,7 @@ int main ( int argc, char** argv )
                 }
             }
 
-       //TODO faire la partie "manuelle"
+       //TODO faire la partie "manuelle"*/
 
         }
     }
