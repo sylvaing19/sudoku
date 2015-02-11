@@ -25,6 +25,12 @@ InterfaceGraphique::InterfaceGraphique()
     SDL_WM_SetCaption("SuDoKu-Solver", NULL);
     TTF_Init();
     fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_FULLSCREEN); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
+
+	couleurN = { 0, 0, 0 };
+	couleurB = { 0, 0, 255 };
+	couleurV = { 0, 255, 0 };
+	couleurR = { 255, 0, 0 };
+	couleurGri = { 200, 240, 255 };
 }
 
 //polices avec leurs tailles

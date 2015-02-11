@@ -32,11 +32,11 @@ class GrilleGraphique
         TTF_Font *policeSudoku=NULL;
 
         //diffferentes couleurs en RGB
-        SDL_Color  couleurN = {0, 0, 0};
-        SDL_Color  couleurB = {0, 0, 255};
-        SDL_Color  couleurV = {0, 255, 0};
-        SDL_Color  couleurR = {255, 0, 0};
-        SDL_Color  couleurGri = {200, 240, 255};
+        SDL_Color  couleurN;
+        SDL_Color  couleurB;
+        SDL_Color  couleurV;
+        SDL_Color  couleurR;
+        SDL_Color  couleurGri;
 
         ///La grille en elle meme : on la charge arès les algorithmes, cette classe ne fais qu'afficher  / gerer les clics
         Grille grille;

@@ -39,11 +39,11 @@ class InterfaceGraphique
         SDL_Event event;
 
         ///diffferentes couleurs en RGB
-        SDL_Color  couleurN = {0, 0, 0};
-        SDL_Color  couleurB = {0, 0, 255};
-        SDL_Color  couleurV = {0, 255, 0};
-        SDL_Color  couleurR = {255, 0, 0};
-        SDL_Color  couleurGri = {200, 240, 255};
+        SDL_Color  couleurN;
+        SDL_Color  couleurB;
+        SDL_Color  couleurV;
+        SDL_Color  couleurR;
+        SDL_Color  couleurGri;
 
         ///booleens pour quitter l'appli
         bool continuerEvent;

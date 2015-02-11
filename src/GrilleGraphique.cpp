@@ -7,6 +7,12 @@ GrilleGraphique::GrilleGraphique()
     taillePolice=30;
     std::string nomPolice="polices/Cybernetica_Normal.ttf";
     policeSudoku=TTF_OpenFont(nomPolice.c_str(), taillePolice);
+
+	couleurN = { 0, 0, 0 };
+	couleurB = { 0, 0, 255 };
+	couleurV = { 0, 255, 0 };
+	couleurR = { 255, 0, 0 };
+	couleurGri = { 200, 240, 255 };
 }
 
 void GrilleGraphique::afficherGrilleGraph()
