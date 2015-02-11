@@ -12,13 +12,13 @@ sudoku.layout
 
 
 #Fichiers de Visual Studio
-*.sdf
-*.suo
-*.exe
-*.ilk
-*.pdb
-*.filters
-*.user
-*.opensdf
-sudoku/sudoku/Debug
-sudoku/sudoku/Release
+**/*.sdf
+**/*.suo
+**/*.exe
+**/*.ilk
+**/*.pdb
+**/*.filters
+**/*.user
+**/*.opensdf
+sudoku/sudoku/Debug/
+sudoku/sudoku/Release/
