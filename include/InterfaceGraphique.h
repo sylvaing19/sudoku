@@ -4,12 +4,10 @@
 #include <SDL_ttf.h>
 #include <SDL_image.h>
 #include <SDL_getenv.h>
-#include <SDL_video.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <SDL_rotozoom.h>
 #include <string>
-
 
 
 class InterfaceGraphique
@@ -22,23 +20,24 @@ class InterfaceGraphique
         SDL_Rect positionTitre, positionBoutonQuitter,positionFond,positionAuRevoir;
         SDL_Rect positionMenu1,positionMenu2,positionMenu3;
         SDL_Rect positionTexteMenu1, positionTexteMenu2, positionTexteMenu3;
+        SDL_Rect positionSudoku;
 
         //Recupere les données d'affichage
         const SDL_VideoInfo* info;
 
         //initialisation des surfaces (images)
-        SDL_Surface *imageFond = NULL, *arret = NULL, *fond = NULL, *rotation = NULL, *texteTitre = NULL;
-        SDL_Surface *boutonMenu1=NULL, *boutonMenu2=NULL, *boutonMenu3=NULL, *texteMenu1=NULL, *texteMenu2=NULL, *texteMenu3=NULL;
-        SDL_Surface *textePret=NULL, *textePretAussi=NULL,*texteAdieu=NULL;
+        SDL_Surface *imageFond = NULL, *fond = NULL, *rotation = NULL, *titre = NULL;
+        SDL_Surface *textePret=NULL, *textePretAussi=NULL,*texteAdieu=NULL,*imageTitre;
+
 
         //initialisation des polices
-        TTF_Font *policeTitre= NULL, *policeMenu = NULL, *policeAuRevoir=NULL;
+        TTF_Font *policeTitre= NULL,*policeAuRevoir=NULL, *policeSudoku=NULL;
 
         //creation des evenements
         SDL_Event event;
 
         //diffferentes couleurs en RGB
-        SDL_Color  couleurN = {255, 255, 255};
+        SDL_Color  couleurN = {0, 0, 0};
         SDL_Color  couleurB = {0, 0, 255};
         SDL_Color  couleurV = {0, 255, 0};
         SDL_Color  couleurR = {255, 0, 0};
@@ -48,34 +47,34 @@ class InterfaceGraphique
         bool continuerEvent;
         bool quitterAppli;
 
+        //liste des boutons apppartenant à ce menu
+
         //taille des boutons / images
         int tailleX;
         int tailleY;
-        int tailleXArret;
-        int tailleYArret;
         int tailleXMenu;
         int tailleYMenu;
 
         //zoom : gestion des differences de reslotion et taille d'ecran
         double zoomX,zoomY;
 
-        std::string nomImageFond;
+        //string d'entrée
+        std::string nomImageFond, texteTitre;
 
-        //prototypes de fonction
-        void initPositions();
+        ///prototypes de fonction
+
+        //initialise les differentes polices utilisées
         void initPolices();
-        void initTout();
-        void afficherFixe();
-        void initImages();
+        //initialise le titre affiché
+        void initTitre();
+        //animation d'introduction
         void intro();
-        void menu();
-        void afficherBoutons();
+        //fonction quitter , quitte la SDL et l'application
         void quitter();
+        //charge le menu dans le buffer, pret à etre flippé
         void chargerMenu();
+        //charge le titre dans le buffer, pret à etre flippé
         void chargerTitre();
-        void initTextes();
-
-
 
     private:
 

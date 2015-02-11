@@ -128,7 +128,8 @@ bool Grille::completer()
     if(!Grille::estResolu())
     {
         int8_t ligne, colonne;
-        /*Il suffit d'explorer les hypothèses d'une seule case pour toujours résoudre la
+        /*
+        Il suffit d'explorer les hypothèses d'une seule case pour toujours résoudre la
         grille, on choisit donc celle ayant le moins de possibilitées.
         */
         unsigned int nbHyp = Grille::minGrille(ligne, colonne);

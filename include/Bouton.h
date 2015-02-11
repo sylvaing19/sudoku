@@ -30,16 +30,12 @@ class Bouton
         //taille de la police
         int taillePolice;
 
-        //Prototypes
-        void chargerBouton();
-
         //position des objets
-        SDL_Rect positionBouton;//position
         SDL_Rect positionFond;// position du fond : 0,0
+        SDL_Rect positionBouton;
 
         //images
         SDL_Surface* fond=NULL; //image du fond : rien
-        SDL_Surface* menu=NULL; //image du menu principal
         SDL_Surface* imageBouton=NULL; //image des boutons principaux
         SDL_Surface* texteBouton=NULL; //texte qu'il y a sur les boutons
 
@@ -47,8 +43,16 @@ class Bouton
         TTF_Font *policeBouton=NULL; //POlice sur les boutons principaux
 
         //Noms à entrer
-        std::string nomImageFond, nomImageBouton , nomPolice, messageBouton;
+        std::string nomImageFond, nomImageBouton , nomPolice, messageBouton,event;
         SDL_Color couleurTexteBouton;
+
+        ///Prototypes de fonctions
+
+        // charge le bouton dans le buffer, pret à flipper
+        void chargerBouton();
+        // renvoie un booleen : vrai si le bouton est cliqué, faux sinon
+        bool estClique(SDL_Event event);
+
 
    private:
         SDL_Rect positionTexte;// position du texte sur les boutons
