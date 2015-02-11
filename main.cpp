@@ -7,8 +7,6 @@
 #include <iostream>
 #include "Grille.h"
 #include "InterfaceGraphique.h"
-#include "Bouton.h"
-#include "GrilleGraphique.h"
 
 using namespace std;
 
@@ -19,7 +17,6 @@ enum TestGraph
 {RESOLUTION,MENU_PRINCIPAL};
 
 TypeDeTest typeDeTest = MODE_GRAPHIQUE;/// Permet de choisir le type de test à effectuer
-
 TestGraph testGraphique = MENU_PRINCIPAL; /// Permet de choisir le type  de test graphique
 
 /********************************************************************************************************/
@@ -56,7 +53,6 @@ int main ( int argc, char** argv )
         //263 715 984
         //578 934 621
         //149 286 735
-
         ///FIXME T_T ou save me plutot
 
         grille.afficherConsole();
@@ -79,48 +75,14 @@ int main ( int argc, char** argv )
         if(testGraphique==MENU_PRINCIPAL) // permet de tester la classe bouton
         {
             InterfaceGraphique menuPrincipal;
-
             menuPrincipal.menuPrincipal();
-            if(menuPrincipal.menuACreer=="Resoudre")
-            {
-                ;
-            }
-            if(menuPrincipal.menuACreer=="Photo-Doku")
-            {
-                ;
-            }
 
-/*
-            ///Partie creation des menus
-            if(menuACreer=="Resoudre")
+            if(menuPrincipal.menuACreer=="Resoudre") ///Bienvenue dans l'arbre graphique !
             {
-                bool sudokuApparaitAleatoire=false,sudokuAResoudre=false,sudokuVide;
                 InterfaceGraphique menuResoudre;
-                Bouton boutonAleatoire;
-                Bouton boutonManuel;
+                menuResoudre.menuResoudre();
 
-                menuResoudre.nomImageFond="images/fond2.bmp";
-                menuResoudre.chargerMenu();
-
-                //initialisations diverses
-                menuResoudre.initPolices();
-                menuResoudre.texteTitre="Resolution de Sudoku";
-
-                SDL_Flip(menuResoudre.fond);
-
-                boutonAleatoire.fond=menuResoudre.fond;
-                boutonAleatoire.zoomX=menuResoudre.zoomX;
-                boutonAleatoire.zoomY=menuResoudre.zoomY;
-                boutonAleatoire.tailleX=menuResoudre.tailleX;
-                boutonAleatoire.tailleY=menuResoudre.tailleY;
-
-                boutonManuel.fond=menuResoudre.fond;
-                boutonManuel.zoomX=menuResoudre.zoomX;
-                boutonManuel.zoomY=menuResoudre.zoomY;
-                boutonManuel.tailleX=menuResoudre.tailleX;
-                boutonManuel.tailleY=menuResoudre.tailleY;
-
-                //paramètres du bouton aleatoire
+                if( menuResoudre.menuACreer=="Aleatoire")
                 {
                     std::string a="images/BoutonSudoku.bmp";
                     boutonAleatoire.nomImageBouton=a;
@@ -410,37 +372,22 @@ int main ( int argc, char** argv )
                             default:
                                 ;
                         }
-                    }
-
-
-                    if(menuACreer=="Resoudre")
+                    menuResoudre.grilleAleatoire();
+                    if(menuResoudre.menuACreer=="Resoudre")
+                        menuResoudre.resoudre();
+                    if(menuResoudre.menuACreer=="Indice")
                     {
-                        //Resolution
-                        grille.completer();
-
-                        //On enleve la precedente
-                        menuResoudre.chargerMenu();
-                        SDL_Flip(menuResoudre.fond);
-
-                        //definition de la grille utilisée en mode graphique
-                        GrilleGraphique grilleGraphiqueResolue;
-
-                        //initialisations diverses
-                        grilleGraphiqueResolue.fond=menuResoudre.fond;
-                        grilleGraphiqueResolue.zoomX=menuResoudre.zoomX;
-                        grilleGraphiqueResolue.zoomY=menuResoudre.zoomY;
-                        grilleGraphiqueResolue.tailleX=menuResoudre.tailleX;
-                        grilleGraphiqueResolue.tailleY=menuResoudre.tailleY;
-
-                        grilleGraphiqueResolue.grille=grille;
-                        grilleGraphiqueResolue.grille.afficherConsole(); //affichage dans la console, pour le debug
-
-                        grilleGraphiqueResolue.afficherGrilleGraph();
-                        SDL_Flip(menuResoudre.fond);
-                        SDL_Delay(2500);//laisse letemps pour voir la grille
+                        ;
                     }
-
-                    if(menuACreer=="Manuel")
+                }
+                if(menuResoudre.menuACreer=="Manuel")
+                {
+                    menuResoudre.grilleVide();
+                    if(menuResoudre.menuACreer=="Resoudre")
+                    {
+                        ;
+                    }
+                    if(menuResoudre.menuACreer=="Indice")
                     {
                         menuResoudre.continuerEvent=true;
                         int valeurChangee=0;// initialisation de la valeur : si reste à 0, n'a pas été touchée par l'user
@@ -500,13 +447,17 @@ int main ( int argc, char** argv )
 
                         }
                         //sortie du while; traitement de la valeur
-
                     }
                 }
+                if(menuResoudre.menuACreer=="MenuPrincipal")
+                {
+                    ;
+                }
             }
-
-       //TODO faire la partie "manuelle"*/
-
+            if(menuPrincipal.menuACreer=="Photo-Doku")
+            {
+                ;
+            }
         }
     }
   return EXIT_SUCCESS;
