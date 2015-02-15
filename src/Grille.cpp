@@ -107,13 +107,33 @@ bool Grille::placerSingletons()
 
 bool Grille::completer()
 {
-    array<int8_t,81> data_backup = data;//permet de restaurer les données initiales en cas d'échec de la résolution
+	/*
+	Création d'un point de restauration des données initiales en cas d'échec de la résolution
+	*/
+	array<int8_t, 81> data_backup = data;
+	array<array<vector<int8_t>, 9>, 9> grille_backup = grille;
 
-    do//méthode de résolution par simple élimination des valeurs impossibles.
+	/*
+	Résolution par simple élimination des valeurs impossibles
+	*/
+    do
     {
         Grille::remplirGrille();
     }
     while(Grille::placerSingletons());//fin de la résolution par élimination
+
+	/*
+	Pour une grille non faisable, il est possible que la méthode par élimination aboutisse
+	à une grille fausse, on vérifie donc cette éventualité.
+	*/
+	if (!this->estCorrecte())
+	{//On restaure la grille initiale
+		data = data_backup;
+		grille = grille_backup;
+		return false;//On indique que la grille était infaisable
+	}
+
+
     /*
     Les grilles difficiles ne peuvent pas être intégralement résolues par élimination,
     à ce stade de l'algorithme elles sont seulement partiellement résolues. On vérifie
@@ -125,40 +145,27 @@ bool Grille::completer()
     ou non. La garantie de non modification de la grille en cas d'échec de résolution par
     la méthode compléter() est fondamentale ici.
     */
-    if(!Grille::estResolu())
+    if(!this->estComplete())
     {
         int8_t ligne, colonne;
         /*
         Il suffit d'explorer les hypothèses d'une seule case pour toujours résoudre la
         grille, on choisit donc celle ayant le moins de possibilitées.
         */
-        unsigned int nbHyp = Grille::minGrille(ligne, colonne);
-        Grille uneHypothese;//Nouvelle grille qui servira à tester les hypothèses
-        for(int l=0; l<9; l++)//On rend cette grille identique à notre grille actuelle
-        {
-            for(int c=0; c<9; c++)
-            {
-                uneHypothese.setLC(Grille::getLC(l,c),l,c);
-            }
-        }
+        unsigned int nbHyp = this->minGrille(ligne, colonne);
+        
         for(unsigned int i=0; i<nbHyp; i++)//On teste successivement chacune des hypothèses
         {
-            uneHypothese.setLC(Grille::grille[ligne][colonne][i], ligne, colonne);
-            if(uneHypothese.completer())//Si cette hypothèse était la bonne
-            {
-                for(int l=0; l<9; l++)//On recopie la grille hypothétique dans la grille réelle
-                {
-                    for(int c=0; c<9; c++)
-                    {
-                        Grille::setLC(uneHypothese.getLC(l,c),l,c);
-                    }
-                }
-                return true;
-            }
+			this->setLC(this->grille[ligne][colonne][i], ligne, colonne);
+			if (this->completer())
+				return true;
             //Si cette hypothèse était mauvaise, on passe à la suivante
         }
-        //Si on arrive à cet endroit, c'est qu'aucune hypothèse n'était valide, la grille n'est donc pas soluble.
-        data = data_backup;//On restaure la grille initiale
+        //Si on arrive à cet endroit, c'est qu'aucune hypothèse n'était valide, la grille n'est donc pas solvable.
+
+		//On restaure la grille initiale
+        data = data_backup;
+		grille = grille_backup;
         return false;//On indique l'échec de la résolution
     }
     else
@@ -167,7 +174,7 @@ bool Grille::completer()
     }
 }
 
-bool Grille::estResolu()
+bool Grille::estComplete()
 {
     for(int i=0; i<81; i++)
     {
@@ -180,6 +187,8 @@ bool Grille::estResolu()
 unsigned int Grille::minGrille(int8_t& ligne, int8_t& colonne)
 {
     unsigned int tailleMin = grille[0][0].size();
+	ligne = 0;
+	colonne = 0;
 
     for(int l=0; l<9; l++)
     {
@@ -194,4 +203,18 @@ unsigned int Grille::minGrille(int8_t& ligne, int8_t& colonne)
         }
     }
     return tailleMin;
+}
+
+bool Grille::estCorrecte()
+{
+	for (int ligne = 0; ligne < 9; ligne++)
+	{
+		for (int colonne = 0; colonne < 9; colonne++)
+		{
+			int8_t valeur = this->getLC(ligne, colonne);
+			if (valeur != 0 && !this->estPlacable(valeur, ligne, colonne))
+				return false;
+		}
+	}
+	return true;
 }

@@ -18,7 +18,7 @@ enum TypeDeTest
 enum TestGraph
 {RESOLUTION,MENU_PRINCIPAL};
 
-TypeDeTest typeDeTest = MODE_GRAPHIQUE;/// Permet de choisir le type de test à effectuer
+TypeDeTest typeDeTest = MODE_CONSOLE;/// Permet de choisir le type de test à effectuer
 
 TestGraph testGraphique = MENU_PRINCIPAL; /// Permet de choisir le type  de test graphique
 
@@ -30,7 +30,7 @@ int main ( int argc, char** argv )
     if(typeDeTest != MODE_GRAPHIQUE)//Permet de tester le code en console
     {
         Grille grille;
-
+		
         grille.setLC(9,2,0);grille.setLC(9,3,1);
         grille.setLC(3,5,0);grille.setLC(5,4,1);
         grille.setLC(2,6,0);grille.setLC(6,6,1);
@@ -56,8 +56,6 @@ int main ( int argc, char** argv )
         //263 715 984
         //578 934 621
         //149 286 735
-
-        ///FIXME T_T ou save me plutot
 
         grille.afficherConsole();
         if(grille.completer())
