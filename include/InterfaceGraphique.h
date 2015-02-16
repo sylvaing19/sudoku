@@ -1,15 +1,19 @@
 #ifndef INTERFACEGRAPHIQUE_H
 #define INTERFACEGRAPHIQUE_H
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <string>
+
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <SDL_image.h>
 #include <SDL_getenv.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include <SDL_rotozoom.h>
-#include <string>
-#include "Bouton.h"
 
+#include "Bouton.h"
+#include "Grille.h"
+#include "GrilleGraphique.h"
 
 
 class InterfaceGraphique
@@ -65,6 +69,8 @@ class InterfaceGraphique
         ///Constante permettant de savoir le prochain menu affiché
         std::string menuACreer;
 
+        /// booleens divers
+        bool sudokuApparaitAleatoire=false, sudokuAResoudre=false, sudokuVide;
 
 
         ///prototypes de fonction
@@ -75,9 +81,16 @@ class InterfaceGraphique
         void initTitre();
         ///initialise les boutons  du menu Principal
         void initBoutonsMenuPrincipal();
+        ///initialise les boutons  du menu resoudre
+        void initBoutonsMenuResoudre();
+        void initFondZoomTailleBouton(Bouton & bouton);
+        void initFondZoomTailleGrilleGraph(GrilleGraphique & grilleGraphique);
 
-        ///initialise l'interface : menu principal, et effectue tout ce qui le concerne
+        ///initialise le menu principal, et effectue tout ce qui le concerne
         void menuPrincipal();
+
+        /// initialise le menu resoudre, effectue tout ce qui le concerne
+        void menuResoudre();
 
         ///animation d'introduction
         void intro();
@@ -85,15 +98,28 @@ class InterfaceGraphique
         ///fonction quitter , quitte la SDL et l'application
         void quitter();
 
-        ///charge le menu dans le buffer, pret à etre affiché
-        void chargerFondMenuPrincipal();
+        ///initialise et charge le menu dans le buffer, pret à etre affiché
+        void chargerFond();
         ///charge le titre dans le buffer, pret à etre affiché
         void chargerTitre();
         ///charge les boutons du menu Principal
         void chargerBoutonsMenuPrincipal();
 
-        ///fonction gerant les evenements du menu Prrincipal : clics, touches...
+        ///fonction gerant les evenements du menu Principal : clics, touches...
         void eventMenuPrincipal();
+        ///fonction gerant les evenements du menu Resoudre : clics, touches...
+        void eventMenuResoudre();
+            void eventMenuResoudreAleatoire();
+            void eventMenuResoudreVideManuelle();
+                void eventMenuResoudreGrilleVide();
+
+
+        ///fait apparaitre une grille aleatoire
+        void grilleAleatoire();
+        ///fait apparaitre une grille vide à remplir
+        void grilleVide();
+        ///resoud la grille et l'affiche
+        void resoudre();
 
     private:
         //les differents boutons, cliquables ou non, avec action ou non, utilisés
@@ -105,6 +131,18 @@ class InterfaceGraphique
         ///bouton quitter, commun à tous les menus
         Bouton boutonQuitter;
 
+        /// boutons pour le menu Resolution
+        Bouton boutonAleatoire;
+        Bouton boutonManuel;
+
+        //les grilles, vides ou non
+
+        ///Grille algorithmique
+        Grille grille;
+
+        ///grille utilisée par la partie graphique
+        GrilleGraphique grilleGraphiqueAleatoire;
+        GrilleGraphique grilleGraphiqueResolue;
 };
 
 #endif // INTERFACEGRAPHIQUE_H
