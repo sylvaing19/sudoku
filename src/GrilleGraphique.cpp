@@ -17,53 +17,78 @@ GrilleGraphique::GrilleGraphique()
 
 void GrilleGraphique::afficherGrilleGraph()
 {
-    std::string tableauCases[20];//tableau contenant les valeurs de chaque ligne (taille : 9 ligne + 2 traits)
-    SDL_Surface *imageNombres[20]; // pareil mais pour les images
+	imageSudokuVierge = SDL_LoadBMP("images/SudokuVierge.bmp");
+	if (imageSudokuVierge == NULL)
+	{
+		printf("Probleme avec %s", imageSudokuVierge);
+		SDL_Quit();
+	}
 
-    //affectation de la grille à des images sous forme de tableau :
-    // 1 ligne = 1 case
+	//Position du sudoku : centré en x, et en y qu'on affiche
+	positionSudokuVierge.x = (tailleX - (imageSudokuVierge->w)) / 2 *zoomX;
+	positionSudokuVierge.y = (tailleY - (imageSudokuVierge->h)) / 2 *zoomY;
+	SDL_BlitSurface(imageSudokuVierge, NULL, fond, &positionSudokuVierge);
+	SDL_Flip(fond);
+
+	// Sauvegarde des positions
+	int posX = positionSudokuVierge.x + (58 - 47) / 2 * zoomX;
+	int posY = positionSudokuVierge.y + (58 - 47) / 2 * zoomY;
+
+	//affectation des valeurs dans les cases
     int line=0;
     for(int ligne=0; ligne<9; ligne++)
     {
-        for(int colonne=0; colonne<9; colonne++)
-        {
-            int8_t val = grille.getLC(ligne, colonne);
-            if(val>0 && val<=9)
-            {
-                tableauCases[line]+=" ";
-                tableauCases[line]+=std::to_string(val);
-                tableauCases[line]+=" ";
-            }
-            else
-            {
-                tableauCases[line]+=" ";
-                tableauCases[line]+="_";
-                tableauCases[line]+=" ";
-            }
-            if(colonne == 2 || colonne == 5)
-            {
-                tableauCases[line]+=" ";
-                tableauCases[line]+="|";
-                tableauCases[line]+=" ";
-            }
-        }
-        line++;
-        if(ligne == 2 || ligne == 5)
-        {
-            tableauCases[line]+=" ///////////////////////////// ";
-        }
-        line++;
+		for (int colonne = 0; colonne<9; colonne++)
+		{
+			int8_t val = grille.getLC(ligne, colonne);
+			if (val>0 && val <= 9)
+			{//On prend la valeur
+				sudokuBouton[ligne][colonne] = creerBouton(val);
+			}
+			else
+			{// La valeur n'existe pas encore
+				sudokuBouton[ligne][colonne] = creerBouton(0);
+			}
+
+			// On donne les positions des boutons
+			sudokuBouton[ligne][colonne].positionBouton.x = (posX + (58 - 47) / 2)* zoomX;
+			sudokuBouton[ligne][colonne].positionBouton.y = (posY + (58 - 47) / 2)* zoomY;
+			
+			// On avance vers le prochain bouton
+			posX += 59 * zoomX;
+
+			//On charge le bouton
+			sudokuBouton[ligne][colonne].chargerBouton();
+			SDL_Flip(fond);
+		}
+
+		//on change de ligne
+		posX = (positionSudokuVierge.x + (58 - 47) / 2 ) * zoomX;
+		posY += 59 * zoomY;
     }
+}
 
-    positionSudoku.x=(tailleX-350*zoomX)/2;
-    positionSudoku.y=(tailleY-400*zoomY)/2;
+Bouton GrilleGraphique::creerBouton(int v)
+{
+	Bouton bouton;
+	std::string strTemp = "images/boutonValeurSudoku.bmp"; // string temporaire
+	bouton.nomImageBouton = strTemp;
+	strTemp = "polices/Cybernetica_Normal.ttf";
+	bouton.nomPolice = strTemp;
+	if (v == 0)
+		strTemp = " ";
+	else
+		strTemp = std::to_string(v);
+	bouton.messageBouton = strTemp;
+	bouton.couleurTexteBouton = { 255, 0, 0 };
+	bouton.taillePolice = 20 * zoomX;
 
-    //affichage de la grille, ligne par ligne
-    for(int ligne=0; ligne<20; ligne++)
-    {
-        imageNombres[ligne] = TTF_RenderText_Blended(policeSudoku, tableauCases[ligne].c_str(),{0,0,0} );
-        SDL_BlitSurface(imageNombres[ligne], NULL, fond, &positionSudoku);
-        positionSudoku.y+=30;
-    }
+	//On attribue ttout ce qu'il faut au nouveau bouton : fonds, zooms...
+	bouton.fond = fond;
+	bouton.zoomX = zoomX;
+	bouton.zoomY = zoomY;
+	bouton.tailleX = tailleX;
+	bouton.tailleY = tailleY;
 
+	return bouton;
 }

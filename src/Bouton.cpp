@@ -10,6 +10,11 @@ Bouton::Bouton()
 void Bouton::chargerBouton()
 {
     imageBouton=SDL_LoadBMP(nomImageBouton.c_str()); //zoom a faire
+	if (imageBouton == NULL)
+	{
+		printf("Probleme avec %s", imageBouton);
+		SDL_Quit();
+	}
     SDL_SetColorKey(imageBouton, SDL_SRCCOLORKEY, SDL_MapRGB(imageBouton->format, 255, 255, 255)); // met le blanc en transparent pour le bouton
     imageBouton = zoomSurface(imageBouton, zoomX, zoomY, 0);
 
@@ -25,7 +30,7 @@ void Bouton::chargerBouton()
 
     SDL_BlitSurface(imageBouton, NULL, fond, &positionBouton);
 
-    if(nomPolice.size()!=0)
+	if (nomPolice.size() != 0)
     {
         //chargement du texte et police
         policeBouton = TTF_OpenFont(nomPolice.c_str(), taillePolice);

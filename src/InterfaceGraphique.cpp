@@ -24,7 +24,7 @@ InterfaceGraphique::InterfaceGraphique()
     //titre de la fenetre, initialisation de TTF, creation de la fenetre de fond
     SDL_WM_SetCaption("SuDoKu-Solver", NULL);
     TTF_Init();
-    fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_FULLSCREEN); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
+    fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
 
 	couleurN = { 0, 0, 0 };
 	couleurB = { 0, 0, 255 };
@@ -50,6 +50,12 @@ void InterfaceGraphique::chargerTitre()
 void InterfaceGraphique::chargerFond()
 {
     imageFond = SDL_LoadBMP(nomImageFond.c_str());
+	if (imageFond == NULL)
+	{
+		printf("Probleme avec %s", imageFond);
+		SDL_Quit();
+	}
+
     positionFond.x=0,positionFond.y=0;
     SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
 }
@@ -70,13 +76,13 @@ void InterfaceGraphique::intro()
     int i;
     int a=positionTitre.y;
     //animation, titre qui descend
-    for(i=-50;i<=a;i++)
+    for(i=0;i<=a;i++)
     {
         //TODO : probleme de latence ici
         positionTitre.y=i;
+		SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
+		SDL_BlitSurface(imageTitre, NULL, fond, &positionTitre);
         SDL_Flip(fond);
-        SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
-        SDL_BlitSurface(imageTitre, NULL, fond, &positionTitre);
     }
     SDL_BlitSurface(imageTitre, NULL, fond, &positionTitre);
 }
@@ -513,7 +519,6 @@ void InterfaceGraphique::grilleAleatoire()
 
 void InterfaceGraphique::grilleVide()
 {
-
     //TODO faire apparaitre une grille vide puis appeler eventMenuResoudreGrilleVide
     continuerEvent=true;
     int valeurChangee=0;// initialisation de la valeur : si reste à 0, n'a pas été touchée par l'user

@@ -33,7 +33,7 @@ class InterfaceGraphique
 
         ///initialisation des surfaces (images)
         SDL_Surface *imageFond = NULL, *fond = NULL, *rotation = NULL, *titre = NULL;
-        SDL_Surface *textePret=NULL, *textePretAussi=NULL,*texteAdieu=NULL,*imageTitre;
+        SDL_Surface *textePret=NULL, *textePretAussi=NULL,*texteAdieu=NULL,*imageTitre=NULL;
 
 
         ///initialisation des polices
