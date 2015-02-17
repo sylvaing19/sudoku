@@ -17,7 +17,7 @@ enum TestGraph
 {RESOLUTION,MENU_PRINCIPAL};
 
 
-TypeDeTest typeDeTest = MODE_GRAPHIQUE;/// Permet de choisir le type de test à effectuer
+TypeDeTest typeDeTest = MODE_CONSOLE;/// Permet de choisir le type de test à effectuer
 
 TestGraph testGraphique = MENU_PRINCIPAL; /// Permet de choisir le type  de test graphique
 
@@ -29,7 +29,7 @@ int main ( int argc, char** argv )
     if(typeDeTest != MODE_GRAPHIQUE)//Permet de tester le code en console
     {
         Grille grille;
-
+		/*
         grille.setLC(9,2,0);grille.setLC(9,3,1);
         grille.setLC(3,5,0);grille.setLC(5,4,1);
         grille.setLC(2,6,0);grille.setLC(6,6,1);
@@ -42,7 +42,7 @@ int main ( int argc, char** argv )
         grille.setLC(3,7,4);grille.setLC(8,1,6);grille.setLC(6,2,7);
         grille.setLC(1,4,6);grille.setLC(7,4,7);grille.setLC(5,5,6);grille.setLC(9,5,7);
         grille.setLC(9,6,6);grille.setLC(9,0,8);grille.setLC(3,2,8);grille.setLC(2,3,8);grille.setLC(4,6,8);
-
+		*/
         //Soluce :
         //781 643 259
         //634 529 817
@@ -55,9 +55,9 @@ int main ( int argc, char** argv )
         //263 715 984
         //578 934 621
         //149 286 735
-
+		/*
         grille.afficherConsole();
-        if(grille.completer())
+        if(grille.completerRand())
         {
             printf("Grille résolue :\n");
             grille.afficherConsole();
@@ -67,6 +67,17 @@ int main ( int argc, char** argv )
             printf("Grille non résolue\n");
             grille.afficherConsole();
         }
+		*/
+		
+		int beaucoup = 20;
+		for (int i = 0; i < beaucoup; i++)
+		{
+			grille.vider();
+			grille.completerRand();
+			grille.afficherConsole();
+		}
+
+
     }
 
 /********************************************************************************************************/

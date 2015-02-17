@@ -5,6 +5,19 @@ using namespace std;
 Grille::Grille()
 {
     data.fill(0);
+	srand(time(NULL));
+}
+
+void Grille::vider()
+{
+	data.fill(0);
+	for (int ligne = 0; ligne < 9; ligne++)
+	{
+		for (int colonne = 0; colonne < 9; colonne++)
+		{
+			grille[ligne][colonne].clear();
+		}
+	}
 }
 
 int8_t Grille::getLC(int8_t ligne, int8_t colonne)
@@ -217,4 +230,73 @@ bool Grille::estCorrecte()
 		}
 	}
 	return true;
+}
+
+bool Grille::completerRand()
+{
+	/*
+	Création d'un point de restauration des données initiales en cas d'échec de la résolution
+	*/
+	array<int8_t, 81> data_backup = data;
+	array<array<vector<int8_t>, 9>, 9> grille_backup = grille;
+
+	/*
+	Résolution par simple élimination des valeurs impossibles
+	*/
+	do
+	{
+		Grille::remplirGrille();
+	} while (Grille::placerSingletons());//fin de la résolution par élimination
+
+	/*
+	Pour une grille non faisable, il est possible que la méthode par élimination aboutisse
+	à une grille fausse, on vérifie donc cette éventualité.
+	*/
+	if (!this->estCorrecte())
+	{//On restaure la grille initiale
+		data = data_backup;
+		grille = grille_backup;
+		return false;//On indique que la grille était infaisable
+	}
+
+
+	/*
+	Les grilles difficiles ne peuvent pas être intégralement résolues par élimination,
+	à ce stade de l'algorithme elles sont seulement partiellement résolues. On vérifie
+	si la grille est résolue ou non. Si elle ne l'est pas on passe à une résolution par
+	hypothèses. On choisi la case qui contient le moins de possibilitées, et on teste
+	successivement la résolution de la grille pour chaque possibilité. L'algorithme est
+	récursif car on réutilise la méthode compéter() pour tenter compléter les grilles
+	hypothétiques, et on utilise la valeur de retour pour savoir si l'hypothèse est bonne
+	ou non. La garantie de non modification de la grille en cas d'échec de résolution par
+	la méthode compléter() est fondamentale ici.
+	*/
+	if (!this->estComplete())
+	{
+		int8_t ligne, colonne;
+		/*
+		Il suffit d'explorer les hypothèses d'une seule case pour toujours résoudre la
+		grille, on choisit donc celle ayant le moins de possibilitées.
+		*/
+		unsigned int nbHyp = this->minGrille(ligne, colonne);
+
+		unsigned int premiereHyp = rand() % nbHyp;
+		for (unsigned int i = 0; i<nbHyp; i++)//On teste successivement chacune des hypothèses
+		{
+			this->setLC(this->grille[ligne][colonne][(i+premiereHyp)%nbHyp], ligne, colonne);
+			if (this->completerRand())
+				return true;
+			//Si cette hypothèse était mauvaise, on passe à la suivante
+		}
+		//Si on arrive à cet endroit, c'est qu'aucune hypothèse n'était valide, la grille n'est donc pas solvable.
+
+		//On restaure la grille initiale
+		data = data_backup;
+		grille = grille_backup;
+		return false;//On indique l'échec de la résolution
+	}
+	else
+	{
+		return true;
+	}
 }
