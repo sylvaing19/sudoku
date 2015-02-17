@@ -14,8 +14,10 @@ InterfaceGraphique::InterfaceGraphique()
     quitterAppli=false;
 
     //La taille de l'ecran se recupere sur les infos
-    tailleX=info->current_w ;
-    tailleY=info->current_h ;
+	//tailleX = 800;
+	tailleX=info->current_w ;
+	tailleY=info->current_h;
+	//tailleY = 640;
 
     //Zoom : mon ecran sert de reference (1280*640), et on divise la taille de tout le reste suivant les resolutions
     zoomX=((double)tailleX/1600);
@@ -66,7 +68,7 @@ void InterfaceGraphique::initTitre()
     imageTitre = TTF_RenderText_Blended(policeTitre,texteTitre.c_str() , couleurR );
 
     //Position du titre : centré en x, (arbitraire)*zoom en y
-    positionTitre.x = (tailleX-(imageTitre->w))/2;
+	positionTitre.x = (tailleX - (imageTitre->w)) / 2 ;
     positionTitre.y = 50*zoomY;
 }
 
@@ -90,19 +92,19 @@ void InterfaceGraphique::intro()
 //gestion de l'event "quitter" : clic sur le bouton d'arret ou echap : coupe toute l'application directement.
 void InterfaceGraphique::quitter()
 {
-        continuerEvent = false;
-        quitterAppli = true;
+    continuerEvent = false;
+    quitterAppli = true;
 
-        SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
+    SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
 
-        texteAdieu = TTF_RenderText_Blended(policeAuRevoir, "Au revoir !" , couleurB );
-        positionAuRevoir.x = (tailleX-(texteAdieu->w))/2;
-        positionAuRevoir.y = (tailleY-(texteAdieu->h)-100*zoomY)/2;
+    texteAdieu = TTF_RenderText_Blended(policeAuRevoir, "Au revoir !" , couleurB );
+    positionAuRevoir.x = (tailleX-(texteAdieu->w))/2;
+    positionAuRevoir.y = (tailleY-(texteAdieu->h)-100*zoomY)/2;
 
-        SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
-        SDL_Flip(fond);
-        SDL_Delay(1000);
-        SDL_Quit();
+    SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
+    SDL_Flip(fond);
+    SDL_Delay(1000);
+    SDL_Quit();
 }
 
 /// Fonction la plus importante de ce module
@@ -349,7 +351,7 @@ void InterfaceGraphique::initBoutonsMenuResoudre()
         a="Manuel";
         boutonManuel.event=a;
         boutonManuel.couleurTexteBouton={255, 255, 255};
-        boutonManuel.taillePolice=70*boutonManuel.zoomX;
+        boutonManuel.taillePolice=70*zoomX;
         boutonManuel.positionBouton.x+=boutonAleatoire.positionBouton.x;
         boutonManuel.positionBouton.y+=30*boutonAleatoire.zoomY+boutonAleatoire.positionBouton.y+ boutonAleatoire.positionBouton.h;
     }
