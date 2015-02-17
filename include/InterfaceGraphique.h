@@ -113,13 +113,14 @@ class InterfaceGraphique
             void eventMenuResoudreVideManuelle();
                 void eventMenuResoudreGrilleVide();
 
-
         ///fait apparaitre une grille aleatoire
         void grilleAleatoire();
         ///fait apparaitre une grille vide à remplir
         void grilleVide();
         ///resoud la grille et l'affiche
         void resoudre();
+		//change la valeur d'une case donnée
+		Bouton eventChangerValeur(Bouton bouton);
 
     private:
         //les differents boutons, cliquables ou non, avec action ou non, utilisés

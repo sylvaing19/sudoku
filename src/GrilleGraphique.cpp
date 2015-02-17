@@ -24,10 +24,9 @@ void GrilleGraphique::afficherGrilleGraph()
 		SDL_Quit();
 	}
 
-
 	//Position du sudoku : centré en x, et en y qu'on affiche
 	positionSudokuVierge.x = tailleX/2 -  ((imageSudokuVierge->w)) / 2 *zoomX;
-	positionSudokuVierge.y =tailleY/2 - ( (imageSudokuVierge->h)) / 2 *zoomY;
+	positionSudokuVierge.y =tailleY/2 - ((imageSudokuVierge->h)) / 2 *zoomY;
 
 	SDL_SetColorKey(imageSudokuVierge, SDL_SRCCOLORKEY, SDL_MapRGB(imageSudokuVierge->format, 255, 255, 255)); // met le blanc en transparent pour le sudoku
 	imageSudokuVierge = zoomSurface(imageSudokuVierge, zoomX, zoomY, 0);
@@ -87,7 +86,7 @@ Bouton GrilleGraphique::creerBouton(int v)
 	bouton.couleurTexteBouton = { 255, 0, 0 };
 	bouton.taillePolice = 20 * zoomX;
 
-	//On attribue ttout ce qu'il faut au nouveau bouton : fonds, zooms...
+	//On attribue tout ce qu'il faut au nouveau bouton : fonds, zooms...
 	bouton.fond = fond;
 	bouton.zoomX = zoomX;
 	bouton.zoomY = zoomY;
