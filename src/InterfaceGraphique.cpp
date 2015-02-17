@@ -14,8 +14,11 @@ InterfaceGraphique::InterfaceGraphique()
     quitterAppli=false;
 
     //La taille de l'ecran se recupere sur les infos
-    tailleX=info->current_w ;
-    tailleY=info->current_h ;
+	//tailleX = 800;
+	//tailleY = 640;
+
+	tailleX=info->current_w ;
+	tailleY=info->current_h;
 
     //Zoom : mon ecran sert de reference (1280*640), et on divise la taille de tout le reste suivant les resolutions
     zoomX=((double)tailleX/1600);
@@ -66,7 +69,7 @@ void InterfaceGraphique::initTitre()
     imageTitre = TTF_RenderText_Blended(policeTitre,texteTitre.c_str() , couleurR );
 
     //Position du titre : centré en x, (arbitraire)*zoom en y
-    positionTitre.x = (tailleX-(imageTitre->w))/2;
+	positionTitre.x = (tailleX - (imageTitre->w)) / 2 ;
     positionTitre.y = 50*zoomY;
 }
 
@@ -90,19 +93,19 @@ void InterfaceGraphique::intro()
 //gestion de l'event "quitter" : clic sur le bouton d'arret ou echap : coupe toute l'application directement.
 void InterfaceGraphique::quitter()
 {
-        continuerEvent = false;
-        quitterAppli = true;
+    continuerEvent = false;
+    quitterAppli = true;
 
-        SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
+    SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
 
-        texteAdieu = TTF_RenderText_Blended(policeAuRevoir, "Au revoir !" , couleurB );
-        positionAuRevoir.x = (tailleX-(texteAdieu->w))/2;
-        positionAuRevoir.y = (tailleY-(texteAdieu->h)-100*zoomY)/2;
+    texteAdieu = TTF_RenderText_Blended(policeAuRevoir, "Au revoir !" , couleurB );
+    positionAuRevoir.x = (tailleX-(texteAdieu->w))/2;
+    positionAuRevoir.y = (tailleY-(texteAdieu->h)-100*zoomY)/2;
 
-        SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
-        SDL_Flip(fond);
-        SDL_Delay(1000);
-        SDL_Quit();
+    SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
+    SDL_Flip(fond);
+    SDL_Delay(1000);
+    SDL_Quit();
 }
 
 /// Fonction la plus importante de ce module
@@ -349,7 +352,7 @@ void InterfaceGraphique::initBoutonsMenuResoudre()
         a="Manuel";
         boutonManuel.event=a;
         boutonManuel.couleurTexteBouton={255, 255, 255};
-        boutonManuel.taillePolice=70*boutonManuel.zoomX;
+        boutonManuel.taillePolice=70*zoomX;
         boutonManuel.positionBouton.x+=boutonAleatoire.positionBouton.x;
         boutonManuel.positionBouton.y+=30*boutonAleatoire.zoomY+boutonAleatoire.positionBouton.y+ boutonAleatoire.positionBouton.h;
     }
@@ -519,66 +522,112 @@ void InterfaceGraphique::grilleAleatoire()
 
 void InterfaceGraphique::grilleVide()
 {
-    //TODO faire apparaitre une grille vide puis appeler eventMenuResoudreGrilleVide
-    continuerEvent=true;
-    int valeurChangee=0;// initialisation de la valeur : si reste à 0, n'a pas été touchée par l'user
+	//TODO faire apparaitre une grille vide puis appeler eventMenuResoudreGrilleVide
+	continuerEvent = true;
+	int valeurChangee = 0;// initialisation de la valeur : si reste à 0, n'a pas été touchée par l'user
 
-    while(continuerEvent)
+	while (continuerEvent)
+	{
+		switch (event.type)
+		{
+		case SDL_KEYDOWN:  //Gestion clavier
+			switch (event.key.keysym.sym)
+			{
+			case SDLK_ESCAPE: //Appuyer sur echap : quitte
+				quitter();
+				break;
+			default:
+				;
+			}
+			break;
+		case SDL_MOUSEBUTTONDOWN: //Gestion souris
+			switch (event.button.button)
+			{
+			case SDL_BUTTON_LEFT: 
+				//clic gauche souris
+				for (int line = 0; line < 9; line++)
+				{
+					for (int column = 0; column < 9; column++)
+					{
+						if (grilleGraphiqueResolue.sudokuBouton[line][column].estClique(event))//On verifie si le bouton est cliqué :
+						{
+							grilleGraphiqueResolue.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueResolue.sudokuBouton[line][column]);//Si tel eest le cas, on change sa valeur par l'event dans cette fonction
+							grille.setLC(std::stoi(grilleGraphiqueResolue.sudokuBouton[line][column].messageBouton), line, column);//on met  jour la grille
+						}
+					}
+				}
+				break;
+			default:
+				;
+			}
+			break;
+		default:
+			;
+		}
+
+	}
+}
+
+
+Bouton InterfaceGraphique::eventChangerValeur(Bouton bouton)
+{
+	int valeurChangee = 0;
+	SDL_WaitEvent(&event);
+    switch(event.type)
     {
-        ///GESTION CLICS SUR LES CASES
-            SDL_WaitEvent(&event);
-            switch(event.type)
-            {
-                case SDL_KEYDOWN:  //Gestion clavier
-                switch(event.key.keysym.sym)
-                {
-                    case SDLK_ESCAPE: //Appuyer sur echap : quitte
-                        quitter();
-                        break;
-                    case SDLK_1:case SDLK_KP1:
-                        valeurChangee=1;
-                        break; // On entre le nombre, au NUMPAD ou clavier classique
-                    case SDLK_2:case SDLK_KP2:
-                        valeurChangee=2;
-                        break; // On entre le nombre, au NUMPAD ou clavier classique
-                    case SDLK_3:case SDLK_KP3:
-                        valeurChangee=3;
-                        break; // On entre le nombre, au NUMPAD ou clavier classique
-                    case SDLK_4:case SDLK_KP4:
-                        valeurChangee=4;
-                        break; // On entre le nombre, au NUMPAD ou clavier classique
-                    case SDLK_5:case SDLK_KP5:
-                        valeurChangee=5;
-                        break; // On entre le nombre, au NUMPAD ou clavier classique
-                    case SDLK_6:case SDLK_KP6:
-                        valeurChangee=6;
-                        break; // On entre le nombre, au NUMPAD ou clavier classique
-                    case SDLK_7:case SDLK_KP7:
-                        valeurChangee=7;
-                        break; // On entre le nombre, au NUMPAD ou clavier classique
-                    case SDLK_8:case SDLK_KP8:
-                        valeurChangee=8;
-                        break; // On entre le nombre, au NUMPAD ou clavier classique
-                    case SDLK_9:case SDLK_KP9:
-                        valeurChangee=9;
-                        break; // On entre le nombre, au NUMPAD ou clavier classique
-                    default:
-                        break;//autre : rien.
-                }
-            continuerEvent=false;
-            break;
-            }
-        if(valeurChangee==0)
-        {//La valeur n'a pas été changée
-            ;
+        case SDL_KEYDOWN:  //Gestion clavier
+        switch(event.key.keysym.sym)
+        {
+            case SDLK_ESCAPE: //Appuyer sur echap : quitte
+                quitter();
+                break;
+			case SDLK_SPACE: //Appuyer sur echap : quitte
+			{
+				return bouton;
+				break;
+			}
+            case SDLK_1:case SDLK_KP1:
+                valeurChangee=1;
+                break; // On entre le nombre, au NUMPAD ou clavier classique
+            case SDLK_2:case SDLK_KP2:
+                valeurChangee=2;
+                break; // On entre le nombre, au NUMPAD ou clavier classique
+            case SDLK_3:case SDLK_KP3:
+                valeurChangee=3;
+                break; // On entre le nombre, au NUMPAD ou clavier classique
+            case SDLK_4:case SDLK_KP4:
+                valeurChangee=4;
+                break; // On entre le nombre, au NUMPAD ou clavier classique
+            case SDLK_5:case SDLK_KP5:
+                valeurChangee=5;
+                break; // On entre le nombre, au NUMPAD ou clavier classique
+            case SDLK_6:case SDLK_KP6:
+                valeurChangee=6;
+                break; // On entre le nombre, au NUMPAD ou clavier classique
+            case SDLK_7:case SDLK_KP7:
+                valeurChangee=7;
+                break; // On entre le nombre, au NUMPAD ou clavier classique
+            case SDLK_8:case SDLK_KP8:
+                valeurChangee=8;
+                break; // On entre le nombre, au NUMPAD ou clavier classique
+            case SDLK_9:case SDLK_KP9:
+                valeurChangee=9;
+                break; // On entre le nombre, au NUMPAD ou clavier classique
+            default:
+                break;//autre : rien.
         }
-        else
-        {//On change la valeur de la case
-            ;
-        }
-
+		continuerEvent=false;
+		break;
     }
-    //sortie du while; traitement de la valeur
+
+    if(valeurChangee==0)
+    {//La valeur n'a pas été changée
+        return bouton;
+    }
+    else
+    {//On change la valeur de la case
+		bouton.messageBouton=std::to_string(valeurChangee);
+    }
 }
 
 void InterfaceGraphique::eventMenuResoudreAleatoire()
