@@ -5,6 +5,8 @@
 #include <cstdint>
 #include <array>
 #include <vector>
+#include <time.h>
+
 
 /**
 La classe Grille définit une grille de sudoku de 9*9 cases.
@@ -28,6 +30,8 @@ class Grille
         void setBloc(int8_t valeur, int8_t surCase, int8_t sousCase);///Place 'valeur' dans la case repérée en bloc/sous-bloc
         bool estPlacable(int8_t valeur, int8_t ligne, int8_t colonne);///Ne modifie pas la grille. Renvoi Vrai si 'valeur' est un chiffre plaçable compte tenu des valeurs présentes dans la grille, selon les règles du sudoku
         bool completer();///Complète la grille si possible. Renvoi 'vrai' si la résolution a réussi, 'faux' sinon, en cas d'échec la grille n'est pas modifiée
+		bool completerRand();
+		void vider();
     private:
         std::array<int8_t,81> data;//Tableau de taille fixe contenant la grille de sudoku
         std::array<std::array<std::vector<int8_t>,9>,9> grille;//Tableau contenant la liste des chiffres possibles pour chaque case
