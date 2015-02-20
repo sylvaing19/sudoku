@@ -27,7 +27,7 @@ InterfaceGraphique::InterfaceGraphique()
     //titre de la fenetre, initialisation de TTF, creation de la fenetre de fond
     SDL_WM_SetCaption("SuDoKu-Solver", NULL);
     TTF_Init();
-    fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
+	fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_FULLSCREEN); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
 
 	couleurN = { 0, 0, 0 };
 	couleurB = { 0, 0, 255 };
@@ -42,6 +42,7 @@ void InterfaceGraphique::initPolices()
 	policeTitre = policeEntrezUnChiffre= TTF_OpenFont("polices/A Simple Life.ttf", 100 * zoomX);
     policeAuRevoir= TTF_OpenFont("polices/SF_Toontime.ttf", 150*zoomX);
     policeSudoku = TTF_OpenFont("polices/Cybernetica_Normal.ttf", 30*zoomX);
+	policePasSolvable = TTF_OpenFont("polices/Cybernetica_Normal.ttf", 50 * zoomX);
 }
 
 //Fonctions pour charger les elements dans les buffers, prets à apparaitre : permet de faire apparaitre quoi que ce soit depuis n'importe quelle classe
@@ -157,7 +158,6 @@ void InterfaceGraphique::initFondZoomTailleGrilleGraph(GrilleGraphique & g)
     g.tailleX=tailleX;
     g.tailleY=tailleY;
 }
-
 
 void InterfaceGraphique::initBoutonsMenuPrincipal()
 {
@@ -294,7 +294,6 @@ void InterfaceGraphique::eventMenuPrincipal()
             ;
     }
 }
-
 
 /// Fonction la plus importante de ce module n2
 // initialisation du menu resoudre : boutons, etc, et animations / gestion des events ...
@@ -512,6 +511,7 @@ void InterfaceGraphique::grilleAleatoire()
     SDL_Flip(fond);
 
     continuerEvent=true;
+	afficherCliquezSurUneCase();
     while(continuerEvent)
     {
         eventMenuResoudreAleatoire();
@@ -553,7 +553,6 @@ void InterfaceGraphique::grilleVide()
 								if (grilleGraphiqueVide.sudokuBouton[line][column].estClique(event))//On verifie si le bouton est cliqué :
 								{
 									SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
-									boutonAleatoire.chargerBouton();
 									boutonQuitter.chargerBouton();
 									grilleGraphiqueVide.afficherGrilleGraph();//On enleve le "cliquez sur une case"
 
@@ -641,18 +640,28 @@ Bouton InterfaceGraphique::eventChangerValeur(Bouton bouton)
 void InterfaceGraphique::afficherEntrezUnChiffre()
 {
 	//Position du titre : centré en x, (arbitraire)*zoom en y
-	positionEntrezUnChiffre.x = (tailleX) / 2;
 	positionEntrezUnChiffre.y = 50 * zoomY;;
 	texteEntreUnChiffre = TTF_RenderText_Blended(policeEntrezUnChiffre, "Entrez un Chiffre :", couleurB);
+	positionEntrezUnChiffre.x = (tailleX) / 2 - texteEntreUnChiffre->w /2;
+
 	SDL_BlitSurface(texteEntreUnChiffre, NULL, fond, &positionEntrezUnChiffre);
+	SDL_Flip(fond);
+}
+
+void InterfaceGraphique::afficherPasSolvable()
+{
+	textePasSolvable = TTF_RenderText_Blended(policePasSolvable, "Pas solvable  :/ ", couleurR);
+	positionPasSolvable.x = (tailleX) / 2 - textePasSolvable->w / 2;
+	positionPasSolvable.y = (tailleY) / 2 - textePasSolvable->h / 2;
+	SDL_BlitSurface(textePasSolvable, NULL, fond, &positionPasSolvable);
 	SDL_Flip(fond);
 }
 
 void InterfaceGraphique::afficherCliquezSurUneCase()
 {
-	positionCliquezSurUneCase.x = (tailleX) / 2;
-	positionCliquezSurUneCase.y = 50 * zoomY;;
 	texteCliquezSurUneCase = TTF_RenderText_Blended(policeEntrezUnChiffre, "Cliquez sur une case", couleurB);
+	positionCliquezSurUneCase.x = (tailleX) / 2 - texteCliquezSurUneCase->w/2;
+	positionCliquezSurUneCase.y = 50 * zoomY;;
 	SDL_BlitSurface(texteCliquezSurUneCase, NULL, fond, &positionCliquezSurUneCase);
 	SDL_Flip(fond);
 }
@@ -749,32 +758,61 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
                                     continuerEvent=false;
                                 }
                             }
+						else for (int line = 0; line < 9; line++)
+						{
+							for (int column = 0; column < 9; column++)
+							{
+								if (grilleGraphiqueAleatoire.sudokuBouton[line][column].estClique(event))//On verifie si le bouton est cliqué :
+								{
+									SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
+									boutonAleatoire.chargerBouton();
+									boutonQuitter.chargerBouton();
+
+									grilleGraphiqueAleatoire.afficherGrilleGraph();//On enleve le "cliquez sur une case"
+
+									afficherEntrezUnChiffre();
+
+									grilleGraphiqueAleatoire.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueAleatoire.sudokuBouton[line][column]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
+									int nouvelleValeur = std::atoi(grilleGraphiqueAleatoire.sudokuBouton[line][column].messageBouton.c_str());
+									grille.setLC(nouvelleValeur, line, column);//on met  jour la grille
+									grilleGraphiqueAleatoire.grille = grille;//Et la grille graphique
+
+									grilleGraphiqueAleatoire.afficherGrilleGraph();
+								}
+							}
+						}
                     break;
                 default:
                     ;
             }
             break;
-        default:
-            ;
     }
 }
 
 void InterfaceGraphique::resoudre()
 {
     //Resolution
-    grille.completer();
+	if (grille.completer()) // Si on a reussi
+	{
+		//On enleve la precedente
+		chargerFond();
+		SDL_Flip(fond);
 
-    //On enleve la precedente
-    chargerFond();
-    SDL_Flip(fond);
+		initFondZoomTailleGrilleGraph(grilleGraphiqueResolue);
+		grilleGraphiqueResolue.grille = grille;
+		grilleGraphiqueResolue.grille.afficherConsole(); //affichage dans la console, pour le debug
 
-    initFondZoomTailleGrilleGraph(grilleGraphiqueResolue);
-    grilleGraphiqueResolue.grille=grille;
-    grilleGraphiqueResolue.grille.afficherConsole(); //affichage dans la console, pour le debug
-
-    grilleGraphiqueResolue.afficherGrilleGraph();
-    SDL_Flip(fond);
-    SDL_Delay(2500);//laisse letemps pour voir la grille
+		grilleGraphiqueResolue.afficherGrilleGraph();
+		SDL_Flip(fond);
+		SDL_Delay(2500);//laisse letemps pour voir la grille
+	}
+	else // sinon, pas solvable
+	{
+		chargerFond();
+		afficherPasSolvable();
+		SDL_Flip(fond);
+		SDL_Delay(2000);
+	}
 }
 
 

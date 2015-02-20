@@ -26,18 +26,19 @@ class InterfaceGraphique
         SDL_Rect positionTitre, positionBoutonQuitter,positionFond,positionAuRevoir;
         SDL_Rect positionMenu1,positionMenu2,positionMenu3;
         SDL_Rect positionTexteMenu1, positionTexteMenu2, positionTexteMenu3;
-		SDL_Rect positionSudoku, positionEntrezUnChiffre, positionCliquezSurUneCase;
+		SDL_Rect positionSudoku, positionEntrezUnChiffre, positionCliquezSurUneCase, positionPasSolvable;
 
         ///Recupere les données d'affichage
         const SDL_VideoInfo* info;
 
         ///initialisation des surfaces (images)
         SDL_Surface *imageFond = NULL, *fond = NULL, *rotation = NULL, *titre = NULL;
-		SDL_Surface *textePret = NULL, *textePretAussi = NULL, *texteAdieu = NULL, *imageTitre = NULL, *texteEntreUnChiffre = NULL, *texteCliquezSurUneCase=NULL;
+		SDL_Surface *textePret = NULL, *textePretAussi = NULL, *texteAdieu = NULL, *imageTitre = NULL;
+		SDL_Surface *texteEntreUnChiffre = NULL, *texteCliquezSurUneCase = NULL, *textePasSolvable = NULL;
 
 
         ///initialisation des polices
-		TTF_Font *policeTitre = NULL, *policeAuRevoir = NULL, *policeSudoku = NULL, *policeEntrezUnChiffre=NULL;
+		TTF_Font *policeTitre = NULL, *policeAuRevoir = NULL, *policeSudoku = NULL, *policeEntrezUnChiffre=NULL, *policePasSolvable=NULL;
 
         ///creation des evenements
         SDL_Event event;
@@ -126,6 +127,9 @@ class InterfaceGraphique
 		void afficherEntrezUnChiffre();
 		// affiche le texte demandant à l'user de cliquer
 		void afficherCliquezSurUneCase();
+		//affiche le texte "désolé, c'est pas solvable"
+		void afficherPasSolvable();
+
 
     private:
         //les differents boutons, cliquables ou non, avec action ou non, utilisés
