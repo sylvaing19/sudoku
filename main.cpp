@@ -17,7 +17,7 @@ enum TestGraph
 {RESOLUTION,MENU_PRINCIPAL};
 
 
-TypeDeTest typeDeTest = MODE_CONSOLE;/// Permet de choisir le type de test à effectuer
+TypeDeTest typeDeTest = MODE_GRAPHIQUE;/// Permet de choisir le type de test à effectuer
 
 TestGraph testGraphique = MENU_PRINCIPAL; /// Permet de choisir le type  de test graphique
 

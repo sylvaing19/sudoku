@@ -26,18 +26,18 @@ class InterfaceGraphique
         SDL_Rect positionTitre, positionBoutonQuitter,positionFond,positionAuRevoir;
         SDL_Rect positionMenu1,positionMenu2,positionMenu3;
         SDL_Rect positionTexteMenu1, positionTexteMenu2, positionTexteMenu3;
-        SDL_Rect positionSudoku;
+		SDL_Rect positionSudoku, positionEntrezUnChiffre, positionCliquezSurUneCase;
 
         ///Recupere les données d'affichage
         const SDL_VideoInfo* info;
 
         ///initialisation des surfaces (images)
         SDL_Surface *imageFond = NULL, *fond = NULL, *rotation = NULL, *titre = NULL;
-        SDL_Surface *textePret=NULL, *textePretAussi=NULL,*texteAdieu=NULL,*imageTitre=NULL;
+		SDL_Surface *textePret = NULL, *textePretAussi = NULL, *texteAdieu = NULL, *imageTitre = NULL, *texteEntreUnChiffre = NULL, *texteCliquezSurUneCase=NULL;
 
 
         ///initialisation des polices
-        TTF_Font *policeTitre= NULL,*policeAuRevoir=NULL, *policeSudoku=NULL;
+		TTF_Font *policeTitre = NULL, *policeAuRevoir = NULL, *policeSudoku = NULL, *policeEntrezUnChiffre=NULL;
 
         ///creation des evenements
         SDL_Event event;
@@ -121,6 +121,10 @@ class InterfaceGraphique
         void resoudre();
 		//change la valeur d'une case donnée
 		Bouton eventChangerValeur(Bouton bouton);
+		// affiche le texte demandant à l'user de rentrer un chiffre
+		void afficherEntrezUnChiffre();
+		// affiche le texte demandant à l'user de cliquer
+		void afficherCliquezSurUneCase();
 
     private:
         //les differents boutons, cliquables ou non, avec action ou non, utilisés
@@ -143,7 +147,8 @@ class InterfaceGraphique
 
         ///grille utilisée par la partie graphique
         GrilleGraphique grilleGraphiqueAleatoire;
-        GrilleGraphique grilleGraphiqueResolue;
+		GrilleGraphique grilleGraphiqueResolue;
+		GrilleGraphique grilleGraphiqueVide;
 };
 
 #endif // INTERFACEGRAPHIQUE_H

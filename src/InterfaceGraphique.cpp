@@ -39,7 +39,7 @@ InterfaceGraphique::InterfaceGraphique()
 //polices avec leurs tailles
 void InterfaceGraphique::initPolices()
 {
-    policeTitre = TTF_OpenFont("polices/A Simple Life.ttf", 100*zoomX);
+	policeTitre = policeEntrezUnChiffre= TTF_OpenFont("polices/A Simple Life.ttf", 100 * zoomX);
     policeAuRevoir= TTF_OpenFont("polices/SF_Toontime.ttf", 150*zoomX);
     policeSudoku = TTF_OpenFont("polices/Cybernetica_Normal.ttf", 30*zoomX);
 }
@@ -473,8 +473,6 @@ void InterfaceGraphique::eventMenuResoudre()
     }
 }
 
-
-
 void InterfaceGraphique::grilleAleatoire()
 {
     initFondZoomTailleGrilleGraph(grilleGraphiqueAleatoire);
@@ -523,11 +521,77 @@ void InterfaceGraphique::grilleAleatoire()
 void InterfaceGraphique::grilleVide()
 {
 	//TODO faire apparaitre une grille vide puis appeler eventMenuResoudreGrilleVide
+	grilleGraphiqueVide.grille = grille;
+	initFondZoomTailleGrilleGraph(grilleGraphiqueVide);
+	grilleGraphiqueVide.afficherGrilleGraph();
+	SDL_Flip(fond);
+
 	continuerEvent = true;
 	int valeurChangee = 0;// initialisation de la valeur : si reste à 0, n'a pas été touchée par l'user
 
+	afficherCliquezSurUneCase();
+
 	while (continuerEvent)
 	{
+		SDL_WaitEvent(&event);
+		switch (event.type)
+		{
+			case SDL_KEYDOWN:  //Gestion clavier
+				switch (event.key.keysym.sym)
+				{
+					case SDLK_ESCAPE: //Appuyer sur echap : quitte
+						quitter();
+						break;
+					default:
+						;
+				}
+				break;
+			case SDL_MOUSEBUTTONDOWN: //Gestion souris
+				switch (event.button.button)
+				{
+				case SDL_BUTTON_LEFT://clic gauche souris
+					for (int line = 0; line < 9; line++)
+					{
+						for (int column = 0; column < 9; column++)
+						{
+							if (grilleGraphiqueVide.sudokuBouton[line][column].estClique(event))//On verifie si le bouton est cliqué :
+							{
+								SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
+								boutonAleatoire.chargerBouton();
+								boutonQuitter.chargerBouton();
+								grilleGraphiqueVide.afficherGrilleGraph();//On enleve le "cliquez sur une case"
+
+								afficherEntrezUnChiffre();
+
+								grilleGraphiqueVide.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueVide.sudokuBouton[line][column]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
+								int nouvelleValeur = std::stoi(grilleGraphiqueVide.sudokuBouton[line][column].messageBouton);
+								grille.setLC(nouvelleValeur, line, column);//on met  jour la grille
+								grilleGraphiqueVide.grille = grille;//Et la grille graphique
+
+								grilleGraphiqueVide.afficherGrilleGraph();
+							}
+						}
+					}
+					break;
+					
+				default:
+					;
+				}
+				break;
+			default:
+				;
+		}
+
+	}
+}
+
+Bouton InterfaceGraphique::eventChangerValeur(Bouton bouton)
+{
+	continuerEvent = true;
+	while (continuerEvent)
+	{
+		int valeurChangee = 0;
+		SDL_WaitEvent(&event);
 		switch (event.type)
 		{
 		case SDL_KEYDOWN:  //Gestion clavier
@@ -536,100 +600,75 @@ void InterfaceGraphique::grilleVide()
 			case SDLK_ESCAPE: //Appuyer sur echap : quitte
 				quitter();
 				break;
-			default:
-				;
-			}
-			break;
-		case SDL_MOUSEBUTTONDOWN: //Gestion souris
-			switch (event.button.button)
+			case SDLK_SPACE: // appuyer sur espace : change de bouton
 			{
-			case SDL_BUTTON_LEFT: 
-				//clic gauche souris
-				for (int line = 0; line < 9; line++)
-				{
-					for (int column = 0; column < 9; column++)
-					{
-						if (grilleGraphiqueResolue.sudokuBouton[line][column].estClique(event))//On verifie si le bouton est cliqué :
-						{
-							grilleGraphiqueResolue.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueResolue.sudokuBouton[line][column]);//Si tel eest le cas, on change sa valeur par l'event dans cette fonction
-							grille.setLC(std::stoi(grilleGraphiqueResolue.sudokuBouton[line][column].messageBouton), line, column);//on met  jour la grille
-						}
-					}
-				}
-				break;
-			default:
-				;
+				return bouton;
 			}
+			case SDLK_1:case SDLK_KP1:
+				valeurChangee = 1;
+				break; // On entre le nombre, au NUMPAD ou clavier classique
+			case SDLK_2:case SDLK_KP2:
+				valeurChangee = 2;
+				break; // On entre le nombre, au NUMPAD ou clavier classique
+			case SDLK_3:case SDLK_KP3:
+				valeurChangee = 3;
+				break; // On entre le nombre, au NUMPAD ou clavier classique
+			case SDLK_4:case SDLK_KP4:
+				valeurChangee = 4;
+				break; // On entre le nombre, au NUMPAD ou clavier classique
+			case SDLK_5:case SDLK_KP5:
+				valeurChangee = 5;
+				break; // On entre le nombre, au NUMPAD ou clavier classique
+			case SDLK_6:case SDLK_KP6:
+				valeurChangee = 6;
+				break; // On entre le nombre, au NUMPAD ou clavier classique
+			case SDLK_7:case SDLK_KP7:
+				valeurChangee = 7;
+				break; // On entre le nombre, au NUMPAD ou clavier classique
+			case SDLK_8:case SDLK_KP8:
+				valeurChangee = 8;
+				break; // On entre le nombre, au NUMPAD ou clavier classique
+			case SDLK_9:case SDLK_KP9:
+				valeurChangee = 9;
+				break; // On entre le nombre, au NUMPAD ou clavier classique
+			default:
+				break;//autre : rien.
+			}
+			continuerEvent = false;
 			break;
-		default:
-			;
 		}
 
+		if (valeurChangee == 0)
+		{//La valeur n'a pas été changée
+			return bouton;
+		}
+		else
+		{//On change la valeur de la case
+			bouton.messageBouton = std::to_string(valeurChangee);
+			return bouton;
+		}
 	}
 }
 
 
-Bouton InterfaceGraphique::eventChangerValeur(Bouton bouton)
+void InterfaceGraphique::afficherEntrezUnChiffre()
 {
-	int valeurChangee = 0;
-	SDL_WaitEvent(&event);
-    switch(event.type)
-    {
-        case SDL_KEYDOWN:  //Gestion clavier
-        switch(event.key.keysym.sym)
-        {
-            case SDLK_ESCAPE: //Appuyer sur echap : quitte
-                quitter();
-                break;
-			case SDLK_SPACE: //Appuyer sur echap : quitte
-			{
-				return bouton;
-				break;
-			}
-            case SDLK_1:case SDLK_KP1:
-                valeurChangee=1;
-                break; // On entre le nombre, au NUMPAD ou clavier classique
-            case SDLK_2:case SDLK_KP2:
-                valeurChangee=2;
-                break; // On entre le nombre, au NUMPAD ou clavier classique
-            case SDLK_3:case SDLK_KP3:
-                valeurChangee=3;
-                break; // On entre le nombre, au NUMPAD ou clavier classique
-            case SDLK_4:case SDLK_KP4:
-                valeurChangee=4;
-                break; // On entre le nombre, au NUMPAD ou clavier classique
-            case SDLK_5:case SDLK_KP5:
-                valeurChangee=5;
-                break; // On entre le nombre, au NUMPAD ou clavier classique
-            case SDLK_6:case SDLK_KP6:
-                valeurChangee=6;
-                break; // On entre le nombre, au NUMPAD ou clavier classique
-            case SDLK_7:case SDLK_KP7:
-                valeurChangee=7;
-                break; // On entre le nombre, au NUMPAD ou clavier classique
-            case SDLK_8:case SDLK_KP8:
-                valeurChangee=8;
-                break; // On entre le nombre, au NUMPAD ou clavier classique
-            case SDLK_9:case SDLK_KP9:
-                valeurChangee=9;
-                break; // On entre le nombre, au NUMPAD ou clavier classique
-            default:
-                break;//autre : rien.
-        }
-		continuerEvent=false;
-		break;
-    }
-
-    if(valeurChangee==0)
-    {//La valeur n'a pas été changée
-        return bouton;
-    }
-    else
-    {//On change la valeur de la case
-		bouton.messageBouton=std::to_string(valeurChangee);
-    }
+	//Position du titre : centré en x, (arbitraire)*zoom en y
+	positionEntrezUnChiffre.x = (tailleX) / 2;
+	positionEntrezUnChiffre.y = 50 * zoomY;;
+	texteEntreUnChiffre = TTF_RenderText_Blended(policeEntrezUnChiffre, "Entrez un Chiffre :", couleurB);
+	SDL_BlitSurface(texteEntreUnChiffre, NULL, fond, &positionEntrezUnChiffre);
+	SDL_Flip(fond);
 }
 
+void InterfaceGraphique::afficherCliquezSurUneCase()
+{
+	positionCliquezSurUneCase.x = (tailleX) / 2;
+	positionCliquezSurUneCase.y = 50 * zoomY;;
+	texteCliquezSurUneCase = TTF_RenderText_Blended(policeEntrezUnChiffre, "Cliquez sur une case", couleurB);
+	SDL_BlitSurface(texteCliquezSurUneCase, NULL, fond, &positionCliquezSurUneCase);
+	SDL_Flip(fond);
+}
 void InterfaceGraphique::eventMenuResoudreAleatoire()
 {
     //gestion des evenements
