@@ -52,6 +52,7 @@ class InterfaceGraphique
         ///booleens pour quitter l'appli
         bool continuerEvent;
         bool quitterAppli;
+		bool continuerEventChangerValeur;
 
         ///liste des boutons apppartenant à ce menu
 

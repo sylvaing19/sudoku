@@ -541,56 +541,44 @@ void InterfaceGraphique::grilleVide()
 				{
 					case SDLK_ESCAPE: //Appuyer sur echap : quitte
 						quitter();
-						break;
-					default:
-						;
 				}
-				break;
 			case SDL_MOUSEBUTTONDOWN: //Gestion souris
 				switch (event.button.button)
 				{
-				case SDL_BUTTON_LEFT://clic gauche souris
-					for (int line = 0; line < 9; line++)
-					{
-						for (int column = 0; column < 9; column++)
+					case SDL_BUTTON_LEFT://clic gauche souris
+						for (int line = 0; line < 9; line++)
 						{
-							if (grilleGraphiqueVide.sudokuBouton[line][column].estClique(event))//On verifie si le bouton est cliqué :
+							for (int column = 0; column < 9; column++)
 							{
-								SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
-								boutonAleatoire.chargerBouton();
-								boutonQuitter.chargerBouton();
-								grilleGraphiqueVide.afficherGrilleGraph();//On enleve le "cliquez sur une case"
+								if (grilleGraphiqueVide.sudokuBouton[line][column].estClique(event))//On verifie si le bouton est cliqué :
+								{
+									SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
+									boutonAleatoire.chargerBouton();
+									boutonQuitter.chargerBouton();
+									grilleGraphiqueVide.afficherGrilleGraph();//On enleve le "cliquez sur une case"
 
-								afficherEntrezUnChiffre();
+									afficherEntrezUnChiffre();
 
-								grilleGraphiqueVide.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueVide.sudokuBouton[line][column]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
-								int nouvelleValeur = std::stoi(grilleGraphiqueVide.sudokuBouton[line][column].messageBouton);
-								grille.setLC(nouvelleValeur, line, column);//on met  jour la grille
-								grilleGraphiqueVide.grille = grille;//Et la grille graphique
+									grilleGraphiqueVide.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueVide.sudokuBouton[line][column]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
+									int nouvelleValeur = std::atoi(grilleGraphiqueVide.sudokuBouton[line][column].messageBouton.c_str());
+									grille.setLC(nouvelleValeur, line, column);//on met  jour la grille
+									grilleGraphiqueVide.grille = grille;//Et la grille graphique
 
-								grilleGraphiqueVide.afficherGrilleGraph();
+									grilleGraphiqueVide.afficherGrilleGraph();
+								}
 							}
 						}
 					}
-					break;
-					
-				default:
-					;
-				}
-				break;
-			default:
-				;
 		}
-
 	}
 }
 
 Bouton InterfaceGraphique::eventChangerValeur(Bouton bouton)
 {
-	continuerEvent = true;
-	while (continuerEvent)
+	continuerEventChangerValeur = true;
+	int valeurChangee = 0;
+	while (continuerEventChangerValeur)
 	{
-		int valeurChangee = 0;
 		SDL_WaitEvent(&event);
 		switch (event.type)
 		{
@@ -634,22 +622,21 @@ Bouton InterfaceGraphique::eventChangerValeur(Bouton bouton)
 			default:
 				break;//autre : rien.
 			}
-			continuerEvent = false;
+			continuerEventChangerValeur = false;
 			break;
 		}
-
-		if (valeurChangee == 0)
-		{//La valeur n'a pas été changée
-			return bouton;
-		}
-		else
-		{//On change la valeur de la case
-			bouton.messageBouton = std::to_string(valeurChangee);
-			return bouton;
-		}
+	}
+	continuerEvent = true;
+	if (valeurChangee == 0)
+	{//La valeur n'a pas été changée
+		return bouton;
+	}
+	else
+	{//On change la valeur de la case
+		bouton.messageBouton = std::to_string(valeurChangee);
+		return bouton;
 	}
 }
-
 
 void InterfaceGraphique::afficherEntrezUnChiffre()
 {
@@ -669,6 +656,7 @@ void InterfaceGraphique::afficherCliquezSurUneCase()
 	SDL_BlitSurface(texteCliquezSurUneCase, NULL, fond, &positionCliquezSurUneCase);
 	SDL_Flip(fond);
 }
+
 void InterfaceGraphique::eventMenuResoudreAleatoire()
 {
     //gestion des evenements
@@ -788,6 +776,8 @@ void InterfaceGraphique::resoudre()
     SDL_Flip(fond);
     SDL_Delay(2500);//laisse letemps pour voir la grille
 }
+
+
 
 
 
