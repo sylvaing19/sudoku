@@ -141,6 +141,7 @@ void InterfaceGraphique::menuPrincipal()
     //Fin de menu Principal
 }
 
+// Initialise le bouton en argument, lui mettant son fond associé, la taille de l'image, etc
 void InterfaceGraphique::initFondZoomTailleBouton(Bouton & bouton)
 {
     bouton.fond=fond;
@@ -150,15 +151,17 @@ void InterfaceGraphique::initFondZoomTailleBouton(Bouton & bouton)
     bouton.tailleY=tailleY;
 }
 
-void InterfaceGraphique::initFondZoomTailleGrilleGraph(GrilleGraphique & g)
+// Initialise la grille graphique en argument, lui mettant son fond associé, la taille de l'image, etc
+void InterfaceGraphique::initFondZoomTailleGrilleGraph(GrilleGraphique &grilleGraph)
 {
-    g.fond=fond;
-    g.zoomX=zoomX;
-    g.zoomY=zoomY;
-    g.tailleX=tailleX;
-    g.tailleY=tailleY;
+	grilleGraph.fond = fond;
+	grilleGraph.zoomX = zoomX;
+	grilleGraph.zoomY = zoomY;
+	grilleGraph.tailleX = tailleX;
+	grilleGraph.tailleY = tailleY;
 }
 
+// initialise tous les boutons apppartenant au menu principal
 void InterfaceGraphique::initBoutonsMenuPrincipal()
 {
     //gestion du zoom, de la taille
@@ -212,6 +215,7 @@ void InterfaceGraphique::initBoutonsMenuPrincipal()
     boutonQuitter.chargerBouton();
 }
 
+// charge les boutons du menu principal dans le buffer, prets  etre flippés
 void InterfaceGraphique::chargerBoutonsMenuPrincipal()
 {
     boutonQuitter.chargerBouton();
@@ -219,6 +223,7 @@ void InterfaceGraphique::chargerBoutonsMenuPrincipal()
     boutonMenu1.chargerBouton();
 }
 
+// Gere l'event dans le menu principal : quitter / creer une grille vide / creer une grille aleatoire
 void InterfaceGraphique::eventMenuPrincipal()
 {
     SDL_WaitEvent(&event);
