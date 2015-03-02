@@ -6,6 +6,7 @@
 #include <array>
 #include <vector>
 #include <time.h>
+#include <string>
 
 
 /**
@@ -33,6 +34,8 @@ class Grille
 		bool completerRand();///Idem que completer() mais si il existe plusieurs solutions celle qui sera choisie le sera de manière aléatoire
 		void vider();///Réinitialise tous les attributs de la grille : data et grille
 		bool estCorrecte();///Vérifie le respect des règles du sudoku en ignorant les cases vides. Renvoi vrai si la grille respecte les règles.
+		bool getFromFile(string nomFichier);///Récupère une grille de sudoku depuis un fichier texte et la place dans le membre 'data'. Renvoi vrai si le fichier est correcte, faux sinon.
+		bool sauvegarder(string nomFichier);///Sauvegarde le membre 'data' dans un fichier texte. Renvoi vrai si la sauvegarde a fonctionné, faux sinon.
 
     private:
         std::array<int8_t,81> data;//Tableau de taille fixe contenant la grille de sudoku

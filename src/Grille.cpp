@@ -300,3 +300,13 @@ bool Grille::completerRand()
 		return true;
 	}
 }
+
+bool Grille::getFromFile(string nomFichier)
+{
+	return false;
+}
+
+bool Grille::sauvegarder(string nomFichier)
+{
+	return false;
+}
