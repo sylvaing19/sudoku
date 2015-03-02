@@ -14,9 +14,8 @@ InterfaceGraphique::InterfaceGraphique()
     quitterAppli=false;
 
     //La taille de l'ecran se recupere sur les infos
-	//tailleX = 800;
-	//tailleY = 640;
-
+	/*tailleX = 800;
+	tailleY = 400;*/
 	tailleX=info->current_w ;
 	tailleY=info->current_h;
 
@@ -27,7 +26,7 @@ InterfaceGraphique::InterfaceGraphique()
     //titre de la fenetre, initialisation de TTF, creation de la fenetre de fond
     SDL_WM_SetCaption("SuDoKu-Solver", NULL);
     TTF_Init();
-	fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_FULLSCREEN); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
+	fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_FULLSCREEN ); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
 
 	couleurN = { 0, 0, 0 };
 	couleurB = { 0, 0, 255 };
@@ -642,35 +641,38 @@ Bouton InterfaceGraphique::eventChangerValeur(Bouton bouton)
 	}
 }
 
+/// affiche un texte et flippe
 void InterfaceGraphique::afficherEntrezUnChiffre()
 {
-	//Position du titre : centré en x, (arbitraire)*zoom en y
 	positionEntrezUnChiffre.y = 50 * zoomY;;
 	texteEntreUnChiffre = TTF_RenderText_Blended(policeEntrezUnChiffre, "Entrez un Chiffre :", couleurB);
-	positionEntrezUnChiffre.x = (tailleX) / 2 - texteEntreUnChiffre->w /2;
+	positionEntrezUnChiffre.x = (boutonAleatoire.positionBouton.x + boutonAleatoire.positionBouton.w)* zoomX;;
 
 	SDL_BlitSurface(texteEntreUnChiffre, NULL, fond, &positionEntrezUnChiffre);
 	SDL_Flip(fond);
 }
 
+/// affiche un texte et flippe
 void InterfaceGraphique::afficherPasSolvable()
 {
 	textePasSolvable = TTF_RenderText_Blended(policePasSolvable, "Pas solvable  :/ ", couleurR);
-	positionPasSolvable.x = (tailleX) / 2 - textePasSolvable->w / 2;
-	positionPasSolvable.y = (tailleY) / 2 - textePasSolvable->h / 2;
+	positionPasSolvable.x =  tailleX / 2 - (textePasSolvable->w / 2 )*zoomX;
+	positionPasSolvable.y =  tailleY / 2 - (textePasSolvable->h / 2 )*zoomY;
 	SDL_BlitSurface(textePasSolvable, NULL, fond, &positionPasSolvable);
 	SDL_Flip(fond);
 }
 
+/// affiche un texte et flippe
 void InterfaceGraphique::afficherCliquezSurUneCase()
 {
 	texteCliquezSurUneCase = TTF_RenderText_Blended(policeEntrezUnChiffre, "Cliquez sur une case", couleurB);
-	positionCliquezSurUneCase.x = (tailleX) / 2 - texteCliquezSurUneCase->w/2;
+	positionCliquezSurUneCase.x = (boutonAleatoire.positionBouton.x + boutonAleatoire.positionBouton.w )* zoomX;
 	positionCliquezSurUneCase.y = 50 * zoomY;;
 	SDL_BlitSurface(texteCliquezSurUneCase, NULL, fond, &positionCliquezSurUneCase);
 	SDL_Flip(fond);
 }
 
+/// gestion des evenements dans le menu "resoudre"
 void InterfaceGraphique::eventMenuResoudreAleatoire()
 {
     //gestion des evenements
@@ -794,6 +796,7 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
     }
 }
 
+/// gestion graphique de la resolution, ou son echec, de la grille
 void InterfaceGraphique::resoudre()
 {
     //Resolution
@@ -819,8 +822,6 @@ void InterfaceGraphique::resoudre()
 		SDL_Delay(2000);
 	}
 }
-
-
 
 
 
