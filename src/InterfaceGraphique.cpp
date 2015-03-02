@@ -321,6 +321,7 @@ void InterfaceGraphique::menuResoudre()
     }
 }
 
+/// initialise tous les boutons du menu resoudre 
 void InterfaceGraphique::initBoutonsMenuResoudre()
 {
     initFondZoomTailleBouton(boutonAleatoire);
@@ -373,6 +374,7 @@ void InterfaceGraphique::initBoutonsMenuResoudre()
     boutonQuitter.chargerBouton();
 }
 
+/// gere l'evenement dans le menu resoudre
 void InterfaceGraphique::eventMenuResoudre()
 {
     ///gestion des events :
@@ -476,6 +478,7 @@ void InterfaceGraphique::eventMenuResoudre()
     }
 }
 
+///genere une grille aleatoire et lance les evenenements suivants
 void InterfaceGraphique::grilleAleatoire()
 {
     initFondZoomTailleGrilleGraph(grilleGraphiqueAleatoire);
@@ -522,9 +525,9 @@ void InterfaceGraphique::grilleAleatoire()
     }
 }
 
+///genere une grille vide et lance les evenenements suivants
 void InterfaceGraphique::grilleVide()
 {
-	//TODO faire apparaitre une grille vide puis appeler eventMenuResoudreGrilleVide
 	grilleGraphiqueVide.grille = grille;
 	initFondZoomTailleGrilleGraph(grilleGraphiqueVide);
 	grilleGraphiqueVide.afficherGrilleGraph();
@@ -576,6 +579,7 @@ void InterfaceGraphique::grilleVide()
 	}
 }
 
+/// gere l'entrée claavier du nombre afin de changer la case
 Bouton InterfaceGraphique::eventChangerValeur(Bouton bouton)
 {
 	continuerEventChangerValeur = true;
@@ -783,6 +787,10 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
 									int nouvelleValeur = std::atoi(grilleGraphiqueAleatoire.sudokuBouton[line][column].messageBouton.c_str());
 									grille.setLC(nouvelleValeur, line, column);//on met  jour la grille
 									grilleGraphiqueAleatoire.grille = grille;//Et la grille graphique
+
+									//On verifie si la grille est solvable, si non, on met la valeur en rouge
+									if (!grille.estCorrecte())
+										grilleGraphiqueVide.sudokuBouton[line][column].couleurTexteBouton = { 255, 0, 0 };
 
 									grilleGraphiqueAleatoire.afficherGrilleGraph();
 								}

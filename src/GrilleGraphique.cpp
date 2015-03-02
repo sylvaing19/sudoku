@@ -1,5 +1,6 @@
 #include "GrilleGraphique.h"
 
+/// constructeur
 GrilleGraphique::GrilleGraphique()
 {
     positionSudoku.x=0;
@@ -15,6 +16,7 @@ GrilleGraphique::GrilleGraphique()
 	couleurGri = { 200, 240, 255 };
 }
 
+/// fonction affichant une grille graphique correspondant à la grille
 void GrilleGraphique::afficherGrilleGraph()
 {
 	imageSudokuVierge = SDL_LoadBMP("images/SudokuVierge.bmp");
@@ -75,6 +77,7 @@ void GrilleGraphique::afficherGrilleGraph()
     }
 }
 
+/// créé un bouton avec la valeur de sudoku dessus : chaque casse du sudoku est un bouton cliquable
 Bouton GrilleGraphique::creerBouton(int v)
 {
 	Bouton bouton;
