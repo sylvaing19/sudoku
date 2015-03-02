@@ -49,6 +49,8 @@ void GrilleGraphique::afficherGrilleGraph()
 			if (val>0 && val <= 9)
 			{//On prend la valeur
 				sudokuBouton[ligne][colonne] = creerBouton(val);
+				if (!grille.estPlacable(val, ligne, colonne))
+					sudokuBouton[ligne][colonne].couleurTexteBouton = { 255, 0, 0 };
 			}
 			else
 			{// La valeur n'existe pas encore
@@ -56,8 +58,6 @@ void GrilleGraphique::afficherGrilleGraph()
 			}
 
 			//On verifie si la grille est solvable, si non, on met la valeur en rouge
-			if (!grille.estCorrecte())
-				sudokuBouton[ligne][colonne].couleurTexteBouton = { 255, 0, 0 };
 
 			// On donne les positions des boutons
 			sudokuBouton[ligne][colonne].positionBouton.x = posX + (58 - 47)/2 * zoomX;
