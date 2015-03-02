@@ -303,10 +303,55 @@ bool Grille::completerRand()
 
 bool Grille::getFromFile(string nomFichier)
 {
-	return false;
+	ifstream fichier(nomFichier.c_str(), ios::in);
+	if (fichier)
+	{
+		int chiffre;
+		for (int i = 0; i < 81; i++)
+		{
+			fichier >> chiffre;
+			this->data[i] = int8_t(chiffre);
+		}
+		fichier.close();
+		return true;
+	}
+	else
+		return false;
 }
 
 bool Grille::sauvegarder(string nomFichier)
 {
-	return false;
+	ofstream fichier(nomFichier.c_str(), ios::out | ios::trunc);
+	if (fichier)
+	{
+		for (int i = 0; i < 81; i++)
+		{
+			fichier << int(this->data[i]) << " ";
+		}
+		fichier.close();
+		return true;
+	}
+	else
+		return false;
+}
+
+bool Grille::testResolution(Grille grilleRef)
+{
+	if (this->completer())
+	{
+		bool grillesIdentiques = true;
+		for (int ligne = 0; ligne < 9; ligne++)
+		{
+			for (int colonne = 0; colonne < 9; colonne++)
+			{
+				if (this->getLC(ligne, colonne) != grilleRef.getLC(ligne, colonne))
+					grillesIdentiques = false;
+			}
+		}
+		return grillesIdentiques;
+	}
+	else
+	{
+		return true;
+	}
 }
