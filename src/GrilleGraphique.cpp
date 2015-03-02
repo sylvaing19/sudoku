@@ -53,6 +53,10 @@ void GrilleGraphique::afficherGrilleGraph()
 				sudokuBouton[ligne][colonne] = creerBouton(0);
 			}
 
+			//On verifie si la grille est solvable, si non, on met la valeur en rouge
+			if (!grille.estCorrecte())
+				sudokuBouton[ligne][colonne].couleurTexteBouton = { 255, 0, 0 };
+
 			// On donne les positions des boutons
 			sudokuBouton[ligne][colonne].positionBouton.x = posX + (58 - 47)/2 * zoomX;
 			sudokuBouton[ligne][colonne].positionBouton.y = posY + (58 - 47)/2 * zoomY;
@@ -78,12 +82,14 @@ Bouton GrilleGraphique::creerBouton(int v)
 	bouton.nomImageBouton = strTemp;
 	strTemp = "polices/Cybernetica_Normal.ttf";
 	bouton.nomPolice = strTemp;
+
 	if (v == 0)
 		strTemp = " ";
 	else
 		strTemp = std::to_string(v);
+
 	bouton.messageBouton = strTemp;
-	bouton.couleurTexteBouton = { 255, 0, 0 };
+	bouton.couleurTexteBouton = { 0, 0, 0 };
 	bouton.taillePolice = 20 * zoomX;
 
 	//On attribue tout ce qu'il faut au nouveau bouton : fonds, zooms...

@@ -32,6 +32,8 @@ class Grille
         bool completer();///Complète la grille si possible. Renvoi 'vrai' si la résolution a réussi, 'faux' sinon, en cas d'échec la grille n'est pas modifiée
 		bool completerRand();///Idem que completer() mais si il existe plusieurs solutions celle qui sera choisie le sera de manière aléatoire
 		void vider();///Réinitialise tous les attributs de la grille : data et grille
+		bool estCorrecte();///Vérifie le respect des règles du sudoku en ignorant les cases vides. Renvoi vrai si la grille respecte les règles.
+
     private:
         std::array<int8_t,81> data;//Tableau de taille fixe contenant la grille de sudoku
         std::array<std::array<std::vector<int8_t>,9>,9> grille;//Tableau contenant la liste des chiffres possibles pour chaque case
@@ -39,7 +41,6 @@ class Grille
         bool placerSingletons();///Parcours 'grille' et pour chaque case ayant une seule possibilité, place la valeur dans 'data'. Renvoie False s'il n'y a aucun singleton, True sinon.
         bool estComplete();///Renvoi vrai si la grille ne contient aucune case valant 0, mais ne vérifie pas le respect des règles !
         unsigned int minGrille(int8_t& ligne, int8_t& colonne);///Place dans les arguments (passés en référence) les coordonnées de la case de 'grille' qui contient le tableau non vide le plus petit. Si il en existe plusieurs, on choisi la dernière rencontrée. La fonction renvoie la longueur du tableau en question.
-		bool estCorrecte();///Vérifie le respect des règles du sudoku en ignorant les cases vides. Renvoi vrai si la grille respecte les règles.
 };
 
 #endif // GRILLE_H
