@@ -93,6 +93,10 @@ void InterfaceGraphique::menuResoudre()
 	continuerEvent = true;
 	while (continuerEvent)
 	{
+		boutonAleatoire.chargerBouton();
+		boutonQuitter.chargerBouton();
+		boutonManuel.chargerBouton();
+
 		eventMenuResoudre();
 	}
 }
@@ -210,6 +214,7 @@ void InterfaceGraphique::initBoutonsMenuResoudre()
 	initFondZoomTailleBouton(boutonAleatoire);
 	initFondZoomTailleBouton(boutonManuel);
 	initFondZoomTailleBouton(boutonQuitter);
+	initFondZoomTailleBouton(boutonIndice);
 
 	//paramètres du bouton aleatoire
 	{
@@ -255,6 +260,22 @@ void InterfaceGraphique::initBoutonsMenuResoudre()
 		boutonQuitter.event = a;
 	}
 	boutonQuitter.chargerBouton();
+
+	//parametre du bouton indice
+	{
+		std::string a = "images/BoutonSudoku.bmp";
+		boutonIndice.nomImageBouton = a;
+		a = "polices/Cybernetica_Normal.ttf";
+		boutonIndice.nomPolice = a;
+		a = "Indice";
+		boutonIndice.messageBouton = a;
+		a = "Indice";
+		boutonIndice.event = a;
+		boutonIndice.couleurTexteBouton = { 255, 255, 255 };
+		boutonIndice.taillePolice = 70 * zoomX;
+		boutonIndice.positionBouton.x += boutonManuel.positionBouton.x;
+		boutonIndice.positionBouton.y += 30 * boutonAleatoire.zoomY + boutonManuel.positionBouton.y + boutonManuel.positionBouton.h;
+	}
 }
 
 // charge les boutons du menu principal dans le buffer, prets  etre flippés
@@ -390,9 +411,9 @@ void InterfaceGraphique::eventMenuResoudre()
 					{
 						boutonQuitter=eventBoutonClique(boutonQuitter);
 					}
-                    else if(boutonManuel.estClique(event))
+					else if (boutonManuel.estClique(event))
 					{
-						boutonManuel=eventBoutonClique(boutonManuel);
+						boutonManuel = eventBoutonClique(boutonManuel);
 					}
                 break;
             default:
@@ -495,6 +516,11 @@ Bouton InterfaceGraphique::eventBoutonClique(Bouton bouton)
 		menuACreer = "Manuel";
 		continuerEvent = false;
 	}
+	else if (bouton.event == "Indice")
+	{
+		menuACreer = "Indice";
+		continuerEvent = false;
+	}
 	return bouton;
 }
 
@@ -534,6 +560,11 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
 			{
 				boutonManuel=eventBoutonClique(boutonManuel);
 			}
+			else if (boutonIndice.estClique(event))
+			{
+				grilleGraph = grilleGraphiqueAleatoire;// on met à jour la grille temporaire
+				indice();
+			}
 			else for (int line = 0; line < 9; line++)
 			{
 				for (int column = 0; column < 9; column++)
@@ -551,6 +582,11 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
 						grilleGraphiqueAleatoire.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueAleatoire.sudokuBouton[line][column]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
 						if (caseSuivante && column != 9)
 							grilleGraphiqueAleatoire.sudokuBouton[line][column+1] = eventChangerValeur(grilleGraphiqueAleatoire.sudokuBouton[line][column+1]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
+						
+						boutonAleatoire.chargerBouton();
+						boutonQuitter.chargerBouton();
+						boutonIndice.chargerBouton();
+						
 						int nouvelleValeur = std::atoi(grilleGraphiqueAleatoire.sudokuBouton[line][column].messageBouton.c_str());
 						grille.setLC(nouvelleValeur, line, column);//on met  jour la grille
 						grilleGraphiqueAleatoire.grille = grille;//Et la grille graphique
@@ -560,6 +596,7 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
 							grilleGraphiqueVide.sudokuBouton[line][column].couleurTexteBouton = { 255, 0, 0 };
 
 						grilleGraphiqueAleatoire.afficherGrilleGraph();
+						grilleGraph = grilleGraphiqueAleatoire;// on met à jour la grille temporaire
 					}
 				}
 			}
@@ -611,9 +648,11 @@ void InterfaceGraphique::grilleAleatoire()
     grilleGraphiqueAleatoire.grille=grille;
     grilleGraphiqueAleatoire.afficherGrilleGraph();
     grilleGraphiqueAleatoire.grille.afficherConsole();
+	grilleGraph = grilleGraphiqueAleatoire;
 
     boutonAleatoire.chargerBouton();
     boutonQuitter.chargerBouton();
+	boutonIndice.chargerBouton();
     SDL_Flip(fond);
 
     continuerEvent=true;
@@ -627,10 +666,19 @@ void InterfaceGraphique::grilleAleatoire()
 ///genere une grille vide et lance les evenenements suivants
 void InterfaceGraphique::grilleVide()
 {
+	chargerFond();//On reset l'affichage
+	SDL_Flip(fond);
+
+	boutonIndice.chargerBouton();
+	boutonAleatoire = eventBoutonClique(boutonAleatoire);// on fais comme s'i lavait été cliqué, pour le transformer en bouton resoudre
+	boutonAleatoire.chargerBouton();
+
 	grilleGraphiqueVide.grille = grille;
 	initFondZoomTailleGrilleGraph(grilleGraphiqueVide);
 	grilleGraphiqueVide.afficherGrilleGraph();
 	SDL_Flip(fond);
+
+	grilleGraph = grilleGraphiqueVide;
 
 	continuerEvent = true;
 	int valeurChangee = 0;// initialisation de la valeur : si reste à 0, n'a pas été touchée par l'user
@@ -639,6 +687,9 @@ void InterfaceGraphique::grilleVide()
 
 	while (continuerEvent)
 	{
+		boutonIndice.chargerBouton();
+		boutonAleatoire.chargerBouton();
+
 		SDL_WaitEvent(&event);
 		switch (event.type)
 		{
@@ -661,9 +712,10 @@ void InterfaceGraphique::grilleVide()
 						{
 							boutonQuitter=eventBoutonClique(boutonQuitter);
 						}
-						else if (boutonManuel.estClique(event))
+						else if (boutonIndice.estClique(event))
 						{
-							boutonManuel=eventBoutonClique(boutonManuel);
+							grilleGraph = grilleGraphiqueVide;// on met à jour la grille temporaire
+							indice();
 						}
 						else for (int line = 0; line < 9; line++)
 						{
@@ -680,11 +732,17 @@ void InterfaceGraphique::grilleVide()
 									grilleGraphiqueVide.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueVide.sudokuBouton[line][column]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
 									if (caseSuivante && column!=9)
 										grilleGraphiqueVide.sudokuBouton[line][column+1] = eventChangerValeur(grilleGraphiqueVide.sudokuBouton[line][column+1]);
+									
+									boutonQuitter.chargerBouton();
+									boutonIndice.chargerBouton(); 
+									boutonAleatoire.chargerBouton();
+
 									int nouvelleValeur = std::atoi(grilleGraphiqueVide.sudokuBouton[line][column].messageBouton.c_str());
 									grille.setLC(nouvelleValeur, line, column);//on met  jour la grille
 									grilleGraphiqueVide.grille = grille;//Et la grille graphique
 
 									grilleGraphiqueVide.afficherGrilleGraph();
+									grilleGraph = grilleGraphiqueAleatoire;// on met à jour la grille temporaire
 								}
 							}
 						}
@@ -769,8 +827,13 @@ void InterfaceGraphique::quitter()
 	SDL_Quit();
 }
 
-/// gere les indices donnés à l'user
+/// gere les indices donnés à l'user : on affiche brievement l'indice
 void InterfaceGraphique::indice()
 {
-
+	grilleGraph.afficherGrilleGraphIndice();
+	SDL_Flip(fond);
+	nombreVies--;
+	SDL_Delay(2500);
+	grilleGraph.afficherGrilleGraph();
+	SDL_Flip(fond);
 }

@@ -96,12 +96,10 @@ int main ( int argc, char** argv )
                 if( menuResoudre.menuACreer=="Aleatoire")
                 {
                     menuResoudre.grilleAleatoire();
-                    if(menuResoudre.menuACreer=="Resoudre")
-                        menuResoudre.resoudre();
-                    if(menuResoudre.menuACreer=="Indice")
-                    {
-                        menuResoudre.indice();
-                    }
+					if (menuResoudre.menuACreer == "Resoudre")
+					{
+						menuResoudre.resoudre();
+					}
                 }
                 if(menuResoudre.menuACreer=="Manuel")
                 {
@@ -109,10 +107,6 @@ int main ( int argc, char** argv )
                     if(menuResoudre.menuACreer=="Resoudre")
                     {
 						menuResoudre.resoudre();
-                    }
-                    if(menuResoudre.menuACreer=="Indice")
-                    {
-						menuResoudre.indice();
                     }
                 }
                 if(menuResoudre.menuACreer=="MenuPrincipal")

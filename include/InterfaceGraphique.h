@@ -154,6 +154,7 @@ class InterfaceGraphique
         /// boutons pour le menu Resolution
         Bouton boutonAleatoire;
         Bouton boutonManuel;
+		Bouton boutonIndice;
 
         //les grilles, vides ou non
 
@@ -164,6 +165,9 @@ class InterfaceGraphique
         GrilleGraphique grilleGraphiqueAleatoire;
 		GrilleGraphique grilleGraphiqueResolue;
 		GrilleGraphique grilleGraphiqueVide;
+
+		///grille generique
+		GrilleGraphique grilleGraph;
 };
 
 #endif // INTERFACEGRAPHIQUE_H

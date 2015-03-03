@@ -50,6 +50,9 @@ class GrilleGraphique
         ///prototypes de fonctions
         // affiche la grille en version Graphique, prete à etre flippée
         void afficherGrilleGraph();
+		// affiche la grille en version Graphique, prete à etre flippée avec les cases fausses en rouge !
+		void afficherGrilleGraphIndice();
+
 
 		//créé un bouton avec la valeur v a l'interieur
 		Bouton creerBouton(int v);

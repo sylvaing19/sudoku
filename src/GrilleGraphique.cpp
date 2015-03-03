@@ -16,7 +16,7 @@ GrilleGraphique::GrilleGraphique()
 	couleurGri = { 200, 240, 255 };
 }
 
-/// fonction affichant une grille graphique correspondant à la grille
+/// fonction affichant une grille graphique correspondant à la grille sans indice
 void GrilleGraphique::afficherGrilleGraph()
 {
 	imageSudokuVierge = SDL_LoadBMP("images/SudokuVierge.bmp");
@@ -49,8 +49,6 @@ void GrilleGraphique::afficherGrilleGraph()
 			if (val>0 && val <= 9)
 			{//On prend la valeur
 				sudokuBouton[ligne][colonne] = creerBouton(val);
-				if (!grille.estPlacable(val, ligne, colonne))
-					sudokuBouton[ligne][colonne].couleurTexteBouton = { 255, 0, 0 };
 			}
 			else
 			{// La valeur n'existe pas encore
@@ -75,6 +73,69 @@ void GrilleGraphique::afficherGrilleGraph()
 		posX = positionSudokuVierge.x + (58 - 47) / 2 * zoomX;
 		posY += 58 * zoomY + 1 ;
     }
+}
+
+
+
+/// fonction affichant une grille graphique correspondant à la grille avec indice
+void GrilleGraphique::afficherGrilleGraphIndice()
+{
+	imageSudokuVierge = SDL_LoadBMP("images/SudokuVierge.bmp");
+	if (imageSudokuVierge == NULL)
+	{
+		printf("Probleme avec %s", imageSudokuVierge);
+		SDL_Quit();
+	}
+
+	//Position du sudoku : centré en x, et en y qu'on affiche
+	positionSudokuVierge.x = tailleX / 2 - ((imageSudokuVierge->w)) / 2 * zoomX;
+	positionSudokuVierge.y = tailleY / 2 - ((imageSudokuVierge->h)) / 2 * zoomY;
+
+	SDL_SetColorKey(imageSudokuVierge, SDL_SRCCOLORKEY, SDL_MapRGB(imageSudokuVierge->format, 255, 255, 255)); // met le blanc en transparent pour le sudoku
+	imageSudokuVierge = zoomSurface(imageSudokuVierge, zoomX, zoomY, 0);
+	SDL_BlitSurface(imageSudokuVierge, NULL, fond, &positionSudokuVierge);
+	SDL_Flip(fond);
+
+	// Sauvegarde des positions
+	int posX = positionSudokuVierge.x + (58 - 47) / 2 * zoomX;
+	int posY = positionSudokuVierge.y + (58 - 47) / 2 * zoomY;
+
+	//affectation des valeurs dans les cases
+	int line = 0;
+	for (int ligne = 0; ligne<9; ligne++)
+	{
+		for (int colonne = 0; colonne<9; colonne++)
+		{
+			int8_t val = grille.getLC(ligne, colonne);
+			if (val>0 && val <= 9)
+			{//On prend la valeur
+				sudokuBouton[ligne][colonne] = creerBouton(val);
+				if (!grille.estPlacable(val, ligne, colonne))
+					sudokuBouton[ligne][colonne].couleurTexteBouton = { 255, 0, 0 };
+			}
+			else
+			{// La valeur n'existe pas encore
+				sudokuBouton[ligne][colonne] = creerBouton(0);
+			}
+
+			//On verifie si la grille est solvable, si non, on met la valeur en rouge
+
+			// On donne les positions des boutons
+			sudokuBouton[ligne][colonne].positionBouton.x = posX + (58 - 47) / 2 * zoomX;
+			sudokuBouton[ligne][colonne].positionBouton.y = posY + (58 - 47) / 2 * zoomY;
+
+			// On avance vers le prochain bouton
+			posX += 58 * zoomX + 1;
+
+			//On charge le bouton
+			sudokuBouton[ligne][colonne].chargerBouton();
+			SDL_Flip(fond);
+		}
+
+		//on change de ligne
+		posX = positionSudokuVierge.x + (58 - 47) / 2 * zoomX;
+		posY += 58 * zoomY + 1;
+	}
 }
 
 /// créé un bouton avec la valeur de sudoku dessus : chaque casse du sudoku est un bouton cliquable
