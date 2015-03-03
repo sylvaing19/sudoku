@@ -22,22 +22,29 @@ class InterfaceGraphique
         ///constructeur
         InterfaceGraphique();
 
-        ///initialisation des differentes positions
+        ///initialisation des differentes positions			// Ce commentaire est faux ! Tu n'initialise rien ici, et tu ne dois rien initialiser !
         SDL_Rect positionTitre, positionBoutonQuitter,positionFond,positionAuRevoir;
         SDL_Rect positionMenu1,positionMenu2,positionMenu3;
         SDL_Rect positionTexteMenu1, positionTexteMenu2, positionTexteMenu3;
 		SDL_Rect positionSudoku, positionEntrezUnChiffre, positionCliquezSurUneCase, positionPasSolvable;
 
         ///Recupere les données d'affichage
-        const SDL_VideoInfo* info;
+        const SDL_VideoInfo* info;//nom dégeu !
 
         ///initialisation des surfaces (images)
+		/*
+		ON N'INITIALISE RIEN DANS LE .H !!!!!!
+		L'initialisation se fait dans le constructeur.
+		*/
         SDL_Surface *imageFond = NULL, *fond = NULL, *rotation = NULL, *titre = NULL;
 		SDL_Surface *textePret = NULL, *textePretAussi = NULL, *texteAdieu = NULL, *imageTitre = NULL;
 		SDL_Surface *texteEntreUnChiffre = NULL, *texteCliquezSurUneCase = NULL, *textePasSolvable = NULL;
 
 
         ///initialisation des polices
+		/*
+		Idem... 
+		*/
 		TTF_Font *policeTitre = NULL, *policeAuRevoir = NULL, *policeSudoku = NULL, *policeEntrezUnChiffre=NULL, *policePasSolvable=NULL;
 
         ///creation des evenements
@@ -53,11 +60,15 @@ class InterfaceGraphique
         ///booleens pour quitter l'appli
         bool continuerEvent;
         bool quitterAppli;
-		bool continuerEventChangerValeur;
+		bool continuerEventChangerValeur;//C'est quoiiiii ???!
 
         ///liste des boutons apppartenant à ce menu
 
         ///taille des boutons / images
+		/*
+		Mais ça fout quoi là ça ???
+		c'est des membres de la classe bouton !
+		*/
         int tailleX;
         int tailleY;
         int tailleXMenu;
@@ -70,6 +81,14 @@ class InterfaceGraphique
         std::string nomImageFond, texteTitre;
         ///Constante permettant de savoir le prochain menu affiché
         std::string menuACreer;
+		/*
+		I see what you did here...
+		Si tu veux régler les variables tailleX, tailleY, nomImage, etc...
+		étape 1 : tu ajoute a la classe Bouton une méthode d'initialisation prenant en argument les variables qui t'intéressent
+		étape 2 : tu as deux possibilitées
+			soit tu as une fonction d'initialisation dans InterfaceGraphqie qui prendra en argument toutes les variables en question pour initialiser les boutons
+			soit tu mets les attributs de type Bouton en public et tu fais interfaceGraphique.bouton1.init(nomImage, position, etc...);
+		*/
 
         /// booleens divers
 		bool sudokuApparaitAleatoire, sudokuAResoudre, sudokuVide,caseSuivante;
