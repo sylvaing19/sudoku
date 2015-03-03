@@ -30,18 +30,15 @@ int main ( int argc, char** argv )
     {
         Grille grille;
 		
-        grille.setLC(9,2,0);grille.setLC(9,3,1);
-        grille.setLC(3,5,0);grille.setLC(5,4,1);
-        grille.setLC(2,6,0);grille.setLC(6,6,1);
-        grille.setLC(1,8,0);grille.setLC(5,2,2);grille.setLC(6,0,3);
-        grille.setLC(6,3,2);grille.setLC(1,3,3);
-        grille.setLC(2,4,2);grille.setLC(9,7,3);
-        grille.setLC(8,7,2);grille.setLC(2,1,4);grille.setLC(9,1,5);
-        grille.setLC(7,2,4);grille.setLC(2,5,5);
-        grille.setLC(9,4,4);grille.setLC(6,8,5);grille.setLC(1,6,4);
-        grille.setLC(3,7,4);grille.setLC(8,1,6);grille.setLC(6,2,7);
+        grille.setLC(9,2,0);grille.setLC(9,3,1);grille.setLC(3,5,0);grille.setLC(5,4,1);
+        grille.setLC(2,6,0);grille.setLC(6,6,1); grille.setLC(1,8,0);grille.setLC(5,2,2);
+		grille.setLC(6,0,3);  grille.setLC(6,3,2);grille.setLC(1,3,3);grille.setLC(2,4,2);
+		grille.setLC(9,7,3); grille.setLC(8,7,2);grille.setLC(2,1,4);grille.setLC(9,1,5);
+        grille.setLC(7,2,4);grille.setLC(2,5,5);grille.setLC(9,4,4);grille.setLC(6,8,5);
+		grille.setLC(1,6,4);grille.setLC(3,7,4);grille.setLC(8,1,6);grille.setLC(6,2,7);
         grille.setLC(1,4,6);grille.setLC(7,4,7);grille.setLC(5,5,6);grille.setLC(9,5,7);
-        grille.setLC(9,6,6);grille.setLC(9,0,8);grille.setLC(3,2,8);grille.setLC(2,3,8);grille.setLC(4,6,8);
+        grille.setLC(9,6,6);grille.setLC(9,0,8);grille.setLC(3,2,8);grille.setLC(2,3,8);
+		grille.setLC(4,6,8);
 		
         //Soluce :
         //781 643 259
@@ -103,7 +100,7 @@ int main ( int argc, char** argv )
                         menuResoudre.resoudre();
                     if(menuResoudre.menuACreer=="Indice")
                     {
-                        ;
+                        menuResoudre.indice();
                     }
                 }
                 if(menuResoudre.menuACreer=="Manuel")
@@ -111,11 +108,11 @@ int main ( int argc, char** argv )
                     menuResoudre.grilleVide();
                     if(menuResoudre.menuACreer=="Resoudre")
                     {
-                        ;
+						menuResoudre.resoudre();
                     }
                     if(menuResoudre.menuACreer=="Indice")
                     {
-                        ;
+						menuResoudre.indice();
                     }
                 }
                 if(menuResoudre.menuACreer=="MenuPrincipal")
