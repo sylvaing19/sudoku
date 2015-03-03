@@ -1,12 +1,14 @@
 #include "Bouton.h"
 
+/// Constructeur
 Bouton::Bouton()
 {
     positionBouton.x=0;
     positionBouton.y=0;
 }
 
-/*Charge le bouton dans le buffer, gere ses positions*/
+
+///Charge le bouton dans le buffer, gere ses positions
 void Bouton::chargerBouton()
 {
     imageBouton=SDL_LoadBMP(nomImageBouton.c_str()); //zoom a faire
@@ -45,6 +47,7 @@ void Bouton::chargerBouton()
     }
 }
 
+/// verifie si le bouton en argument est cliqué, et renvoie un booleen repondant à la question "est-ce cliqué ?"
 bool Bouton::estClique(SDL_Event event)
 {
     return event.button.x>(positionBouton.x) &&
@@ -52,4 +55,5 @@ bool Bouton::estClique(SDL_Event event)
            event.button.y>(positionBouton.y) &&
            event.button.y<(positionBouton.y+positionBouton.h);
 }
+
 

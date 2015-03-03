@@ -89,16 +89,12 @@
     <ClCompile Include="..\..\main.cpp" />
     <ClCompile Include="..\..\SDL_gfx-2.0.25\SDL_rotozoom.c" />
     <ClCompile Include="..\..\src\Bouton.cpp" />
-    <ClCompile Include="..\..\src\Fenetre.cpp" />
-    <ClCompile Include="..\..\src\FenetreMgr.cpp" />
     <ClCompile Include="..\..\src\Grille.cpp" />
     <ClCompile Include="..\..\src\GrilleGraphique.cpp" />
     <ClCompile Include="..\..\src\InterfaceGraphique.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\Bouton.h" />
-    <ClInclude Include="..\..\include\Fenetre.h" />
-    <ClInclude Include="..\..\include\FenetreMgr.h" />
     <ClInclude Include="..\..\include\Grille.h" />
     <ClInclude Include="..\..\include\GrilleGraphique.h" />
     <ClInclude Include="..\..\include\InterfaceGraphique.h" />

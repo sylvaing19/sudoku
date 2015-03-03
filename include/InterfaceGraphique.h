@@ -91,8 +91,10 @@ class InterfaceGraphique
 		*/
 
         /// booleens divers
-        bool sudokuApparaitAleatoire=false, sudokuAResoudre=false, sudokuVide;
+		bool sudokuApparaitAleatoire, sudokuAResoudre, sudokuVide,caseSuivante;
 
+		/// nombre d'indices, de vies que l'user a
+		int nombreVies;
 
         ///prototypes de fonction
 
@@ -132,16 +134,19 @@ class InterfaceGraphique
         void eventMenuResoudre();
             void eventMenuResoudreAleatoire();
             void eventMenuResoudreVideManuelle();
-                void eventMenuResoudreGrilleVide();
+            void eventMenuResoudreGrilleVide();
 
         ///fait apparaitre une grille aleatoire
         void grilleAleatoire();
         ///fait apparaitre une grille vide à remplir
         void grilleVide();
+
         ///resoud la grille et l'affiche
         void resoudre();
+
 		//change la valeur d'une case donnée
 		Bouton eventChangerValeur(Bouton bouton);
+
 		// affiche le texte demandant à l'user de rentrer un chiffre
 		void afficherEntrezUnChiffre();
 		// affiche le texte demandant à l'user de cliquer
@@ -149,6 +154,11 @@ class InterfaceGraphique
 		//affiche le texte "désolé, c'est pas solvable"
 		void afficherPasSolvable();
 
+		// gere les boutons et leurrs effets au clic de l'user
+		Bouton eventBoutonClique(Bouton bouton);
+
+		// gere l'apparition d'indices pour l'user
+		void indice();
 
     private:
         //les differents boutons, cliquables ou non, avec action ou non, utilisés
