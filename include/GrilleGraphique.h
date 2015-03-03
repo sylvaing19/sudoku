@@ -9,14 +9,16 @@
 
 class GrilleGraphique
 {
-    public:
+	public:
         GrilleGraphique();
 
+	private:
         //position des objets
         SDL_Rect positionFond;// position du fond : 0,0
         SDL_Rect positionSudoku;
 		SDL_Rect positionSudokuVierge;
 
+	public:
         //images
         SDL_Surface* fond=NULL; //image du fond
 		SDL_Surface *imageSudokuVierge = NULL; // image du sudoku vierge
@@ -28,6 +30,7 @@ class GrilleGraphique
         //zoom : gestion des differences de reslotion et taille d'ecran
         double zoomX,zoomY;
 
+	private:
         //taille de la police des chiffres
         int taillePolice;
 
@@ -41,6 +44,7 @@ class GrilleGraphique
         SDL_Color  couleurR;
         SDL_Color  couleurGri;
 
+	public:
         ///La grille en elle meme : on la charge arès les algorithmes, cette classe ne fais qu'afficher  / gerer les clics
         Grille grille;
 	
@@ -53,7 +57,7 @@ class GrilleGraphique
 		// affiche la grille en version Graphique, prete à etre flippée avec les cases fausses en rouge !
 		void afficherGrilleGraphIndice();
 
-
+	private :
 		//créé un bouton avec la valeur v a l'interieur
 		Bouton creerBouton(int v);
 };

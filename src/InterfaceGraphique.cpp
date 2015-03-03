@@ -590,11 +590,7 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
 						int nouvelleValeur = std::atoi(grilleGraphiqueAleatoire.sudokuBouton[line][column].messageBouton.c_str());
 						grille.setLC(nouvelleValeur, line, column);//on met  jour la grille
 						grilleGraphiqueAleatoire.grille = grille;//Et la grille graphique
-
-						//On verifie si la grille est solvable, si non, on met la valeur en rouge
-						if (!grille.estCorrecte())
-							grilleGraphiqueVide.sudokuBouton[line][column].couleurTexteBouton = { 255, 0, 0 };
-
+						
 						grilleGraphiqueAleatoire.afficherGrilleGraph();
 						grilleGraph = grilleGraphiqueAleatoire;// on met à jour la grille temporaire
 					}

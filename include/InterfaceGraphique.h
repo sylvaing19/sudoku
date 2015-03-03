@@ -22,6 +22,7 @@ class InterfaceGraphique
         ///constructeur
         InterfaceGraphique();
 
+	private :
         ///declaration des differentes positions			
         SDL_Rect positionTitre, positionBoutonQuitter,positionFond,positionAuRevoir;
         SDL_Rect positionMenu1,positionMenu2,positionMenu3;
@@ -68,17 +69,12 @@ class InterfaceGraphique
 
         ///string d'entrée
         std::string nomImageFond, texteTitre;
+
+	public:
         ///Constante permettant de savoir le prochain menu affiché
         std::string menuACreer;
-		/*
-		I see what you did here...
-		Si tu veux régler les variables tailleX, tailleY, nomImage, etc...
-		étape 1 : tu ajoute a la classe Bouton une méthode d'initialisation prenant en argument les variables qui t'intéressent
-		étape 2 : tu as deux possibilitées
-			soit tu as une fonction d'initialisation dans InterfaceGraphqie qui prendra en argument toutes les variables en question pour initialiser les boutons
-			soit tu mets les attributs de type Bouton en public et tu fais interfaceGraphique.bouton1.init(nomImage, position, etc...);
-		*/
 
+	private:
         /// booleens divers
 		bool sudokuApparaitAleatoire, sudokuAResoudre, sudokuVide,caseSuivante;
 
@@ -97,13 +93,13 @@ class InterfaceGraphique
         void initBoutonsMenuResoudre();
         void initFondZoomTailleBouton(Bouton & bouton);
         void initFondZoomTailleGrilleGraph(GrilleGraphique & grilleGraphique);
-
+	public:
         ///initialise le menu principal, et effectue tout ce qui le concerne
         void menuPrincipal();
 
         /// initialise le menu resoudre, effectue tout ce qui le concerne
         void menuResoudre();
-
+	private:
         ///animation d'introduction
         void intro();
 
@@ -124,7 +120,7 @@ class InterfaceGraphique
             void eventMenuResoudreAleatoire();
             void eventMenuResoudreVideManuelle();
             void eventMenuResoudreGrilleVide();
-
+	public:
         ///fait apparaitre une grille aleatoire
         void grilleAleatoire();
         ///fait apparaitre une grille vide à remplir
@@ -132,7 +128,7 @@ class InterfaceGraphique
 
         ///resoud la grille et l'affiche
         void resoudre();
-
+	private:
 		//change la valeur d'une case donnée
 		Bouton eventChangerValeur(Bouton bouton);
 
@@ -149,7 +145,6 @@ class InterfaceGraphique
 		// gere l'apparition d'indices pour l'user
 		void indice();
 
-    private:
         //les differents boutons, cliquables ou non, avec action ou non, utilisés
 
         ///boutons du menu principal

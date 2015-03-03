@@ -13,9 +13,11 @@ class Bouton
     public:
         Bouton();
 
+	private:
         //Recupere les données d'affichage
         const SDL_VideoInfo* infosUser;
 
+	public:
         //taille des boutons / images
         int tailleX;
         int tailleY;
@@ -38,13 +40,15 @@ class Bouton
         SDL_Surface* fond=NULL; //image du fond : rien
         SDL_Surface* imageBouton=NULL; //image des boutons principaux
         SDL_Surface* texteBouton=NULL; //texte qu'il y a sur les boutons
-
+	private:
         //Polices
         TTF_Font *policeBouton=NULL; //POlice sur les boutons principaux
 
-        //Noms à entrer
-        std::string nomImageFond, nomImageBouton , nomPolice, messageBouton,event;
-        SDL_Color couleurTexteBouton;
+	public:
+		//Noms à entrer
+		std::string nomImageFond, nomImageBouton;
+		std::string messageBouton, event, nomPolice;
+		SDL_Color couleurTexteBouton;
 
         ///Prototypes de fonctions
 
