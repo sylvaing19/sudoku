@@ -17,7 +17,7 @@ enum TestGraph
 {RESOLUTION,MENU_PRINCIPAL};
 
 
-TypeDeTest typeDeTest = TEST_UNITAIRE;/// Permet de choisir le type de test à effectuer
+TypeDeTest typeDeTest = MODE_GRAPHIQUE;/// Permet de choisir le type de test à effectuer
 
 TestGraph testGraphique = MENU_PRINCIPAL; /// Permet de choisir le type  de test graphique
 
@@ -139,14 +139,12 @@ int main ( int argc, char** argv )
 		grilleComplete.getFromFile("test_unitaire_resolu");
 		grilleARemplir.completer();
 		if (grilleARemplir.testResolution(grilleComplete))
-			cout << "Megabwabwa ! Tout fonctionne !" << endl;
+			cout << "Megabwabwa ! Tout fonctionne !" << endl;// RLY ? 
 		else
 			cout << "Pas de panique ! Ca marche juste pas !" << endl;
 	}
 
-
-
-
+	
 
   return EXIT_SUCCESS;
 }

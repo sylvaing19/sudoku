@@ -53,3 +53,4 @@ bool Bouton::estClique(SDL_Event event)
            event.button.y<(positionBouton.y+positionBouton.h);
 }
 
+

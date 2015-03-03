@@ -130,6 +130,9 @@ class InterfaceGraphique
 		//affiche le texte "désolé, c'est pas solvable"
 		void afficherPasSolvable();
 
+		// gere les boutons et leurrs effets au clic de l'user
+		void eventBoutonClique(Bouton bouton);
+
 
     private:
         //les differents boutons, cliquables ou non, avec action ou non, utilisés

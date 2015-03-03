@@ -53,7 +53,6 @@ class Bouton
         // renvoie un booleen : vrai si le bouton est cliqué, faux sinon
         bool estClique(SDL_Event event);
 
-
    private:
         SDL_Rect positionTexte;// position du texte sur les boutons
 

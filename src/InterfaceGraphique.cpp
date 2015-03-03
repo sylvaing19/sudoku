@@ -248,47 +248,20 @@ void InterfaceGraphique::eventMenuPrincipal()
                         //clic gauche souris
                         if(boutonQuitter.estClique(event))
                         {
-                            if(boutonQuitter.event=="Quitter")
-                            {
-                                quitter();
-                                continuerEvent=false;//inutile car quitte deja mais explicite
-                            }
-                            else if(boutonQuitter.event=="Resoudre")
-                            {
-                                menuACreer="Resoudre";
-                                continuerEvent=false;
-                            }
+							eventBoutonClique(boutonQuitter);
                         }
 
                         //clic sur le menu 1
                         else if(boutonMenu1.estClique(event))
                         {
-                            if(boutonMenu1.event=="Quitter")
-                            {
-                                quitter();
-                                continuerEvent=false;//inutile car quitte deja mais explicite
-                            }
-                            else if(boutonMenu1.event=="Resoudre")
-                            {
-                                menuACreer="Resoudre";
-                                continuerEvent=false;
-                            }
+							eventBoutonClique(boutonMenu1);
                         }
 
                         //clic sur le menu 2
-                        else if(boutonMenu2.estClique(event))
-                        {
-                            if(boutonMenu2.event=="Quitter")
-                            {
-                                quitter();
-                                continuerEvent=false;//inutile car quitte deja mais explicite
-                            }
-                            else if(boutonMenu2.event=="Resoudre")
-                            {
-                                menuACreer="Resoudre";
-                                continuerEvent=false;
-                            }
-                        }
+						else if (boutonMenu2.estClique(event))
+						{
+							eventBoutonClique(boutonMenu2);
+						}
                     break;
                 default:
                     ;
@@ -553,7 +526,20 @@ void InterfaceGraphique::grilleVide()
 				switch (event.button.button)
 				{
 					case SDL_BUTTON_LEFT://clic gauche souris
-						for (int line = 0; line < 9; line++)
+						//clic gauche souris
+						if (boutonAleatoire.estClique(event))
+						{
+							eventBoutonClique(boutonAleatoire);
+						}
+						else if (boutonQuitter.estClique(event))
+						{
+							eventBoutonClique(boutonQuitter);
+						}
+						else if (boutonManuel.estClique(event))
+						{
+							eventBoutonClique(boutonManuel);
+						}
+						else for (int line = 0; line < 9; line++)
 						{
 							for (int column = 0; column < 9; column++)
 							{
@@ -701,74 +687,17 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
 
                         //clic gauche souris
                        if(boutonAleatoire.estClique(event))
-                            {
-                                if(boutonAleatoire.event=="Quitter")
-                                    quitter();
-                                else if(boutonAleatoire.event=="ApparitionAleatoire")
-                                {
-                                    menuACreer="Aleatoire";
-                                    continuerEvent=false;
-                                    std::string a="Resoudre";
-                                    boutonAleatoire.messageBouton=a;
-                                    boutonAleatoire.event=a;
-                                }
-                                else if(boutonAleatoire.event=="Resoudre")
-                                {
-                                    menuACreer="Resoudre";
-                                    continuerEvent=false;
-                                }
-                                else if(boutonAleatoire.event=="Manuel")
-                                {
-                                    menuACreer="Manuel";
-                                    continuerEvent=false;
-                                }
-                            }
+                        {
+							eventBoutonClique(boutonAleatoire);
+                        }
                         else if(boutonQuitter.estClique(event))
-                            {
-                                if(boutonQuitter.event=="Quitter")
-                                    quitter();
-                                else if(boutonQuitter.event=="ApparitionAleatoire")
-                                {
-                                        menuACreer="Aleatoire";
-                                        continuerEvent=false;
-                                        std::string a="Resoudre";
-                                        boutonQuitter.messageBouton=a;
-                                        boutonQuitter.event=a;
-                                }
-                                else if(boutonQuitter.event=="Resoudre")
-                                {
-                                        menuACreer="Resoudre";
-                                        continuerEvent=false;
-                                }
-                                else if(boutonQuitter.event=="Manuel")
-                                {
-                                        menuACreer="Manuel";
-                                        continuerEvent=false;
-                                }
-                            }
+                        {
+							eventBoutonClique(boutonQuitter);
+                        }
                         else if( boutonManuel.estClique(event))
-                            {
-                                if(boutonManuel.event=="Quitter")
-                                    quitter();
-                                else if(boutonManuel.event=="ApparitionAleatoire")
-                                {
-                                    menuACreer="Aleatoire";
-                                    continuerEvent=false;
-                                    std::string a="Resoudre";
-                                    boutonManuel.messageBouton=a;
-                                    boutonManuel.event=a;
-                                }
-                                else if(boutonManuel.event=="Resoudre")
-                                {
-                                    menuACreer="Resoudre";
-                                    continuerEvent=false;
-                                }
-                                else if(boutonManuel.event=="Manuel")
-                                {
-                                    menuACreer="Manuel";
-                                    continuerEvent=false;
-                                }
-                            }
+                        {
+							eventBoutonClique(boutonManuel);
+                        }
 						else for (int line = 0; line < 9; line++)
 						{
 							for (int column = 0; column < 9; column++)
@@ -831,5 +760,27 @@ void InterfaceGraphique::resoudre()
 	}
 }
 
-
-
+/// gere l'evenement declenché par le bouton : quitte; lance le string du menu à creer...
+void InterfaceGraphique::eventBoutonClique(Bouton bouton)
+{
+	if (bouton.event == "Quitter")
+		quitter();
+	else if (bouton.event == "ApparitionAleatoire")
+	{
+		menuACreer = "Aleatoire";
+		continuerEvent = false;
+		std::string a = "Resoudre";
+		bouton.messageBouton = a;
+		bouton.event = a;
+	}
+	else if (bouton.event == "Resoudre")
+	{
+		menuACreer = "Resoudre";
+		continuerEvent = false;
+	}
+	else if (bouton.event == "Manuel")
+	{
+		menuACreer = "Manuel";
+		continuerEvent = false;
+	}
+}
