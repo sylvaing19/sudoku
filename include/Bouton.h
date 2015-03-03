@@ -14,7 +14,7 @@ class Bouton
         Bouton();
 
         //Recupere les données d'affichage
-        const SDL_VideoInfo* info;
+        const SDL_VideoInfo* infosUser;
 
         //taille des boutons / images
         int tailleX;

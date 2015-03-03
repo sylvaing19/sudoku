@@ -7,7 +7,7 @@ InterfaceGraphique::InterfaceGraphique()
     SDL_Init(SDL_INIT_VIDEO);
 
     //Recuperation des informations de l'utilisateur
-    info = SDL_GetVideoInfo();
+    infosUser = SDL_GetVideoInfo();
 
     //change si l'user veux quitter, continuer
     continuerEvent=true;
@@ -16,8 +16,8 @@ InterfaceGraphique::InterfaceGraphique()
     //La taille de l'ecran se recupere sur les infos
 	/*tailleX = 800;
 	tailleY = 400;*/
-	tailleX=info->current_w ;
-	tailleY=info->current_h;
+	tailleX=infosUser->current_w ;
+	tailleY=infosUser->current_h;
 
     //Zoom : mon ecran sert de reference (1280*640), et on divise la taille de tout le reste suivant les resolutions
     zoomX=((double)tailleX/1600);

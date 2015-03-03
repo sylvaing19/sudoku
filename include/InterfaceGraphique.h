@@ -22,30 +22,23 @@ class InterfaceGraphique
         ///constructeur
         InterfaceGraphique();
 
-        ///initialisation des differentes positions			// Ce commentaire est faux ! Tu n'initialise rien ici, et tu ne dois rien initialiser !
+        ///declaration des differentes positions			
         SDL_Rect positionTitre, positionBoutonQuitter,positionFond,positionAuRevoir;
         SDL_Rect positionMenu1,positionMenu2,positionMenu3;
         SDL_Rect positionTexteMenu1, positionTexteMenu2, positionTexteMenu3;
 		SDL_Rect positionSudoku, positionEntrezUnChiffre, positionCliquezSurUneCase, positionPasSolvable;
 
         ///Recupere les données d'affichage
-        const SDL_VideoInfo* info;//nom dégeu !
+        const SDL_VideoInfo* infosUser;
 
-        ///initialisation des surfaces (images)
-		/*
-		ON N'INITIALISE RIEN DANS LE .H !!!!!!
-		L'initialisation se fait dans le constructeur.
-		*/
-        SDL_Surface *imageFond = NULL, *fond = NULL, *rotation = NULL, *titre = NULL;
-		SDL_Surface *textePret = NULL, *textePretAussi = NULL, *texteAdieu = NULL, *imageTitre = NULL;
-		SDL_Surface *texteEntreUnChiffre = NULL, *texteCliquezSurUneCase = NULL, *textePasSolvable = NULL;
+        ///declaration des surfaces (images)
+		SDL_Surface *imageFond, *fond, *rotation, *titre;
+		SDL_Surface *textePret, *textePretAussi, *texteAdieu, *imageTitre;
+		SDL_Surface *texteEntreUnChiffre, *texteCliquezSurUneCase, *textePasSolvable;
 
 
         ///initialisation des polices
-		/*
-		Idem... 
-		*/
-		TTF_Font *policeTitre = NULL, *policeAuRevoir = NULL, *policeSudoku = NULL, *policeEntrezUnChiffre=NULL, *policePasSolvable=NULL;
+		TTF_Font *policeTitre, *policeAuRevoir, *policeSudoku, *policeEntrezUnChiffre, *policePasSolvable;
 
         ///creation des evenements
         SDL_Event event;
@@ -60,16 +53,12 @@ class InterfaceGraphique
         ///booleens pour quitter l'appli
         bool continuerEvent;
         bool quitterAppli;
-		bool continuerEventChangerValeur;//C'est quoiiiii ???!
+		bool continuerEventChangerValeur;//booleen gerant l'evenement de changement de valeur d'une case
 
         ///liste des boutons apppartenant à ce menu
 
-        ///taille des boutons / images
-		/*
-		Mais ça fout quoi là ça ???
-		c'est des membres de la classe bouton !
-		*/
-        int tailleX;
+        ///taille des boutons / images necesseaires, transferées d'une classe à l'autre
+		int tailleX;
         int tailleY;
         int tailleXMenu;
         int tailleYMenu;
