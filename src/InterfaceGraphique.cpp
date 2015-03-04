@@ -239,7 +239,7 @@ void InterfaceGraphique::initBoutonsMenuResoudre()
 		boutonManuel.nomImageBouton = a;
 		a = "polices/Cybernetica_Normal.ttf";
 		boutonManuel.nomPolice = a;
-		a = "Manuel";
+		a = "Vide";
 		boutonManuel.messageBouton = a;
 		a = "Manuel";
 		boutonManuel.event = a;
@@ -556,10 +556,6 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
 			{
 				boutonQuitter=eventBoutonClique(boutonQuitter);
 			}
-			else if (boutonManuel.estClique(event))
-			{
-				boutonManuel=eventBoutonClique(boutonManuel);
-			}
 			else if (boutonIndice.estClique(event))
 			{
 				grilleGraph = grilleGraphiqueAleatoire;// on met à jour la grille temporaire
@@ -614,6 +610,10 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
 void InterfaceGraphique::grilleAleatoire()
 {
     initFondZoomTailleGrilleGraph(grilleGraphiqueAleatoire);
+	// on reinitialise le fond
+
+	chargerFond();
+	SDL_Flip(fond);
 
     //definition de la grille, attribition (Numero, ligne, colonne)  TODO : Faire quelque chose de VRAIMENT aleatoire
     {
