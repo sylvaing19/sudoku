@@ -76,7 +76,7 @@ class InterfaceGraphique
 
 	private:
         /// booleens divers
-		bool sudokuApparaitAleatoire, sudokuAResoudre, sudokuVide,caseSuivante;
+		bool sudokuApparaitAleatoire, sudokuAResoudre, sudokuVide, caseSuivante;
 
 		/// nombre d'indices, de vies que l'user a
 		int nombreVies;

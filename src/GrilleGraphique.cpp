@@ -8,6 +8,11 @@ GrilleGraphique::GrilleGraphique()
     taillePolice=30;
     std::string nomPolice="polices/Cybernetica_Normal.ttf";
     policeSudoku=TTF_OpenFont(nomPolice.c_str(), taillePolice);
+	if (policeSudoku == NULL)
+	{
+		printf("Probleme avec %s", nomPolice);
+		SDL_Quit();
+	}
 
 	couleurN = { 0, 0, 0 };
 	couleurB = { 0, 0, 255 };
@@ -22,7 +27,7 @@ void GrilleGraphique::afficherGrilleGraph()
 	imageSudokuVierge = SDL_LoadBMP("images/SudokuVierge.bmp");
 	if (imageSudokuVierge == NULL)
 	{
-		printf("Probleme avec %s", imageSudokuVierge);
+		printf("Probleme avec images/SudokuVierge.bmp");
 		SDL_Quit();
 	}
 
@@ -66,13 +71,14 @@ void GrilleGraphique::afficherGrilleGraph()
 
 			//On charge le bouton
 			sudokuBouton[ligne][colonne].chargerBouton();
-			SDL_Flip(fond);
 		}
 
 		//on change de ligne
 		posX = positionSudokuVierge.x + (58 - 47) / 2 * zoomX;
 		posY += 58 * zoomY + 1 ;
     }
+
+	SDL_Flip(fond);
 }
 
 
@@ -83,13 +89,16 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 	imageSudokuVierge = SDL_LoadBMP("images/SudokuVierge.bmp");
 	if (imageSudokuVierge == NULL)
 	{
-		printf("Probleme avec %s", imageSudokuVierge);
+		printf("Probleme avec images / SudokuVierge.bmp");
 		SDL_Quit();
 	}
 
 	//Position du sudoku : centré en x, et en y qu'on affiche
 	positionSudokuVierge.x = tailleX / 2 - ((imageSudokuVierge->w)) / 2 * zoomX;
 	positionSudokuVierge.y = tailleY / 2 - ((imageSudokuVierge->h)) / 2 * zoomY;
+
+	//booleen verifiant l'existance d'erreur
+	erreurExistante = false;
 
 	SDL_SetColorKey(imageSudokuVierge, SDL_SRCCOLORKEY, SDL_MapRGB(imageSudokuVierge->format, 255, 255, 255)); // met le blanc en transparent pour le sudoku
 	imageSudokuVierge = zoomSurface(imageSudokuVierge, zoomX, zoomY, 0);
@@ -110,8 +119,11 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 			if (val>0 && val <= 9)
 			{//On prend la valeur
 				sudokuBouton[ligne][colonne] = creerBouton(val);
-				if (!grille.estPlacable(val, ligne, colonne))
+				if (!grille.estPlacable(val, ligne, colonne))// Si il y a une erreur
+				{
 					sudokuBouton[ligne][colonne].couleurTexteBouton = { 255, 0, 0 };
+					erreurExistante = true;
+				}
 			}
 			else
 			{// La valeur n'existe pas encore
@@ -129,13 +141,15 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 
 			//On charge le bouton
 			sudokuBouton[ligne][colonne].chargerBouton();
-			SDL_Flip(fond);
 		}
+
 
 		//on change de ligne
 		posX = positionSudokuVierge.x + (58 - 47) / 2 * zoomX;
 		posY += 58 * zoomY + 1;
 	}
+	SDL_Flip(fond);
+
 }
 
 /// créé un bouton avec la valeur de sudoku dessus : chaque casse du sudoku est un bouton cliquable

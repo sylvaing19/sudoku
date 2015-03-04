@@ -117,7 +117,7 @@ void InterfaceGraphique::resoudre()
 
 		grilleGraphiqueResolue.afficherGrilleGraph();
 		SDL_Flip(fond);
-		SDL_Delay(2500);//laisse letemps pour voir la grille
+		SDL_Delay(2500);//laisse le temps pour voir la grille
 	}
 	else // sinon, pas solvable
 	{
@@ -297,7 +297,7 @@ void InterfaceGraphique::chargerFond()
 	imageFond = SDL_LoadBMP(nomImageFond.c_str());
 	if (imageFond == NULL)
 	{
-		printf("Probleme avec %s", imageFond);
+		printf("Probleme avec %s", nomImageFond);
 		SDL_Quit();
 	}
 
@@ -309,9 +309,29 @@ void InterfaceGraphique::chargerFond()
 void InterfaceGraphique::initPolices()
 {
 	policeTitre = policeEntrezUnChiffre = TTF_OpenFont("polices/A Simple Life.ttf", 100 * zoomX);
+	if (policeTitre == NULL || policeEntrezUnChiffre == NULL)
+	{
+		printf("Probleme avec polices / A Simple Life.ttf");
+		SDL_Quit();
+	}
 	policeAuRevoir = TTF_OpenFont("polices/SF_Toontime.ttf", 150 * zoomX);
+	if (policeAuRevoir == NULL)
+	{
+		printf("Probleme avec polices/SF_Toontime.ttf");
+		SDL_Quit();
+	}
 	policeSudoku = TTF_OpenFont("polices/Cybernetica_Normal.ttf", 30 * zoomX);
+	if (policeSudoku == NULL)
+	{
+		printf("Probleme avec polices/Cybernetica_Normal.ttf");
+		SDL_Quit();
+	}
 	policePasSolvable = TTF_OpenFont("polices/Cybernetica_Normal.ttf", 50 * zoomX);
+	if (policePasSolvable == NULL)
+	{
+		printf("Probleme avec polices/Cybernetica_Normal.ttf");
+		SDL_Quit();
+	}
 }
 
 void InterfaceGraphique::initTitre()
@@ -827,9 +847,11 @@ void InterfaceGraphique::quitter()
 void InterfaceGraphique::indice()
 {
 	grilleGraph.afficherGrilleGraphIndice();
-	SDL_Flip(fond);
-	nombreVies--;
-	SDL_Delay(2500);
-	grilleGraph.afficherGrilleGraph();
+	if (grilleGraph.erreurExistante)// s''il a eu des erreurs, on laisse le temps à l'user de les voir : sinon, non.
+	{
+		SDL_Delay(1500);
+		SDL_Flip(fond);
+		grilleGraph.afficherGrilleGraph();
+	}
 	SDL_Flip(fond);
 }

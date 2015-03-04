@@ -19,6 +19,8 @@ class GrilleGraphique
 		SDL_Rect positionSudokuVierge;
 
 	public:
+
+		bool erreurExistante; // booleen verifiant l'existance d'une erreur dans la grille graphique
         //images
         SDL_Surface* fond=NULL; //image du fond
 		SDL_Surface *imageSudokuVierge = NULL; // image du sudoku vierge
