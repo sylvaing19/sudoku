@@ -814,9 +814,8 @@ void InterfaceGraphique::intro()
 	int i;
 	int a = positionTitre.y;
 	//animation, titre qui descend
-	for (i = 0; i <= a; i++)
+	for (i = 0; i <= a; i+=3*zoomY)
 	{
-		//TODO : probleme de latence ici
 		positionTitre.y = i;
 		SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
 		SDL_BlitSurface(imageTitre, NULL, fond, &positionTitre);
