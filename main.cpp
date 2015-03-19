@@ -116,7 +116,8 @@ int main ( int argc, char** argv )
             }
             if(menuPrincipal.menuACreer=="Photo-Doku")
             {
-                ;
+				InterfaceGraphique menuPhoto;
+				menuPhoto.menuPhoto();
             }
         }
     }

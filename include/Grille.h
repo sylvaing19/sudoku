@@ -47,7 +47,6 @@ class Grille
 		bool estCorrecte();///Vérifie le respect des règles du sudoku en ignorant les cases vides. Renvoi vrai si la grille respecte les règles.
         unsigned int minGrille(int8_t& ligne, int8_t& colonne);///Place dans les arguments (passés en référence) les coordonnées de la case de 'grille' qui contient le tableau non vide le plus petit. Si il en existe plusieurs, on choisi la dernière rencontrée. La fonction renvoie la longueur du tableau en question.
 };
-
 #endif // GRILLE_H
 
 /**

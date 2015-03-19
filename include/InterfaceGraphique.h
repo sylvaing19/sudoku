@@ -15,6 +15,8 @@
 #include "Grille.h"
 #include "GrilleGraphique.h"
 
+#include "dirent.h"
+
 
 class InterfaceGraphique
 {
@@ -99,6 +101,10 @@ class InterfaceGraphique
 
         /// initialise le menu resoudre, effectue tout ce qui le concerne
         void menuResoudre();
+
+		/// initialise le menu photo-doku et tout ce qui s'y rapporte
+		void menuPhoto();
+
 	private:
         ///animation d'introduction
         void intro();

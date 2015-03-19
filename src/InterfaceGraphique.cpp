@@ -128,6 +128,18 @@ void InterfaceGraphique::resoudre()
 	}
 }
 
+void InterfaceGraphique::menuPhoto()
+{
+	//affichage fond
+	nomImageFond = "images/fond3.bmp";
+	chargerFond();
+	SDL_Flip(fond);
+
+	//initialisations diverses
+	initPolices();
+	texteTitre = "Photo-Doku";
+}
+
 
 
 
@@ -188,7 +200,7 @@ void InterfaceGraphique::initBoutonsMenuPrincipal()
         boutonMenu2.nomPolice=a;
         a="Photo-Doku";
         boutonMenu2.messageBouton=a;
-        a="Photodoku";
+		boutonMenu2.event = a;
         boutonMenu2.couleurTexteBouton={255, 0, 0};
         boutonMenu2.taillePolice=70*zoomX;
         boutonMenu2.centreX="oui";
@@ -539,6 +551,11 @@ Bouton InterfaceGraphique::eventBoutonClique(Bouton bouton)
 	else if (bouton.event == "Indice")
 	{
 		menuACreer = "Indice";
+		continuerEvent = false;
+	}
+	else if (bouton.event == "Photo-Doku")
+	{
+		menuACreer = "Photo-Doku";
 		continuerEvent = false;
 	}
 	return bouton;
