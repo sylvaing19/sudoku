@@ -10,7 +10,7 @@ GrilleGraphique::GrilleGraphique()
     policeSudoku=TTF_OpenFont(nomPolice.c_str(), taillePolice);
 	if (policeSudoku == NULL)
 	{
-		printf("Probleme avec %s", nomPolice);
+		printf("Probleme avec %s", nomPolice.c_str());
 		SDL_Quit();
 	}
 
@@ -65,7 +65,7 @@ void GrilleGraphique::afficherGrilleGraph()
 			// On donne les positions des boutons
 			sudokuBouton[ligne][colonne].positionBouton.x = posX + (58 - 47)/2 * zoomX;
 			sudokuBouton[ligne][colonne].positionBouton.y = posY + (58 - 47)/2 * zoomY;
-			
+
 			// On avance vers le prochain bouton
 			posX += 58 * zoomX + 1 ;
 
