@@ -829,6 +829,12 @@ void InterfaceGraphique::afficherImageUser()
 {
 	// affiche l'ordre que l'user doit executer
 	texteEntrezImage = TTF_RenderText_Blended(policeAuRevoir, "Choisissez l'image", couleurB);
+	if (texteEntrezImage == NULL)
+	{
+		printf("Probleme avec texteEntrezImage");
+		SDL_Quit();
+	}
+
 	positionEntrezImage.x = (tailleX - (texteEntrezImage->w)) / 2;
 	positionEntrezImage.y = (tailleY - (texteEntrezImage->h)) / 2;
 	SDL_BlitSurface(texteEntrezImage, NULL, fond, &positionEntrezImage);
@@ -845,7 +851,7 @@ void InterfaceGraphique::afficherImageUser()
 	imageSudokuUser = SDL_LoadBMP(nomImageUser.c_str());
 	if (imageSudokuUser == NULL)
 	{
-		printf("Probleme avec %s", imageSudokuUser);
+		printf("Probleme avec %s", nomImageUser.c_str());
 		SDL_Quit();
 	}
 
@@ -860,7 +866,6 @@ void InterfaceGraphique::afficherImageUser()
 
 
 /********	Inclassables =(		********/
-
 
 //animation d'intro : titre qui apparait, et boutons apparaissant
 void InterfaceGraphique::intro()
