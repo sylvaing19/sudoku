@@ -222,7 +222,7 @@ void InterfaceGraphique::initBoutonsMenuPrincipal()
     boutonQuitter.chargerBouton();
 }
 
-/// initialise tous les boutons du menu resoudre 
+/// initialise tous les boutons du menu resoudre
 void InterfaceGraphique::initBoutonsMenuResoudre()
 {
 	initFondZoomTailleBouton(boutonAleatoire);
@@ -311,7 +311,7 @@ void InterfaceGraphique::chargerFond()
 	imageFond = SDL_LoadBMP(nomImageFond.c_str());
 	if (imageFond == NULL)
 	{
-		printf("Probleme avec %s", nomImageFond);
+		printf("Probleme avec %s", nomImageFond.c_str());
 		SDL_Quit();
 	}
 
@@ -527,7 +527,7 @@ Bouton InterfaceGraphique::eventChangerValeur(Bouton bouton)
 	}
 }
 
-/// gere l'evenement declenché par le bouton : quitte; lance le string du menu à creer... et retourne le nouveau bouton 
+/// gere l'evenement declenché par le bouton : quitte; lance le string du menu à creer... et retourne le nouveau bouton
 Bouton InterfaceGraphique::eventBoutonClique(Bouton bouton)
 {
 	if (bouton.event == "Quitter")
@@ -617,15 +617,15 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
 						grilleGraphiqueAleatoire.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueAleatoire.sudokuBouton[line][column]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
 						if (caseSuivante && column != 9)
 							grilleGraphiqueAleatoire.sudokuBouton[line][column+1] = eventChangerValeur(grilleGraphiqueAleatoire.sudokuBouton[line][column+1]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
-						
+
 						boutonAleatoire.chargerBouton();
 						boutonQuitter.chargerBouton();
 						boutonIndice.chargerBouton();
-						
+
 						int nouvelleValeur = std::atoi(grilleGraphiqueAleatoire.sudokuBouton[line][column].messageBouton.c_str());
 						grille.setLC(nouvelleValeur, line, column);//on met  jour la grille
 						grilleGraphiqueAleatoire.grille = grille;//Et la grille graphique
-						
+
 						grilleGraphiqueAleatoire.afficherGrilleGraph();
 						grilleGraph = grilleGraphiqueAleatoire;// on met à jour la grille temporaire
 					}
@@ -767,9 +767,9 @@ void InterfaceGraphique::grilleVide()
 									grilleGraphiqueVide.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueVide.sudokuBouton[line][column]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
 									if (caseSuivante && column!=9)
 										grilleGraphiqueVide.sudokuBouton[line][column+1] = eventChangerValeur(grilleGraphiqueVide.sudokuBouton[line][column+1]);
-									
+
 									boutonQuitter.chargerBouton();
-									boutonIndice.chargerBouton(); 
+									boutonIndice.chargerBouton();
 									boutonAleatoire.chargerBouton();
 
 									int nouvelleValeur = std::atoi(grilleGraphiqueVide.sudokuBouton[line][column].messageBouton.c_str());
@@ -788,7 +788,7 @@ void InterfaceGraphique::grilleVide()
 
 
 
-/********	Affichage basique de texte	********/	
+/********	Affichage basique de texte	********/
 
 
 /// affiche un texte et flippe
