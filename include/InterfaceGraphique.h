@@ -1,3 +1,10 @@
+/**
+*	Header de l'INTerface graphique
+*	 @author Théo
+*	 @file hearders/InterfaceGraphique.h
+*/
+
+
 #ifndef INTERFACEGRAPHIQUE_H
 #define INTERFACEGRAPHIQUE_H
 
@@ -21,11 +28,11 @@
 class InterfaceGraphique
 {
     public:
-        ///constructeur
+        /** 	constructeur : gere l'initialisation de la SDL et des couleurs	*/
         InterfaceGraphique();
 
 	private :
-        ///declaration des differentes positions			
+        ///declaration des differentes positions
         SDL_Rect positionTitre, positionBoutonQuitter,positionFond,positionAuRevoir;
 		SDL_Rect positionMenu1, positionMenu2, positionMenu3;
         SDL_Rect positionTexteMenu1, positionTexteMenu2, positionTexteMenu3;
@@ -88,73 +95,82 @@ class InterfaceGraphique
 
         ///prototypes de fonction
 
-        ///initialise les differentes polices utilisées
+        /**	initialise les differentes polices utilisées	*/
         void initPolices();
-        ///initialise le titre affiché
+		/**	initialise le titre affiché		*/
         void initTitre();
-        ///initialise les boutons  du menu Principal
+        /**	initialise les boutons  du menu Principal		*/
         void initBoutonsMenuPrincipal();
-        ///initialise les boutons  du menu resoudre
+        /**	initialise les boutons  du menu resoudre	*/
         void initBoutonsMenuResoudre();
         void initFondZoomTailleBouton(Bouton & bouton);
         void initFondZoomTailleGrilleGraph(GrilleGraphique & grilleGraphique);
 	public:
-        ///initialise le menu principal, et effectue tout ce qui le concerne
+        /**	initialise le menu principal, et effectue tout ce qui le concerne	*/
         void menuPrincipal();
 
-        /// initialise le menu resoudre, effectue tout ce qui le concerne
+        /** initialise le menu resoudre, effectue tout ce qui le concerne */
         void menuResoudre();
 
-		/// initialise le menu photo-doku et tout ce qui s'y rapporte
+		/** initialise le menu photo-doku et tout ce qui s'y rapporte	*/
 		void menuPhoto();
 
 	private:
-        ///animation d'introduction
+        /**	animation d'introduction	*/
         void intro();
 
-        ///fonction quitter , quitte la SDL et l'application
+        /** fonction quitter , quitte la SDL et l'application */
         void quitter();
 
-        ///initialise et charge le menu dans le buffer, pret à etre affiché
+		
+        /** initialise et charge le menu dans le buffer, pret à etre affiché */
         void chargerFond();
-        ///charge le titre dans le buffer, pret à etre affiché
+        /**	charge le titre dans le buffer, pret à etre affiché */
         void chargerTitre();
-        ///charge les boutons du menu Principal
+        /** charge les boutons du menu Principal */
         void chargerBoutonsMenuPrincipal();
 
-		/// affiche la grille entrée par l'utilisateur
+		/** affiche la grille entrée par l'utilisateur	*/
 		void afficherImageUser();
 
-        ///fonction gerant les evenements du menu Principal : clics, touches...
+        /** fonction gerant les evenements du menu Principal : clics, touches... */
         void eventMenuPrincipal();
-        ///fonction gerant les evenements du menu Resoudre : clics, touches...
+        /** fonction gerant les evenements du menu Resoudre : clics, touches... */
         void eventMenuResoudre();
+			/** fonction gerant les evenements du menu Resoudre Aleatoirement: clics, touches... */
             void eventMenuResoudreAleatoire();
+			/** fonction gerant les evenements du menu Resoudre une grille vide: clics, touches... */
             void eventMenuResoudreVideManuelle();
-            void eventMenuResoudreGrilleVide();
+
 	public:
-        ///fait apparaitre une grille aleatoire
+        /**	fait apparaitre une grille aleatoire	*/
         void grilleAleatoire();
-        ///fait apparaitre une grille vide à remplir
+        /**	fait apparaitre une grille vide à remplir */
         void grilleVide();
 
-        ///resoud la grille et l'affiche
+        /**	resoud la grille et l'affiche */
         void resoudre();
 	private:
-		//change la valeur d'une case donnée
+		/**	change la valeur d'une case donnée
+		*  @param le bouton a changer
+		*  @return le nouveau bouton le remplacant
+		*/
 		Bouton eventChangerValeur(Bouton bouton);
 
-		// affiche le texte demandant à l'user de rentrer un chiffre
+		/** affiche le texte demandant à l'user de rentrer un chiffre	*/
 		void afficherEntrezUnChiffre();
-		// affiche le texte demandant à l'user de cliquer
+		/** affiche le texte demandant à l'user de cliquer	*/
 		void afficherCliquezSurUneCase();
-		//affiche le texte "désolé, c'est pas solvable"
+		/**	affiche le texte "désolé, c'est pas solvable" */
 		void afficherPasSolvable();
 
-		// gere les boutons et leurrs effets au clic de l'user
+		/** gere les boutons et leurrs effets au clic de l'user
+		*  @param le bouton a verifier
+		*  @return le nouveau bouton le remplacant
+		*/
 		Bouton eventBoutonClique(Bouton bouton);
 
-		// gere l'apparition d'indices pour l'user
+		/** gere l'apparition d'indices pour l'user	*/
 		void indice();
 
         //les differents boutons, cliquables ou non, avec action ou non, utilisés

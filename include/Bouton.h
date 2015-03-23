@@ -1,3 +1,8 @@
+
+/**	Header de Bouton
+*  @file /headers/Bouton.h
+*  @author Théo
+*/
 #ifndef BOUTON_H
 #define BOUTON_H
 
@@ -11,6 +16,7 @@
 class Bouton
 {
     public:
+		/**	Constructeur */
         Bouton();
 
 	private:
@@ -52,9 +58,12 @@ class Bouton
 
         ///Prototypes de fonctions
 
-        // charge le bouton dans le buffer, pret à flipper
+        /** charge le bouton dans le buffer, pret à flipper	*/
         void chargerBouton();
-        // renvoie un booleen : vrai si le bouton est cliqué, faux sinon
+        /** renvoie un booleen : vrai si le bouton est cliqué, faux sinon 
+		*  @param l'evenement, et donc la position de la souris
+		*  @return si le bouton est cliqué ou non
+		*/
         bool estClique(SDL_Event event);
 
    private:

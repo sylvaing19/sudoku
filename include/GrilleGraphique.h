@@ -1,3 +1,9 @@
+/**
+*	Header de la grrille graphique
+*	 @author Théo
+*	 @file hearders/GrilleGrahique.h
+*/
+
 #ifndef GRILLEGRAPHIQUE_H
 #define GRILLEGRAPHIQUE_H
 #include <SDL.h>
@@ -10,6 +16,7 @@
 class GrilleGraphique
 {
 	public:
+		/** Constructeur, initialise les couleurs, quelques positions */
         GrilleGraphique();
 
 	private:
@@ -54,13 +61,19 @@ class GrilleGraphique
 		std::array<std::array< Bouton , 9>, 9>  sudokuBouton;
 
         ///prototypes de fonctions
-        // affiche la grille en version Graphique, prete à etre flippée
+        /** affiche la grille en version Graphique, prete à etre flippée	*/
         void afficherGrilleGraph();
-		// affiche la grille en version Graphique, prete à etre flippée avec les cases fausses en rouge !
+		/** affiche la grille en version Graphique, prete à etre flippée avec les cases fausses en rouge !	*/
 		void afficherGrilleGraphIndice();
 
+		/**	créé une grille partir d'un fichier texte	*/
+		void creerGrilleGraphFichier();
+
 	private :
-		//créé un bouton avec la valeur v a l'interieur
+		/**	créé un bouton avec la valeur v a l'interieur 
+		*  @param le nombre ecrit sur le bouton
+		*  @return le nouveau bouton le remplacant
+		*/
 		Bouton creerBouton(int v);
 };
 

@@ -82,7 +82,6 @@ void GrilleGraphique::afficherGrilleGraph()
 }
 
 
-
 /// fonction affichant une grille graphique correspondant à la grille avec indice
 void GrilleGraphique::afficherGrilleGraphIndice()
 {
@@ -152,6 +151,17 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 
 }
 
+/// fonction creant une grille  partir d'un fichier
+void GrilleGraphique::creerGrilleGraphFichier()
+{
+	// partie lecture du fichier
+
+
+	// on affiche la grille qu'on vient de creer
+	afficherGrilleGraph();
+}
+
+
 /// créé un bouton avec la valeur de sudoku dessus : chaque casse du sudoku est un bouton cliquable
 Bouton GrilleGraphique::creerBouton(int v)
 {
@@ -179,3 +189,4 @@ Bouton GrilleGraphique::creerBouton(int v)
 
 	return bouton;
 }
+
