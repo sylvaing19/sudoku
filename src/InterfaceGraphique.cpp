@@ -138,6 +138,8 @@ void InterfaceGraphique::menuPhoto()
 	//initialisations diverses
 	initPolices();
 	texteTitre = "Photo-Doku";
+
+	afficherImageUser();
 }
 
 
@@ -820,6 +822,41 @@ void InterfaceGraphique::afficherCliquezSurUneCase()
 	SDL_Flip(fond);
 }
 
+
+/********	Photo-Doku		********/
+
+void InterfaceGraphique::afficherImageUser()
+{
+	// affiche l'ordre que l'user doit executer
+	texteEntrezImage = TTF_RenderText_Blended(policeAuRevoir, "Choisissez l'image", couleurB);
+	positionEntrezImage.x = (tailleX - (texteEntrezImage->w)) / 2;
+	positionEntrezImage.y = (tailleY - (texteEntrezImage->h)) / 2;
+	SDL_BlitSurface(texteEntrezImage, NULL, fond, &positionEntrezImage);
+	SDL_Flip(fond);
+
+	SDL_Delay(1000);
+	SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
+
+
+	nomImageUser = "photo/"; // toutes les images seront dans le dossier photo
+	nomImageUser += "sudoku.bmp";	//TODO entrer l'image
+
+
+	imageSudokuUser = SDL_LoadBMP(nomImageUser.c_str());
+	if (imageSudokuUser == NULL)
+	{
+		printf("Probleme avec %s", imageSudokuUser);
+		SDL_Quit();
+	}
+
+	positionImageUser.x = (tailleX - (imageSudokuUser->w)) / 2;
+	positionImageUser.y = (tailleY - (imageSudokuUser->h)) / 2;
+
+	SDL_BlitSurface(imageSudokuUser, NULL, fond, &positionImageUser);
+	SDL_Flip(fond);
+	SDL_Delay(1000);
+	SDL_Quit();
+}
 
 
 /********	Inclassables =(		********/

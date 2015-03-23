@@ -27,9 +27,10 @@ class InterfaceGraphique
 	private :
         ///declaration des differentes positions			
         SDL_Rect positionTitre, positionBoutonQuitter,positionFond,positionAuRevoir;
-        SDL_Rect positionMenu1,positionMenu2,positionMenu3;
+		SDL_Rect positionMenu1, positionMenu2, positionMenu3;
         SDL_Rect positionTexteMenu1, positionTexteMenu2, positionTexteMenu3;
 		SDL_Rect positionSudoku, positionEntrezUnChiffre, positionCliquezSurUneCase, positionPasSolvable;
+		SDL_Rect positionImageUser, positionEntrezImage;
 
         ///Recupere les données d'affichage
         const SDL_VideoInfo* infosUser;
@@ -38,6 +39,8 @@ class InterfaceGraphique
 		SDL_Surface *imageFond, *fond, *rotation, *titre;
 		SDL_Surface *textePret, *textePretAussi, *texteAdieu, *imageTitre;
 		SDL_Surface *texteEntreUnChiffre, *texteCliquezSurUneCase, *textePasSolvable;
+		SDL_Surface *texteEntrezImage;
+		SDL_Surface *imageSudokuUser;
 
 
         ///initialisation des polices
@@ -70,7 +73,7 @@ class InterfaceGraphique
         double zoomX,zoomY;
 
         ///string d'entrée
-        std::string nomImageFond, texteTitre;
+		std::string nomImageFond, texteTitre, nomImageUser;
 
 	public:
         ///Constante permettant de savoir le prochain menu affiché
@@ -118,6 +121,9 @@ class InterfaceGraphique
         void chargerTitre();
         ///charge les boutons du menu Principal
         void chargerBoutonsMenuPrincipal();
+
+		/// affiche la grille entrée par l'utilisateur
+		void afficherImageUser();
 
         ///fonction gerant les evenements du menu Principal : clics, touches...
         void eventMenuPrincipal();
