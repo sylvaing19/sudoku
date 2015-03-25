@@ -5,6 +5,7 @@ Bouton::Bouton()
 {
     positionBouton.x=0;
     positionBouton.y=0;
+	modifieParUser = false;
 }
 
 

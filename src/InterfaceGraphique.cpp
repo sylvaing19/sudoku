@@ -26,7 +26,7 @@ InterfaceGraphique::InterfaceGraphique()
     //titre de la fenetre, initialisation de TTF, creation de la fenetre de fond
     SDL_WM_SetCaption("SuDoKu-Solver", NULL);
     TTF_Init();
-	fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_FULLSCREEN ); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
+	fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF  ); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
 
 	couleurN = { 0, 0, 0 };
 	couleurB = { 0, 0, 255 };
@@ -509,7 +509,8 @@ Bouton InterfaceGraphique::eventChangerValeur(Bouton bouton)
 				valeurChangee = 9;
 				break; // On entre le nombre, au NUMPAD ou clavier classique
 			default:
-				break;//autre : rien.
+				valeurChangee = 10;
+				break;//autre : on vide la case.
 			}
 			continuerEventChangerValeur = false;
 			break;
@@ -520,9 +521,16 @@ Bouton InterfaceGraphique::eventChangerValeur(Bouton bouton)
 	{//La valeur n'a pas été changée
 		return bouton;
 	}
+	else if (valeurChangee == 10)
+	{
+		// cas où on vide la case
+		bouton.messageBouton = " ";
+		return bouton;
+	}
 	else
 	{//On change la valeur de la case
 		bouton.messageBouton = std::to_string(valeurChangee);
+		bouton.modifieParUser = true;
 		return bouton;
 	}
 }

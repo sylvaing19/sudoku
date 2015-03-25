@@ -66,6 +66,9 @@ class Bouton
 		*/
         bool estClique(SDL_Event event);
 
+		/// booleen explicitant si la valeur a été modifiée par l'user
+		bool modifieParUser;
+
    private:
         SDL_Rect positionTexte;// position du texte sur les boutons
 

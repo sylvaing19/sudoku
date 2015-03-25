@@ -53,7 +53,14 @@ void GrilleGraphique::afficherGrilleGraph()
 			int8_t val = grille.getLC(ligne, colonne);
 			if (val>0 && val <= 9)
 			{//On prend la valeur
-				sudokuBouton[ligne][colonne] = creerBouton(val);
+				if (sudokuBouton[ligne][colonne].modifieParUser) 
+				{
+					sudokuBouton[ligne][colonne] = creerBouton(val);
+					sudokuBouton[ligne][colonne].couleurTexteBouton = couleurB;
+					sudokuBouton[ligne][colonne].modifieParUser = true;
+				}
+				else
+					sudokuBouton[ligne][colonne] = creerBouton(val);
 			}
 			else
 			{// La valeur n'existe pas encore
@@ -117,10 +124,18 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 			int8_t val = grille.getLC(ligne, colonne);
 			if (val>0 && val <= 9)
 			{//On prend la valeur
-				sudokuBouton[ligne][colonne] = creerBouton(val);
+				if (sudokuBouton[ligne][colonne].modifieParUser)
+				{
+					sudokuBouton[ligne][colonne] = creerBouton(val);
+					sudokuBouton[ligne][colonne].couleurTexteBouton = couleurB;
+					sudokuBouton[ligne][colonne].modifieParUser = true;
+				}
+				else
+					sudokuBouton[ligne][colonne] = creerBouton(val);
+
 				if (!grille.estPlacable(val, ligne, colonne))// Si il y a une erreur
 				{
-					sudokuBouton[ligne][colonne].couleurTexteBouton = { 255, 0, 0 };
+					sudokuBouton[ligne][colonne].couleurTexteBouton = couleurR;
 					erreurExistante = true;
 				}
 			}
@@ -162,7 +177,7 @@ void GrilleGraphique::creerGrilleGraphFichier()
 }
 
 
-/// créé un bouton avec la valeur de sudoku dessus : chaque casse du sudoku est un bouton cliquable
+/// créé un bouton avec la valeur de sudoku dessus : chaque case du sudoku est un bouton cliquable
 Bouton GrilleGraphique::creerBouton(int v)
 {
 	Bouton bouton;
@@ -177,7 +192,6 @@ Bouton GrilleGraphique::creerBouton(int v)
 		strTemp = std::to_string(v);
 
 	bouton.messageBouton = strTemp;
-	bouton.couleurTexteBouton = { 0, 0, 0 };
 	bouton.taillePolice = 20 * zoomX;
 
 	//On attribue tout ce qu'il faut au nouveau bouton : fonds, zooms...
