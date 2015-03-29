@@ -1,3 +1,9 @@
+/**
+*	Header de la grrille graphique
+*	 @author Théo
+*	 @file hearders/GrilleGrahique.h
+*/
+
 #include "GrilleGraphique.h"
 
 /// constructeur

@@ -1,3 +1,8 @@
+/**
+*	Header de l'INTerface graphique
+*	 @author Théo
+*	 @file hearders/InterfaceGraphique.h
+*/
 #include "InterfaceGraphique.h"
 
 //Constructeur
