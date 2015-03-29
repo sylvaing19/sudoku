@@ -189,8 +189,9 @@ class InterfaceGraphique
 
         //les grilles, vides ou non
 
-        ///Grille algorithmique
+        ///Grilles algorithmiques
         Grille grille;
+		Grille grilleResolue;
 
         ///grille utilisée par la partie graphique
         GrilleGraphique grilleGraphiqueAleatoire;

@@ -16,9 +16,11 @@ GrilleGraphique::GrilleGraphique()
 
 	couleurN = { 0, 0, 0 };
 	couleurB = { 0, 0, 255 };
-	couleurV = { 0, 255, 0 };
+	couleurV = { 100, 150, 0 };
 	couleurR = { 255, 0, 0 };
 	couleurGri = { 200, 240, 255 };
+
+	srand(time(NULL));
 }
 
 /// fonction affichant une grille graphique correspondant à la grille sans indice
@@ -138,6 +140,16 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 					sudokuBouton[ligne][colonne].couleurTexteBouton = couleurR;
 					erreurExistante = true;
 				}
+				else 
+				{ // si il n'y a pas de veritable erreur mais que la valeur ne permet pas la resolution
+					int8_t valResolue = grilleResolue.getLC(ligne, colonne);
+					if (valResolue>0 && valResolue <= 9)
+						if (! (valResolue == val))
+						{
+							sudokuBouton[ligne][colonne].couleurTexteBouton = couleurR;
+							erreurExistante = true;
+						}
+				}
 			}
 			else
 			{// La valeur n'existe pas encore
@@ -157,10 +169,40 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 			sudokuBouton[ligne][colonne].chargerBouton();
 		}
 
-
 		//on change de ligne
 		posX = positionSudokuVierge.x + (58 - 47) / 2 * zoomX;
 		posY += 58 * zoomY + 1;
+	}
+
+	if (!erreurExistante)// alors on donne un indice
+	{
+		bool indicePlace=false;
+		while (!indicePlace)
+		{
+			int colonneRand = rand() % 9;
+			int ligneRand = rand() % 9;
+			if (grille.getLC(ligneRand, colonneRand) == 0)
+			{// La valeur n'existe pas encore
+				int val = grilleResolue.getLC(ligneRand, colonneRand);
+
+				int svgPosX = sudokuBouton[ligneRand][colonneRand].positionBouton.x;
+				int svgPosY = sudokuBouton[ligneRand][colonneRand].positionBouton.y;
+
+				sudokuBouton[ligneRand][colonneRand] = creerBouton(val);
+
+				sudokuBouton[ligneRand][colonneRand].positionBouton.x = svgPosX;
+				sudokuBouton[ligneRand][colonneRand].positionBouton.y = svgPosY;
+
+				sudokuBouton[ligneRand][colonneRand].couleurTexteBouton = couleurV;
+
+
+
+				sudokuBouton[ligneRand][colonneRand].chargerBouton();
+
+				grille.setLC(val, ligneRand, colonneRand);
+				indicePlace = true;
+			}
+		}
 	}
 	SDL_Flip(fond);
 

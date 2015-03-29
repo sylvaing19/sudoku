@@ -693,6 +693,12 @@ void InterfaceGraphique::grilleAleatoire()
     grilleGraphiqueAleatoire.grille.afficherConsole();
 	grilleGraph = grilleGraphiqueAleatoire;
 
+	grilleResolue = grilleGraphiqueAleatoire.grille;
+	grilleResolue.completer(); // on resoud la grille pour plus tard
+	grilleGraphiqueAleatoire.grilleResolue = grilleResolue;
+	grilleGraph.grilleResolue = grilleResolue;
+
+
     boutonAleatoire.chargerBouton();
     boutonQuitter.chargerBouton();
 	boutonIndice.chargerBouton();

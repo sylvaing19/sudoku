@@ -12,6 +12,7 @@
 #include <SDL_rotozoom.h>
 #include "Grille.h"
 #include "Bouton.h"
+#include <time.h>
 
 class GrilleGraphique
 {
@@ -56,6 +57,7 @@ class GrilleGraphique
 	public:
         ///La grille en elle meme : on la charge arès les algorithmes, cette classe ne fais qu'afficher  / gerer les clics
         Grille grille;
+		Grille grilleResolue;
 	
 		/// Array contenant les boutons et les valeurs des cases de sudoku
 		std::array<std::array< Bouton , 9>, 9>  sudokuBouton;
