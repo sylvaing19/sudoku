@@ -205,7 +205,10 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 
 				sudokuBouton[ligneRand][colonneRand].chargerBouton();
 
-				grille.setLC(val, ligneRand, colonneRand);
+
+				int nouvelleValeur = std::atoi(sudokuBouton[ligneRand][colonneRand].messageBouton.c_str());
+				grille.setLC(nouvelleValeur, ligneRand, colonneRand);
+
 				indicePlace = true;
 			}
 		}

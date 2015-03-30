@@ -628,14 +628,13 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
 						afficherEntrezUnChiffre();
 
 						grilleGraphiqueAleatoire.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueAleatoire.sudokuBouton[line][column]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
-						if (caseSuivante && column != 9)
-							grilleGraphiqueAleatoire.sudokuBouton[line][column+1] = eventChangerValeur(grilleGraphiqueAleatoire.sudokuBouton[line][column+1]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
-
+					
 						boutonAleatoire.chargerBouton();
 						boutonQuitter.chargerBouton();
 						boutonIndice.chargerBouton();
 
 						int nouvelleValeur = std::atoi(grilleGraphiqueAleatoire.sudokuBouton[line][column].messageBouton.c_str());
+
 						grille.setLC(nouvelleValeur, line, column);//on met  jour la grille
 						grilleGraphiqueAleatoire.grille = grille;//Et la grille graphique
 
@@ -930,5 +929,7 @@ void InterfaceGraphique::indice()
 		SDL_Flip(fond);
 		grilleGraph.afficherGrilleGraph();
 	}
+
+	grille=grilleGraph.grille;// on met à jour la grille
 	SDL_Flip(fond);
 }
