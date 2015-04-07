@@ -50,6 +50,11 @@ class Bouton
         //Polices
         TTF_Font *policeBouton=NULL; //POlice sur les boutons principaux
 
+        // Load l'image
+        void loaderImage();
+
+        bool dejaLoad;
+
 	public:
 		//Noms à entrer
 		std::string nomImageFond, nomImageBouton;
@@ -60,7 +65,7 @@ class Bouton
 
         /** charge le bouton dans le buffer, pret à flipper	*/
         void chargerBouton();
-        /** renvoie un booleen : vrai si le bouton est cliqué, faux sinon 
+        /** renvoie un booleen : vrai si le bouton est cliqué, faux sinon
 		*  @param l'evenement, et donc la position de la souris
 		*  @return si le bouton est cliqué ou non
 		*/

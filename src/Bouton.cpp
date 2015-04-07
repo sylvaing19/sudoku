@@ -7,17 +7,16 @@ Bouton::Bouton()
     positionBouton.y=0;
 	modifieParUser = false;
 	couleurTexteBouton={0,0,0};
-
+	dejaLoad=false;
 }
 
 
-///Charge le bouton dans le buffer, gere ses positions
-void Bouton::chargerBouton()
+void Bouton::loaderImage()
 {
     imageBouton=SDL_LoadBMP(nomImageBouton.c_str()); //zoom a faire
 	if (imageBouton == NULL)
 	{
-		printf("Probleme avec %s dans chargerBouton \n", nomImageBouton.c_str());
+		printf("Probleme avec %s dans loaderImage \n", nomImageBouton.c_str());
 		SDL_Quit();
 	}
     SDL_SetColorKey(imageBouton, SDL_SRCCOLORKEY, SDL_MapRGB(imageBouton->format, 255, 255, 255)); // met le blanc en transparent pour le bouton
@@ -32,6 +31,15 @@ void Bouton::chargerBouton()
     {
         positionBouton.y+= (abs(imageBouton->h-tailleY)/2);
     }
+
+    dejaLoad=true;
+}
+
+///Charge le bouton dans le buffer, gere ses positions
+void Bouton::chargerBouton()
+{
+    if(!dejaLoad)
+        loaderImage();
 
     SDL_BlitSurface(imageBouton, NULL, fond, &positionBouton);
 
