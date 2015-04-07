@@ -15,7 +15,7 @@ void Bouton::chargerBouton()
     imageBouton=SDL_LoadBMP(nomImageBouton.c_str()); //zoom a faire
 	if (imageBouton == NULL)
 	{
-		printf("Probleme avec %s", nomImageBouton.c_str());
+		printf("Probleme avec %s dans chargerBouton \n", nomImageBouton.c_str());
 		SDL_Quit();
 	}
     SDL_SetColorKey(imageBouton, SDL_SRCCOLORKEY, SDL_MapRGB(imageBouton->format, 255, 255, 255)); // met le blanc en transparent pour le bouton
@@ -39,7 +39,7 @@ void Bouton::chargerBouton()
         policeBouton = TTF_OpenFont(nomPolice.c_str(), taillePolice);
 		if (policeBouton == NULL)
 		{
-			printf("Probleme avec %s", nomPolice.c_str());
+			printf("Probleme avec %s dans chargerBouton\n", nomPolice.c_str());
 			SDL_Quit();
 		}
         texteBouton = TTF_RenderText_Blended(policeBouton, messageBouton.c_str(), couleurTexteBouton);
