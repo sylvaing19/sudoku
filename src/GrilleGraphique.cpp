@@ -20,7 +20,7 @@ GrilleGraphique::GrilleGraphique()
 		SDL_Quit();
 	}
 
-	couleurN = { 0, 0, 0 };
+	couleurN = { 1, 1, 1 };
 	couleurB = { 0, 0, 255 };
 	couleurV = { 100, 150, 0 };
 	couleurR = { 255, 0, 0 };
