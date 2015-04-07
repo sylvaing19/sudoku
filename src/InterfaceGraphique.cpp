@@ -21,7 +21,7 @@ InterfaceGraphique::InterfaceGraphique()
     //La taille de l'ecran se recupere sur les infos
 	/*tailleX = 800;
 	tailleY = 400;*/
-	tailleX=infosUser->current_w ;
+	tailleX=infosUser->current_w;
 	tailleY=infosUser->current_h;
 
     //Zoom : mon ecran sert de reference (1280*640), et on divise la taille de tout le reste suivant les resolutions
@@ -31,9 +31,9 @@ InterfaceGraphique::InterfaceGraphique()
     //titre de la fenetre, initialisation de TTF, creation de la fenetre de fond
     SDL_WM_SetCaption("SuDoKu-Solver", NULL);
     TTF_Init();
-	fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF  ); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
+	fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF ); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
 
-	couleurN = { 0, 0, 0 };
+	couleurN = { 1, 1, 1 };
 	couleurB = { 0, 0, 255 };
 	couleurV = { 0, 255, 0 };
 	couleurR = { 255, 0, 0 };
@@ -628,7 +628,7 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
 						afficherEntrezUnChiffre();
 
 						grilleGraphiqueAleatoire.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueAleatoire.sudokuBouton[line][column]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
-					
+
 						boutonAleatoire.chargerBouton();
 						boutonQuitter.chargerBouton();
 						boutonIndice.chargerBouton();
