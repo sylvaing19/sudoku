@@ -120,7 +120,7 @@ void InterfaceGraphique::resoudre()
 		grilleGraphiqueResolue.grille = grille;
 		grilleGraphiqueResolue.grille.afficherConsole(); //affichage dans la console, pour le debug
 
-		grilleGraphiqueResolue.afficherGrilleGraph();
+		grilleGraphiqueResolue.creerGrilleGraph();
 		SDL_Flip(fond);
 		SDL_Delay(2500);//laisse le temps pour voir la grille
 	}
@@ -620,10 +620,8 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
 					if (grilleGraphiqueAleatoire.sudokuBouton[line][column].estClique(event))//On verifie si le bouton est cliqué :
 					{
 						SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
-						boutonAleatoire.chargerBouton();
-						boutonQuitter.chargerBouton();
 
-						grilleGraphiqueAleatoire.afficherGrilleGraph();//On enleve le "cliquez sur une case"
+						grilleGraphiqueAleatoire.creerGrilleGraph();//On enleve le "cliquez sur une case"
 
 						afficherEntrezUnChiffre();
 
@@ -638,7 +636,7 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
 						grille.setLC(nouvelleValeur, line, column);//on met  jour la grille
 						grilleGraphiqueAleatoire.grille = grille;//Et la grille graphique
 
-						grilleGraphiqueAleatoire.afficherGrilleGraph();
+						grilleGraphiqueAleatoire.creerGrilleGraph();
 						grilleGraph = grilleGraphiqueAleatoire;// on met à jour la grille temporaire
 					}
 				}
@@ -693,7 +691,7 @@ void InterfaceGraphique::grilleAleatoire()
     }
 
     grilleGraphiqueAleatoire.grille=grille;
-    grilleGraphiqueAleatoire.afficherGrilleGraph();
+    grilleGraphiqueAleatoire.creerGrilleGraph();
     grilleGraphiqueAleatoire.grille.afficherConsole();
 	grilleGraph = grilleGraphiqueAleatoire;
 
@@ -728,7 +726,7 @@ void InterfaceGraphique::grilleVide()
 
 	grilleGraphiqueVide.grille = grille;
 	initFondZoomTailleGrilleGraph(grilleGraphiqueVide);
-	grilleGraphiqueVide.afficherGrilleGraph();
+	grilleGraphiqueVide.creerGrilleGraph();
 	SDL_Flip(fond);
 
 	grilleGraph = grilleGraphiqueVide;
@@ -780,7 +778,7 @@ void InterfaceGraphique::grilleVide()
 									SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
 									boutonQuitter.chargerBouton();
 
-									grilleGraphiqueVide.afficherGrilleGraph();//On enleve le "cliquez sur une case"
+									grilleGraphiqueVide.afficherGrille();//On enleve le "cliquez sur une case"
 
 									afficherEntrezUnChiffre();
 
@@ -796,7 +794,7 @@ void InterfaceGraphique::grilleVide()
 									grille.setLC(nouvelleValeur, line, column);//on met  jour la grille
 									grilleGraphiqueVide.grille = grille;//Et la grille graphique
 
-									grilleGraphiqueVide.afficherGrilleGraph();
+									grilleGraphiqueVide.afficherGrille();
 									grilleGraph = grilleGraphiqueAleatoire;// on met à jour la grille temporaire
 								}
 							}
@@ -828,6 +826,7 @@ void InterfaceGraphique::afficherPasSolvable()
 	textePasSolvable = TTF_RenderText_Blended(policePasSolvable, "Pas solvable  :/ ", couleurR);
 	positionPasSolvable.x =  tailleX / 2 - (textePasSolvable->w / 2 )*zoomX;
 	positionPasSolvable.y =  tailleY / 2 - (textePasSolvable->h / 2 )*zoomY;
+
 	SDL_BlitSurface(textePasSolvable, NULL, fond, &positionPasSolvable);
 	SDL_Flip(fond);
 }
@@ -837,7 +836,8 @@ void InterfaceGraphique::afficherCliquezSurUneCase()
 {
 	texteCliquezSurUneCase = TTF_RenderText_Blended(policeEntrezUnChiffre, "Cliquez sur une case", couleurB);
 	positionCliquezSurUneCase.x = (boutonAleatoire.positionBouton.x + boutonAleatoire.positionBouton.w )* zoomX;
-	positionCliquezSurUneCase.y = 50 * zoomY;;
+	positionCliquezSurUneCase.y = 50 * zoomY;
+
 	SDL_BlitSurface(texteCliquezSurUneCase, NULL, fond, &positionCliquezSurUneCase);
 	SDL_Flip(fond);
 }
@@ -910,8 +910,6 @@ void InterfaceGraphique::quitter()
 	continuerEvent = false;
 	quitterAppli = true;
 
-    SDL_FreeSurface(imageFond);
-
 	SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
 
 	texteAdieu = TTF_RenderText_Blended(policeAuRevoir, "Au revoir !", couleurB);
@@ -927,14 +925,12 @@ void InterfaceGraphique::quitter()
 /// gere les indices donnés à l'user : on affiche brievement l'indice
 void InterfaceGraphique::indice()
 {
-    SDL_FreeSurface(grilleGraph.imageSudokuVierge);
-
 	grilleGraph.afficherGrilleGraphIndice();
 	if (grilleGraph.erreurExistante)// s''il a eu des erreurs, on laisse le temps à l'user de les voir : sinon, non.
 	{
 		SDL_Delay(1500);
 		SDL_Flip(fond);
-		grilleGraph.afficherGrilleGraph();
+		grilleGraph.creerGrilleGraph();
 	}
 
 	grille=grilleGraph.grille;// on met à jour la grille

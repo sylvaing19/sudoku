@@ -58,21 +58,25 @@ class GrilleGraphique
         ///La grille en elle meme : on la charge arès les algorithmes, cette classe ne fais qu'afficher  / gerer les clics
         Grille grille;
 		Grille grilleResolue;
-	
+
 		/// Array contenant les boutons et les valeurs des cases de sudoku
 		std::array<std::array< Bouton , 9>, 9>  sudokuBouton;
 
         ///prototypes de fonctions
         /** affiche la grille en version Graphique, prete à etre flippée	*/
-        void afficherGrilleGraph();
+        void creerGrilleGraph();
 		/** affiche la grille en version Graphique, prete à etre flippée avec les cases fausses en rouge !	*/
 		void afficherGrilleGraphIndice();
 
 		/**	créé une grille partir d'un fichier texte	*/
 		void creerGrilleGraphFichier();
 
+		/** affiche la grille graphique qui doit avoir été bien initialisée*/
+		void afficherGrille();
+
+
 	private :
-		/**	créé un bouton avec la valeur v a l'interieur 
+		/**	créé un bouton avec la valeur v a l'interieur
 		*  @param le nombre ecrit sur le bouton
 		*  @return le nouveau bouton le remplacant
 		*/

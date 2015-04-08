@@ -50,10 +50,11 @@ class Bouton
         //Polices
         TTF_Font *policeBouton=NULL; //POlice sur les boutons principaux
 
-        // Load l'image
+        // Load l'image et des polices
         void loaderImage();
+        void loaderPolice();
 
-        bool dejaLoad;
+        bool dejaLoad,policeDejaLoad;
 
 	public:
 		//Noms à entrer

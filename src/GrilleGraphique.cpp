@@ -30,7 +30,7 @@ GrilleGraphique::GrilleGraphique()
 }
 
 /// fonction affichant une grille graphique correspondant à la grille sans indice
-void GrilleGraphique::afficherGrilleGraph()
+void GrilleGraphique::creerGrilleGraph()
 {
 	imageSudokuVierge = SDL_LoadBMP("images/SudokuVierge.bmp");
 	if (imageSudokuVierge == NULL)
@@ -139,9 +139,6 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 			{//On prend la valeur
 				if (sudokuBouton[ligne][colonne].modifieParUser)
 				{
-                    SDL_FreeSurface( sudokuBouton[ligne][colonne].imageBouton);
-                    SDL_FreeSurface( sudokuBouton[ligne][colonne].texteBouton);
-
 					sudokuBouton[ligne][colonne] = creerBouton(val);
 					sudokuBouton[ligne][colonne].couleurTexteBouton = couleurB;
 					sudokuBouton[ligne][colonne].modifieParUser = true;
@@ -228,14 +225,26 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 
 }
 
+void GrilleGraphique::afficherGrille()
+{
+	SDL_BlitSurface(imageSudokuVierge, NULL, fond, &positionSudokuVierge);
+    for (int ligne = 0; ligne<9; ligne++)
+    {
+        for (int colonne = 0; colonne<9; colonne++)
+        {
+            sudokuBouton[ligne][colonne].chargerBouton();
+        }
+    }
+    SDL_Flip(fond);
+}
+
 /// fonction creant une grille  partir d'un fichier
 void GrilleGraphique::creerGrilleGraphFichier()
 {
 	// partie lecture du fichier
 
-
 	// on affiche la grille qu'on vient de creer
-	afficherGrilleGraph();
+	creerGrilleGraph();
 }
 
 
