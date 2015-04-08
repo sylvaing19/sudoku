@@ -13,14 +13,19 @@ Bouton::Bouton()
 
 void Bouton::loaderImage()
 {
-    imageBouton=SDL_LoadBMP(nomImageBouton.c_str()); //zoom a faire
+    const char* stringImageBouton = nomImageBouton.c_str();
+    imageBouton = SDL_LoadBMP(stringImageBouton); //zoom a faire
 	if (imageBouton == NULL)
 	{
-		printf("Probleme avec %s dans loaderImage \n", nomImageBouton.c_str());
-		SDL_Quit();
+		printf("       Probleme avec %s dans loaderImage \n", nomImageBouton.c_str());
+        SDL_Quit();
 	}
+
     SDL_SetColorKey(imageBouton, SDL_SRCCOLORKEY, SDL_MapRGB(imageBouton->format, 255, 255, 255)); // met le blanc en transparent pour le bouton
     imageBouton = zoomSurface(imageBouton, zoomX, zoomY, 0);
+
+    printf("PAS de Probleme avec %s dans loaderImage \n", nomImageBouton.c_str());
+
 
     //gestion du centre
     if(centreX.size()!=0)
@@ -46,7 +51,8 @@ void Bouton::chargerBouton()
 	if (nomPolice.size() != 0)
     {
         //chargement du texte et police
-        policeBouton = TTF_OpenFont(nomPolice.c_str(), taillePolice);
+        const char* stringPolice=nomPolice.c_str();
+        policeBouton = TTF_OpenFont(stringPolice, taillePolice);
 		if (policeBouton == NULL)
 		{
 			printf("Probleme avec %s dans chargerBouton \n", nomPolice.c_str());

@@ -61,7 +61,7 @@ void GrilleGraphique::afficherGrilleGraph()
 			int8_t val = grille.getLC(ligne, colonne);
 			if (val>0 && val <= 9)
 			{//On prend la valeur
-				if (sudokuBouton[ligne][colonne].modifieParUser) 
+				if (sudokuBouton[ligne][colonne].modifieParUser)
 				{
 					sudokuBouton[ligne][colonne] = creerBouton(val);
 					sudokuBouton[ligne][colonne].couleurTexteBouton = couleurB;
@@ -86,6 +86,8 @@ void GrilleGraphique::afficherGrilleGraph()
 
 			//On charge le bouton
 			sudokuBouton[ligne][colonne].chargerBouton();
+            printf("Bouton en %d / %d chargé \n", ligne, colonne);
+
 		}
 
 		//on change de ligne
@@ -146,7 +148,7 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 					sudokuBouton[ligne][colonne].couleurTexteBouton = couleurR;
 					erreurExistante = true;
 				}
-				else 
+				else
 				{ // si il n'y a pas de veritable erreur mais que la valeur ne permet pas la resolution
 					int8_t valResolue = grilleResolue.getLC(ligne, colonne);
 					if (valResolue>0 && valResolue <= 9)
