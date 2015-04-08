@@ -55,7 +55,7 @@ void Bouton::chargerBouton()
         policeBouton = TTF_OpenFont(stringPolice, taillePolice);
 		if (policeBouton == NULL)
 		{
-			printf("Probleme avec %s dans chargerBouton \n", nomPolice.c_str());
+			printf("    Probleme avec %s dans chargerBouton \n", nomPolice.c_str());
 			SDL_Quit();
 		}
         texteBouton = TTF_RenderText_Blended(policeBouton, messageBouton.c_str(), couleurTexteBouton);

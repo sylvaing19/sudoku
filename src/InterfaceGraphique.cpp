@@ -738,11 +738,12 @@ void InterfaceGraphique::grilleVide()
 
 	afficherCliquezSurUneCase();
 
+	boutonQuitter.chargerBouton();
+    boutonIndice.chargerBouton();
+    boutonAleatoire.chargerBouton();
+
 	while (continuerEvent)
 	{
-		boutonIndice.chargerBouton();
-		boutonAleatoire.chargerBouton();
-
 		SDL_WaitEvent(&event);
 		switch (event.type)
 		{
@@ -778,6 +779,7 @@ void InterfaceGraphique::grilleVide()
 								{
 									SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
 									boutonQuitter.chargerBouton();
+
 									grilleGraphiqueVide.afficherGrilleGraph();//On enleve le "cliquez sur une case"
 
 									afficherEntrezUnChiffre();
@@ -894,6 +896,7 @@ void InterfaceGraphique::intro()
 	for (i = 0; i <= a; i+=3*zoomY)
 	{
 		positionTitre.y = i;
+
 		SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
 		SDL_BlitSurface(imageTitre, NULL, fond, &positionTitre);
 		SDL_Flip(fond);
@@ -906,6 +909,8 @@ void InterfaceGraphique::quitter()
 {
 	continuerEvent = false;
 	quitterAppli = true;
+
+    SDL_FreeSurface(imageFond);
 
 	SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
 
@@ -922,6 +927,8 @@ void InterfaceGraphique::quitter()
 /// gere les indices donnés à l'user : on affiche brievement l'indice
 void InterfaceGraphique::indice()
 {
+    SDL_FreeSurface(grilleGraph.imageSudokuVierge);
+
 	grilleGraph.afficherGrilleGraphIndice();
 	if (grilleGraph.erreurExistante)// s''il a eu des erreurs, on laisse le temps à l'user de les voir : sinon, non.
 	{

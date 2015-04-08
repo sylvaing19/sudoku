@@ -63,6 +63,9 @@ void GrilleGraphique::afficherGrilleGraph()
 			{//On prend la valeur
 				if (sudokuBouton[ligne][colonne].modifieParUser)
 				{
+                    SDL_FreeSurface( sudokuBouton[ligne][colonne].imageBouton);
+                    SDL_FreeSurface( sudokuBouton[ligne][colonne].texteBouton);
+
 					sudokuBouton[ligne][colonne] = creerBouton(val);
 					sudokuBouton[ligne][colonne].couleurTexteBouton = couleurB;
 					sudokuBouton[ligne][colonne].modifieParUser = true;
@@ -136,6 +139,9 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 			{//On prend la valeur
 				if (sudokuBouton[ligne][colonne].modifieParUser)
 				{
+                    SDL_FreeSurface( sudokuBouton[ligne][colonne].imageBouton);
+                    SDL_FreeSurface( sudokuBouton[ligne][colonne].texteBouton);
+
 					sudokuBouton[ligne][colonne] = creerBouton(val);
 					sudokuBouton[ligne][colonne].couleurTexteBouton = couleurB;
 					sudokuBouton[ligne][colonne].modifieParUser = true;
@@ -195,6 +201,9 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 
 				int svgPosX = sudokuBouton[ligneRand][colonneRand].positionBouton.x;
 				int svgPosY = sudokuBouton[ligneRand][colonneRand].positionBouton.y;
+
+                SDL_FreeSurface( sudokuBouton[ligneRand][colonneRand].imageBouton);
+                SDL_FreeSurface( sudokuBouton[ligneRand][colonneRand].texteBouton);
 
 				sudokuBouton[ligneRand][colonneRand] = creerBouton(val);
 
