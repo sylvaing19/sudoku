@@ -938,12 +938,12 @@ void InterfaceGraphique::quitter()
 /// gere les indices donnés à l'user : on affiche brievement l'indice
 void InterfaceGraphique::indice()
 {
-	grilleGraph.afficherGrilleGraphIndice();
+    grilleGraph.afficherIndice();
 	if (grilleGraph.erreurExistante)// s''il a eu des erreurs, on laisse le temps à l'user de les voir : sinon, non.
 	{
 		SDL_Delay(1500);
 		SDL_Flip(fond);
-		grilleGraph.creerGrilleGraph();
+		grilleGraph.afficherGrille();
 	}
 
 	grille=grilleGraph.grille;// on met à jour la grille

@@ -74,6 +74,10 @@ class GrilleGraphique
 		/** affiche la grille graphique qui doit avoir été bien initialisée*/
 		void afficherGrille();
 
+		/** affiche uniquement l'indice */
+		void afficherIndice();
+
+
 
 	private :
 		/**	créé un bouton avec la valeur v a l'interieur
