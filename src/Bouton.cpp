@@ -60,7 +60,7 @@ void Bouton::chargerBouton()
 
 	if (nomPolice.size() != 0)
     {
-      if(modifieParUser)
+        if(modifieParUser)
             couleurTexteBouton=couleurB;
         texteBouton = TTF_RenderText_Blended(policeBouton, messageBouton.c_str(), couleurTexteBouton);
         texteBouton = rotozoomSurface (texteBouton, 0, zoomX, 0);

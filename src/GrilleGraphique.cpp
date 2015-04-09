@@ -22,7 +22,7 @@ GrilleGraphique::GrilleGraphique()
 
 	couleurN = { 1, 1, 1 };
 	couleurB = { 0, 0, 255 };
-	couleurV = { 100, 150, 0 };
+	couleurV = { 0, 120, 0 };
 	couleurR = { 255, 0, 0 };
 	couleurGri = { 200, 240, 255 };
 
