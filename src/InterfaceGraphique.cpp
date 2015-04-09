@@ -620,26 +620,31 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
 					if (grilleGraphiqueAleatoire.sudokuBouton[line][column].estClique(event))//On verifie si le bouton est cliqué :
 					{
 						SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
-
-						grilleGraphiqueAleatoire.creerGrilleGraph();//On enleve le "cliquez sur une case"
-
+						grilleGraphiqueAleatoire.afficherGrille();//On enleve le "cliquez sur une case"
 						afficherEntrezUnChiffre();
-
-						grilleGraphiqueAleatoire.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueAleatoire.sudokuBouton[line][column]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
-
 						boutonAleatoire.chargerBouton();
 						boutonQuitter.chargerBouton();
 						boutonIndice.chargerBouton();
 
+						grilleGraphiqueAleatoire.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueAleatoire.sudokuBouton[line][column]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
 						int nouvelleValeur = std::atoi(grilleGraphiqueAleatoire.sudokuBouton[line][column].messageBouton.c_str());
 
 						grille.setLC(nouvelleValeur, line, column);//on met  jour la grille
 						grilleGraphiqueAleatoire.grille = grille;//Et la grille graphique
 
-						grilleGraphiqueAleatoire.creerGrilleGraph();
+                        grilleGraphiqueAleatoire.sudokuBouton[line][column].chargerBouton();
 						grilleGraph = grilleGraphiqueAleatoire;// on met à jour la grille temporaire
+
+                        SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
+						grilleGraphiqueAleatoire.afficherGrille();//On enleve le "cliquez sur une case"
+						afficherCliquezSurUneCase();
+						boutonAleatoire.chargerBouton();
+						boutonQuitter.chargerBouton();
+						boutonIndice.chargerBouton();
+                        SDL_Flip(fond);
 					}
 				}
+				SDL_Flip(fond);
 			}
 			break;
 		default:
@@ -727,7 +732,6 @@ void InterfaceGraphique::grilleVide()
 	grilleGraphiqueVide.grille = grille;
 	initFondZoomTailleGrilleGraph(grilleGraphiqueVide);
 	grilleGraphiqueVide.creerGrilleGraph();
-	SDL_Flip(fond);
 
 	grilleGraph = grilleGraphiqueVide;
 
@@ -739,9 +743,13 @@ void InterfaceGraphique::grilleVide()
 	boutonQuitter.chargerBouton();
     boutonIndice.chargerBouton();
     boutonAleatoire.chargerBouton();
+    SDL_Flip(fond);
+
 
 	while (continuerEvent)
 	{
+		afficherCliquezSurUneCase();
+
 		SDL_WaitEvent(&event);
 		switch (event.type)
 		{
@@ -776,28 +784,33 @@ void InterfaceGraphique::grilleVide()
 								if (grilleGraphiqueVide.sudokuBouton[line][column].estClique(event))//On verifie si le bouton est cliqué :
 								{
 									SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
-									boutonQuitter.chargerBouton();
-
 									grilleGraphiqueVide.afficherGrille();//On enleve le "cliquez sur une case"
-
-									afficherEntrezUnChiffre();
-
-									grilleGraphiqueVide.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueVide.sudokuBouton[line][column]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
-									if (caseSuivante && column!=9)
-										grilleGraphiqueVide.sudokuBouton[line][column+1] = eventChangerValeur(grilleGraphiqueVide.sudokuBouton[line][column+1]);
-
 									boutonQuitter.chargerBouton();
 									boutonIndice.chargerBouton();
 									boutonAleatoire.chargerBouton();
+									afficherEntrezUnChiffre();
+
+									grilleGraphiqueVide.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueVide.sudokuBouton[line][column]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
+
 
 									int nouvelleValeur = std::atoi(grilleGraphiqueVide.sudokuBouton[line][column].messageBouton.c_str());
 									grille.setLC(nouvelleValeur, line, column);//on met  jour la grille
 									grilleGraphiqueVide.grille = grille;//Et la grille graphique
 
+									grilleGraphiqueVide.sudokuBouton[line][column].chargerBouton();
+									grilleGraph = grilleGraphiqueVide;// on met à jour la grille temporaire
+
+
+									SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
 									grilleGraphiqueVide.afficherGrille();
-									grilleGraph = grilleGraphiqueAleatoire;// on met à jour la grille temporaire
+									boutonQuitter.chargerBouton();
+									boutonIndice.chargerBouton();
+									boutonAleatoire.chargerBouton();
+									afficherCliquezSurUneCase();
+                                    SDL_Flip(fond);
 								}
 							}
+
 						}
 					}
 		}

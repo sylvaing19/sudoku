@@ -78,6 +78,13 @@ class Bouton
    private:
         SDL_Rect positionTexte;// position du texte sur les boutons
 
+        ///diffferentes couleurs en RGB
+        SDL_Color  couleurN;
+        SDL_Color  couleurB;
+        SDL_Color  couleurV;
+        SDL_Color  couleurR;
+        SDL_Color  couleurGri;
+
 }
 ;
 
