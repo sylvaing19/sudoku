@@ -22,9 +22,6 @@
 #include "Grille.h"
 #include "GrilleGraphique.h"
 
-#include "dirent.h"
-
-
 class InterfaceGraphique
 {
     public:

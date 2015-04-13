@@ -50,6 +50,12 @@ class Bouton
         //Polices
         TTF_Font *policeBouton=NULL; //POlice sur les boutons principaux
 
+        // Load l'image et des polices
+        void loaderImage();
+        void loaderPolice();
+
+        bool dejaLoad,policeDejaLoad;
+
 	public:
 		//Noms à entrer
 		std::string nomImageFond, nomImageBouton;
@@ -60,7 +66,7 @@ class Bouton
 
         /** charge le bouton dans le buffer, pret à flipper	*/
         void chargerBouton();
-        /** renvoie un booleen : vrai si le bouton est cliqué, faux sinon 
+        /** renvoie un booleen : vrai si le bouton est cliqué, faux sinon
 		*  @param l'evenement, et donc la position de la souris
 		*  @return si le bouton est cliqué ou non
 		*/
@@ -71,6 +77,13 @@ class Bouton
 
    private:
         SDL_Rect positionTexte;// position du texte sur les boutons
+
+        ///diffferentes couleurs en RGB
+        SDL_Color  couleurN;
+        SDL_Color  couleurB;
+        SDL_Color  couleurV;
+        SDL_Color  couleurR;
+        SDL_Color  couleurGri;
 
 }
 ;
