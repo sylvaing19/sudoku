@@ -29,7 +29,6 @@ void Bouton::loaderImage()
 		printf("       Probleme avec %s dans loaderImage \n", nomImageBouton.c_str());
         SDL_Quit();
 	}
-	else
 
     SDL_SetColorKey(imageBouton, SDL_SRCCOLORKEY, SDL_MapRGB(imageBouton->format, 255, 255, 255)); // met le blanc en transparent pour le bouton
     imageBouton = zoomSurface(imageBouton, zoomX, zoomY, 0);
@@ -61,7 +60,7 @@ void Bouton::chargerBouton()
 	if (nomPolice.size() != 0)
     {
         if(modifieParUser)
-            couleurTexteBouton=couleurB;
+			couleurTexteBouton=couleurB;
         texteBouton = TTF_RenderText_Blended(policeBouton, messageBouton.c_str(), couleurTexteBouton);
         texteBouton = rotozoomSurface (texteBouton, 0, zoomX, 0);
 

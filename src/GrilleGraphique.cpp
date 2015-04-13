@@ -63,15 +63,16 @@ void GrilleGraphique::creerGrilleGraph()
 			{//On prend la valeur
 				if (sudokuBouton[ligne][colonne].modifieParUser)
 				{
-                    SDL_FreeSurface( sudokuBouton[ligne][colonne].imageBouton);
-                    SDL_FreeSurface( sudokuBouton[ligne][colonne].texteBouton);
-
 					sudokuBouton[ligne][colonne] = creerBouton(val);
 					sudokuBouton[ligne][colonne].couleurTexteBouton = couleurB;
 					sudokuBouton[ligne][colonne].modifieParUser = true;
 				}
 				else
+				{
 					sudokuBouton[ligne][colonne] = creerBouton(val);
+					sudokuBouton[ligne][colonne].couleurTexteBouton = couleurN;
+					sudokuBouton[ligne][colonne].modifieParUser = false;
+				}
 			}
 			else
 			{// La valeur n'existe pas encore
@@ -124,6 +125,14 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 	SDL_BlitSurface(imageSudokuVierge, NULL, fond, &positionSudokuVierge);
 	SDL_Flip(fond);
 
+	afficherIndice();
+
+	SDL_Flip(fond);
+
+}
+
+void GrilleGraphique::afficherIndice()
+{
 	// Sauvegarde des positions
 	int posX = positionSudokuVierge.x + (58 - 47) / 2 * zoomX;
 	int posY = positionSudokuVierge.y + (58 - 47) / 2 * zoomY;
@@ -137,15 +146,6 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 			int8_t val = grille.getLC(ligne, colonne);
 			if (val>0 && val <= 9)
 			{//On prend la valeur
-				if (sudokuBouton[ligne][colonne].modifieParUser)
-				{
-					sudokuBouton[ligne][colonne] = creerBouton(val);
-					sudokuBouton[ligne][colonne].couleurTexteBouton = couleurB;
-					sudokuBouton[ligne][colonne].modifieParUser = true;
-				}
-				else
-					sudokuBouton[ligne][colonne] = creerBouton(val);
-
 				if (!grille.estPlacable(val, ligne, colonne))// Si il y a une erreur
 				{
 					sudokuBouton[ligne][colonne].couleurTexteBouton = couleurR;
@@ -155,16 +155,12 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 				{ // si il n'y a pas de veritable erreur mais que la valeur ne permet pas la resolution
 					int8_t valResolue = grilleResolue.getLC(ligne, colonne);
 					if (valResolue>0 && valResolue <= 9)
-						if (! (valResolue == val))
-						{
-							sudokuBouton[ligne][colonne].couleurTexteBouton = couleurR;
-							erreurExistante = true;
-						}
+					if (!(valResolue == val))
+					{
+						sudokuBouton[ligne][colonne].couleurTexteBouton = couleurR;
+						erreurExistante = true;
+					}
 				}
-			}
-			else
-			{// La valeur n'existe pas encore
-				sudokuBouton[ligne][colonne] = creerBouton(0);
 			}
 
 			//On verifie si la grille est solvable, si non, on met la valeur en rouge
@@ -175,7 +171,6 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 
 			// On avance vers le prochain bouton
 			posX += 58 * zoomX + 1;
-
 		}
 
 		//on change de ligne
@@ -183,9 +178,8 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 		posY += 58 * zoomY + 1;
 	}
 
-	if (!erreurExistante)// alors on donne un indice
-	{
-		bool indicePlace=false;
+	bool indicePlace=false;
+	if (!erreurExistante)
 		while (!indicePlace)
 		{
 			int colonneRand = rand() % 9;
@@ -197,68 +191,32 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 				int svgPosX = sudokuBouton[ligneRand][colonneRand].positionBouton.x;
 				int svgPosY = sudokuBouton[ligneRand][colonneRand].positionBouton.y;
 
-                SDL_FreeSurface( sudokuBouton[ligneRand][colonneRand].imageBouton);
-                SDL_FreeSurface( sudokuBouton[ligneRand][colonneRand].texteBouton);
-
 				sudokuBouton[ligneRand][colonneRand] = creerBouton(val);
+				grille.setLC(val, ligneRand, colonneRand);
 
 				sudokuBouton[ligneRand][colonneRand].positionBouton.x = svgPosX;
 				sudokuBouton[ligneRand][colonneRand].positionBouton.y = svgPosY;
 
 				sudokuBouton[ligneRand][colonneRand].couleurTexteBouton = couleurV;
 
-				int nouvelleValeur = std::atoi(sudokuBouton[ligneRand][colonneRand].messageBouton.c_str());
-				grille.setLC(nouvelleValeur, ligneRand, colonneRand);
-
 				indicePlace = true;
+				sudokuBouton[ligneRand][colonneRand].chargerBouton();
 			}
 		}
-	}
+}
 
+bool GrilleGraphique::estComplete()
+{
+	bool estComplete = true;
 	for (int ligne = 0; ligne<9; ligne++)
 	{
 		for (int colonne = 0; colonne<9; colonne++)
 		{
-            sudokuBouton[ligne][colonne].chargerBouton();
-		}
-    }
-
-	SDL_Flip(fond);
-
-}
-
-void GrilleGraphique::afficherIndice()
-{
-    if (!erreurExistante)// alors on donne un indice
-	{
-		bool indicePlace=false;
-		while (!indicePlace)
-		{
-			int colonneRand = rand() % 9;
-			int ligneRand = rand() % 9;
-			if (grille.getLC(ligneRand, colonneRand) == 0)
-			{// La valeur n'existe pas encore
-				int val = grilleResolue.getLC(ligneRand, colonneRand);
-
-				int svgPosX = sudokuBouton[ligneRand][colonneRand].positionBouton.x;
-				int svgPosY = sudokuBouton[ligneRand][colonneRand].positionBouton.y;
-
-				sudokuBouton[ligneRand][colonneRand] = creerBouton(val);
-
-				sudokuBouton[ligneRand][colonneRand].positionBouton.x = svgPosX;
-				sudokuBouton[ligneRand][colonneRand].positionBouton.y = svgPosY;
-
-				sudokuBouton[ligneRand][colonneRand].couleurTexteBouton = couleurV;
-
-				int nouvelleValeur = std::atoi(sudokuBouton[ligneRand][colonneRand].messageBouton.c_str());
-				grille.setLC(nouvelleValeur, ligneRand, colonneRand);
-
-				indicePlace = true;
-                sudokuBouton[ligneRand][colonneRand].chargerBouton();
-
-			}
+			if (sudokuBouton[ligne][colonne].messageBouton  != "0")
+				estComplete=false;
 		}
 	}
+	return estComplete;
 }
 
 void GrilleGraphique::afficherGrille()
@@ -310,4 +268,6 @@ Bouton GrilleGraphique::creerBouton(int v)
 
 	return bouton;
 }
+
+
 

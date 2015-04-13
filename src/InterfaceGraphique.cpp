@@ -32,8 +32,7 @@ InterfaceGraphique::InterfaceGraphique()
     SDL_WM_SetCaption("SuDoKu-Solver", NULL);
     TTF_Init();
 
-	fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_FULLSCREEN); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
-
+	fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF ); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
 
 	couleurN = { 1, 1, 1 };
 	couleurB = { 0, 0, 255 };
@@ -148,7 +147,6 @@ void InterfaceGraphique::menuPhoto()
 
 	afficherImageUser();
 }
-
 
 
 
@@ -367,7 +365,6 @@ void InterfaceGraphique::initTitre()
 
 
 
-
 /********	Gestion des evenements	********/
 
 
@@ -424,6 +421,7 @@ void InterfaceGraphique::eventMenuPrincipal()
 /// gere l'evenement dans le menu resoudre
 void InterfaceGraphique::eventMenuResoudre()
 {
+
     ///gestion des events :
 
     SDL_WaitEvent(&event);
@@ -581,6 +579,9 @@ Bouton InterfaceGraphique::eventBoutonClique(Bouton bouton)
 /// gestion des evenements dans le menu "resoudre"
 void InterfaceGraphique::eventMenuResoudreAleatoire()
 {
+	if (grilleGraphiqueAleatoire.estComplete())
+		grilleFinie();
+
 	//gestion des evenements
 	SDL_WaitEvent(&event);
 	switch (event.type)
@@ -614,6 +615,7 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
 			{
 				grilleGraph = grilleGraphiqueAleatoire;// on met à jour la grille temporaire
 				indice();
+				grilleGraphiqueAleatoire=grilleGraph;
 			}
 			else for (int line = 0; line < 9; line++)
 			{
@@ -718,7 +720,7 @@ void InterfaceGraphique::grilleAleatoire()
     while(continuerEvent)
     {
         eventMenuResoudreAleatoire();
-    }
+	}
 }
 
 ///genere une grille vide et lance les evenenements suivants
@@ -750,6 +752,8 @@ void InterfaceGraphique::grilleVide()
 
 	while (continuerEvent)
 	{
+		if (grilleGraphiqueVide.estComplete())
+			grilleFinie();
 		afficherCliquezSurUneCase();
 
 		SDL_WaitEvent(&event);
@@ -778,6 +782,7 @@ void InterfaceGraphique::grilleVide()
 						{
 							grilleGraph = grilleGraphiqueVide;// on met à jour la grille temporaire
 							indice();
+							grilleGraphiqueVide = grilleGraph;// on met à jour la grille temporaire
 						}
 						else for (int line = 0; line < 9; line++)
 						{
@@ -928,6 +933,25 @@ void InterfaceGraphique::quitter()
 	SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
 
 	texteAdieu = TTF_RenderText_Blended(policeAuRevoir, "Au revoir !", couleurB);
+	positionAuRevoir.x = (tailleX - (texteAdieu->w)) / 2;
+	positionAuRevoir.y = (tailleY - (texteAdieu->h) - 100 * zoomY) / 2;
+
+	SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
+	SDL_Flip(fond);
+	SDL_Delay(1000);
+	SDL_Quit();
+}
+
+
+//gestion de l'event "fini"
+void InterfaceGraphique::grilleFinie()
+{
+	continuerEvent = false;
+	quitterAppli = true;
+
+	SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
+
+	texteAdieu = TTF_RenderText_Blended(policeAuRevoir, "Finie ! Bravo !", couleurB);
 	positionAuRevoir.x = (tailleX - (texteAdieu->w)) / 2;
 	positionAuRevoir.y = (tailleY - (texteAdieu->h) - 100 * zoomY) / 2;
 

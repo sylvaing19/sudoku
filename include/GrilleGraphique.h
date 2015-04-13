@@ -77,6 +77,10 @@ class GrilleGraphique
 		/** affiche uniquement l'indice */
 		void afficherIndice();
 
+		/** dis si la grille est finie */
+		bool estComplete();
+
+
 
 
 	private :

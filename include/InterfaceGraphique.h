@@ -119,6 +119,10 @@ class InterfaceGraphique
         /** fonction quitter , quitte la SDL et l'application */
         void quitter();
 
+		/** Pareil mais pour la reussite */
+		void grilleFinie();
+
+
 		
         /** initialise et charge le menu dans le buffer, pret à etre affiché */
         void chargerFond();
