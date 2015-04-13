@@ -965,12 +965,6 @@ void InterfaceGraphique::grilleFinie()
 void InterfaceGraphique::indice()
 {
     grilleGraph.afficherIndice();
-	if (grilleGraph.erreurExistante)// s''il a eu des erreurs, on laisse le temps à l'user de les voir : sinon, non.
-	{
-		SDL_Delay(1500);
-		SDL_Flip(fond);
-		grilleGraph.afficherGrille();
-	}
 
 	grille=grilleGraph.grille;// on met à jour la grille
 	SDL_Flip(fond);

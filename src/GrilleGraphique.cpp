@@ -149,17 +149,27 @@ void GrilleGraphique::afficherIndice()
 				if (!grille.estPlacable(val, ligne, colonne))// Si il y a une erreur
 				{
 					sudokuBouton[ligne][colonne].couleurTexteBouton = couleurR;
+					sudokuBouton[ligne][colonne].modifieErreur = true;
 					erreurExistante = true;
+					sudokuBouton[ligne][colonne].chargerBouton();
+					SDL_Flip(fond);
 				}
 				else
 				{ // si il n'y a pas de veritable erreur mais que la valeur ne permet pas la resolution
 					int8_t valResolue = grilleResolue.getLC(ligne, colonne);
 					if (valResolue>0 && valResolue <= 9)
-					if (!(valResolue == val))
-					{
-						sudokuBouton[ligne][colonne].couleurTexteBouton = couleurR;
-						erreurExistante = true;
-					}
+						if (!(valResolue == val))
+						{
+							sudokuBouton[ligne][colonne].modifieErreur = true;
+							sudokuBouton[ligne][colonne].couleurTexteBouton = couleurR;
+							erreurExistante = true;
+							sudokuBouton[ligne][colonne].chargerBouton();
+							SDL_Flip(fond);
+						}
+						else
+						{
+							sudokuBouton[ligne][colonne].modifieErreur = false;
+						}
 				}
 			}
 
@@ -203,6 +213,8 @@ void GrilleGraphique::afficherIndice()
 				sudokuBouton[ligneRand][colonneRand].chargerBouton();
 			}
 		}
+
+		SDL_Flip(fond);
 }
 
 bool GrilleGraphique::estComplete()

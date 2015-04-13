@@ -54,7 +54,7 @@ class Bouton
         void loaderImage();
         void loaderPolice();
 
-        bool dejaLoad,policeDejaLoad;
+		bool dejaLoad, policeDejaLoad;
 
 	public:
 		//Noms à entrer
@@ -72,8 +72,8 @@ class Bouton
 		*/
         bool estClique(SDL_Event event);
 
-		/// booleen explicitant si la valeur a été modifiée par l'user
-		bool modifieParUser;
+		/// booleen explicitant si la valeur a été modifiée par l'user ou s'il induit une erreur
+		bool modifieParUser, modifieErreur;
 
    private:
         SDL_Rect positionTexte;// position du texte sur les boutons
