@@ -124,6 +124,8 @@ void InterfaceGraphique::resoudre()
 		grilleGraphiqueResolue.creerGrilleGraph();
 		SDL_Flip(fond);
 		SDL_Delay(2500);//laisse le temps pour voir la grille
+
+		animationFin();
 	}
 	else // sinon, pas solvable
 	{
@@ -957,7 +959,7 @@ void InterfaceGraphique::grilleFinie()
 
 	SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
 	SDL_Flip(fond);
-	SDL_Delay(1000);
+	SDL_Delay(500);
 	SDL_Quit();
 }
 
@@ -968,4 +970,53 @@ void InterfaceGraphique::indice()
 
 	grille=grilleGraph.grille;// on met à jour la grille
 	SDL_Flip(fond);
+}
+
+void InterfaceGraphique::animationFin()
+{
+    SDL_BlitSurface(imageFond, NULL, fond, &positionFond); // on enleve tout
+
+    texteAdieu = TTF_RenderText_Blended(policeAuRevoir, "Grille finie ! Bravo !", couleurB);
+	positionAuRevoir.x = (tailleX - (texteAdieu->w)) / 2;
+	positionAuRevoir.y = (tailleY - (texteAdieu->h)) / 2;
+
+	SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
+    SDL_Flip(fond);
+	SDL_Delay(700);
+
+    positionArtifice.x = (tailleX ) / 3;
+	positionArtifice.y = (tailleY ) / 2;
+
+	for(int i=7;i<19;i++)
+	{
+        std::string stringImage;
+        stringImage+= "images/artifice/frame-";
+        if(1<=i && i<=9)
+        {
+            stringImage+="0";
+        }
+
+        stringImage += std::to_string(i);
+        stringImage +=".bmp";
+
+
+        artifice[i-7] = SDL_LoadBMP(stringImage.c_str());
+        if( artifice[i-7]==NULL)
+        {
+            printf("Probleme avec %s", stringImage.c_str());
+        }
+
+        SDL_SetColorKey(artifice[i-7], SDL_SRCCOLORKEY, SDL_MapRGB(artifice[i-7]->format, 0, 0, 0)); // met le blanc en transparent pour le bouton
+        artifice[i-7] = zoomSurface(artifice[i-7], 3*zoomX, 3*zoomY, 0);
+	}
+
+    for(int j=0;j<5;j++)
+        for(int i=0;i<12;i++)
+        {
+            SDL_BlitSurface( artifice[i], NULL, fond, &positionArtifice);
+            SDL_Flip(fond);
+            SDL_Delay(50);
+            SDL_BlitSurface(imageFond, NULL, fond, &positionFond); // on enleve tout
+            SDL_Delay(50);
+        }
 }
