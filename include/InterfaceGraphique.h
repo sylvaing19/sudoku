@@ -35,7 +35,7 @@ class InterfaceGraphique
         SDL_Rect positionTexteMenu1, positionTexteMenu2, positionTexteMenu3;
 		SDL_Rect positionSudoku, positionEntrezUnChiffre, positionCliquezSurUneCase, positionPasSolvable;
 		SDL_Rect positionImageUser, positionEntrezImage;
-		SDL_Rect positionArtifice;
+		SDL_Rect positionArtifice,positionArtifice2,positionArtifice3,positionArtifice4;
 
         ///Recupere les données d'affichage
         const SDL_VideoInfo* infosUser;

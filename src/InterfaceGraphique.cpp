@@ -32,7 +32,7 @@ InterfaceGraphique::InterfaceGraphique()
     SDL_WM_SetCaption("SuDoKu-Solver", NULL);
     TTF_Init();
 
-	fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF ); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
+	fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_FULLSCREEN); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
 
 	couleurN = { 1, 1, 1 };
 	couleurB = { 0, 0, 255 };
@@ -984,8 +984,14 @@ void InterfaceGraphique::animationFin()
     SDL_Flip(fond);
 	SDL_Delay(700);
 
-    positionArtifice.x = (tailleX ) / 3;
+    positionArtifice.x = (tailleX ) / 7;
 	positionArtifice.y = (tailleY ) / 2;
+	positionArtifice2.x=  (tailleX) *3/4;
+	positionArtifice2.y=  (tailleY) *2/5;
+    positionArtifice3.x = (tailleX ) / 2;
+	positionArtifice3.y = (tailleY ) / 4;
+    positionArtifice4.x = (tailleX ) / 5;
+	positionArtifice4.y = (tailleY )*2/3;
 
 	for(int i=7;i<19;i++)
 	{
@@ -1014,6 +1020,22 @@ void InterfaceGraphique::animationFin()
         for(int i=0;i<12;i++)
         {
             SDL_BlitSurface( artifice[i], NULL, fond, &positionArtifice);
+
+            if(i<12-3)
+                SDL_BlitSurface( artifice[i+3], NULL, fond, &positionArtifice2);
+            else
+                SDL_BlitSurface( artifice[i-12+3], NULL, fond, &positionArtifice2);
+
+            if(i<12-5)
+                SDL_BlitSurface( artifice[i+5], NULL, fond, &positionArtifice3);
+            else
+                SDL_BlitSurface( artifice[i-12+5], NULL, fond, &positionArtifice3);
+
+            if(i<12-9)
+                SDL_BlitSurface( artifice[i+9], NULL, fond, &positionArtifice4);
+            else
+                SDL_BlitSurface( artifice[i-12+9], NULL, fond, &positionArtifice4);
+
             SDL_Flip(fond);
             SDL_Delay(50);
             SDL_BlitSurface(imageFond, NULL, fond, &positionFond); // on enleve tout
