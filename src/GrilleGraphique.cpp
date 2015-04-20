@@ -90,8 +90,6 @@ void GrilleGraphique::creerGrilleGraph()
 
 			//On charge le bouton
 			sudokuBouton[ligne][colonne].chargerBouton();
-            printf("Bouton en %d / %d chargé \n", ligne, colonne);
-
 		}
 
 		//on change de ligne
@@ -228,6 +226,8 @@ bool GrilleGraphique::estComplete()
 				estComplete=false;
 		}
 	}
+	if(estComplete)
+        ;
 	return estComplete;
 }
 

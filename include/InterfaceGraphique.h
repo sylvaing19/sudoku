@@ -35,6 +35,7 @@ class InterfaceGraphique
         SDL_Rect positionTexteMenu1, positionTexteMenu2, positionTexteMenu3;
 		SDL_Rect positionSudoku, positionEntrezUnChiffre, positionCliquezSurUneCase, positionPasSolvable;
 		SDL_Rect positionImageUser, positionEntrezImage;
+		SDL_Rect positionArtifice,positionArtifice2,positionArtifice3,positionArtifice4;
 
         ///Recupere les données d'affichage
         const SDL_VideoInfo* infosUser;
@@ -79,6 +80,11 @@ class InterfaceGraphique
         ///string d'entrée
 		std::string nomImageFond, texteTitre, nomImageUser;
 
+        /// tableau pour le gif animé de feu d'artifice
+        std::array< SDL_Surface* , 18> artifice;
+        std::string nomImageArtifice;
+
+
 	public:
         ///Constante permettant de savoir le prochain menu affiché
         std::string menuACreer;
@@ -102,6 +108,7 @@ class InterfaceGraphique
         void initBoutonsMenuResoudre();
         void initFondZoomTailleBouton(Bouton & bouton);
         void initFondZoomTailleGrilleGraph(GrilleGraphique & grilleGraphique);
+
 	public:
         /**	initialise le menu principal, et effectue tout ce qui le concerne	*/
         void menuPrincipal();
@@ -111,6 +118,10 @@ class InterfaceGraphique
 
 		/** initialise le menu photo-doku et tout ce qui s'y rapporte	*/
 		void menuPhoto();
+
+        /** animation de fin, quand on a resolu la grille */
+        void animationFin();
+
 
 	private:
         /**	animation d'introduction	*/
@@ -123,7 +134,7 @@ class InterfaceGraphique
 		void grilleFinie();
 
 
-		
+
         /** initialise et charge le menu dans le buffer, pret à etre affiché */
         void chargerFond();
         /**	charge le titre dans le buffer, pret à etre affiché */

@@ -32,7 +32,7 @@ InterfaceGraphique::InterfaceGraphique()
     SDL_WM_SetCaption("SuDoKu-Solver", NULL);
     TTF_Init();
 
-	fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF ); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
+	fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_FULLSCREEN); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
 
 	couleurN = { 1, 1, 1 };
 	couleurB = { 0, 0, 255 };
@@ -124,6 +124,8 @@ void InterfaceGraphique::resoudre()
 		grilleGraphiqueResolue.creerGrilleGraph();
 		SDL_Flip(fond);
 		SDL_Delay(2500);//laisse le temps pour voir la grille
+
+		animationFin();
 	}
 	else // sinon, pas solvable
 	{
@@ -957,7 +959,7 @@ void InterfaceGraphique::grilleFinie()
 
 	SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
 	SDL_Flip(fond);
-	SDL_Delay(1000);
+	SDL_Delay(500);
 	SDL_Quit();
 }
 
@@ -968,4 +970,75 @@ void InterfaceGraphique::indice()
 
 	grille=grilleGraph.grille;// on met à jour la grille
 	SDL_Flip(fond);
+}
+
+void InterfaceGraphique::animationFin()
+{
+    SDL_BlitSurface(imageFond, NULL, fond, &positionFond); // on enleve tout
+
+    texteAdieu = TTF_RenderText_Blended(policeAuRevoir, "Grille finie ! Bravo !", couleurB);
+	positionAuRevoir.x = (tailleX - (texteAdieu->w)) / 2;
+	positionAuRevoir.y = (tailleY - (texteAdieu->h)) / 2;
+
+	SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
+    SDL_Flip(fond);
+	SDL_Delay(700);
+
+    positionArtifice.x = (tailleX ) / 7;
+	positionArtifice.y = (tailleY ) / 2;
+	positionArtifice2.x=  (tailleX) *3/4;
+	positionArtifice2.y=  (tailleY) *2/5;
+    positionArtifice3.x = (tailleX ) / 2;
+	positionArtifice3.y = (tailleY ) / 4;
+    positionArtifice4.x = (tailleX ) / 5;
+	positionArtifice4.y = (tailleY )*2/3;
+
+	for(int i=7;i<19;i++)
+	{
+        std::string stringImage;
+        stringImage+= "images/artifice/frame-";
+        if(1<=i && i<=9)
+        {
+            stringImage+="0";
+        }
+
+        stringImage += std::to_string(i);
+        stringImage +=".bmp";
+
+
+        artifice[i-7] = SDL_LoadBMP(stringImage.c_str());
+        if( artifice[i-7]==NULL)
+        {
+            printf("Probleme avec %s", stringImage.c_str());
+        }
+
+        SDL_SetColorKey(artifice[i-7], SDL_SRCCOLORKEY, SDL_MapRGB(artifice[i-7]->format, 0, 0, 0)); // met le blanc en transparent pour le bouton
+        artifice[i-7] = zoomSurface(artifice[i-7], 3*zoomX, 3*zoomY, 0);
+	}
+
+    for(int j=0;j<5;j++)
+        for(int i=0;i<12;i++)
+        {
+            SDL_BlitSurface( artifice[i], NULL, fond, &positionArtifice);
+
+            if(i<12-3)
+                SDL_BlitSurface( artifice[i+3], NULL, fond, &positionArtifice2);
+            else
+                SDL_BlitSurface( artifice[i-12+3], NULL, fond, &positionArtifice2);
+
+            if(i<12-5)
+                SDL_BlitSurface( artifice[i+5], NULL, fond, &positionArtifice3);
+            else
+                SDL_BlitSurface( artifice[i-12+5], NULL, fond, &positionArtifice3);
+
+            if(i<12-9)
+                SDL_BlitSurface( artifice[i+9], NULL, fond, &positionArtifice4);
+            else
+                SDL_BlitSurface( artifice[i-12+9], NULL, fond, &positionArtifice4);
+
+            SDL_Flip(fond);
+            SDL_Delay(50);
+            SDL_BlitSurface(imageFond, NULL, fond, &positionFond); // on enleve tout
+            SDL_Delay(50);
+        }
 }
