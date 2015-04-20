@@ -62,6 +62,9 @@ class Bouton
 		std::string messageBouton, event, nomPolice;
 		SDL_Color couleurTexteBouton;
 
+		const char* message;
+
+
         ///Prototypes de fonctions
 
         /** charge le bouton dans le buffer, pret à flipper	*/

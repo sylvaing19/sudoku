@@ -16,6 +16,7 @@ Bouton::Bouton()
 	couleurR = { 255, 0, 0 };
 	couleurGri = { 200, 240, 255 };
 
+
     couleurTexteBouton=couleurN;
 }
 
@@ -63,8 +64,11 @@ void Bouton::chargerBouton()
         if(modifieParUser)
 			if (!modifieErreur)
 				couleurTexteBouton=couleurB;
-        texteBouton = TTF_RenderText_Blended(policeBouton, messageBouton.c_str(), couleurTexteBouton);
+		message = "Abwabwa";
+        texteBouton = TTF_RenderText_Blended(policeBouton, message, couleurTexteBouton);
         texteBouton = rotozoomSurface (texteBouton, 0, zoomX, 0);
+
+		message = "Deuxieme bouton";
 
         //gestion de la position du texte, centré
         positionTexte.x= (positionBouton.x+(imageBouton->w-texteBouton->w)/2);
