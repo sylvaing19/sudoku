@@ -22,11 +22,13 @@
 #include "Grille.h"
 #include "GrilleGraphique.h"
 #include "Score.h"
+#include "EnumDifficulte.h"
+
 
 class InterfaceGraphique
 {
     public:
-        /** 	constructeur : gere l'initialisation de la SDL et des couleurs	*/
+        /** constructeur : gere l'initialisation de la SDL et des couleurs	*/
         InterfaceGraphique();
 
 	private :
