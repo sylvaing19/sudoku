@@ -21,6 +21,7 @@
 #include "Bouton.h"
 #include "Grille.h"
 #include "GrilleGraphique.h"
+#include "Score.h"
 
 class InterfaceGraphique
 {
@@ -36,6 +37,9 @@ class InterfaceGraphique
 		SDL_Rect positionSudoku, positionEntrezUnChiffre, positionCliquezSurUneCase, positionPasSolvable;
 		SDL_Rect positionImageUser, positionEntrezImage;
 		SDL_Rect positionArtifice,positionArtifice2,positionArtifice3,positionArtifice4;
+		SDL_Rect positionScore;
+        SDL_Rect positionEasy, positionMedium, positionHard;
+
 
         ///Recupere les données d'affichage
         const SDL_VideoInfo* infosUser;
@@ -45,11 +49,11 @@ class InterfaceGraphique
 		SDL_Surface *textePret, *textePretAussi, *texteAdieu, *imageTitre;
 		SDL_Surface *texteEntreUnChiffre, *texteCliquezSurUneCase, *textePasSolvable;
 		SDL_Surface *texteEntrezImage;
-		SDL_Surface *imageSudokuUser;
+		SDL_Surface *imageSudokuUser, *texteScore, *texteHard, *texteEasy, *texteMedium;
 
 
         ///initialisation des polices
-		TTF_Font *policeTitre, *policeAuRevoir, *policeSudoku, *policeEntrezUnChiffre, *policePasSolvable;
+		TTF_Font *policeTitre, *policeAuRevoir, *policeSudoku, *policeEntrezUnChiffre, *policePasSolvable, *policeScore;
 
         ///creation des evenements
         SDL_Event event;
@@ -185,6 +189,11 @@ class InterfaceGraphique
 		/** gere l'apparition d'indices pour l'user	*/
 		void indice();
 
+		/** gestion du score */
+        Score score;
+        Difficulte difficulte;
+
+
         //les differents boutons, cliquables ou non, avec action ou non, utilisés
 
         ///boutons du menu principal
@@ -198,6 +207,11 @@ class InterfaceGraphique
         Bouton boutonAleatoire;
         Bouton boutonManuel;
 		Bouton boutonIndice;
+
+        ///boutons de difficulté
+        Bouton boutonEasy;
+        Bouton boutonMedium;
+        Bouton boutonHard;
 
         //les grilles, vides ou non
 

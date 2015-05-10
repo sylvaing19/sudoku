@@ -701,6 +701,9 @@ void InterfaceGraphique::grilleAleatoire()
         //149 286 735
     }
 
+
+    score.initScore(difficulte);
+
     grilleGraphiqueAleatoire.grille=grille;
     grilleGraphiqueAleatoire.creerGrilleGraph();
     grilleGraphiqueAleatoire.grille.afficherConsole();
