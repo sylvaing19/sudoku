@@ -18,7 +18,7 @@ enum TestGraph
 {RESOLUTION,MENU_PRINCIPAL};
 
 
-TypeDeTest typeDeTest = MODE_CONSOLE;/// Permet de choisir le type de test à effectuer
+TypeDeTest typeDeTest = MODE_GRAPHIQUE;/// Permet de choisir le type de test à effectuer
 
 TestGraph testGraphique = MENU_PRINCIPAL; /// Permet de choisir le type  de test graphique
 
@@ -31,7 +31,7 @@ int main ( int argc, char** argv )
     {
 		/*
         Grille grille;
-		
+
         grille.setLC(9,2,0);grille.setLC(9,3,1);grille.setLC(3,5,0);grille.setLC(5,4,1);
         grille.setLC(2,6,0);grille.setLC(6,6,1); grille.setLC(1,8,0);grille.setLC(5,2,2);
 		grille.setLC(6,0,3);  grille.setLC(6,3,2);grille.setLC(1,3,3);grille.setLC(2,4,2);
@@ -41,7 +41,7 @@ int main ( int argc, char** argv )
         grille.setLC(1,4,6);grille.setLC(7,4,7);grille.setLC(5,5,6);grille.setLC(9,5,7);
         grille.setLC(9,6,6);grille.setLC(9,0,8);grille.setLC(3,2,8);grille.setLC(2,3,8);
 		grille.setLC(4,6,8);
-		
+
         //Soluce :
         //781 643 259
         //634 529 817
@@ -54,7 +54,7 @@ int main ( int argc, char** argv )
         //263 715 984
         //578 934 621
         //149 286 735
-		
+
         grille.afficherConsole();
         if(grille.completer())
         {
@@ -67,7 +67,7 @@ int main ( int argc, char** argv )
             grille.afficherConsole();
         }
 		grille.afficherConsole();
-		
+
 		/*
 		int beaucoup = 20;
 		for (int i = 0; i < beaucoup; i++)
@@ -148,12 +148,12 @@ int main ( int argc, char** argv )
 		grilleComplete.getFromFile("test_unitaire_resolu");
 		grilleARemplir.completer();
 		if (grilleARemplir.testResolution(grilleComplete))
-			cout << "Megabwabwa ! Tout fonctionne !" << endl;// RLY ? 
+			cout << "Megabwabwa ! Tout fonctionne !" << endl;// RLY ?
 		else
 			cout << "Pas de panique ! Ca marche juste pas !" << endl;
 	}
 
-	
+
 
   return EXIT_SUCCESS;
 }
