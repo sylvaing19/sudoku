@@ -7,6 +7,7 @@
 #include <iostream>
 #include "Grille.h"
 #include "InterfaceGraphique.h"
+#include "Score.h"
 
 using namespace std;
 
@@ -17,7 +18,7 @@ enum TestGraph
 {RESOLUTION,MENU_PRINCIPAL};
 
 
-TypeDeTest typeDeTest = MODE_GRAPHIQUE;/// Permet de choisir le type de test à effectuer
+TypeDeTest typeDeTest = MODE_CONSOLE;/// Permet de choisir le type de test à effectuer
 
 TestGraph testGraphique = MENU_PRINCIPAL; /// Permet de choisir le type  de test graphique
 
@@ -28,6 +29,7 @@ int main ( int argc, char** argv )
     //Condition à conserver tant que le code est en phase de test.
     if(typeDeTest == MODE_CONSOLE)//Permet de tester le code en console
     {
+		/*
         Grille grille;
 		
         grille.setLC(9,2,0);grille.setLC(9,3,1);grille.setLC(3,5,0);grille.setLC(5,4,1);
@@ -75,6 +77,15 @@ int main ( int argc, char** argv )
 			grille.afficherConsole();
 		}
 		*/
+
+		Score score;
+		score.initScore(Difficulte::MOYEN);
+		SDL_Delay(1000);
+		score.stopTimer();
+		cout << "Score : " << score.getScore() << endl;
+		int rang = score.getRank();
+		cout << "Rang : " << rang << endl;
+		score.save("MOA", rang);
 
 
     }
