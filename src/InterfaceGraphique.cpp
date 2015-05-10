@@ -1086,6 +1086,7 @@ void InterfaceGraphique::quitter()
 //gestion de l'event "fini"
 void InterfaceGraphique::grilleFinie()
 {
+    score.stopTimer();
 	continuerEvent = false;
 	quitterAppli = true;
 
@@ -1105,7 +1106,7 @@ void InterfaceGraphique::grilleFinie()
 void InterfaceGraphique::indice()
 {
     grilleGraph.afficherIndice();
-
+    score.indiceUtilise();
 	grille=grilleGraph.grille;// on met à jour la grille
 	SDL_Flip(fond);
 }
@@ -1116,20 +1117,33 @@ void InterfaceGraphique::animationFin()
 
     texteAdieu = TTF_RenderText_Blended(policeAuRevoir, "Grille finie ! Bravo !", couleurB);
 	positionAuRevoir.x = (tailleX - (texteAdieu->w)) / 2;
-	positionAuRevoir.y = (tailleY - (texteAdieu->h)) / 2;
+	positionAuRevoir.y = (tailleY - (texteAdieu->h)) / 3;
 
-	SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
+    SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
+
+
+    std::string stringScore;
+    stringScore="Score :  ";
+    stringScore+=score.getScore();
+    texteScore=TTF_RenderText_Blended(policeAuRevoir, stringScore.c_str(), couleurB);
+
+    positionScore.x = (tailleX - (texteAdieu->w)) / 2;
+	positionScore.y = positionAuRevoir.y+(texteAdieu->h)+(texteScore->h)/3;
+
+    SDL_BlitSurface(texteScore, NULL, fond, &positionScore);
+
+
     SDL_Flip(fond);
 	SDL_Delay(700);
 
-    positionArtifice.x = (tailleX ) / 7;
-	positionArtifice.y = (tailleY ) / 2;
-	positionArtifice2.x=  (tailleX) *3/4;
-	positionArtifice2.y=  (tailleY) *2/5;
-    positionArtifice3.x = (tailleX ) / 2;
-	positionArtifice3.y = (tailleY ) / 4;
-    positionArtifice4.x = (tailleX ) / 5;
-	positionArtifice4.y = (tailleY )*2/3;
+    positionArtifice.x = (tailleX ) / (rand()%9+2);
+	positionArtifice.y = (tailleY ) / (rand()%9+2);
+	positionArtifice2.x=  (tailleX) *(rand()%9+2)/15;
+	positionArtifice2.y=  (tailleY) *(rand()%9+2)/12;
+    positionArtifice3.x = (tailleX ) /(rand()%9+2);
+	positionArtifice3.y = (tailleY ) / (rand()%9+2);
+    positionArtifice4.x = (tailleX ) / (rand()%9+2)/16;
+	positionArtifice4.y = (tailleY )*(rand()%9+2)/20;
 
 	for(int i=7;i<19;i++)
 	{
