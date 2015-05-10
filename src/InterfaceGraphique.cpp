@@ -110,9 +110,16 @@ void InterfaceGraphique::menuResoudre()
 /// gestion graphique de la resolution, ou son echec, de la grille
 void InterfaceGraphique::resoudre()
 {
+    bool finiSansResoudre=false;
+    if(grille.estEgale(grilleResolue))
+        finiSansResoudre=true;
+
 	//Resolution
 	if (grille.completer()) // Si on a reussi
 	{
+        if(!finiSansResoudre)
+            score.removeScore(score.getScore());
+
 		//On enleve la precedente
 		chargerFond();
 		SDL_Flip(fond);
@@ -811,6 +818,10 @@ void InterfaceGraphique::grilleAleatoire()
     else if(menuACreer=="Hard")
         difficulte=DIFFICILE;
 
+    grille.generer(difficulte);
+
+/*
+
     //definition de la grille, attribition (Numero, ligne, colonne)  TODO : Faire quelque chose de VRAIMENT aleatoire
     {
         grille.setLC(3,0,2);grille.setLC(7,0,4);grille.setLC(5,1,0);
@@ -835,7 +846,7 @@ void InterfaceGraphique::grilleAleatoire()
         //263 715 984
         //578 934 621
         //149 286 735
-    }
+    }*/
 
     score.initScore(difficulte);
 

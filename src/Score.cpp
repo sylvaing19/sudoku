@@ -35,6 +35,11 @@ void Score::initScore(Difficulte difficulte)
 	pausedTime = 0;
 }
 
+void Score::removeScore(int pointsToRemove)
+{
+    initialScore-=pointsToRemove;
+}
+
 void Score::stopTimer()
 {
 	gamePaused = true;
@@ -140,7 +145,7 @@ void Score::save(string name, unsigned int rank)
 		if (!(fichier >> rangS >> nomS >> scoreS))
 		{
 			endOfFile = true;
-		}	
+		}
 		fichier.seekp(curseur, ios::beg);
 		fichier << rang << ' ' << nom << ' ' << score << endl;
 		rang = rangS;

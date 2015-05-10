@@ -32,14 +32,14 @@ public:
 	/* Calcule et renvoie le score actuel */
 	int getScore(void);
 
-	/* Renvoi la place du score actuel dans le classement (permet de 
-	déterminer s'il s'agit ou non d'un score classé avant d'utiliser save() ) 
+	/* Renvoi la place du score actuel dans le classement (permet de
+	déterminer s'il s'agit ou non d'un score classé avant d'utiliser save() )
 	Supprime le fichier de sauvegarde si il est non conforme, et renvoi 1
 	dans ce cas */
 	unsigned int getRank(void);
 
 	/* Sauvegarde le score courant dans le fichier des meilleurs scores
-	à la place indiquée, en utilisant le nom passé en argument 
+	à la place indiquée, en utilisant le nom passé en argument
 	Si le fichier de sauvegrade n'existe pas, il sera créé */
 	void save(std::string name, unsigned int rank);
 
@@ -48,6 +48,10 @@ public:
 
 	/* Setter de la variable contenant le nombre de meilleurs scores stockés */
 	void setNbOfHighscore(unsigned int);
+
+	/* Setter des points : enleve un certain nombre de points au score actuel */
+    void removeScore(int pointsToRemove);
+
 
 private:
 	int initialScore;

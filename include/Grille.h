@@ -8,6 +8,7 @@
 #include <time.h>
 #include <string>
 #include <fstream>
+#include <algorithm>
 #include "EnumDifficulte.h"
 
 
@@ -18,7 +19,7 @@
 *ainsi que de remplir la grille selon les règles du sudoku.
 *Les valeurs contenues dans la grille sont des entiers compris entre 0 et 9 inclus.
 *La valeur 0 correspond à une case vide.
-* @author Sylvain 
+* @author Sylvain
 */
 
 
@@ -31,7 +32,7 @@ class Grille
 		/** Affiche la grille dans la console */
         void afficherConsole();
 
-		/** Renvoie la valeur de la case repérée en ligne/colonne (idexé de 0 à 8) 
+		/** Renvoie la valeur de la case repérée en ligne/colonne (idexé de 0 à 8)
 		* @param la ligne et la colonne de la case
 		* @return le nombre voulu
 		*/
@@ -42,7 +43,7 @@ class Grille
 		*/
         int8_t getBloc(int8_t surCase, int8_t sousCase);
 		/** Place 'valeur' dans la case repérée en ligne/colonne
-		* @param la valeur et l'emplacement  de la case 
+		* @param la valeur et l'emplacement  de la case
 		*/
         void setLC(int8_t valeur, int8_t ligne, int8_t colonne);
 		/** Place 'valeur' dans la case repérée en bloc/sous-bloc
@@ -67,22 +68,30 @@ class Grille
 
 		/** Réinitialise tous les attributs de la grille : data et grille	*/
 		void vider();
-		/** Récupère une grille de sudoku depuis un fichier texte et la place dans le membre 'data'. 
+		/** Récupère une grille de sudoku depuis un fichier texte et la place dans le membre 'data'.
 		* @param le nom du fichier
 		* @return Renvoi vrai si le fichier est correcte, faux sinon.
 		*/
 		bool getFromFile(std::string nomFichier);
-		/** Sauvegarde le membre 'data' dans un fichier texte. 
+		/** Sauvegarde le membre 'data' dans un fichier texte.
 		* @param le nom du fichier
 		* @return Renvoi vrai si la sauvegarde a fonctionné, faux sinon.
 		*/
 		bool sauvegarder(std::string nomFichier);
-		/** 
+		/**
 		* Test unitaire comme promis !
 		* @param la grille
 		* @return Renvoi Vrai si tout va bien. Renvoi Vrai si tout va bien.
 		*/
 		bool testResolution(Grille grilleRef);
+
+		/**
+		* Renvoie un booleen si la grille en argument est egals à cette grille, dans toutes les cases
+		* @param la grille à comparer
+		* @return Renvoi Vrai si egales, faux sinon
+		*/
+        bool estEgale(Grille grilleAutre);
+
 
     private:
         std::array<int8_t,81> data;//Tableau de taille fixe contenant la grille de sudoku
@@ -94,7 +103,7 @@ class Grille
 		* @return Renvoie False s'il n'y a aucun singleton, True sinon.
 		*/
         bool placerSingletons();
-		/** 
+		/**
 		* @return Renvoi vrai si la grille ne contient aucune case valant 0, mais ne vérifie pas le respect des règles !
 		*/
         bool estComplete();

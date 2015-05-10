@@ -169,7 +169,7 @@ bool Grille::completer(bool verifierUnicite)
         */
         unsigned int nbHyp = this->minGrille(ligne, colonne);
 		unsigned int nbHypCorrectes = 0;
-        
+
         for(unsigned int i=0; i<nbHyp; i++)//On teste successivement chacune des hypothèses
         {
 			this->setLC(this->grille[ligne][colonne][i], ligne, colonne);
@@ -196,8 +196,8 @@ bool Grille::completer(bool verifierUnicite)
 			return true;
 		}
 
-        /* Si on arrive à cet endroit, c'est qu'aucune hypothèse n'était valide, 
-		ou bien que plusieurs solutions existent tandis que verifierUnicite 
+        /* Si on arrive à cet endroit, c'est qu'aucune hypothèse n'était valide,
+		ou bien que plusieurs solutions existent tandis que verifierUnicite
 		était à true, la grille n'est donc pas solvable. */
 
 		//On restaure la grille initiale
@@ -446,4 +446,22 @@ bool Grille::testResolution(Grille grilleRef)
 	{
 		return true;
 	}
+}
+
+bool Grille::estEgale(Grille grilleAutre)
+{
+    for (int ligne = 0; ligne < 9; ligne++)
+	{
+		for (int colonne = 0; colonne < 9; colonne++)
+		{
+			int8_t valeur = this->getLC(ligne, colonne);
+            int8_t valeurAutre = grilleAutre.getLC(ligne, colonne);
+
+			if (! (valeur==valeurAutre) )
+				return false;
+		}
+	}
+	return true;
+
+
 }

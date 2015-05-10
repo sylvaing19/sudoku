@@ -40,9 +40,11 @@
 		<Unit filename="images/arret.bmp" />
 		<Unit filename="images/fond1.bmp" />
 		<Unit filename="include/Bouton.h" />
+		<Unit filename="include/EnumDifficulte.h" />
 		<Unit filename="include/Grille.h" />
 		<Unit filename="include/GrilleGraphique.h" />
 		<Unit filename="include/InterfaceGraphique.h" />
+		<Unit filename="include/Score.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="polices/A Simple Life.ttf" />
 		<Unit filename="polices/Cybernetica_Normal.ttf" />
@@ -51,6 +53,7 @@
 		<Unit filename="src/Grille.cpp" />
 		<Unit filename="src/GrilleGraphique.cpp" />
 		<Unit filename="src/InterfaceGraphique.cpp" />
+		<Unit filename="src/Score.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
