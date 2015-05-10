@@ -118,7 +118,7 @@ bool Grille::placerSingletons()
     return valeurRetour;
 }
 
-bool Grille::completer()
+bool Grille::completer(bool verifierUnicite)
 {
 	/*
 	Création d'un point de restauration des données initiales en cas d'échec de la résolution
@@ -161,20 +161,44 @@ bool Grille::completer()
     if(!this->estComplete())
     {
         int8_t ligne, colonne;
+		array<int8_t, 81> data_before_hyp = data, data_correcte;
+		array<array<vector<int8_t>, 9>, 9> grille_before_hyp = grille;
         /*
         Il suffit d'explorer les hypothèses d'une seule case pour toujours résoudre la
         grille, on choisit donc celle ayant le moins de possibilitées.
         */
         unsigned int nbHyp = this->minGrille(ligne, colonne);
+		unsigned int nbHypCorrectes = 0;
         
         for(unsigned int i=0; i<nbHyp; i++)//On teste successivement chacune des hypothèses
         {
 			this->setLC(this->grille[ligne][colonne][i], ligne, colonne);
-			if (this->completer())
-				return true;
-            //Si cette hypothèse était mauvaise, on passe à la suivante
+			if (this->completer(verifierUnicite))
+			{
+				if (verifierUnicite)
+				{
+					data_correcte = data;
+					data = data_before_hyp;
+					grille = grille_before_hyp;
+					nbHypCorrectes++;
+				}
+				else
+				{
+					return true;
+				}
+			}
+            //Si cette hypothèse était mauvaise, on passe à la suivante (ou bien si on veut toutes les tester)
         }
-        //Si on arrive à cet endroit, c'est qu'aucune hypothèse n'était valide, la grille n'est donc pas solvable.
+
+		if (nbHypCorrectes == 1)
+		{
+			data = data_correcte;
+			return true;
+		}
+
+        /* Si on arrive à cet endroit, c'est qu'aucune hypothèse n'était valide, 
+		ou bien que plusieurs solutions existent tandis que verifierUnicite 
+		était à true, la grille n'est donc pas solvable. */
 
 		//On restaure la grille initiale
         data = data_backup;
@@ -300,6 +324,67 @@ bool Grille::completerRand()
 		return true;
 	}
 }
+
+
+void Grille::generer(Difficulte difficulte)
+{
+	data.fill(0);
+	completerRand();
+
+	vector<unsigned int> tabIndicesSupprimables;
+	array<int, 10> nbChiffresRestant;
+	unsigned int nbReveles = 81;
+
+	for (unsigned int i = 0; i < 81; i++)
+	{
+		tabIndicesSupprimables.push_back(i);
+	}
+	for (int i = 1; i <= 9; i++)
+	{
+		nbChiffresRestant[i] = 9;
+	}
+
+	while (nbReveles > 34)
+	{
+		unsigned int r = rand() % tabIndicesSupprimables.size();
+
+		unsigned int indiceSupprime = tabIndicesSupprimables[r];
+		int8_t valeurSupprime = data[indiceSupprime];
+
+
+		array<int8_t, 81> data_backup = data;
+		data[indiceSupprime] = 0;
+		bool suppressionPossible = completer(true);
+		data = data_backup;
+		tabIndicesSupprimables.erase(tabIndicesSupprimables.begin() + r);
+		if (suppressionPossible)
+		{
+			data[indiceSupprime] = 0;
+			nbChiffresRestant[valeurSupprime]--;
+			if (nbChiffresRestant[valeurSupprime] == 1)
+			{
+				bool nonTrouve = true;
+				unsigned int i = 0;
+				while (nonTrouve && i < 81)
+				{
+					if (data[i] == valeurSupprime)
+						nonTrouve = false;
+					else
+						i++;
+				}
+				vector<unsigned int>::iterator it = find(tabIndicesSupprimables.begin(), tabIndicesSupprimables.end(), i);
+				if (it != tabIndicesSupprimables.end())
+					tabIndicesSupprimables.erase(it);
+			}
+			nbReveles--;
+		}
+	}
+
+
+
+}
+
+
 
 bool Grille::getFromFile(string nomFichier)
 {

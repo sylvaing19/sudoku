@@ -77,7 +77,7 @@ int main ( int argc, char** argv )
 			grille.afficherConsole();
 		}
 		*/
-
+		/*
 		Score score;
 		score.initScore(Difficulte::MOYEN);
 		SDL_Delay(1000);
@@ -86,7 +86,13 @@ int main ( int argc, char** argv )
 		int rang = score.getRank();
 		cout << "Rang : " << rang << endl;
 		score.save("MOA", rang);
+		//*/
 
+		Grille grille;
+		grille.generer(Difficulte::DIFFICILE);
+		grille.afficherConsole();
+		grille.completer(true);
+		grille.afficherConsole();
 
     }
 

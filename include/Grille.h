@@ -57,11 +57,14 @@ class Grille
 		/** Complète la grille si possible. Renvoi 'vrai' si la résolution a réussi, 'faux' sinon, en cas d'échec la grille n'est pas modifiée
 		* @return si la grille est completable
 		*/
-        bool completer();
+        bool completer(bool verifierUnicite = false);
 		/** Idem que completer() mais si il existe plusieurs solutions celle qui sera choisie le sera de manière aléatoire
 		* @return si la grille est completable
 		*/
 		bool completerRand();
+
+		void generer(Difficulte);
+
 		/** Réinitialise tous les attributs de la grille : data et grille	*/
 		void vider();
 		/** Récupère une grille de sudoku depuis un fichier texte et la place dans le membre 'data'. 

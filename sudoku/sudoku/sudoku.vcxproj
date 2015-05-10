@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\Bouton.h" />
+    <ClInclude Include="..\..\include\EnumDifficulte.h" />
     <ClInclude Include="..\..\include\Grille.h" />
     <ClInclude Include="..\..\include\GrilleGraphique.h" />
     <ClInclude Include="..\..\include\InterfaceGraphique.h" />
