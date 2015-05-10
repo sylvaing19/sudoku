@@ -7,12 +7,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
-enum Difficulte
-{
-	FACILE, MOYEN, DIFFICILE
-};
-
+#include "EnumDifficulte.h"
 
 /*
 	La classe Score défini un objet de gestion du score du joueur.
