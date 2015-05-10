@@ -346,45 +346,52 @@ void Grille::generer(Difficulte difficulte)
 
 	while (nbReveles > 34)
 	{
-		unsigned int r = rand() % tabIndicesSupprimables.size();
-
-		unsigned int indiceSupprime = tabIndicesSupprimables[r];
-		int8_t valeurSupprime = data[indiceSupprime];
-
-
-		array<int8_t, 81> data_backup = data;
-		data[indiceSupprime] = 0;
-		bool suppressionPossible = completer(true);
-		data = data_backup;
-		tabIndicesSupprimables.erase(tabIndicesSupprimables.begin() + r);
-		if (suppressionPossible)
-		{
-			data[indiceSupprime] = 0;
-			nbChiffresRestant[valeurSupprime]--;
-			if (nbChiffresRestant[valeurSupprime] == 1)
-			{
-				bool nonTrouve = true;
-				unsigned int i = 0;
-				while (nonTrouve && i < 81)
-				{
-					if (data[i] == valeurSupprime)
-						nonTrouve = false;
-					else
-						i++;
-				}
-				vector<unsigned int>::iterator it = find(tabIndicesSupprimables.begin(), tabIndicesSupprimables.end(), i);
-				if (it != tabIndicesSupprimables.end())
-					tabIndicesSupprimables.erase(it);
-			}
-			nbReveles--;
-		}
+		supprimerCaseRandom(tabIndicesSupprimables, nbChiffresRestant, nbReveles);
 	}
 
-
-
+	bool continuer = true;
+	while (nbReveles > 28 && continuer)
+	{
+		continuer = supprimerCaseRandom(tabIndicesSupprimables, nbChiffresRestant, nbReveles);
+	}
 }
 
+bool Grille::supprimerCaseRandom(vector<unsigned int>& tabIndicesSupprimables, array<int, 10>& nbChiffresRestant, unsigned int& nbReveles)
+{
+	unsigned int r = rand() % tabIndicesSupprimables.size();
 
+	unsigned int indiceSupprime = tabIndicesSupprimables[r];
+	int8_t valeurSupprime = data[indiceSupprime];
+
+
+	array<int8_t, 81> data_backup = data;
+	data[indiceSupprime] = 0;
+	bool suppressionPossible = completer(true);
+	data = data_backup;
+	tabIndicesSupprimables.erase(tabIndicesSupprimables.begin() + r);
+	if (suppressionPossible)
+	{
+		data[indiceSupprime] = 0;
+		nbChiffresRestant[valeurSupprime]--;
+		if (nbChiffresRestant[valeurSupprime] == 1)
+		{
+			bool nonTrouve = true;
+			unsigned int i = 0;
+			while (nonTrouve && i < 81)
+			{
+				if (data[i] == valeurSupprime)
+					nonTrouve = false;
+				else
+					i++;
+			}
+			vector<unsigned int>::iterator it = find(tabIndicesSupprimables.begin(), tabIndicesSupprimables.end(), i);
+			if (it != tabIndicesSupprimables.end())
+				tabIndicesSupprimables.erase(it);
+		}
+		nbReveles--;
+	}
+	return suppressionPossible;
+}
 
 bool Grille::getFromFile(string nomFichier)
 {

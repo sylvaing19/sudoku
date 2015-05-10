@@ -105,6 +105,8 @@ class Grille
 		/** Place dans les arguments (passés en référence) les coordonnées de la case de 'grille' qui contient le tableau non vide le plus petit. Si il en existe plusieurs, on choisi la dernière rencontrée. La fonction renvoie la longueur du tableau en question.
 		*/
 		unsigned int minGrille(int8_t& ligne, int8_t& colonne);
+
+		bool supprimerCaseRandom(std::vector<unsigned int>& tabIndicesSupprimables, std::array<int, 10>& nbChiffresRestant, unsigned int& nbReveles);
 };
 #endif // GRILLE_H
 
