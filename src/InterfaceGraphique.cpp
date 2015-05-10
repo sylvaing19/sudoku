@@ -1121,10 +1121,9 @@ void InterfaceGraphique::animationFin()
 
     SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
 
-
     std::string stringScore;
     stringScore="Score :  ";
-    stringScore+=score.getScore();
+    stringScore+=std::to_string(score.getScore());
     texteScore=TTF_RenderText_Blended(policeAuRevoir, stringScore.c_str(), couleurB);
 
     positionScore.x = (tailleX - (texteAdieu->w)) / 2;
