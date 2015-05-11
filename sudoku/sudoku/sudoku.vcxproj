@@ -92,12 +92,15 @@
     <ClCompile Include="..\..\src\Grille.cpp" />
     <ClCompile Include="..\..\src\GrilleGraphique.cpp" />
     <ClCompile Include="..\..\src\InterfaceGraphique.cpp" />
+    <ClCompile Include="..\..\src\Score.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\Bouton.h" />
+    <ClInclude Include="..\..\include\EnumDifficulte.h" />
     <ClInclude Include="..\..\include\Grille.h" />
     <ClInclude Include="..\..\include\GrilleGraphique.h" />
     <ClInclude Include="..\..\include\InterfaceGraphique.h" />
+    <ClInclude Include="..\..\include\Score.h" />
     <ClInclude Include="..\..\SDL_gfx-2.0.25\SDL_rotozoom.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

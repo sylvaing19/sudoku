@@ -32,7 +32,7 @@ InterfaceGraphique::InterfaceGraphique()
     SDL_WM_SetCaption("SuDoKu-Solver", NULL);
     TTF_Init();
 
-	fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_FULLSCREEN); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
+	fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
 
 	couleurN = { 1, 1, 1 };
 	couleurB = { 0, 0, 255 };
@@ -110,9 +110,16 @@ void InterfaceGraphique::menuResoudre()
 /// gestion graphique de la resolution, ou son echec, de la grille
 void InterfaceGraphique::resoudre()
 {
+    bool finiSansResoudre=false;
+    if(grille.estEgale(grilleResolue))
+        finiSansResoudre=true;
+
 	//Resolution
 	if (grille.completer()) // Si on a reussi
 	{
+        if(!finiSansResoudre)
+            score.removeScore(score.getScore());
+
 		//On enleve la precedente
 		chargerFond();
 		SDL_Flip(fond);
@@ -575,6 +582,21 @@ Bouton InterfaceGraphique::eventBoutonClique(Bouton bouton)
 		menuACreer = "Photo-Doku";
 		continuerEvent = false;
 	}
+	else if (bouton.event == "Easy")
+	{
+        menuACreer="Easy";
+		continuerEvent = false;
+	}
+	else if (bouton.event == "Medium")
+	{
+        menuACreer="Medium";
+		continuerEvent = false;
+	}
+	else if (bouton.event == "Hard")
+	{
+        menuACreer="Hard";
+		continuerEvent = false;
+	}
 	return bouton;
 }
 
@@ -673,7 +695,132 @@ void InterfaceGraphique::grilleAleatoire()
 	// on reinitialise le fond
 
 	chargerFond();
+
+    // On initialise tout, et on zoome ces boutons
+    initFondZoomTailleBouton(boutonEasy);
+    boutonEasy.zoomX/=2;
+
+    initFondZoomTailleBouton(boutonMedium);
+    boutonMedium.zoomX/=2;
+
+    initFondZoomTailleBouton(boutonHard);
+    boutonHard.zoomX/=2;
+
+
+    //paramètres du bouton easy
+	{
+		boutonEasy.positionBouton.x = (tailleX/10* zoomX);
+		boutonEasy.positionBouton.y = (tailleY/3 * zoomX);
+		std::string a = "images/BoutonMenu.bmp";
+		boutonEasy.nomImageBouton = a;
+		a = "polices/Cybernetica_Normal.ttf";
+		boutonEasy.nomPolice = a;
+		a = "Easy";
+        boutonEasy.messageBouton = a;
+		boutonEasy.event = a;
+		boutonEasy.couleurTexteBouton=couleurV;
+        boutonEasy.taillePolice=90;
+
+	}
+	boutonEasy.chargerBouton();
+
+	//paramètres du bouton medium
+	{
+		boutonMedium.positionBouton.x = ((tailleX/9+ boutonEasy.positionBouton.w+boutonEasy.positionBouton.x)* zoomX);
+		boutonMedium.positionBouton.y = (tailleY/3 * zoomX);
+		std::string a = "images/BoutonMenu.bmp";
+		boutonMedium.nomImageBouton = a;
+		a = "polices/Cybernetica_Normal.ttf";
+		boutonMedium.nomPolice = a;
+		a = "Medium";
+		boutonMedium.event = a;
+        boutonMedium.messageBouton = a;
+        boutonMedium.couleurTexteBouton=couleurB;
+        boutonMedium.taillePolice=90;
+	}
+	boutonMedium.chargerBouton();
+
+	//paramètres du bouton hard
+	{
+		boutonHard.positionBouton.x = ((tailleX/9+ boutonMedium.positionBouton.w+boutonMedium.positionBouton.x)* zoomX);
+		boutonHard.positionBouton.y = (tailleY/3 * zoomX);
+		std::string a = "images/BoutonMenu.bmp";
+		boutonHard.nomImageBouton = a;
+		a = "polices/Cybernetica_Normal.ttf";
+		boutonHard.nomPolice = a;
+		a = "Hard";
+		boutonHard.event = a;
+        boutonHard.messageBouton = a;
+        boutonHard.couleurTexteBouton=couleurR;
+        boutonHard.taillePolice=90;
+	}
+	boutonHard.chargerBouton();
+
 	SDL_Flip(fond);
+
+
+
+    bool clic=false;
+    //gestion des evenements de la difficulté
+    while(!clic)
+    {
+        SDL_WaitEvent(&event);
+        switch (event.type)
+        {
+
+        case SDL_KEYDOWN:  //Gestion clavier
+            switch (event.key.keysym.sym)
+            {
+            case SDLK_ESCAPE: //Appuyer sur echap : quitte
+                quitter();
+                break;
+            default:
+                ;
+            }
+            break;
+
+        case SDL_MOUSEBUTTONDOWN: //Gestion souris
+            switch (event.button.button)
+            {
+            case SDL_BUTTON_LEFT:
+            {
+                //clic gauche souris
+                if (boutonEasy.estClique(event))
+                {
+                    clic=true;
+                    boutonEasy=eventBoutonClique(boutonEasy);
+                }
+                else if (boutonMedium.estClique(event))
+                {
+                    clic=true;
+                    boutonMedium=eventBoutonClique(boutonMedium);
+                }
+                else if (boutonHard.estClique(event))
+                {
+                    clic=true;
+                    boutonHard=eventBoutonClique(boutonHard);
+                }
+                break;
+            }
+            default:
+                ;
+            }
+            break;
+        }
+    }
+    chargerFond();
+	SDL_Flip(fond);
+
+    if(menuACreer=="Easy")
+       difficulte=FACILE ;
+    else if(menuACreer=="Medium")
+        difficulte=MOYEN ;
+    else if(menuACreer=="Hard")
+        difficulte=DIFFICILE;
+
+    grille.generer(difficulte);
+
+/*
 
     //definition de la grille, attribition (Numero, ligne, colonne)  TODO : Faire quelque chose de VRAIMENT aleatoire
     {
@@ -699,7 +846,9 @@ void InterfaceGraphique::grilleAleatoire()
         //263 715 984
         //578 934 621
         //149 286 735
-    }
+    }*/
+
+    score.initScore(difficulte);
 
     grilleGraphiqueAleatoire.grille=grille;
     grilleGraphiqueAleatoire.creerGrilleGraph();
@@ -948,6 +1097,7 @@ void InterfaceGraphique::quitter()
 //gestion de l'event "fini"
 void InterfaceGraphique::grilleFinie()
 {
+    score.stopTimer();
 	continuerEvent = false;
 	quitterAppli = true;
 
@@ -967,7 +1117,7 @@ void InterfaceGraphique::grilleFinie()
 void InterfaceGraphique::indice()
 {
     grilleGraph.afficherIndice();
-
+    score.indiceUtilise();
 	grille=grilleGraph.grille;// on met à jour la grille
 	SDL_Flip(fond);
 }
@@ -978,20 +1128,32 @@ void InterfaceGraphique::animationFin()
 
     texteAdieu = TTF_RenderText_Blended(policeAuRevoir, "Grille finie ! Bravo !", couleurB);
 	positionAuRevoir.x = (tailleX - (texteAdieu->w)) / 2;
-	positionAuRevoir.y = (tailleY - (texteAdieu->h)) / 2;
+	positionAuRevoir.y = (tailleY - (texteAdieu->h)) / 3;
 
-	SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
+    SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
+
+    std::string stringScore;
+    stringScore="Score :  ";
+    stringScore+=std::to_string(score.getScore());
+    texteScore=TTF_RenderText_Blended(policeAuRevoir, stringScore.c_str(), couleurB);
+
+    positionScore.x = (tailleX - (texteAdieu->w)) / 2;
+	positionScore.y = positionAuRevoir.y+(texteAdieu->h)+(texteScore->h)/3;
+
+    SDL_BlitSurface(texteScore, NULL, fond, &positionScore);
+
+
     SDL_Flip(fond);
 	SDL_Delay(700);
 
-    positionArtifice.x = (tailleX ) / 7;
-	positionArtifice.y = (tailleY ) / 2;
-	positionArtifice2.x=  (tailleX) *3/4;
-	positionArtifice2.y=  (tailleY) *2/5;
-    positionArtifice3.x = (tailleX ) / 2;
-	positionArtifice3.y = (tailleY ) / 4;
-    positionArtifice4.x = (tailleX ) / 5;
-	positionArtifice4.y = (tailleY )*2/3;
+    positionArtifice.x = (tailleX ) / (rand()%9+2);
+	positionArtifice.y = (tailleY ) / (rand()%9+2);
+	positionArtifice2.x=  (tailleX) *(rand()%9+2)/15;
+	positionArtifice2.y=  (tailleY) *(rand()%9+2)/12;
+    positionArtifice3.x = (tailleX ) /(rand()%9+2);
+	positionArtifice3.y = (tailleY ) / (rand()%9+2);
+    positionArtifice4.x = (tailleX ) / (rand()%9+2)/16;
+	positionArtifice4.y = (tailleY )*(rand()%9+2)/20;
 
 	for(int i=7;i<19;i++)
 	{
