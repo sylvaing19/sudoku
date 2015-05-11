@@ -1,0 +1,9 @@
+var searchData=
+[
+  ['b',['b',['../jquery_8js.html#a2fa551895933fae935a0a6b87282241d',1,'jquery.js']]],
+  ['beziercolor',['bezierColor',['../_s_d_l__gfx_primitives_8c.html#adfe8f9c42d29a090aae15eeb19b80d51',1,'bezierColor(SDL_Surface *dst, const Sint16 *vx, const Sint16 *vy, int n, int s, Uint32 color):&#160;SDL_gfxPrimitives.c'],['../_s_d_l__gfx_primitives_8h.html#ad82395ca72b749494ff89be78f168341',1,'bezierColor(SDL_Surface *dst, const Sint16 *vx, const Sint16 *vy, int n, int s, Uint32 color):&#160;SDL_gfxPrimitives.c']]],
+  ['bezierrgba',['bezierRGBA',['../_s_d_l__gfx_primitives_8c.html#a4b7fbf6cc366abdf345a25308d53e125',1,'bezierRGBA(SDL_Surface *dst, const Sint16 *vx, const Sint16 *vy, int n, int s, Uint8 r, Uint8 g, Uint8 b, Uint8 a):&#160;SDL_gfxPrimitives.c'],['../_s_d_l__gfx_primitives_8h.html#a7203e3a463da499b5b0cadf211d19ff3',1,'bezierRGBA(SDL_Surface *dst, const Sint16 *vx, const Sint16 *vy, int n, int s, Uint8 r, Uint8 g, Uint8 b, Uint8 a):&#160;SDL_gfxPrimitives.c']]],
+  ['bouton',['Bouton',['../class_bouton.html#ad1e4f684cad81db47393df0be7a65658',1,'Bouton']]],
+  ['boxcolor',['boxColor',['../_s_d_l__gfx_primitives_8c.html#a6bb30dfc32d0aee20271a0356a2e2fd0',1,'boxColor(SDL_Surface *dst, Sint16 x1, Sint16 y1, Sint16 x2, Sint16 y2, Uint32 color):&#160;SDL_gfxPrimitives.c'],['../_s_d_l__gfx_primitives_8h.html#a16693489da67d6e65a28f9e5217b46f9',1,'boxColor(SDL_Surface *dst, Sint16 x1, Sint16 y1, Sint16 x2, Sint16 y2, Uint32 color):&#160;SDL_gfxPrimitives.c']]],
+  ['boxrgba',['boxRGBA',['../_s_d_l__gfx_primitives_8c.html#a1864b3062793a7f7dd81aaf8c8abd6b0',1,'boxRGBA(SDL_Surface *dst, Sint16 x1, Sint16 y1, Sint16 x2, Sint16 y2, Uint8 r, Uint8 g, Uint8 b, Uint8 a):&#160;SDL_gfxPrimitives.c'],['../_s_d_l__gfx_primitives_8h.html#a0ae084c90bd9b734356ad723d45973c8',1,'boxRGBA(SDL_Surface *dst, Sint16 x1, Sint16 y1, Sint16 x2, Sint16 y2, Uint8 r, Uint8 g, Uint8 b, Uint8 a):&#160;SDL_gfxPrimitives.c']]]
+];

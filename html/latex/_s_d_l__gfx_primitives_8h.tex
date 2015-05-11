@@ -1,0 +1,2832 @@
+\hypertarget{_s_d_l__gfx_primitives_8h}{}\section{S\+D\+L\+\_\+gfx-\/2.0.25/\+S\+D\+L\+\_\+gfx\+Primitives.h File Reference}
+\label{_s_d_l__gfx_primitives_8h}\index{S\+D\+L\+\_\+gfx-\/2.\+0.\+25/\+S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx-\/2.\+0.\+25/\+S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}S\+D\+L.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_s_d_l__gfx_primitives_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+P\+I}~3.\+1415926535897932384626433832795
+\item 
+\#define \hyperlink{_s_d_l__gfx_primitives_8h_a2a585f5832061010155d87737ef5bf88}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+A\+J\+O\+R}~2
+\item 
+\#define \hyperlink{_s_d_l__gfx_primitives_8h_abd0939b1856bbb822b37b68755dc9ee5}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+I\+N\+O\+R}~0
+\item 
+\#define \hyperlink{_s_d_l__gfx_primitives_8h_a06ea681a295987b8b8ec3fcdb04713df}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+I\+C\+R\+O}~25
+\item 
+\#define \hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E}~extern
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a7fe611dbb029ae70be89d5314c7e023b}{pixel\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Pixel draw with blending enabled if a$<$255. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a0046efc721e77b745fd5b621fbd48513}{pixel\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Pixel draw with blending enabled if a$<$255. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a31ac87bf32186325deedf5188b987ef6}{hline\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw horizontal line with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_ae48e69e0f5d13ea79ffac262b146ae9e}{hline\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw horizontal line with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_ab68d565f00527a67c9d88121c753302c}{vline\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw vertical line with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a68ed9a65e3e0de26136566b0cf0c859e}{vline\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw vertical line with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a36453f52608a10f3d6b8edccae260b95}{rectangle\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw rectangle with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a6c41cbfd0618262de4d4d127ed1e67fe}{rectangle\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw rectangle with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a4109d2d1efa021c021fc4a98a0e3691b}{rounded\+Rectangle\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rad, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw rounded-\/corner rectangle with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a475432abc4756e6f30ef097d5cac02c9}{rounded\+Rectangle\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rad, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw rounded-\/corner rectangle with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a16693489da67d6e65a28f9e5217b46f9}{box\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw box (filled rectangle) with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a0ae084c90bd9b734356ad723d45973c8}{box\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw box (filled rectangle) with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a9f9be6e605e764fd23dd154fb12b80e9}{rounded\+Box\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rad, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw rounded-\/corner box (filled rectangle) with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a7105b88e62fe42b26602d3b426547bc7}{rounded\+Box\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rad, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw rounded-\/corner box (filled rectangle) with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a6f37058aed308619de8109ebe84b5fe9}{line\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw line with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a5e4bd13b12d34698fbcb2dc9d3a0e9f3}{line\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw line with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a4711ada424cb411e328fcedbf28ca5bd}{aaline\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Ddraw anti-\/aliased line with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_aaf65728167a6aa7b37010560507fb4a2}{aaline\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw anti-\/aliased line with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a40c34464b6c99fd72c4bd7acfac5915d}{thick\+Line\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3ce386e55bbeb900c1b23e064b89bd04}{width}, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw a thick line with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_aa740c1eff9163862704eb3bb3b5964db}{thick\+Line\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3ce386e55bbeb900c1b23e064b89bd04}{width}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw a thick line with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a58d231ecaf113f53c2a28435e0632624}{circle\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rad, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw circle with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a8e0945b74c02cdb1441e1b2a29d2c87d}{circle\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rad, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw circle with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a6180558aff14d3c240d9e8bf919869ef}{arc\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rad, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ac55adc720a3098c1b454d2a4647f4361}{start}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a432111147038972f06e049e18a837002}{end}, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Arc with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a5d8d25ecb69e9386289125eb21668a2f}{arc\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rad, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ac55adc720a3098c1b454d2a4647f4361}{start}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a432111147038972f06e049e18a837002}{end}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Arc with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_aee66c744f9fbe58c9f93ad33375373c3}{aacircle\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rad, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw anti-\/aliased circle with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a613099498679e6280959cdfdcd59a143}{aacircle\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rad, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw anti-\/aliased circle with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a4f7b717b958ef39bfc8c958476dd0de1}{filled\+Circle\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw filled circle with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a01af970ce0be38cea9884bc6f816c984}{filled\+Circle\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rad, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw filled circle with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a8b46f389c626806e7a1ec148f0980737}{ellipse\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rx, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} ry, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw ellipse with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a523156891302420d2296b1a302c1fc2b}{ellipse\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rx, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} ry, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw ellipse with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a6edf60c54acc964cbb47ddefc6c0d450}{aaellipse\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rx, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} ry, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw anti-\/aliased ellipse with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_ab6db169d39ea972469e761f338153e21}{aaellipse\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rx, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} ry, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw anti-\/aliased ellipse with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a36e83e5648b95d38d1efe98dcf840fab}{filled\+Ellipse\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rx, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} ry, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw filled ellipse with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a26f01b9c0cf7a533023869dff439254f}{filled\+Ellipse\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rx, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} ry, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw filled ellipse with blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a6476d5dad22631d10c1dc95b0e88fc65}{pie\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rad, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ac55adc720a3098c1b454d2a4647f4361}{start}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a432111147038972f06e049e18a837002}{end}, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw pie (outline) with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a4a5e4344913667e714560dd204473663}{pie\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rad, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ac55adc720a3098c1b454d2a4647f4361}{start}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a432111147038972f06e049e18a837002}{end}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw pie (outline) with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a8f18679aa7161f885613ec08e7f41692}{filled\+Pie\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rad, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ac55adc720a3098c1b454d2a4647f4361}{start}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a432111147038972f06e049e18a837002}{end}, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw filled pie with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a1944c066d27fa9847a5fdecd1d3b9116}{filled\+Pie\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} rad, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ac55adc720a3098c1b454d2a4647f4361}{start}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a432111147038972f06e049e18a837002}{end}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw filled pie with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_aec2a0c435b879a29167be6b1c49f1e49}{trigon\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x3, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y3, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw trigon (triangle outline) with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a090024f5f3e38b02b0bca704259b9d11}{trigon\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x3, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y3, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw trigon (triangle outline) with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a330917705809bb5f7d74ef232dde5f12}{aatrigon\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x3, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y3, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw anti-\/aliased trigon (triangle outline) with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a5e88106c90fc2e0e25d0f7617459d4f9}{aatrigon\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x3, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y3, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw anti-\/aliased trigon (triangle outline) with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a6adaf54b33bf067e4fe2cc5a7ae17ef6}{filled\+Trigon\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x3, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y3, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw filled trigon (triangle) with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a4a3318a183659aab7c12c0334e261837}{filled\+Trigon\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y1, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y2, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} x3, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} y3, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw filled trigon (triangle) with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_abe5d0b2f6193558798eaff3e85e7a1af}{polygon\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vx, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vy, int \hyperlink{_s_d_l__opengl_8h_a0788d3762d0c3c76e4c094d8078b4c27}{n}, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw polygon with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a46b327da5cba5d401cf400bdef7560d0}{polygon\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vx, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vy, int \hyperlink{_s_d_l__opengl_8h_a0788d3762d0c3c76e4c094d8078b4c27}{n}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw polygon with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_acee2be5e220639d3e5c5bc643e091c1c}{aapolygon\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vx, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vy, int \hyperlink{_s_d_l__opengl_8h_a0788d3762d0c3c76e4c094d8078b4c27}{n}, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw anti-\/aliased polygon with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_aad73d6fc11bb01946d0ffe1c9d657cb1}{aapolygon\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vx, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vy, int \hyperlink{_s_d_l__opengl_8h_a0788d3762d0c3c76e4c094d8078b4c27}{n}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw anti-\/aliased polygon with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a5e1fe45b835b623f6939ff0f08277531}{filled\+Polygon\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vx, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vy, int \hyperlink{_s_d_l__opengl_8h_a0788d3762d0c3c76e4c094d8078b4c27}{n}, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw filled polygon with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a2b1023ddbbb25d57bd51676b49234af4}{filled\+Polygon\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vx, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vy, int \hyperlink{_s_d_l__opengl_8h_a0788d3762d0c3c76e4c094d8078b4c27}{n}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw filled polygon with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a5ca5a9bcfeba5b1a1577202e79b494d8}{textured\+Polygon} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vx, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vy, int \hyperlink{_s_d_l__opengl_8h_a0788d3762d0c3c76e4c094d8078b4c27}{n}, \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a8f486379aef534669f4f06f515e7ce6c}{texture}, int texture\+\_\+dx, int texture\+\_\+dy)
+\begin{DoxyCompactList}\small\item\em Draws a polygon filled with the given texture. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a0f5583d5b055f3e59a9692ca8a9dfbcf}{filled\+Polygon\+Color\+M\+T} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vx, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vy, int \hyperlink{_s_d_l__opengl_8h_a0788d3762d0c3c76e4c094d8078b4c27}{n}, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color, int $\ast$$\ast$poly\+Ints, int $\ast$poly\+Allocated)
+\begin{DoxyCompactList}\small\item\em Draw filled polygon with alpha blending (multi-\/threaded capable). \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a412cddc17a592c167c060ec2d1d2fd1d}{filled\+Polygon\+R\+G\+B\+A\+M\+T} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vx, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vy, int \hyperlink{_s_d_l__opengl_8h_a0788d3762d0c3c76e4c094d8078b4c27}{n}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a}, int $\ast$$\ast$poly\+Ints, int $\ast$poly\+Allocated)
+\begin{DoxyCompactList}\small\item\em Draw filled polygon with alpha blending (multi-\/threaded capable). \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a326937a19cfbebea09aa0a7c908d89aa}{textured\+Polygon\+M\+T} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vx, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vy, int \hyperlink{_s_d_l__opengl_8h_a0788d3762d0c3c76e4c094d8078b4c27}{n}, \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a8f486379aef534669f4f06f515e7ce6c}{texture}, int texture\+\_\+dx, int texture\+\_\+dy, int $\ast$$\ast$poly\+Ints, int $\ast$poly\+Allocated)
+\begin{DoxyCompactList}\small\item\em Draws a polygon filled with the given texture (Multi-\/\+Threading Capable). \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_ad82395ca72b749494ff89be78f168341}{bezier\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vx, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vy, int \hyperlink{_s_d_l__opengl_8h_a0788d3762d0c3c76e4c094d8078b4c27}{n}, int \hyperlink{_s_d_l__opengl_8h_ad585a1393cfa368fa9dc3d8ebff640d5}{s}, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw a bezier curve with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a7203e3a463da499b5b0cadf211d19ff3}{bezier\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vx, const \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} $\ast$vy, int \hyperlink{_s_d_l__opengl_8h_a0788d3762d0c3c76e4c094d8078b4c27}{n}, int \hyperlink{_s_d_l__opengl_8h_ad585a1393cfa368fa9dc3d8ebff640d5}{s}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw a bezier curve with alpha blending. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{_s_d_l__gfx_primitives_8h_a7cabe806643c19159948639faaf26a38}{gfx\+Primitives\+Set\+Font} (const \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} $\ast$fontdata, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} cw, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} ch)
+\begin{DoxyCompactList}\small\item\em Sets or resets the current global font data. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{_s_d_l__gfx_primitives_8h_a77cc480ba039c758d1cf0cd43db04bd6}{gfx\+Primitives\+Set\+Font\+Rotation} (\hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} rotation)
+\begin{DoxyCompactList}\small\item\em Sets current global font character rotation steps. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_af1991f2031346131db4ae8fd40492b08}{character\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, char \hyperlink{_s_d_l__opengl_8h_a1f2d7f8147412c43ba2303a56f97ee73}{c}, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw a character of the currently set font. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a3f2f624c33ca753d22db52a8d9363fac}{character\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, char \hyperlink{_s_d_l__opengl_8h_a1f2d7f8147412c43ba2303a56f97ee73}{c}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw a character of the currently set font. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a96b6a43c6ef4753996e33bb7fea483bc}{string\+Color} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, const char $\ast$\hyperlink{_s_d_l__opengl_8h_ad585a1393cfa368fa9dc3d8ebff640d5}{s}, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\begin{DoxyCompactList}\small\item\em Draw a string in the currently set font. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_primitives_8h_a769833ae414222099783a9b69bed4009}{string\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}{Sint16} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, const char $\ast$\hyperlink{_s_d_l__opengl_8h_ad585a1393cfa368fa9dc3d8ebff640d5}{s}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Draw a string in the currently set font. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_s_d_l__gfx_primitives_8h_ae71449b1cc6e6250b91f539153a7a0d3}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!M\+\_\+\+P\+I@{M\+\_\+\+P\+I}}
+\index{M\+\_\+\+P\+I@{M\+\_\+\+P\+I}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{M\+\_\+\+P\+I}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+\_\+\+P\+I~3.\+1415926535897932384626433832795}\label{_s_d_l__gfx_primitives_8h_ae71449b1cc6e6250b91f539153a7a0d3}
+
+
+Definition at line 35 of file S\+D\+L\+\_\+gfx\+Primitives.\+h.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a2a585f5832061010155d87737ef5bf88}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+A\+J\+O\+R@{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+A\+J\+O\+R}}
+\index{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+A\+J\+O\+R@{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+A\+J\+O\+R}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+A\+J\+O\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+A\+J\+O\+R~2}\label{_s_d_l__gfx_primitives_8h_a2a585f5832061010155d87737ef5bf88}
+
+
+Definition at line 47 of file S\+D\+L\+\_\+gfx\+Primitives.\+h.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a06ea681a295987b8b8ec3fcdb04713df}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+I\+C\+R\+O@{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+I\+C\+R\+O}}
+\index{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+I\+C\+R\+O@{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+I\+C\+R\+O}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+I\+C\+R\+O}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+I\+C\+R\+O~25}\label{_s_d_l__gfx_primitives_8h_a06ea681a295987b8b8ec3fcdb04713df}
+
+
+Definition at line 49 of file S\+D\+L\+\_\+gfx\+Primitives.\+h.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_abd0939b1856bbb822b37b68755dc9ee5}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+I\+N\+O\+R@{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+I\+N\+O\+R}}
+\index{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+I\+N\+O\+R@{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+I\+N\+O\+R}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+I\+N\+O\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+M\+I\+N\+O\+R~0}\label{_s_d_l__gfx_primitives_8h_abd0939b1856bbb822b37b68755dc9ee5}
+
+
+Definition at line 48 of file S\+D\+L\+\_\+gfx\+Primitives.\+h.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E@{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E}}
+\index{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E@{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E~extern}\label{_s_d_l__gfx_primitives_8h_a9501419cbbd2b8739ec5dc4e890c165b}
+
+
+Definition at line 64 of file S\+D\+L\+\_\+gfx\+Primitives.\+h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_s_d_l__gfx_primitives_8h_aee66c744f9fbe58c9f93ad33375373c3}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!aacircle\+Color@{aacircle\+Color}}
+\index{aacircle\+Color@{aacircle\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{aacircle\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int aacircle\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Sint16}}]{rad, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_aee66c744f9fbe58c9f93ad33375373c3}
+
+
+Draw anti-\/aliased circle with blending. 
+
+Note\+: The A\+A-\/circle routine is based on A\+A-\/ellipse with identical radii.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X coordinate of the center of the aa-\/circle. \\
+\hline
+{\em y} & Y coordinate of the center of the aa-\/circle. \\
+\hline
+{\em rad} & Radius in pixels of the aa-\/circle. \\
+\hline
+{\em color} & The color value of the aa-\/circle to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 3512 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a613099498679e6280959cdfdcd59a143}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!aacircle\+R\+G\+B\+A@{aacircle\+R\+G\+B\+A}}
+\index{aacircle\+R\+G\+B\+A@{aacircle\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{aacircle\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int aacircle\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Sint16}}]{rad, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a613099498679e6280959cdfdcd59a143}
+
+
+Draw anti-\/aliased circle with blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X coordinate of the center of the aa-\/circle. \\
+\hline
+{\em y} & Y coordinate of the center of the aa-\/circle. \\
+\hline
+{\em rad} & Radius in pixels of the aa-\/circle. \\
+\hline
+{\em r} & The red value of the aa-\/circle to draw. \\
+\hline
+{\em g} & The green value of the aa-\/circle to draw. \\
+\hline
+{\em b} & The blue value of the aa-\/circle to draw. \\
+\hline
+{\em a} & The alpha value of the aa-\/circle to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 3531 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a6edf60c54acc964cbb47ddefc6c0d450}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!aaellipse\+Color@{aaellipse\+Color}}
+\index{aaellipse\+Color@{aaellipse\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{aaellipse\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int aaellipse\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Sint16}}]{rx, }
+\item[{{\bf Sint16}}]{ry, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a6edf60c54acc964cbb47ddefc6c0d450}
+
+
+Draw anti-\/aliased ellipse with blending. 
+
+Note\+: Based on code from Anders Lindstroem, which is based on code from sge library, which is based on code from Twin\+Lib.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X coordinate of the center of the aa-\/ellipse. \\
+\hline
+{\em y} & Y coordinate of the center of the aa-\/ellipse. \\
+\hline
+{\em rx} & Horizontal radius in pixels of the aa-\/ellipse. \\
+\hline
+{\em ry} & Vertical radius in pixels of the aa-\/ellipse. \\
+\hline
+{\em color} & The color value of the aa-\/ellipse to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 4088 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_ab6db169d39ea972469e761f338153e21}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!aaellipse\+R\+G\+B\+A@{aaellipse\+R\+G\+B\+A}}
+\index{aaellipse\+R\+G\+B\+A@{aaellipse\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{aaellipse\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int aaellipse\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Sint16}}]{rx, }
+\item[{{\bf Sint16}}]{ry, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_ab6db169d39ea972469e761f338153e21}
+
+
+Draw anti-\/aliased ellipse with blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X coordinate of the center of the aa-\/ellipse. \\
+\hline
+{\em y} & Y coordinate of the center of the aa-\/ellipse. \\
+\hline
+{\em rx} & Horizontal radius in pixels of the aa-\/ellipse. \\
+\hline
+{\em ry} & Vertical radius in pixels of the aa-\/ellipse. \\
+\hline
+{\em r} & The red value of the aa-\/ellipse to draw. \\
+\hline
+{\em g} & The green value of the aa-\/ellipse to draw. \\
+\hline
+{\em b} & The blue value of the aa-\/ellipse to draw. \\
+\hline
+{\em a} & The alpha value of the aa-\/ellipse to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 4328 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a4711ada424cb411e328fcedbf28ca5bd}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!aaline\+Color@{aaline\+Color}}
+\index{aaline\+Color@{aaline\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{aaline\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int aaline\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a4711ada424cb411e328fcedbf28ca5bd}
+
+
+Ddraw anti-\/aliased line with alpha blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point of the aa-\/line. \\
+\hline
+{\em y1} & Y coordinate of the first point of the aa-\/line. \\
+\hline
+{\em x2} & X coordinate of the second point of the aa-\/line. \\
+\hline
+{\em y2} & Y coordinate of the second point of the aa-\/line. \\
+\hline
+{\em color} & The color value of the aa-\/line to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 2828 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_aaf65728167a6aa7b37010560507fb4a2}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!aaline\+R\+G\+B\+A@{aaline\+R\+G\+B\+A}}
+\index{aaline\+R\+G\+B\+A@{aaline\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{aaline\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int aaline\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_aaf65728167a6aa7b37010560507fb4a2}
+
+
+Draw anti-\/aliased line with alpha blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point of the aa-\/line. \\
+\hline
+{\em y1} & Y coordinate of the first point of the aa-\/line. \\
+\hline
+{\em x2} & X coordinate of the second point of the aa-\/line. \\
+\hline
+{\em y2} & Y coordinate of the second point of the aa-\/line. \\
+\hline
+{\em r} & The red value of the aa-\/line to draw. \\
+\hline
+{\em g} & The green value of the aa-\/line to draw. \\
+\hline
+{\em b} & The blue value of the aa-\/line to draw. \\
+\hline
+{\em a} & The alpha value of the aa-\/line to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 2848 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_acee2be5e220639d3e5c5bc643e091c1c}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!aapolygon\+Color@{aapolygon\+Color}}
+\index{aapolygon\+Color@{aapolygon\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{aapolygon\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int aapolygon\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{const {\bf Sint16} $\ast$}]{vx, }
+\item[{const {\bf Sint16} $\ast$}]{vy, }
+\item[{int}]{n, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_acee2be5e220639d3e5c5bc643e091c1c}
+
+
+Draw anti-\/aliased polygon with alpha blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em vx} & Vertex array containing X coordinates of the points of the aa-\/polygon. \\
+\hline
+{\em vy} & Vertex array containing Y coordinates of the points of the aa-\/polygon. \\
+\hline
+{\em n} & Number of points in the vertex array. Minimum number is 3. \\
+\hline
+{\em color} & The color value of the aa-\/polygon to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 5077 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_aad73d6fc11bb01946d0ffe1c9d657cb1}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!aapolygon\+R\+G\+B\+A@{aapolygon\+R\+G\+B\+A}}
+\index{aapolygon\+R\+G\+B\+A@{aapolygon\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{aapolygon\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int aapolygon\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{const {\bf Sint16} $\ast$}]{vx, }
+\item[{const {\bf Sint16} $\ast$}]{vy, }
+\item[{int}]{n, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_aad73d6fc11bb01946d0ffe1c9d657cb1}
+
+
+Draw anti-\/aliased polygon with alpha blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em vx} & Vertex array containing X coordinates of the points of the aa-\/polygon. \\
+\hline
+{\em vy} & Vertex array containing Y coordinates of the points of the aa-\/polygon. \\
+\hline
+{\em n} & Number of points in the vertex array. Minimum number is 3. \\
+\hline
+{\em r} & The red value of the aa-\/polygon to draw. \\
+\hline
+{\em g} & The green value of the aa-\/polygon to draw. \\
+\hline
+{\em b} & The blue value of the aa-\/polygon to draw. \\
+\hline
+{\em a} & The alpha value of the aa-\/polygon to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 5145 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a330917705809bb5f7d74ef232dde5f12}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!aatrigon\+Color@{aatrigon\+Color}}
+\index{aatrigon\+Color@{aatrigon\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{aatrigon\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int aatrigon\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Sint16}}]{x3, }
+\item[{{\bf Sint16}}]{y3, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a330917705809bb5f7d74ef232dde5f12}
+
+
+Draw anti-\/aliased trigon (triangle outline) with alpha blending. 
+
+Note\+: Creates vertex array and uses aapolygon routine to render.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point of the aa-\/trigon. \\
+\hline
+{\em y1} & Y coordinate of the first point of the aa-\/trigon. \\
+\hline
+{\em x2} & X coordinate of the second point of the aa-\/trigon. \\
+\hline
+{\em y2} & Y coordinate of the second point of the aa-\/trigon. \\
+\hline
+{\em x3} & X coordinate of the third point of the aa-\/trigon. \\
+\hline
+{\em y3} & Y coordinate of the third point of the aa-\/trigon. \\
+\hline
+{\em color} & The color value of the aa-\/trigon to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 4859 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a5e88106c90fc2e0e25d0f7617459d4f9}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!aatrigon\+R\+G\+B\+A@{aatrigon\+R\+G\+B\+A}}
+\index{aatrigon\+R\+G\+B\+A@{aatrigon\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{aatrigon\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int aatrigon\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Sint16}}]{x3, }
+\item[{{\bf Sint16}}]{y3, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a5e88106c90fc2e0e25d0f7617459d4f9}
+
+
+Draw anti-\/aliased trigon (triangle outline) with alpha blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point of the aa-\/trigon. \\
+\hline
+{\em y1} & Y coordinate of the first point of the aa-\/trigon. \\
+\hline
+{\em x2} & X coordinate of the second point of the aa-\/trigon. \\
+\hline
+{\em y2} & Y coordinate of the second point of the aa-\/trigon. \\
+\hline
+{\em x3} & X coordinate of the third point of the aa-\/trigon. \\
+\hline
+{\em y3} & Y coordinate of the third point of the aa-\/trigon. \\
+\hline
+{\em r} & The red value of the aa-\/trigon to draw. \\
+\hline
+{\em g} & The green value of the aa-\/trigon to draw. \\
+\hline
+{\em b} & The blue value of the aa-\/trigon to draw. \\
+\hline
+{\em a} & The alpha value of the aa-\/trigon to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 4891 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a6180558aff14d3c240d9e8bf919869ef}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!arc\+Color@{arc\+Color}}
+\index{arc\+Color@{arc\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{arc\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int arc\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Sint16}}]{rad, }
+\item[{{\bf Sint16}}]{start, }
+\item[{{\bf Sint16}}]{end, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a6180558aff14d3c240d9e8bf919869ef}
+
+
+Arc with blending. 
+
+Note Arc drawing is based on circle algorithm by A. Schiffler and written by D. Raber. Calculates which octants arc goes through and renders pixels accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X coordinate of the center of the arc. \\
+\hline
+{\em y} & Y coordinate of the center of the arc. \\
+\hline
+{\em rad} & Radius in pixels of the arc. \\
+\hline
+{\em start} & Starting radius in degrees of the arc. 0 degrees is down, increasing counterclockwise. \\
+\hline
+{\em end} & Ending radius in degrees of the arc. 0 degrees is down, increasing counterclockwise. \\
+\hline
+{\em color} & The color value of the arc to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 3117 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a5d8d25ecb69e9386289125eb21668a2f}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!arc\+R\+G\+B\+A@{arc\+R\+G\+B\+A}}
+\index{arc\+R\+G\+B\+A@{arc\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{arc\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int arc\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Sint16}}]{rad, }
+\item[{{\bf Sint16}}]{start, }
+\item[{{\bf Sint16}}]{end, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a5d8d25ecb69e9386289125eb21668a2f}
+
+
+Arc with blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X coordinate of the center of the arc. \\
+\hline
+{\em y} & Y coordinate of the center of the arc. \\
+\hline
+{\em rad} & Radius in pixels of the arc. \\
+\hline
+{\em start} & Starting radius in degrees of the arc. 0 degrees is down, increasing counterclockwise. \\
+\hline
+{\em end} & Ending radius in degrees of the arc. 0 degrees is down, increasing counterclockwise. \\
+\hline
+{\em r} & The red value of the arc to draw. \\
+\hline
+{\em g} & The green value of the arc to draw. \\
+\hline
+{\em b} & The blue value of the arc to draw. \\
+\hline
+{\em a} & The alpha value of the arc to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 3488 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_ad82395ca72b749494ff89be78f168341}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!bezier\+Color@{bezier\+Color}}
+\index{bezier\+Color@{bezier\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{bezier\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int bezier\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{const {\bf Sint16} $\ast$}]{vx, }
+\item[{const {\bf Sint16} $\ast$}]{vy, }
+\item[{int}]{n, }
+\item[{int}]{s, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_ad82395ca72b749494ff89be78f168341}
+
+
+Draw a bezier curve with alpha blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em vx} & Vertex array containing X coordinates of the points of the bezier curve. \\
+\hline
+{\em vy} & Vertex array containing Y coordinates of the points of the bezier curve. \\
+\hline
+{\em n} & Number of points in the vertex array. Minimum number is 3. \\
+\hline
+{\em s} & Number of steps for the interpolation. Minimum number is 2. \\
+\hline
+{\em color} & The color value of the bezier curve to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 6221 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a7203e3a463da499b5b0cadf211d19ff3}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!bezier\+R\+G\+B\+A@{bezier\+R\+G\+B\+A}}
+\index{bezier\+R\+G\+B\+A@{bezier\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{bezier\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int bezier\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{const {\bf Sint16} $\ast$}]{vx, }
+\item[{const {\bf Sint16} $\ast$}]{vy, }
+\item[{int}]{n, }
+\item[{int}]{s, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a7203e3a463da499b5b0cadf211d19ff3}
+
+
+Draw a bezier curve with alpha blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em vx} & Vertex array containing X coordinates of the points of the bezier curve. \\
+\hline
+{\em vy} & Vertex array containing Y coordinates of the points of the bezier curve. \\
+\hline
+{\em n} & Number of points in the vertex array. Minimum number is 3. \\
+\hline
+{\em s} & Number of steps for the interpolation. Minimum number is 2. \\
+\hline
+{\em r} & The red value of the bezier curve to draw. \\
+\hline
+{\em g} & The green value of the bezier curve to draw. \\
+\hline
+{\em b} & The blue value of the bezier curve to draw. \\
+\hline
+{\em a} & The alpha value of the bezier curve to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 6296 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a16693489da67d6e65a28f9e5217b46f9}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!box\+Color@{box\+Color}}
+\index{box\+Color@{box\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{box\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int box\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a16693489da67d6e65a28f9e5217b46f9}
+
+
+Draw box (filled rectangle) with blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point (i.\+e. top right) of the box. \\
+\hline
+{\em y1} & Y coordinate of the first point (i.\+e. top right) of the box. \\
+\hline
+{\em x2} & X coordinate of the second point (i.\+e. bottom left) of the box. \\
+\hline
+{\em y2} & Y coordinate of the second point (i.\+e. bottom left) of the box. \\
+\hline
+{\em color} & The color value of the box to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 2107 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a0ae084c90bd9b734356ad723d45973c8}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!box\+R\+G\+B\+A@{box\+R\+G\+B\+A}}
+\index{box\+R\+G\+B\+A@{box\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{box\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int box\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a0ae084c90bd9b734356ad723d45973c8}
+
+
+Draw box (filled rectangle) with blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point (i.\+e. top right) of the box. \\
+\hline
+{\em y1} & Y coordinate of the first point (i.\+e. top right) of the box. \\
+\hline
+{\em x2} & X coordinate of the second point (i.\+e. bottom left) of the box. \\
+\hline
+{\em y2} & Y coordinate of the second point (i.\+e. bottom left) of the box. \\
+\hline
+{\em r} & The red value of the box to draw. \\
+\hline
+{\em g} & The green value of the box to draw. \\
+\hline
+{\em b} & The blue value of the box to draw. \\
+\hline
+{\em a} & The alpha value of the box to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 2319 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_af1991f2031346131db4ae8fd40492b08}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!character\+Color@{character\+Color}}
+\index{character\+Color@{character\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{character\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int character\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{char}]{c, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_af1991f2031346131db4ae8fd40492b08}
+
+
+Draw a character of the currently set font. 
+
+On first call for a particular character and color combination, the function needs to generate the character surface (slower. Subsequent calls blit a cached surface (fast). Uses alpha blending if A$<$255 in color.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X (horizontal) coordinate of the upper left corner of the character. \\
+\hline
+{\em y} & Y (vertical) coordinate of the upper left corner of the character. \\
+\hline
+{\em c} & The character to draw. \\
+\hline
+{\em color} & The color value of the character to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 5908 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a3f2f624c33ca753d22db52a8d9363fac}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!character\+R\+G\+B\+A@{character\+R\+G\+B\+A}}
+\index{character\+R\+G\+B\+A@{character\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{character\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int character\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{char}]{c, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a3f2f624c33ca753d22db52a8d9363fac}
+
+
+Draw a character of the currently set font. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X (horizontal) coordinate of the upper left corner of the character. \\
+\hline
+{\em y} & Y (vertical) coordinate of the upper left corner of the character. \\
+\hline
+{\em c} & The character to draw. \\
+\hline
+{\em r} & The red value of the character to draw. \\
+\hline
+{\em g} & The green value of the character to draw. \\
+\hline
+{\em b} & The blue value of the character to draw. \\
+\hline
+{\em a} & The alpha value of the character to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 6077 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a58d231ecaf113f53c2a28435e0632624}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!circle\+Color@{circle\+Color}}
+\index{circle\+Color@{circle\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{circle\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int circle\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Sint16}}]{rad, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a58d231ecaf113f53c2a28435e0632624}
+
+
+Draw circle with blending. 
+
+Note\+: Circle drawing routine is based on an algorithms from the sge library, but modified by A. Schiffler for multiple pixel-\/draw removal and other minor speedup changes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X coordinate of the center of the circle. \\
+\hline
+{\em y} & Y coordinate of the center of the circle. \\
+\hline
+{\em rad} & Radius in pixels of the circle. \\
+\hline
+{\em color} & The color value of the circle to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 2872 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a8e0945b74c02cdb1441e1b2a29d2c87d}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!circle\+R\+G\+B\+A@{circle\+R\+G\+B\+A}}
+\index{circle\+R\+G\+B\+A@{circle\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{circle\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int circle\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Sint16}}]{rad, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a8e0945b74c02cdb1441e1b2a29d2c87d}
+
+
+Draw circle with blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X coordinate of the center of the circle. \\
+\hline
+{\em y} & Y coordinate of the center of the circle. \\
+\hline
+{\em rad} & Radius in pixels of the circle. \\
+\hline
+{\em r} & The red value of the circle to draw. \\
+\hline
+{\em g} & The green value of the circle to draw. \\
+\hline
+{\em b} & The blue value of the circle to draw. \\
+\hline
+{\em a} & The alpha value of the circle to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 3090 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a8b46f389c626806e7a1ec148f0980737}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!ellipse\+Color@{ellipse\+Color}}
+\index{ellipse\+Color@{ellipse\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{ellipse\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int ellipse\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Sint16}}]{rx, }
+\item[{{\bf Sint16}}]{ry, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a8b46f389c626806e7a1ec148f0980737}
+
+
+Draw ellipse with blending. 
+
+Note\+: Based on algorithms from sge library with modifications by A. Schiffler for multiple-\/pixel draw removal and other minor speedup changes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X coordinate of the center of the ellipse. \\
+\hline
+{\em y} & Y coordinate of the center of the ellipse. \\
+\hline
+{\em rx} & Horizontal radius in pixels of the ellipse. \\
+\hline
+{\em ry} & Vertical radius in pixels of the ellipse. \\
+\hline
+{\em color} & The color value of the ellipse to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 3709 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a523156891302420d2296b1a302c1fc2b}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!ellipse\+R\+G\+B\+A@{ellipse\+R\+G\+B\+A}}
+\index{ellipse\+R\+G\+B\+A@{ellipse\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{ellipse\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int ellipse\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Sint16}}]{rx, }
+\item[{{\bf Sint16}}]{ry, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a523156891302420d2296b1a302c1fc2b}
+
+
+Draw ellipse with blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X coordinate of the center of the ellipse. \\
+\hline
+{\em y} & Y coordinate of the center of the ellipse. \\
+\hline
+{\em rx} & Horizontal radius in pixels of the ellipse. \\
+\hline
+{\em ry} & Vertical radius in pixels of the ellipse. \\
+\hline
+{\em r} & The red value of the ellipse to draw. \\
+\hline
+{\em g} & The green value of the ellipse to draw. \\
+\hline
+{\em b} & The blue value of the ellipse to draw. \\
+\hline
+{\em a} & The alpha value of the ellipse to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 4023 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a4f7b717b958ef39bfc8c958476dd0de1}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!filled\+Circle\+Color@{filled\+Circle\+Color}}
+\index{filled\+Circle\+Color@{filled\+Circle\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{filled\+Circle\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int filled\+Circle\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Sint16}}]{rad, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a4f7b717b958ef39bfc8c958476dd0de1}
+
+
+Draw filled circle with blending. 
+
+Note\+: Based on algorithms from sge library with modifications by A. Schiffler for multiple-\/hline draw removal and other minor speedup changes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X coordinate of the center of the filled circle. \\
+\hline
+{\em y} & Y coordinate of the center of the filled circle. \\
+\hline
+{\em rad} & Radius in pixels of the filled circle. \\
+\hline
+{\em color} & The color value of the filled circle to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 3556 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a01af970ce0be38cea9884bc6f816c984}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!filled\+Circle\+R\+G\+B\+A@{filled\+Circle\+R\+G\+B\+A}}
+\index{filled\+Circle\+R\+G\+B\+A@{filled\+Circle\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{filled\+Circle\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int filled\+Circle\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Sint16}}]{rad, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a01af970ce0be38cea9884bc6f816c984}
+
+
+Draw filled circle with blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X coordinate of the center of the filled circle. \\
+\hline
+{\em y} & Y coordinate of the center of the filled circle. \\
+\hline
+{\em rad} & Radius in pixels of the filled circle. \\
+\hline
+{\em r} & The red value of the filled circle to draw. \\
+\hline
+{\em g} & The green value of the filled circle to draw. \\
+\hline
+{\em b} & The blue value of the filled circle to draw. \\
+\hline
+{\em a} & The alpha value of the filled circle to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 3683 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a36e83e5648b95d38d1efe98dcf840fab}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!filled\+Ellipse\+Color@{filled\+Ellipse\+Color}}
+\index{filled\+Ellipse\+Color@{filled\+Ellipse\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{filled\+Ellipse\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int filled\+Ellipse\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Sint16}}]{rx, }
+\item[{{\bf Sint16}}]{ry, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a36e83e5648b95d38d1efe98dcf840fab}
+
+
+Draw filled ellipse with blending. 
+
+Note\+: Based on algorithm from sge library with multiple-\/hline draw removal and other speedup changes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X coordinate of the center of the filled ellipse. \\
+\hline
+{\em y} & Y coordinate of the center of the filled ellipse. \\
+\hline
+{\em rx} & Horizontal radius in pixels of the filled ellipse. \\
+\hline
+{\em ry} & Vertical radius in pixels of the filled ellipse. \\
+\hline
+{\em color} & The color value of the filled ellipse to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 4358 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a26f01b9c0cf7a533023869dff439254f}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!filled\+Ellipse\+R\+G\+B\+A@{filled\+Ellipse\+R\+G\+B\+A}}
+\index{filled\+Ellipse\+R\+G\+B\+A@{filled\+Ellipse\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{filled\+Ellipse\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int filled\+Ellipse\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Sint16}}]{rx, }
+\item[{{\bf Sint16}}]{ry, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a26f01b9c0cf7a533023869dff439254f}
+
+
+Draw filled ellipse with blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X coordinate of the center of the filled ellipse. \\
+\hline
+{\em y} & Y coordinate of the center of the filled ellipse. \\
+\hline
+{\em rx} & Horizontal radius in pixels of the filled ellipse. \\
+\hline
+{\em ry} & Vertical radius in pixels of the filled ellipse. \\
+\hline
+{\em r} & The red value of the filled ellipse to draw. \\
+\hline
+{\em g} & The green value of the filled ellipse to draw. \\
+\hline
+{\em b} & The blue value of the filled ellipse to draw. \\
+\hline
+{\em a} & The alpha value of the filled ellipse to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 4526 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a8f18679aa7161f885613ec08e7f41692}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!filled\+Pie\+Color@{filled\+Pie\+Color}}
+\index{filled\+Pie\+Color@{filled\+Pie\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{filled\+Pie\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int filled\+Pie\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Sint16}}]{rad, }
+\item[{{\bf Sint16}}]{start, }
+\item[{{\bf Sint16}}]{end, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a8f18679aa7161f885613ec08e7f41692}
+
+
+Draw filled pie with alpha blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X coordinate of the center of the filled pie. \\
+\hline
+{\em y} & Y coordinate of the center of the filled pie. \\
+\hline
+{\em rad} & Radius in pixels of the filled pie. \\
+\hline
+{\em start} & Starting radius in degrees of the filled pie. \\
+\hline
+{\em end} & Ending radius in degrees of the filled pie. \\
+\hline
+{\em color} & The color value of the filled pie to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 4747 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a1944c066d27fa9847a5fdecd1d3b9116}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!filled\+Pie\+R\+G\+B\+A@{filled\+Pie\+R\+G\+B\+A}}
+\index{filled\+Pie\+R\+G\+B\+A@{filled\+Pie\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{filled\+Pie\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int filled\+Pie\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Sint16}}]{rad, }
+\item[{{\bf Sint16}}]{start, }
+\item[{{\bf Sint16}}]{end, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a1944c066d27fa9847a5fdecd1d3b9116}
+
+
+Draw filled pie with alpha blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X coordinate of the center of the filled pie. \\
+\hline
+{\em y} & Y coordinate of the center of the filled pie. \\
+\hline
+{\em rad} & Radius in pixels of the filled pie. \\
+\hline
+{\em start} & Starting radius in degrees of the filled pie. \\
+\hline
+{\em end} & Ending radius in degrees of the filled pie. \\
+\hline
+{\em r} & The red value of the filled pie to draw. \\
+\hline
+{\em g} & The green value of the filled pie to draw. \\
+\hline
+{\em b} & The blue value of the filled pie to draw. \\
+\hline
+{\em a} & The alpha value of the filled pie to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 4768 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a5e1fe45b835b623f6939ff0f08277531}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!filled\+Polygon\+Color@{filled\+Polygon\+Color}}
+\index{filled\+Polygon\+Color@{filled\+Polygon\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{filled\+Polygon\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int filled\+Polygon\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{const {\bf Sint16} $\ast$}]{vx, }
+\item[{const {\bf Sint16} $\ast$}]{vy, }
+\item[{int}]{n, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a5e1fe45b835b623f6939ff0f08277531}
+
+
+Draw filled polygon with alpha blending. 
+
+Note\+: Standard filled\+Polygon function is calling multithreaded version with N\+U\+L\+L parameters to use the global vertex cache.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em vx} & Vertex array containing X coordinates of the points of the filled polygon. \\
+\hline
+{\em vy} & Vertex array containing Y coordinates of the points of the filled polygon. \\
+\hline
+{\em n} & Number of points in the vertex array. Minimum number is 3. \\
+\hline
+{\em color} & The color value of the filled polygon to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 5394 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a0f5583d5b055f3e59a9692ca8a9dfbcf}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!filled\+Polygon\+Color\+M\+T@{filled\+Polygon\+Color\+M\+T}}
+\index{filled\+Polygon\+Color\+M\+T@{filled\+Polygon\+Color\+M\+T}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{filled\+Polygon\+Color\+M\+T}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int filled\+Polygon\+Color\+M\+T (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{const {\bf Sint16} $\ast$}]{vx, }
+\item[{const {\bf Sint16} $\ast$}]{vy, }
+\item[{int}]{n, }
+\item[{{\bf Uint32}}]{color, }
+\item[{int $\ast$$\ast$}]{poly\+Ints, }
+\item[{int $\ast$}]{poly\+Allocated}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a0f5583d5b055f3e59a9692ca8a9dfbcf}
+
+
+Draw filled polygon with alpha blending (multi-\/threaded capable). 
+
+Note\+: The last two parameters are optional; but are required for multithreaded operation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em vx} & Vertex array containing X coordinates of the points of the filled polygon. \\
+\hline
+{\em vy} & Vertex array containing Y coordinates of the points of the filled polygon. \\
+\hline
+{\em n} & Number of points in the vertex array. Minimum number is 3. \\
+\hline
+{\em color} & The color value of the filled polygon to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A). \\
+\hline
+{\em poly\+Ints} & Preallocated, temporary vertex array used for sorting vertices. Required for multithreaded operation; set to N\+U\+L\+L otherwise. \\
+\hline
+{\em poly\+Allocated} & Flag indicating if temporary vertex array was allocated. Required for multithreaded operation; set to N\+U\+L\+L otherwise.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 5197 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a2b1023ddbbb25d57bd51676b49234af4}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!filled\+Polygon\+R\+G\+B\+A@{filled\+Polygon\+R\+G\+B\+A}}
+\index{filled\+Polygon\+R\+G\+B\+A@{filled\+Polygon\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{filled\+Polygon\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int filled\+Polygon\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{const {\bf Sint16} $\ast$}]{vx, }
+\item[{const {\bf Sint16} $\ast$}]{vy, }
+\item[{int}]{n, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a2b1023ddbbb25d57bd51676b49234af4}
+
+
+Draw filled polygon with alpha blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em vx} & Vertex array containing X coordinates of the points of the filled polygon. \\
+\hline
+{\em vy} & Vertex array containing Y coordinates of the points of the filled polygon. \\
+\hline
+{\em n} & Number of points in the vertex array. Minimum number is 3. \\
+\hline
+{\em r} & The red value of the filled polygon to draw. \\
+\hline
+{\em g} & The green value of the filled polygon to draw. \\
+\hline
+{\em b} & The blue value of the filed polygon to draw. \\
+\hline
+{\em a} & The alpha value of the filled polygon to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 5416 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a412cddc17a592c167c060ec2d1d2fd1d}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!filled\+Polygon\+R\+G\+B\+A\+M\+T@{filled\+Polygon\+R\+G\+B\+A\+M\+T}}
+\index{filled\+Polygon\+R\+G\+B\+A\+M\+T@{filled\+Polygon\+R\+G\+B\+A\+M\+T}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{filled\+Polygon\+R\+G\+B\+A\+M\+T}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int filled\+Polygon\+R\+G\+B\+A\+M\+T (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{const {\bf Sint16} $\ast$}]{vx, }
+\item[{const {\bf Sint16} $\ast$}]{vy, }
+\item[{int}]{n, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a, }
+\item[{int $\ast$$\ast$}]{poly\+Ints, }
+\item[{int $\ast$}]{poly\+Allocated}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a412cddc17a592c167c060ec2d1d2fd1d}
+
+
+Draw filled polygon with alpha blending (multi-\/threaded capable). 
+
+Note\+: The last two parameters are optional; but are required for multithreaded operation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em vx} & Vertex array containing X coordinates of the points of the filled polygon. \\
+\hline
+{\em vy} & Vertex array containing Y coordinates of the points of the filled polygon. \\
+\hline
+{\em n} & Number of points in the vertex array. Minimum number is 3. \\
+\hline
+{\em r} & The red value of the filled polygon to draw. \\
+\hline
+{\em g} & The green value of the filled polygon to draw. \\
+\hline
+{\em b} & The blue value of the filed polygon to draw. \\
+\hline
+{\em a} & The alpha value of the filled polygon to draw. \\
+\hline
+{\em poly\+Ints} & Preallocated, temporary vertex array used for sorting vertices. Required for multithreaded operation; set to N\+U\+L\+L otherwise. \\
+\hline
+{\em poly\+Allocated} & Flag indicating if temporary vertex array was allocated. Required for multithreaded operation; set to N\+U\+L\+L otherwise.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 5372 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a6adaf54b33bf067e4fe2cc5a7ae17ef6}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!filled\+Trigon\+Color@{filled\+Trigon\+Color}}
+\index{filled\+Trigon\+Color@{filled\+Trigon\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{filled\+Trigon\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int filled\+Trigon\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Sint16}}]{x3, }
+\item[{{\bf Sint16}}]{y3, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a6adaf54b33bf067e4fe2cc5a7ae17ef6}
+
+
+Draw filled trigon (triangle) with alpha blending. 
+
+Note\+: Creates vertex array and uses aapolygon routine to render.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point of the filled trigon. \\
+\hline
+{\em y1} & Y coordinate of the first point of the filled trigon. \\
+\hline
+{\em x2} & X coordinate of the second point of the filled trigon. \\
+\hline
+{\em y2} & Y coordinate of the second point of the filled trigon. \\
+\hline
+{\em x3} & X coordinate of the third point of the filled trigon. \\
+\hline
+{\em y3} & Y coordinate of the third point of the filled trigon. \\
+\hline
+{\em color} & The color value of the filled trigon to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 4925 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a4a3318a183659aab7c12c0334e261837}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!filled\+Trigon\+R\+G\+B\+A@{filled\+Trigon\+R\+G\+B\+A}}
+\index{filled\+Trigon\+R\+G\+B\+A@{filled\+Trigon\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{filled\+Trigon\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int filled\+Trigon\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Sint16}}]{x3, }
+\item[{{\bf Sint16}}]{y3, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a4a3318a183659aab7c12c0334e261837}
+
+
+Draw filled trigon (triangle) with alpha blending. 
+
+Note\+: Creates vertex array and uses aapolygon routine to render.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point of the filled trigon. \\
+\hline
+{\em y1} & Y coordinate of the first point of the filled trigon. \\
+\hline
+{\em x2} & X coordinate of the second point of the filled trigon. \\
+\hline
+{\em y2} & Y coordinate of the second point of the filled trigon. \\
+\hline
+{\em x3} & X coordinate of the third point of the filled trigon. \\
+\hline
+{\em y3} & Y coordinate of the third point of the filled trigon. \\
+\hline
+{\em r} & The red value of the filled trigon to draw. \\
+\hline
+{\em g} & The green value of the filled trigon to draw. \\
+\hline
+{\em b} & The blue value of the filled trigon to draw. \\
+\hline
+{\em a} & The alpha value of the filled trigon to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 4959 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a7cabe806643c19159948639faaf26a38}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!gfx\+Primitives\+Set\+Font@{gfx\+Primitives\+Set\+Font}}
+\index{gfx\+Primitives\+Set\+Font@{gfx\+Primitives\+Set\+Font}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{gfx\+Primitives\+Set\+Font}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} {\bf void} gfx\+Primitives\+Set\+Font (
+\begin{DoxyParamCaption}
+\item[{const {\bf void} $\ast$}]{fontdata, }
+\item[{{\bf Uint32}}]{cw, }
+\item[{{\bf Uint32}}]{ch}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a7cabe806643c19159948639faaf26a38}
+
+
+Sets or resets the current global font data. 
+
+The font data array is organized in follows\+: \mbox{[}fontdata\mbox{]} = \mbox{[}character 0\mbox{]}\mbox{[}character 1\mbox{]}...\mbox{[}character 255\mbox{]} where \mbox{[}character n\mbox{]} = \mbox{[}byte 1 row 1\mbox{]}\mbox{[}byte 2 row 1\mbox{]}...\mbox{[}byte \{pitch\} row 1\mbox{]}\mbox{[}byte 1 row 2\mbox{]} ...\mbox{[}byte \{pitch\} row height\mbox{]} where \mbox{[}byte n\mbox{]} = \mbox{[}bit 0\mbox{]}...\mbox{[}bit 7\mbox{]} where \mbox{[}bit n\mbox{]} = \mbox{[}0 for transparent pixel$\vert$1 for colored pixel\mbox{]}
+
+
+\begin{DoxyParams}{Parameters}
+{\em fontdata} & Pointer to array of font data. Set to N\+U\+L\+L, to reset global font to the default 8x8 font. \\
+\hline
+{\em cw} & Width of character in bytes. Ignored if fontdata==N\+U\+L\+L. \\
+\hline
+{\em ch} & Height of character in bytes. Ignored if fontdata==N\+U\+L\+L. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 5815 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a77cc480ba039c758d1cf0cd43db04bd6}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!gfx\+Primitives\+Set\+Font\+Rotation@{gfx\+Primitives\+Set\+Font\+Rotation}}
+\index{gfx\+Primitives\+Set\+Font\+Rotation@{gfx\+Primitives\+Set\+Font\+Rotation}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{gfx\+Primitives\+Set\+Font\+Rotation}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} {\bf void} gfx\+Primitives\+Set\+Font\+Rotation (
+\begin{DoxyParamCaption}
+\item[{{\bf Uint32}}]{rotation}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a77cc480ba039c758d1cf0cd43db04bd6}
+
+
+Sets current global font character rotation steps. 
+
+Default is 0 (no rotation). 1 = 90deg clockwise. 2 = 180deg clockwise. 3 = 270deg clockwise. Changing the rotation, will reset the character cache.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rotation} & Number of 90deg clockwise steps to rotate \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 5861 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a31ac87bf32186325deedf5188b987ef6}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!hline\+Color@{hline\+Color}}
+\index{hline\+Color@{hline\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{hline\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int hline\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a31ac87bf32186325deedf5188b987ef6}
+
+
+Draw horizontal line with blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point (i.\+e. left) of the line. \\
+\hline
+{\em x2} & X coordinate of the second point (i.\+e. right) of the line. \\
+\hline
+{\em y} & Y coordinate of the points of the line. \\
+\hline
+{\em color} & The color value of the line to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 1204 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_ae48e69e0f5d13ea79ffac262b146ae9e}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!hline\+R\+G\+B\+A@{hline\+R\+G\+B\+A}}
+\index{hline\+R\+G\+B\+A@{hline\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{hline\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int hline\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_ae48e69e0f5d13ea79ffac262b146ae9e}
+
+
+Draw horizontal line with blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point (i.\+e. left) of the line. \\
+\hline
+{\em x2} & X coordinate of the second point (i.\+e. right) of the line. \\
+\hline
+{\em y} & Y coordinate of the points of the line. \\
+\hline
+{\em r} & The red value of the line to draw. \\
+\hline
+{\em g} & The green value of the line to draw. \\
+\hline
+{\em b} & The blue value of the line to draw. \\
+\hline
+{\em a} & The alpha value of the line to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 1373 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a6f37058aed308619de8109ebe84b5fe9}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!line\+Color@{line\+Color}}
+\index{line\+Color@{line\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{line\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int line\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a6f37058aed308619de8109ebe84b5fe9}
+
+
+Draw line with alpha blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point of the line. \\
+\hline
+{\em y1} & Y coordinate of the first point of the line. \\
+\hline
+{\em x2} & X coordinate of the second point of the line. \\
+\hline
+{\em y2} & Y coordinate of the second point of the line. \\
+\hline
+{\em color} & The color value of the line to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 2347 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a5e4bd13b12d34698fbcb2dc9d3a0e9f3}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!line\+R\+G\+B\+A@{line\+R\+G\+B\+A}}
+\index{line\+R\+G\+B\+A@{line\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{line\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int line\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a5e4bd13b12d34698fbcb2dc9d3a0e9f3}
+
+
+Draw line with alpha blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point of the line. \\
+\hline
+{\em y1} & Y coordinate of the first point of the line. \\
+\hline
+{\em x2} & X coordinate of the second point of the line. \\
+\hline
+{\em y2} & Y coordinate of the second point of the line. \\
+\hline
+{\em r} & The red value of the line to draw. \\
+\hline
+{\em g} & The green value of the line to draw. \\
+\hline
+{\em b} & The blue value of the line to draw. \\
+\hline
+{\em a} & The alpha value of the line to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 2556 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a6476d5dad22631d10c1dc95b0e88fc65}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!pie\+Color@{pie\+Color}}
+\index{pie\+Color@{pie\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{pie\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int pie\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Sint16}}]{rad, }
+\item[{{\bf Sint16}}]{start, }
+\item[{{\bf Sint16}}]{end, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a6476d5dad22631d10c1dc95b0e88fc65}
+
+
+Draw pie (outline) with alpha blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X coordinate of the center of the pie. \\
+\hline
+{\em y} & Y coordinate of the center of the pie. \\
+\hline
+{\em rad} & Radius in pixels of the pie. \\
+\hline
+{\em start} & Starting radius in degrees of the pie. \\
+\hline
+{\em end} & Ending radius in degrees of the pie. \\
+\hline
+{\em color} & The color value of the pie to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 4703 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a4a5e4344913667e714560dd204473663}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!pie\+R\+G\+B\+A@{pie\+R\+G\+B\+A}}
+\index{pie\+R\+G\+B\+A@{pie\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{pie\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int pie\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Sint16}}]{rad, }
+\item[{{\bf Sint16}}]{start, }
+\item[{{\bf Sint16}}]{end, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a4a5e4344913667e714560dd204473663}
+
+
+Draw pie (outline) with alpha blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X coordinate of the center of the pie. \\
+\hline
+{\em y} & Y coordinate of the center of the pie. \\
+\hline
+{\em rad} & Radius in pixels of the pie. \\
+\hline
+{\em start} & Starting radius in degrees of the pie. \\
+\hline
+{\em end} & Ending radius in degrees of the pie. \\
+\hline
+{\em r} & The red value of the pie to draw. \\
+\hline
+{\em g} & The green value of the pie to draw. \\
+\hline
+{\em b} & The blue value of the pie to draw. \\
+\hline
+{\em a} & The alpha value of the pie to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 4726 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a7fe611dbb029ae70be89d5314c7e023b}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!pixel\+Color@{pixel\+Color}}
+\index{pixel\+Color@{pixel\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{pixel\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int pixel\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a7fe611dbb029ae70be89d5314c7e023b}
+
+
+Pixel draw with blending enabled if a$<$255. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X (horizontal) coordinate of the pixel. \\
+\hline
+{\em y} & Y (vertical) coordinate of the pixel. \\
+\hline
+{\em color} & The color value of the pixel to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 509 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a0046efc721e77b745fd5b621fbd48513}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!pixel\+R\+G\+B\+A@{pixel\+R\+G\+B\+A}}
+\index{pixel\+R\+G\+B\+A@{pixel\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{pixel\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int pixel\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a0046efc721e77b745fd5b621fbd48513}
+
+
+Pixel draw with blending enabled if a$<$255. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X (horizontal) coordinate of the pixel. \\
+\hline
+{\em y} & Y (vertical) coordinate of the pixel. \\
+\hline
+{\em r} & The red color value of the pixel to draw. \\
+\hline
+{\em g} & The green color value of the pixel to draw. \\
+\hline
+{\em b} & The blue color value of the pixel to draw. \\
+\hline
+{\em a} & The alpha value of the pixel to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 995 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_abe5d0b2f6193558798eaff3e85e7a1af}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!polygon\+Color@{polygon\+Color}}
+\index{polygon\+Color@{polygon\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{polygon\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int polygon\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{const {\bf Sint16} $\ast$}]{vx, }
+\item[{const {\bf Sint16} $\ast$}]{vy, }
+\item[{int}]{n, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_abe5d0b2f6193558798eaff3e85e7a1af}
+
+
+Draw polygon with alpha blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em vx} & Vertex array containing X coordinates of the points of the polygon. \\
+\hline
+{\em vy} & Vertex array containing Y coordinates of the points of the polygon. \\
+\hline
+{\em n} & Number of points in the vertex array. Minimum number is 3. \\
+\hline
+{\em color} & The color value of the polygon to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 4988 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a46b327da5cba5d401cf400bdef7560d0}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!polygon\+R\+G\+B\+A@{polygon\+R\+G\+B\+A}}
+\index{polygon\+R\+G\+B\+A@{polygon\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{polygon\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int polygon\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{const {\bf Sint16} $\ast$}]{vx, }
+\item[{const {\bf Sint16} $\ast$}]{vy, }
+\item[{int}]{n, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a46b327da5cba5d401cf400bdef7560d0}
+
+
+Draw polygon with alpha blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em vx} & Vertex array containing X coordinates of the points of the polygon. \\
+\hline
+{\em vy} & Vertex array containing Y coordinates of the points of the polygon. \\
+\hline
+{\em n} & Number of points in the vertex array. Minimum number is 3. \\
+\hline
+{\em r} & The red value of the polygon to draw. \\
+\hline
+{\em g} & The green value of the polygon to draw. \\
+\hline
+{\em b} & The blue value of the polygon to draw. \\
+\hline
+{\em a} & The alpha value of the polygon to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 5056 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a36453f52608a10f3d6b8edccae260b95}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!rectangle\+Color@{rectangle\+Color}}
+\index{rectangle\+Color@{rectangle\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{rectangle\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int rectangle\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a36453f52608a10f3d6b8edccae260b95}
+
+
+Draw rectangle with blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point (i.\+e. top right) of the rectangle. \\
+\hline
+{\em y1} & Y coordinate of the first point (i.\+e. top right) of the rectangle. \\
+\hline
+{\em x2} & X coordinate of the second point (i.\+e. bottom left) of the rectangle. \\
+\hline
+{\em y2} & Y coordinate of the second point (i.\+e. bottom left) of the rectangle. \\
+\hline
+{\em color} & The color value of the rectangle to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 1580 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a6c41cbfd0618262de4d4d127ed1e67fe}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!rectangle\+R\+G\+B\+A@{rectangle\+R\+G\+B\+A}}
+\index{rectangle\+R\+G\+B\+A@{rectangle\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{rectangle\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int rectangle\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a6c41cbfd0618262de4d4d127ed1e67fe}
+
+
+Draw rectangle with blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point (i.\+e. top right) of the rectangle. \\
+\hline
+{\em y1} & Y coordinate of the first point (i.\+e. top right) of the rectangle. \\
+\hline
+{\em x2} & X coordinate of the second point (i.\+e. bottom left) of the rectangle. \\
+\hline
+{\em y2} & Y coordinate of the second point (i.\+e. bottom left) of the rectangle. \\
+\hline
+{\em r} & The red value of the rectangle to draw. \\
+\hline
+{\em g} & The green value of the rectangle to draw. \\
+\hline
+{\em b} & The blue value of the rectangle to draw. \\
+\hline
+{\em a} & The alpha value of the rectangle to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 1663 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a9f9be6e605e764fd23dd154fb12b80e9}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!rounded\+Box\+Color@{rounded\+Box\+Color}}
+\index{rounded\+Box\+Color@{rounded\+Box\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{rounded\+Box\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int rounded\+Box\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Sint16}}]{rad, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a9f9be6e605e764fd23dd154fb12b80e9}
+
+
+Draw rounded-\/corner box (filled rectangle) with blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point (i.\+e. top right) of the box. \\
+\hline
+{\em y1} & Y coordinate of the first point (i.\+e. top right) of the box. \\
+\hline
+{\em x2} & X coordinate of the second point (i.\+e. bottom left) of the box. \\
+\hline
+{\em y2} & Y coordinate of the second point (i.\+e. bottom left) of the box. \\
+\hline
+{\em rad} & The radius of the corner arcs of the box. \\
+\hline
+{\em color} & The color value of the box to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 1837 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a7105b88e62fe42b26602d3b426547bc7}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!rounded\+Box\+R\+G\+B\+A@{rounded\+Box\+R\+G\+B\+A}}
+\index{rounded\+Box\+R\+G\+B\+A@{rounded\+Box\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{rounded\+Box\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int rounded\+Box\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Sint16}}]{rad, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a7105b88e62fe42b26602d3b426547bc7}
+
+
+Draw rounded-\/corner box (filled rectangle) with blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point (i.\+e. top right) of the box. \\
+\hline
+{\em y1} & Y coordinate of the first point (i.\+e. top right) of the box. \\
+\hline
+{\em x2} & X coordinate of the second point (i.\+e. bottom left) of the box. \\
+\hline
+{\em y2} & Y coordinate of the second point (i.\+e. bottom left) of the box. \\
+\hline
+{\em rad} & The radius of the corner arcs of the box. \\
+\hline
+{\em r} & The red value of the box to draw. \\
+\hline
+{\em g} & The green value of the box to draw. \\
+\hline
+{\em b} & The blue value of the box to draw. \\
+\hline
+{\em a} & The alpha value of the box to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 1970 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a4109d2d1efa021c021fc4a98a0e3691b}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!rounded\+Rectangle\+Color@{rounded\+Rectangle\+Color}}
+\index{rounded\+Rectangle\+Color@{rounded\+Rectangle\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{rounded\+Rectangle\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int rounded\+Rectangle\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Sint16}}]{rad, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a4109d2d1efa021c021fc4a98a0e3691b}
+
+
+Draw rounded-\/corner rectangle with blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point (i.\+e. top right) of the rectangle. \\
+\hline
+{\em y1} & Y coordinate of the first point (i.\+e. top right) of the rectangle. \\
+\hline
+{\em x2} & X coordinate of the second point (i.\+e. bottom left) of the rectangle. \\
+\hline
+{\em y2} & Y coordinate of the second point (i.\+e. bottom left) of the rectangle. \\
+\hline
+{\em rad} & The radius of the corner arc. \\
+\hline
+{\em color} & The color value of the rectangle to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 1685 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a475432abc4756e6f30ef097d5cac02c9}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!rounded\+Rectangle\+R\+G\+B\+A@{rounded\+Rectangle\+R\+G\+B\+A}}
+\index{rounded\+Rectangle\+R\+G\+B\+A@{rounded\+Rectangle\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{rounded\+Rectangle\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int rounded\+Rectangle\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Sint16}}]{rad, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a475432abc4756e6f30ef097d5cac02c9}
+
+
+Draw rounded-\/corner rectangle with blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point (i.\+e. top right) of the rectangle. \\
+\hline
+{\em y1} & Y coordinate of the first point (i.\+e. top right) of the rectangle. \\
+\hline
+{\em x2} & X coordinate of the second point (i.\+e. bottom left) of the rectangle. \\
+\hline
+{\em y2} & Y coordinate of the second point (i.\+e. bottom left) of the rectangle. \\
+\hline
+{\em rad} & The radius of the corner arc. \\
+\hline
+{\em r} & The red value of the rectangle to draw. \\
+\hline
+{\em g} & The green value of the rectangle to draw. \\
+\hline
+{\em b} & The blue value of the rectangle to draw. \\
+\hline
+{\em a} & The alpha value of the rectangle to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 1815 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a96b6a43c6ef4753996e33bb7fea483bc}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!string\+Color@{string\+Color}}
+\index{string\+Color@{string\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{string\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int string\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{const char $\ast$}]{s, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a96b6a43c6ef4753996e33bb7fea483bc}
+
+
+Draw a string in the currently set font. 
+
+The spacing between consequtive characters in the string is the fixed number of pixels of the character width of the current global font.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X (horizontal) coordinate of the upper left corner of the string. \\
+\hline
+{\em y} & Y (vertical) coordinate of the upper left corner of the string. \\
+\hline
+{\em s} & The string to draw. \\
+\hline
+{\em color} & The color value of the string to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 6099 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a769833ae414222099783a9b69bed4009}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!string\+R\+G\+B\+A@{string\+R\+G\+B\+A}}
+\index{string\+R\+G\+B\+A@{string\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{string\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int string\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y, }
+\item[{const char $\ast$}]{s, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a769833ae414222099783a9b69bed4009}
+
+
+Draw a string in the currently set font. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X (horizontal) coordinate of the upper left corner of the string. \\
+\hline
+{\em y} & Y (vertical) coordinate of the upper left corner of the string. \\
+\hline
+{\em s} & The string to draw. \\
+\hline
+{\em r} & The red value of the string to draw. \\
+\hline
+{\em g} & The green value of the string to draw. \\
+\hline
+{\em b} & The blue value of the string to draw. \\
+\hline
+{\em a} & The alpha value of the string to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 6143 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a5ca5a9bcfeba5b1a1577202e79b494d8}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!textured\+Polygon@{textured\+Polygon}}
+\index{textured\+Polygon@{textured\+Polygon}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{textured\+Polygon}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int textured\+Polygon (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{const {\bf Sint16} $\ast$}]{vx, }
+\item[{const {\bf Sint16} $\ast$}]{vy, }
+\item[{int}]{n, }
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{texture, }
+\item[{int}]{texture\+\_\+dx, }
+\item[{int}]{texture\+\_\+dy}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a5ca5a9bcfeba5b1a1577202e79b494d8}
+
+
+Draws a polygon filled with the given texture. 
+
+This standard version is calling multithreaded versions with N\+U\+L\+L cache parameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & the destination surface, \\
+\hline
+{\em vx} & array of x vector components \\
+\hline
+{\em vy} & array of x vector components \\
+\hline
+{\em n} & the amount of vectors in the vx and vy array \\
+\hline
+{\em texture} & the sdl surface to use to fill the polygon \\
+\hline
+{\em texture\+\_\+dx} & the offset of the texture relative to the screeen. if you move the polygon 10 pixels to the left and want the texture to apear the same you need to increase the texture\+\_\+dx value \\
+\hline
+{\em texture\+\_\+dy} & see texture\+\_\+dx\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 5741 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a326937a19cfbebea09aa0a7c908d89aa}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!textured\+Polygon\+M\+T@{textured\+Polygon\+M\+T}}
+\index{textured\+Polygon\+M\+T@{textured\+Polygon\+M\+T}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{textured\+Polygon\+M\+T}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int textured\+Polygon\+M\+T (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{const {\bf Sint16} $\ast$}]{vx, }
+\item[{const {\bf Sint16} $\ast$}]{vy, }
+\item[{int}]{n, }
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{texture, }
+\item[{int}]{texture\+\_\+dx, }
+\item[{int}]{texture\+\_\+dy, }
+\item[{int $\ast$$\ast$}]{poly\+Ints, }
+\item[{int $\ast$}]{poly\+Allocated}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a326937a19cfbebea09aa0a7c908d89aa}
+
+
+Draws a polygon filled with the given texture (Multi-\/\+Threading Capable). 
+
+This operation use internally S\+D\+L\+\_\+\+Blit\+Surface for lines of the source texture. It supports alpha drawing.
+
+To get the best performance of this operation you need to make sure the texture and the dst surface have the same format (see \href{http://docs.mandragor.org/files/Common_libs_documentation/SDL/SDL_Documentation_project_en/sdlblitsurface.html}{\tt http\+://docs.\+mandragor.\+org/files/\+Common\+\_\+libs\+\_\+documentation/\+S\+D\+L/\+S\+D\+L\+\_\+\+Documentation\+\_\+project\+\_\+en/sdlblitsurface.\+html}). The last two parameters are optional, but required for multithreaded operation. When set to N\+U\+L\+L, uses global static temp array.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & the destination surface, \\
+\hline
+{\em vx} & array of x vector components \\
+\hline
+{\em vy} & array of x vector components \\
+\hline
+{\em n} & the amount of vectors in the vx and vy array \\
+\hline
+{\em texture} & the sdl surface to use to fill the polygon \\
+\hline
+{\em texture\+\_\+dx} & the offset of the texture relative to the screeen. if you move the polygon 10 pixels to the left and want the texture to apear the same you need to increase the texture\+\_\+dx value \\
+\hline
+{\em texture\+\_\+dy} & see texture\+\_\+dx \\
+\hline
+{\em poly\+Ints} & preallocated temp array storage for vertex sorting (used for multi-\/threaded operation) \\
+\hline
+{\em poly\+Allocated} & flag indicating oif the temp array was allocated (used for multi-\/threaded operation)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 5574 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a40c34464b6c99fd72c4bd7acfac5915d}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!thick\+Line\+Color@{thick\+Line\+Color}}
+\index{thick\+Line\+Color@{thick\+Line\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{thick\+Line\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int thick\+Line\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Uint8}}]{width, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a40c34464b6c99fd72c4bd7acfac5915d}
+
+
+Draw a thick line with alpha blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point of the line. \\
+\hline
+{\em y1} & Y coordinate of the first point of the line. \\
+\hline
+{\em x2} & X coordinate of the second point of the line. \\
+\hline
+{\em y2} & Y coordinate of the second point of the line. \\
+\hline
+{\em width} & Width of the line in pixels. Must be $>$0. \\
+\hline
+{\em color} & The color value of the line to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 6808 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_aa740c1eff9163862704eb3bb3b5964db}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!thick\+Line\+R\+G\+B\+A@{thick\+Line\+R\+G\+B\+A}}
+\index{thick\+Line\+R\+G\+B\+A@{thick\+Line\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{thick\+Line\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int thick\+Line\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Uint8}}]{width, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_aa740c1eff9163862704eb3bb3b5964db}
+
+
+Draw a thick line with alpha blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point of the line. \\
+\hline
+{\em y1} & Y coordinate of the first point of the line. \\
+\hline
+{\em x2} & X coordinate of the second point of the line. \\
+\hline
+{\em y2} & Y coordinate of the second point of the line. \\
+\hline
+{\em width} & Width of the line in pixels. Must be $>$0. \\
+\hline
+{\em r} & The red value of the character to draw. \\
+\hline
+{\em g} & The green value of the character to draw. \\
+\hline
+{\em b} & The blue value of the character to draw. \\
+\hline
+{\em a} & The alpha value of the character to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 6847 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_aec2a0c435b879a29167be6b1c49f1e49}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!trigon\+Color@{trigon\+Color}}
+\index{trigon\+Color@{trigon\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{trigon\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int trigon\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Sint16}}]{x3, }
+\item[{{\bf Sint16}}]{y3, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_aec2a0c435b879a29167be6b1c49f1e49}
+
+
+Draw trigon (triangle outline) with alpha blending. 
+
+Note\+: Creates vertex array and uses polygon routine to render.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point of the trigon. \\
+\hline
+{\em y1} & Y coordinate of the first point of the trigon. \\
+\hline
+{\em x2} & X coordinate of the second point of the trigon. \\
+\hline
+{\em y2} & Y coordinate of the second point of the trigon. \\
+\hline
+{\em x3} & X coordinate of the third point of the trigon. \\
+\hline
+{\em y3} & Y coordinate of the third point of the trigon. \\
+\hline
+{\em color} & The color value of the trigon to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 4793 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a090024f5f3e38b02b0bca704259b9d11}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!trigon\+R\+G\+B\+A@{trigon\+R\+G\+B\+A}}
+\index{trigon\+R\+G\+B\+A@{trigon\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{trigon\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int trigon\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x1, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{x2, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Sint16}}]{x3, }
+\item[{{\bf Sint16}}]{y3, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a090024f5f3e38b02b0bca704259b9d11}
+
+
+Draw trigon (triangle outline) with alpha blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x1} & X coordinate of the first point of the trigon. \\
+\hline
+{\em y1} & Y coordinate of the first point of the trigon. \\
+\hline
+{\em x2} & X coordinate of the second point of the trigon. \\
+\hline
+{\em y2} & Y coordinate of the second point of the trigon. \\
+\hline
+{\em x3} & X coordinate of the third point of the trigon. \\
+\hline
+{\em y3} & Y coordinate of the third point of the trigon. \\
+\hline
+{\em r} & The red value of the trigon to draw. \\
+\hline
+{\em g} & The green value of the trigon to draw. \\
+\hline
+{\em b} & The blue value of the trigon to draw. \\
+\hline
+{\em a} & The alpha value of the trigon to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 4825 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_ab68d565f00527a67c9d88121c753302c}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!vline\+Color@{vline\+Color}}
+\index{vline\+Color@{vline\+Color}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{vline\+Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int vline\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_ab68d565f00527a67c9d88121c753302c}
+
+
+Draw vertical line with blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X coordinate of the points of the line. \\
+\hline
+{\em y1} & Y coordinate of the first point (i.\+e. top) of the line. \\
+\hline
+{\em y2} & Y coordinate of the second point (i.\+e. bottom) of the line. \\
+\hline
+{\em color} & The color value of the line to draw (0x\+R\+R\+G\+G\+B\+B\+A\+A).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 1392 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+
+\hypertarget{_s_d_l__gfx_primitives_8h_a68ed9a65e3e0de26136566b0cf0c859e}{}\index{S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}!vline\+R\+G\+B\+A@{vline\+R\+G\+B\+A}}
+\index{vline\+R\+G\+B\+A@{vline\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Primitives.\+h@{S\+D\+L\+\_\+gfx\+Primitives.\+h}}
+\subsubsection[{vline\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+P\+R\+I\+M\+I\+T\+I\+V\+E\+S\+\_\+\+S\+C\+O\+P\+E} int vline\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf Sint16}}]{x, }
+\item[{{\bf Sint16}}]{y1, }
+\item[{{\bf Sint16}}]{y2, }
+\item[{{\bf Uint8}}]{r, }
+\item[{{\bf Uint8}}]{g, }
+\item[{{\bf Uint8}}]{b, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_primitives_8h_a68ed9a65e3e0de26136566b0cf0c859e}
+
+
+Draw vertical line with blending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The surface to draw on. \\
+\hline
+{\em x} & X coordinate of the points of the line. \\
+\hline
+{\em y1} & Y coordinate of the first point (i.\+e. top) of the line. \\
+\hline
+{\em y2} & Y coordinate of the second point (i.\+e. bottom) of the line. \\
+\hline
+{\em r} & The red value of the line to draw. \\
+\hline
+{\em g} & The green value of the line to draw. \\
+\hline
+{\em b} & The blue value of the line to draw. \\
+\hline
+{\em a} & The alpha value of the line to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 1560 of file S\+D\+L\+\_\+gfx\+Primitives.\+c.
+

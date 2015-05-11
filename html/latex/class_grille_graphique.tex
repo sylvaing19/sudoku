@@ -1,0 +1,241 @@
+\hypertarget{class_grille_graphique}{}\section{Grille\+Graphique Class Reference}
+\label{class_grille_graphique}\index{Grille\+Graphique@{Grille\+Graphique}}
+
+
+{\ttfamily \#include $<$Grille\+Graphique.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_grille_graphique_a6df01dd35afe7052e912676655584ecf}{Grille\+Graphique} ()
+\begin{DoxyCompactList}\small\item\em constructeur \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{class_grille_graphique_a932304a7a959bd6acb760a66087dd0d9}{creer\+Grille\+Graph} ()
+\begin{DoxyCompactList}\small\item\em prototypes de fonctions \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{class_grille_graphique_a694e03b0babf76d5ff06bb66f3d0e4e0}{afficher\+Grille\+Graph\+Indice} ()
+\begin{DoxyCompactList}\small\item\em fonction affichant une grille graphique correspondant à la grille avec indice \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{class_grille_graphique_aede21175167b3ddfe5856c4165c30e37}{creer\+Grille\+Graph\+Fichier} ()
+\begin{DoxyCompactList}\small\item\em fonction creant une grille partir d\textquotesingle{}un fichier \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{class_grille_graphique_a616fe2fde34ef390ee556f90b9d5b9a6}{afficher\+Grille} ()
+\item 
+\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{class_grille_graphique_aba36814abd568b7d490947a91d5eef2f}{afficher\+Indice} ()
+\item 
+bool \hyperlink{class_grille_graphique_afa97fdbd2f7b8d7f3c2304f7ea6ccdb0}{est\+Complete} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_grille_graphique_a56518a83cba80e34d60133a50bad30e2}{erreur\+Existante}
+\item 
+\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$ \hyperlink{class_grille_graphique_a3a161cd8377578a6f4dc1b5d234cb090}{fond} =\hyperlink{begin__code_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\item 
+\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$ \hyperlink{class_grille_graphique_aac3927bfac4f3677b01e5ebf30fb4280}{image\+Sudoku\+Vierge} = \hyperlink{begin__code_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\item 
+int \hyperlink{class_grille_graphique_a405f912724d23fe62af6002de6786650}{taille\+X}
+\item 
+int \hyperlink{class_grille_graphique_a02037911fa5a2a342b3f90a15ad8d493}{taille\+Y}
+\item 
+double \hyperlink{class_grille_graphique_ab9d6cb5ea86ad3ebd816a44fabda13bb}{zoom\+X}
+\item 
+double \hyperlink{class_grille_graphique_a24be5b0794bbb43e645a6ea562740d9c}{zoom\+Y}
+\item 
+\hyperlink{class_grille}{Grille} \hyperlink{class_grille_graphique_a8577c2dd3bbfc9b58bfd88adcf484eb3}{grille}
+\begin{DoxyCompactList}\small\item\em La grille en elle meme \+: on la charge arès les algorithmes, cette classe ne fais qu\textquotesingle{}afficher / gerer les clics. \end{DoxyCompactList}\item 
+\hyperlink{class_grille}{Grille} \hyperlink{class_grille_graphique_a0a784721612498e233906223293697c9}{grille\+Resolue}
+\item 
+std\+::array$<$ std\+::array$<$ \hyperlink{class_bouton}{Bouton}, 9 $>$, 9 $>$ \hyperlink{class_grille_graphique_a19ac32327d22811a2e2cdbaf93286b06}{sudoku\+Bouton}
+\begin{DoxyCompactList}\small\item\em Array contenant les boutons et les valeurs des cases de sudoku. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 17 of file Grille\+Graphique.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_grille_graphique_a6df01dd35afe7052e912676655584ecf}{}\index{Grille\+Graphique@{Grille\+Graphique}!Grille\+Graphique@{Grille\+Graphique}}
+\index{Grille\+Graphique@{Grille\+Graphique}!Grille\+Graphique@{Grille\+Graphique}}
+\subsubsection[{Grille\+Graphique}]{\setlength{\rightskip}{0pt plus 5cm}Grille\+Graphique\+::\+Grille\+Graphique (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_grille_graphique_a6df01dd35afe7052e912676655584ecf}
+
+
+constructeur 
+
+Constructeur, initialise les couleurs, quelques positions 
+
+Definition at line 10 of file Grille\+Graphique.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_grille_graphique_a616fe2fde34ef390ee556f90b9d5b9a6}{}\index{Grille\+Graphique@{Grille\+Graphique}!afficher\+Grille@{afficher\+Grille}}
+\index{afficher\+Grille@{afficher\+Grille}!Grille\+Graphique@{Grille\+Graphique}}
+\subsubsection[{afficher\+Grille}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Grille\+Graphique\+::afficher\+Grille (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_grille_graphique_a616fe2fde34ef390ee556f90b9d5b9a6}
+affiche la grille graphique qui doit avoir été bien initialisée 
+
+Definition at line 234 of file Grille\+Graphique.\+cpp.
+
+\hypertarget{class_grille_graphique_a694e03b0babf76d5ff06bb66f3d0e4e0}{}\index{Grille\+Graphique@{Grille\+Graphique}!afficher\+Grille\+Graph\+Indice@{afficher\+Grille\+Graph\+Indice}}
+\index{afficher\+Grille\+Graph\+Indice@{afficher\+Grille\+Graph\+Indice}!Grille\+Graphique@{Grille\+Graphique}}
+\subsubsection[{afficher\+Grille\+Graph\+Indice}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Grille\+Graphique\+::afficher\+Grille\+Graph\+Indice (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_grille_graphique_a694e03b0babf76d5ff06bb66f3d0e4e0}
+
+
+fonction affichant une grille graphique correspondant à la grille avec indice 
+
+affiche la grille en version Graphique, prete à etre flippée avec les cases fausses en rouge ! 
+
+Definition at line 105 of file Grille\+Graphique.\+cpp.
+
+\hypertarget{class_grille_graphique_aba36814abd568b7d490947a91d5eef2f}{}\index{Grille\+Graphique@{Grille\+Graphique}!afficher\+Indice@{afficher\+Indice}}
+\index{afficher\+Indice@{afficher\+Indice}!Grille\+Graphique@{Grille\+Graphique}}
+\subsubsection[{afficher\+Indice}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Grille\+Graphique\+::afficher\+Indice (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_grille_graphique_aba36814abd568b7d490947a91d5eef2f}
+affiche uniquement l\textquotesingle{}indice 
+
+Definition at line 132 of file Grille\+Graphique.\+cpp.
+
+\hypertarget{class_grille_graphique_a932304a7a959bd6acb760a66087dd0d9}{}\index{Grille\+Graphique@{Grille\+Graphique}!creer\+Grille\+Graph@{creer\+Grille\+Graph}}
+\index{creer\+Grille\+Graph@{creer\+Grille\+Graph}!Grille\+Graphique@{Grille\+Graphique}}
+\subsubsection[{creer\+Grille\+Graph}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Grille\+Graphique\+::creer\+Grille\+Graph (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_grille_graphique_a932304a7a959bd6acb760a66087dd0d9}
+
+
+prototypes de fonctions 
+
+fonction affichant une grille graphique correspondant à la grille sans indice
+
+affiche la grille en version Graphique, prete à etre flippée 
+
+Definition at line 33 of file Grille\+Graphique.\+cpp.
+
+\hypertarget{class_grille_graphique_aede21175167b3ddfe5856c4165c30e37}{}\index{Grille\+Graphique@{Grille\+Graphique}!creer\+Grille\+Graph\+Fichier@{creer\+Grille\+Graph\+Fichier}}
+\index{creer\+Grille\+Graph\+Fichier@{creer\+Grille\+Graph\+Fichier}!Grille\+Graphique@{Grille\+Graphique}}
+\subsubsection[{creer\+Grille\+Graph\+Fichier}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Grille\+Graphique\+::creer\+Grille\+Graph\+Fichier (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_grille_graphique_aede21175167b3ddfe5856c4165c30e37}
+
+
+fonction creant une grille partir d\textquotesingle{}un fichier 
+
+créé une grille partir d\textquotesingle{}un fichier texte 
+
+Definition at line 248 of file Grille\+Graphique.\+cpp.
+
+\hypertarget{class_grille_graphique_afa97fdbd2f7b8d7f3c2304f7ea6ccdb0}{}\index{Grille\+Graphique@{Grille\+Graphique}!est\+Complete@{est\+Complete}}
+\index{est\+Complete@{est\+Complete}!Grille\+Graphique@{Grille\+Graphique}}
+\subsubsection[{est\+Complete}]{\setlength{\rightskip}{0pt plus 5cm}bool Grille\+Graphique\+::est\+Complete (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_grille_graphique_afa97fdbd2f7b8d7f3c2304f7ea6ccdb0}
+dis si la grille est finie 
+
+Definition at line 218 of file Grille\+Graphique.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_grille_graphique_a56518a83cba80e34d60133a50bad30e2}{}\index{Grille\+Graphique@{Grille\+Graphique}!erreur\+Existante@{erreur\+Existante}}
+\index{erreur\+Existante@{erreur\+Existante}!Grille\+Graphique@{Grille\+Graphique}}
+\subsubsection[{erreur\+Existante}]{\setlength{\rightskip}{0pt plus 5cm}bool Grille\+Graphique\+::erreur\+Existante}\label{class_grille_graphique_a56518a83cba80e34d60133a50bad30e2}
+
+
+Definition at line 31 of file Grille\+Graphique.\+h.
+
+\hypertarget{class_grille_graphique_a3a161cd8377578a6f4dc1b5d234cb090}{}\index{Grille\+Graphique@{Grille\+Graphique}!fond@{fond}}
+\index{fond@{fond}!Grille\+Graphique@{Grille\+Graphique}}
+\subsubsection[{fond}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+Surface}$\ast$ Grille\+Graphique\+::fond ={\bf N\+U\+L\+L}}\label{class_grille_graphique_a3a161cd8377578a6f4dc1b5d234cb090}
+
+
+Definition at line 33 of file Grille\+Graphique.\+h.
+
+\hypertarget{class_grille_graphique_a8577c2dd3bbfc9b58bfd88adcf484eb3}{}\index{Grille\+Graphique@{Grille\+Graphique}!grille@{grille}}
+\index{grille@{grille}!Grille\+Graphique@{Grille\+Graphique}}
+\subsubsection[{grille}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Grille} Grille\+Graphique\+::grille}\label{class_grille_graphique_a8577c2dd3bbfc9b58bfd88adcf484eb3}
+
+
+La grille en elle meme \+: on la charge arès les algorithmes, cette classe ne fais qu\textquotesingle{}afficher / gerer les clics. 
+
+
+
+Definition at line 59 of file Grille\+Graphique.\+h.
+
+\hypertarget{class_grille_graphique_a0a784721612498e233906223293697c9}{}\index{Grille\+Graphique@{Grille\+Graphique}!grille\+Resolue@{grille\+Resolue}}
+\index{grille\+Resolue@{grille\+Resolue}!Grille\+Graphique@{Grille\+Graphique}}
+\subsubsection[{grille\+Resolue}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Grille} Grille\+Graphique\+::grille\+Resolue}\label{class_grille_graphique_a0a784721612498e233906223293697c9}
+
+
+Definition at line 60 of file Grille\+Graphique.\+h.
+
+\hypertarget{class_grille_graphique_aac3927bfac4f3677b01e5ebf30fb4280}{}\index{Grille\+Graphique@{Grille\+Graphique}!image\+Sudoku\+Vierge@{image\+Sudoku\+Vierge}}
+\index{image\+Sudoku\+Vierge@{image\+Sudoku\+Vierge}!Grille\+Graphique@{Grille\+Graphique}}
+\subsubsection[{image\+Sudoku\+Vierge}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+Surface}$\ast$ Grille\+Graphique\+::image\+Sudoku\+Vierge = {\bf N\+U\+L\+L}}\label{class_grille_graphique_aac3927bfac4f3677b01e5ebf30fb4280}
+
+
+Definition at line 34 of file Grille\+Graphique.\+h.
+
+\hypertarget{class_grille_graphique_a19ac32327d22811a2e2cdbaf93286b06}{}\index{Grille\+Graphique@{Grille\+Graphique}!sudoku\+Bouton@{sudoku\+Bouton}}
+\index{sudoku\+Bouton@{sudoku\+Bouton}!Grille\+Graphique@{Grille\+Graphique}}
+\subsubsection[{sudoku\+Bouton}]{\setlength{\rightskip}{0pt plus 5cm}std\+::array$<$std\+::array$<$ {\bf Bouton} , 9$>$, 9$>$ Grille\+Graphique\+::sudoku\+Bouton}\label{class_grille_graphique_a19ac32327d22811a2e2cdbaf93286b06}
+
+
+Array contenant les boutons et les valeurs des cases de sudoku. 
+
+
+
+Definition at line 63 of file Grille\+Graphique.\+h.
+
+\hypertarget{class_grille_graphique_a405f912724d23fe62af6002de6786650}{}\index{Grille\+Graphique@{Grille\+Graphique}!taille\+X@{taille\+X}}
+\index{taille\+X@{taille\+X}!Grille\+Graphique@{Grille\+Graphique}}
+\subsubsection[{taille\+X}]{\setlength{\rightskip}{0pt plus 5cm}int Grille\+Graphique\+::taille\+X}\label{class_grille_graphique_a405f912724d23fe62af6002de6786650}
+
+
+Definition at line 37 of file Grille\+Graphique.\+h.
+
+\hypertarget{class_grille_graphique_a02037911fa5a2a342b3f90a15ad8d493}{}\index{Grille\+Graphique@{Grille\+Graphique}!taille\+Y@{taille\+Y}}
+\index{taille\+Y@{taille\+Y}!Grille\+Graphique@{Grille\+Graphique}}
+\subsubsection[{taille\+Y}]{\setlength{\rightskip}{0pt plus 5cm}int Grille\+Graphique\+::taille\+Y}\label{class_grille_graphique_a02037911fa5a2a342b3f90a15ad8d493}
+
+
+Definition at line 38 of file Grille\+Graphique.\+h.
+
+\hypertarget{class_grille_graphique_ab9d6cb5ea86ad3ebd816a44fabda13bb}{}\index{Grille\+Graphique@{Grille\+Graphique}!zoom\+X@{zoom\+X}}
+\index{zoom\+X@{zoom\+X}!Grille\+Graphique@{Grille\+Graphique}}
+\subsubsection[{zoom\+X}]{\setlength{\rightskip}{0pt plus 5cm}double Grille\+Graphique\+::zoom\+X}\label{class_grille_graphique_ab9d6cb5ea86ad3ebd816a44fabda13bb}
+
+
+Definition at line 41 of file Grille\+Graphique.\+h.
+
+\hypertarget{class_grille_graphique_a24be5b0794bbb43e645a6ea562740d9c}{}\index{Grille\+Graphique@{Grille\+Graphique}!zoom\+Y@{zoom\+Y}}
+\index{zoom\+Y@{zoom\+Y}!Grille\+Graphique@{Grille\+Graphique}}
+\subsubsection[{zoom\+Y}]{\setlength{\rightskip}{0pt plus 5cm}double Grille\+Graphique\+::zoom\+Y}\label{class_grille_graphique_a24be5b0794bbb43e645a6ea562740d9c}
+
+
+Definition at line 41 of file Grille\+Graphique.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{_grille_graphique_8h}{Grille\+Graphique.\+h}\item 
+src/\hyperlink{_grille_graphique_8cpp}{Grille\+Graphique.\+cpp}\end{DoxyCompactItemize}

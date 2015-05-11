@@ -1,0 +1,172 @@
+\hypertarget{_s_d_l__keyboard_8h}{}\section{S\+D\+L-\/1.2.15/include/\+S\+D\+L\+\_\+keyboard.h File Reference}
+\label{_s_d_l__keyboard_8h}\index{S\+D\+L-\/1.\+2.\+15/include/\+S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L-\/1.\+2.\+15/include/\+S\+D\+L\+\_\+keyboard.\+h}}
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+stdinc.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+error.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+keysym.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_s_d_l__keysym}{S\+D\+L\+\_\+keysym}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_s_d_l__keyboard_8h_a7c37b8c3aebd51ade2c8d0a72da44163}{S\+D\+L\+\_\+\+A\+L\+L\+\_\+\+H\+O\+T\+K\+E\+Y\+S}~0x\+F\+F\+F\+F\+F\+F\+F\+F
+\item 
+\#define \hyperlink{_s_d_l__keyboard_8h_a8c3904e497e7079e421ad61713f96117}{S\+D\+L\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+R\+E\+P\+E\+A\+T\+\_\+\+D\+E\+L\+A\+Y}~500
+\item 
+\#define \hyperlink{_s_d_l__keyboard_8h_a12f1ad9ca903bbd5e1dd061061ee0d73}{S\+D\+L\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+R\+E\+P\+E\+A\+T\+\_\+\+I\+N\+T\+E\+R\+V\+A\+L}~30
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct_s_d_l__keysym}{S\+D\+L\+\_\+keysym} \hyperlink{_s_d_l__keyboard_8h_acf493c0691cdf8af4e48937a73157b29}{S\+D\+L\+\_\+keysym}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__keyboard_8h_aa872f99acb3dd68cdd806e2421ff8e96}{S\+D\+L\+\_\+\+Enable\+U\+N\+I\+C\+O\+D\+E} (int enable)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__keyboard_8h_a0d9755bd12c5c27a7c86688bf7a32488}{S\+D\+L\+\_\+\+Enable\+Key\+Repeat} (int delay, int interval)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__keyboard_8h_a5c5645662b43fcf4408963b1a5b0a70c}{S\+D\+L\+\_\+\+Get\+Key\+Repeat} (int $\ast$delay, int $\ast$interval)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} $\ast$\hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__keyboard_8h_a8790af806464c820356f6e8b9efee24f}{S\+D\+L\+\_\+\+Get\+Key\+State} (int $\ast$numkeys)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__keysym_8h_afe84f290b2bed7ad120fb899fa8513cf}{S\+D\+L\+Mod} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__keyboard_8h_a52333a5aa5c8336bfa80b526e81c38c0}{S\+D\+L\+\_\+\+Get\+Mod\+State} (\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__keyboard_8h_a7c5dd5c95a51a55631a855dc620898f5}{S\+D\+L\+\_\+\+Set\+Mod\+State} (\hyperlink{_s_d_l__keysym_8h_afe84f290b2bed7ad120fb899fa8513cf}{S\+D\+L\+Mod} modstate)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} char $\ast$\hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__keyboard_8h_a51590a98e514a7f100ee1d9712679e64}{S\+D\+L\+\_\+\+Get\+Key\+Name} (\hyperlink{_s_d_l__keysym_8h_ab8a13abddfa48bf4201973c2aa0afc1a}{S\+D\+L\+Key} key)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Include file for S\+D\+L keyboard event handling 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_s_d_l__keyboard_8h_a7c37b8c3aebd51ade2c8d0a72da44163}{}\index{S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}!S\+D\+L\+\_\+\+A\+L\+L\+\_\+\+H\+O\+T\+K\+E\+Y\+S@{S\+D\+L\+\_\+\+A\+L\+L\+\_\+\+H\+O\+T\+K\+E\+Y\+S}}
+\index{S\+D\+L\+\_\+\+A\+L\+L\+\_\+\+H\+O\+T\+K\+E\+Y\+S@{S\+D\+L\+\_\+\+A\+L\+L\+\_\+\+H\+O\+T\+K\+E\+Y\+S}!S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+A\+L\+L\+\_\+\+H\+O\+T\+K\+E\+Y\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+A\+L\+L\+\_\+\+H\+O\+T\+K\+E\+Y\+S~0x\+F\+F\+F\+F\+F\+F\+F\+F}\label{_s_d_l__keyboard_8h_a7c37b8c3aebd51ade2c8d0a72da44163}
+This is the mask which refers to all hotkey bindings 
+
+Definition at line 67 of file S\+D\+L\+\_\+keyboard.\+h.
+
+\hypertarget{_s_d_l__keyboard_8h_a8c3904e497e7079e421ad61713f96117}{}\index{S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}!S\+D\+L\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+R\+E\+P\+E\+A\+T\+\_\+\+D\+E\+L\+A\+Y@{S\+D\+L\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+R\+E\+P\+E\+A\+T\+\_\+\+D\+E\+L\+A\+Y}}
+\index{S\+D\+L\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+R\+E\+P\+E\+A\+T\+\_\+\+D\+E\+L\+A\+Y@{S\+D\+L\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+R\+E\+P\+E\+A\+T\+\_\+\+D\+E\+L\+A\+Y}!S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+R\+E\+P\+E\+A\+T\+\_\+\+D\+E\+L\+A\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+R\+E\+P\+E\+A\+T\+\_\+\+D\+E\+L\+A\+Y~500}\label{_s_d_l__keyboard_8h_a8c3904e497e7079e421ad61713f96117}
+
+
+Definition at line 84 of file S\+D\+L\+\_\+keyboard.\+h.
+
+\hypertarget{_s_d_l__keyboard_8h_a12f1ad9ca903bbd5e1dd061061ee0d73}{}\index{S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}!S\+D\+L\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+R\+E\+P\+E\+A\+T\+\_\+\+I\+N\+T\+E\+R\+V\+A\+L@{S\+D\+L\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+R\+E\+P\+E\+A\+T\+\_\+\+I\+N\+T\+E\+R\+V\+A\+L}}
+\index{S\+D\+L\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+R\+E\+P\+E\+A\+T\+\_\+\+I\+N\+T\+E\+R\+V\+A\+L@{S\+D\+L\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+R\+E\+P\+E\+A\+T\+\_\+\+I\+N\+T\+E\+R\+V\+A\+L}!S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+R\+E\+P\+E\+A\+T\+\_\+\+I\+N\+T\+E\+R\+V\+A\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+R\+E\+P\+E\+A\+T\+\_\+\+I\+N\+T\+E\+R\+V\+A\+L~30}\label{_s_d_l__keyboard_8h_a12f1ad9ca903bbd5e1dd061061ee0d73}
+
+
+Definition at line 85 of file S\+D\+L\+\_\+keyboard.\+h.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{_s_d_l__keyboard_8h_acf493c0691cdf8af4e48937a73157b29}{}\index{S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}!S\+D\+L\+\_\+keysym@{S\+D\+L\+\_\+keysym}}
+\index{S\+D\+L\+\_\+keysym@{S\+D\+L\+\_\+keysym}!S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}}
+\subsubsection[{S\+D\+L\+\_\+keysym}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+keysym}  {\bf S\+D\+L\+\_\+keysym}}\label{_s_d_l__keyboard_8h_acf493c0691cdf8af4e48937a73157b29}
+Keysym structure
+
+
+\begin{DoxyItemize}
+\item The scancode is hardware dependent, and should not be used by general applications. If no hardware scancode is available, it will be 0.
+\item The \textquotesingle{}unicode\textquotesingle{} translated character is only available when character translation is enabled by the \hyperlink{_s_d_l__keyboard_8h_aa872f99acb3dd68cdd806e2421ff8e96}{S\+D\+L\+\_\+\+Enable\+U\+N\+I\+C\+O\+D\+E()} A\+P\+I. If non-\/zero, this is a U\+N\+I\+C\+O\+D\+E character corresponding to the keypress. If the high 9 bits of the character are 0, then this maps to the equivalent A\+S\+C\+I\+I character\+: 
+\begin{DoxyCode}
+1 char ch;
+2 if ( (keysym.unicode & 0xFF80) == 0 ) \{
+3     ch = keysym.unicode & 0x7F;
+4 \} else \{
+5     An international character..
+6 \}
+\end{DoxyCode}
+ 
+\end{DoxyItemize}
+
+\subsection{Function Documentation}
+\hypertarget{_s_d_l__keyboard_8h_a0d9755bd12c5c27a7c86688bf7a32488}{}\index{S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}!S\+D\+L\+\_\+\+Enable\+Key\+Repeat@{S\+D\+L\+\_\+\+Enable\+Key\+Repeat}}
+\index{S\+D\+L\+\_\+\+Enable\+Key\+Repeat@{S\+D\+L\+\_\+\+Enable\+Key\+Repeat}!S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Enable\+Key\+Repeat}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Enable\+Key\+Repeat (
+\begin{DoxyParamCaption}
+\item[{int}]{delay, }
+\item[{int}]{interval}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__keyboard_8h_a0d9755bd12c5c27a7c86688bf7a32488}
+Enable/\+Disable keyboard repeat. Keyboard repeat defaults to off.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em delay} & \textquotesingle{}delay\textquotesingle{} is the initial delay in ms between the time when a key is pressed, and keyboard repeat begins.\\
+\hline
+\mbox{\tt in}  & {\em interval} & \textquotesingle{}interval\textquotesingle{} is the time in ms between keyboard repeat events.\\
+\hline
+\end{DoxyParams}
+If \textquotesingle{}delay\textquotesingle{} is set to 0, keyboard repeat is disabled. \hypertarget{_s_d_l__keyboard_8h_aa872f99acb3dd68cdd806e2421ff8e96}{}\index{S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}!S\+D\+L\+\_\+\+Enable\+U\+N\+I\+C\+O\+D\+E@{S\+D\+L\+\_\+\+Enable\+U\+N\+I\+C\+O\+D\+E}}
+\index{S\+D\+L\+\_\+\+Enable\+U\+N\+I\+C\+O\+D\+E@{S\+D\+L\+\_\+\+Enable\+U\+N\+I\+C\+O\+D\+E}!S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Enable\+U\+N\+I\+C\+O\+D\+E}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Enable\+U\+N\+I\+C\+O\+D\+E (
+\begin{DoxyParamCaption}
+\item[{int}]{enable}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__keyboard_8h_aa872f99acb3dd68cdd806e2421ff8e96}
+Enable/\+Disable U\+N\+I\+C\+O\+D\+E translation of keyboard input.
+
+This translation has some overhead, so translation defaults off.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em enable} & If \textquotesingle{}enable\textquotesingle{} is 1, translation is enabled. If \textquotesingle{}enable\textquotesingle{} is 0, translation is disabled. If \textquotesingle{}enable\textquotesingle{} is -\/1, the translation state is not changed.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+It returns the previous state of keyboard translation. 
+\end{DoxyReturn}
+\hypertarget{_s_d_l__keyboard_8h_a51590a98e514a7f100ee1d9712679e64}{}\index{S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}!S\+D\+L\+\_\+\+Get\+Key\+Name@{S\+D\+L\+\_\+\+Get\+Key\+Name}}
+\index{S\+D\+L\+\_\+\+Get\+Key\+Name@{S\+D\+L\+\_\+\+Get\+Key\+Name}!S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Get\+Key\+Name}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} char$\ast$ {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Get\+Key\+Name (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+Key}}]{key}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__keyboard_8h_a51590a98e514a7f100ee1d9712679e64}
+Get the name of an S\+D\+L virtual keysym \hypertarget{_s_d_l__keyboard_8h_a5c5645662b43fcf4408963b1a5b0a70c}{}\index{S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}!S\+D\+L\+\_\+\+Get\+Key\+Repeat@{S\+D\+L\+\_\+\+Get\+Key\+Repeat}}
+\index{S\+D\+L\+\_\+\+Get\+Key\+Repeat@{S\+D\+L\+\_\+\+Get\+Key\+Repeat}!S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Get\+Key\+Repeat}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Get\+Key\+Repeat (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{delay, }
+\item[{int $\ast$}]{interval}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__keyboard_8h_a5c5645662b43fcf4408963b1a5b0a70c}
+\hypertarget{_s_d_l__keyboard_8h_a8790af806464c820356f6e8b9efee24f}{}\index{S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}!S\+D\+L\+\_\+\+Get\+Key\+State@{S\+D\+L\+\_\+\+Get\+Key\+State}}
+\index{S\+D\+L\+\_\+\+Get\+Key\+State@{S\+D\+L\+\_\+\+Get\+Key\+State}!S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Get\+Key\+State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf Uint8}$\ast$ {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Get\+Key\+State (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{numkeys}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__keyboard_8h_a8790af806464c820356f6e8b9efee24f}
+Get a snapshot of the current state of the keyboard. Returns an array of keystates, indexed by the S\+D\+L\+K\+\_\+$\ast$ syms. Usage\+: 
+\begin{DoxyCode}
+1    Uint8 *keystate = SDL\_GetKeyState(NULL);
+2 if ( keystate[SDLK\_RETURN] ) //... \(\backslash\)<RETURN> is pressed.
+\end{DoxyCode}
+ \hypertarget{_s_d_l__keyboard_8h_a52333a5aa5c8336bfa80b526e81c38c0}{}\index{S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}!S\+D\+L\+\_\+\+Get\+Mod\+State@{S\+D\+L\+\_\+\+Get\+Mod\+State}}
+\index{S\+D\+L\+\_\+\+Get\+Mod\+State@{S\+D\+L\+\_\+\+Get\+Mod\+State}!S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Get\+Mod\+State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf S\+D\+L\+Mod} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Get\+Mod\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf void}}]{}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__keyboard_8h_a52333a5aa5c8336bfa80b526e81c38c0}
+Get the current key modifier state \hypertarget{_s_d_l__keyboard_8h_a7c5dd5c95a51a55631a855dc620898f5}{}\index{S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}!S\+D\+L\+\_\+\+Set\+Mod\+State@{S\+D\+L\+\_\+\+Set\+Mod\+State}}
+\index{S\+D\+L\+\_\+\+Set\+Mod\+State@{S\+D\+L\+\_\+\+Set\+Mod\+State}!S\+D\+L\+\_\+keyboard.\+h@{S\+D\+L\+\_\+keyboard.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Set\+Mod\+State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Set\+Mod\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+Mod}}]{modstate}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__keyboard_8h_a7c5dd5c95a51a55631a855dc620898f5}
+Set the current key modifier state. This does not change the keyboard state, only the key modifier flags. 

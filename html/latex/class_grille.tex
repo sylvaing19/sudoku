@@ -1,0 +1,306 @@
+\hypertarget{class_grille}{}\section{Grille Class Reference}
+\label{class_grille}\index{Grille@{Grille}}
+
+
+{\ttfamily \#include $<$Grille.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_grille_a442706ca3dc66a38b219ff9b7acb2228}{Grille} ()
+\item 
+\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{class_grille_ad52857ed7b5699042dba5f07a09d6131}{afficher\+Console} ()
+\item 
+\hyperlink{_s_d_l__config__dreamcast_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t} \hyperlink{class_grille_ad3533300845e9c334f4d7c5687c1c42d}{get\+L\+C} (\hyperlink{_s_d_l__config__dreamcast_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t} ligne, \hyperlink{_s_d_l__config__dreamcast_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t} colonne)
+\item 
+\hyperlink{_s_d_l__config__dreamcast_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t} \hyperlink{class_grille_a0434c81275f5854d63c6ea4a7a0be506}{get\+Bloc} (\hyperlink{_s_d_l__config__dreamcast_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t} sur\+Case, \hyperlink{_s_d_l__config__dreamcast_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t} sous\+Case)
+\item 
+\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{class_grille_a63b5d8370591c1226be85778ea750194}{set\+L\+C} (\hyperlink{_s_d_l__config__dreamcast_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t} valeur, \hyperlink{_s_d_l__config__dreamcast_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t} ligne, \hyperlink{_s_d_l__config__dreamcast_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t} colonne)
+\item 
+\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{class_grille_a64d59aaaf414af9b079da1f39a730fd0}{set\+Bloc} (\hyperlink{_s_d_l__config__dreamcast_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t} valeur, \hyperlink{_s_d_l__config__dreamcast_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t} sur\+Case, \hyperlink{_s_d_l__config__dreamcast_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t} sous\+Case)
+\item 
+bool \hyperlink{class_grille_a80df60bde37f2db8363f33d38e1d6ab9}{est\+Placable} (\hyperlink{_s_d_l__config__dreamcast_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t} valeur, \hyperlink{_s_d_l__config__dreamcast_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t} ligne, \hyperlink{_s_d_l__config__dreamcast_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t} colonne)
+\item 
+bool \hyperlink{class_grille_a3c994f0e6ab5b8fa39e4fb95e8a8c7ca}{completer} (bool verifier\+Unicite=false)
+\item 
+bool \hyperlink{class_grille_aa97e126d9b016fd50045f4bd003ba8b8}{completer\+Rand} ()
+\item 
+\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{class_grille_ae1cfb09dc887aa908ec8bfcb7b1efffe}{generer} (\hyperlink{_enum_difficulte_8h_ad3df9804641f6ea0105cd2a89f495555}{Difficulte})
+\item 
+\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{class_grille_a54a7537f4d21d81769fb11028af22a8a}{vider} ()
+\item 
+bool \hyperlink{class_grille_a477bfab95c75b20dd1512fe3df24db8c}{get\+From\+File} (\hyperlink{_s_d_l__opengl_8h_ae9ea2d206f76ea82db7a2ea002fdef2f}{std\+::string} nom\+Fichier)
+\item 
+bool \hyperlink{class_grille_a6fedc971d7c1051301ddd636c28720a6}{sauvegarder} (\hyperlink{_s_d_l__opengl_8h_ae9ea2d206f76ea82db7a2ea002fdef2f}{std\+::string} nom\+Fichier)
+\item 
+bool \hyperlink{class_grille_a070c5a3cac66d19a51d78fcce240804c}{test\+Resolution} (\hyperlink{class_grille}{Grille} grille\+Ref)
+\item 
+bool \hyperlink{class_grille_a5782780f841ceed00cf9679d98dff58a}{est\+Egale} (\hyperlink{class_grille}{Grille} grille\+Autre)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+La classe \hyperlink{class_grille}{Grille} définit une grille de sudoku de 9$\ast$9 cases. Elle permet de modifier et/ou de consulter les valeurs contenues dans les cases, ainsi que de remplir la grille selon les règles du sudoku. Les valeurs contenues dans la grille sont des entiers compris entre 0 et 9 inclus. La valeur 0 correspond à une case vide. \begin{DoxyAuthor}{Author}
+Sylvain 
+\end{DoxyAuthor}
+
+
+Definition at line 26 of file Grille.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_grille_a442706ca3dc66a38b219ff9b7acb2228}{}\index{Grille@{Grille}!Grille@{Grille}}
+\index{Grille@{Grille}!Grille@{Grille}}
+\subsubsection[{Grille}]{\setlength{\rightskip}{0pt plus 5cm}Grille\+::\+Grille (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_grille_a442706ca3dc66a38b219ff9b7acb2228}
+Constructeur 
+
+Definition at line 5 of file Grille.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_grille_ad52857ed7b5699042dba5f07a09d6131}{}\index{Grille@{Grille}!afficher\+Console@{afficher\+Console}}
+\index{afficher\+Console@{afficher\+Console}!Grille@{Grille}}
+\subsubsection[{afficher\+Console}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Grille\+::afficher\+Console (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_grille_ad52857ed7b5699042dba5f07a09d6131}
+Affiche la grille dans la console 
+
+Definition at line 43 of file Grille.\+cpp.
+
+\hypertarget{class_grille_a3c994f0e6ab5b8fa39e4fb95e8a8c7ca}{}\index{Grille@{Grille}!completer@{completer}}
+\index{completer@{completer}!Grille@{Grille}}
+\subsubsection[{completer}]{\setlength{\rightskip}{0pt plus 5cm}bool Grille\+::completer (
+\begin{DoxyParamCaption}
+\item[{bool}]{verifier\+Unicite = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{class_grille_a3c994f0e6ab5b8fa39e4fb95e8a8c7ca}
+Complète la grille si possible. Renvoi \textquotesingle{}vrai\textquotesingle{} si la résolution a réussi, \textquotesingle{}faux\textquotesingle{} sinon, en cas d\textquotesingle{}échec la grille n\textquotesingle{}est pas modifiée \begin{DoxyReturn}{Returns}
+si la grille est completable 
+\end{DoxyReturn}
+
+
+Definition at line 121 of file Grille.\+cpp.
+
+\hypertarget{class_grille_aa97e126d9b016fd50045f4bd003ba8b8}{}\index{Grille@{Grille}!completer\+Rand@{completer\+Rand}}
+\index{completer\+Rand@{completer\+Rand}!Grille@{Grille}}
+\subsubsection[{completer\+Rand}]{\setlength{\rightskip}{0pt plus 5cm}bool Grille\+::completer\+Rand (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_grille_aa97e126d9b016fd50045f4bd003ba8b8}
+Idem que \hyperlink{class_grille_a3c994f0e6ab5b8fa39e4fb95e8a8c7ca}{completer()} mais si il existe plusieurs solutions celle qui sera choisie le sera de manière aléatoire \begin{DoxyReturn}{Returns}
+si la grille est completable 
+\end{DoxyReturn}
+
+
+Definition at line 259 of file Grille.\+cpp.
+
+\hypertarget{class_grille_a5782780f841ceed00cf9679d98dff58a}{}\index{Grille@{Grille}!est\+Egale@{est\+Egale}}
+\index{est\+Egale@{est\+Egale}!Grille@{Grille}}
+\subsubsection[{est\+Egale}]{\setlength{\rightskip}{0pt plus 5cm}bool Grille\+::est\+Egale (
+\begin{DoxyParamCaption}
+\item[{{\bf Grille}}]{grille\+Autre}
+\end{DoxyParamCaption}
+)}\label{class_grille_a5782780f841ceed00cf9679d98dff58a}
+Renvoie un booleen si la grille en argument est egals à cette grille, dans toutes les cases 
+\begin{DoxyParams}{Parameters}
+{\em la} & grille à comparer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Renvoi Vrai si egales, faux sinon 
+\end{DoxyReturn}
+
+
+Definition at line 451 of file Grille.\+cpp.
+
+\hypertarget{class_grille_a80df60bde37f2db8363f33d38e1d6ab9}{}\index{Grille@{Grille}!est\+Placable@{est\+Placable}}
+\index{est\+Placable@{est\+Placable}!Grille@{Grille}}
+\subsubsection[{est\+Placable}]{\setlength{\rightskip}{0pt plus 5cm}bool Grille\+::est\+Placable (
+\begin{DoxyParamCaption}
+\item[{{\bf int8\+\_\+t}}]{valeur, }
+\item[{{\bf int8\+\_\+t}}]{ligne, }
+\item[{{\bf int8\+\_\+t}}]{colonne}
+\end{DoxyParamCaption}
+)}\label{class_grille_a80df60bde37f2db8363f33d38e1d6ab9}
+Ne modifie pas la grille. Renvoi Vrai si \textquotesingle{}valeur\textquotesingle{} est un chiffre plaçable compte tenu des valeurs présentes dans la grille, selon les règles du sudoku 
+\begin{DoxyParams}{Parameters}
+{\em la} & valeur et l\textquotesingle{}emplacement de la case \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+si le chiffre est placable 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file Grille.\+cpp.
+
+\hypertarget{class_grille_ae1cfb09dc887aa908ec8bfcb7b1efffe}{}\index{Grille@{Grille}!generer@{generer}}
+\index{generer@{generer}!Grille@{Grille}}
+\subsubsection[{generer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Grille\+::generer (
+\begin{DoxyParamCaption}
+\item[{{\bf Difficulte}}]{difficulte}
+\end{DoxyParamCaption}
+)}\label{class_grille_ae1cfb09dc887aa908ec8bfcb7b1efffe}
+
+
+Definition at line 329 of file Grille.\+cpp.
+
+\hypertarget{class_grille_a0434c81275f5854d63c6ea4a7a0be506}{}\index{Grille@{Grille}!get\+Bloc@{get\+Bloc}}
+\index{get\+Bloc@{get\+Bloc}!Grille@{Grille}}
+\subsubsection[{get\+Bloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf int8\+\_\+t} Grille\+::get\+Bloc (
+\begin{DoxyParamCaption}
+\item[{{\bf int8\+\_\+t}}]{sur\+Case, }
+\item[{{\bf int8\+\_\+t}}]{sous\+Case}
+\end{DoxyParamCaption}
+)}\label{class_grille_a0434c81275f5854d63c6ea4a7a0be506}
+Renvoie la valeur de la case repérée en bloc/sous-\/bloc (indexé de 0 à 8) 
+\begin{DoxyParams}{Parameters}
+{\em les} & reperes du bloc \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le nombre voulu 
+\end{DoxyReturn}
+
+
+Definition at line 28 of file Grille.\+cpp.
+
+\hypertarget{class_grille_a477bfab95c75b20dd1512fe3df24db8c}{}\index{Grille@{Grille}!get\+From\+File@{get\+From\+File}}
+\index{get\+From\+File@{get\+From\+File}!Grille@{Grille}}
+\subsubsection[{get\+From\+File}]{\setlength{\rightskip}{0pt plus 5cm}bool Grille\+::get\+From\+File (
+\begin{DoxyParamCaption}
+\item[{{\bf std\+::string}}]{nom\+Fichier}
+\end{DoxyParamCaption}
+)}\label{class_grille_a477bfab95c75b20dd1512fe3df24db8c}
+Récupère une grille de sudoku depuis un fichier texte et la place dans le membre \textquotesingle{}data\textquotesingle{}. 
+\begin{DoxyParams}{Parameters}
+{\em le} & nom du fichier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Renvoi vrai si le fichier est correcte, faux sinon. 
+\end{DoxyReturn}
+
+
+Definition at line 396 of file Grille.\+cpp.
+
+\hypertarget{class_grille_ad3533300845e9c334f4d7c5687c1c42d}{}\index{Grille@{Grille}!get\+L\+C@{get\+L\+C}}
+\index{get\+L\+C@{get\+L\+C}!Grille@{Grille}}
+\subsubsection[{get\+L\+C}]{\setlength{\rightskip}{0pt plus 5cm}{\bf int8\+\_\+t} Grille\+::get\+L\+C (
+\begin{DoxyParamCaption}
+\item[{{\bf int8\+\_\+t}}]{ligne, }
+\item[{{\bf int8\+\_\+t}}]{colonne}
+\end{DoxyParamCaption}
+)}\label{class_grille_ad3533300845e9c334f4d7c5687c1c42d}
+Renvoie la valeur de la case repérée en ligne/colonne (idexé de 0 à 8) 
+\begin{DoxyParams}{Parameters}
+{\em la} & ligne et la colonne de la case \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le nombre voulu 
+\end{DoxyReturn}
+
+
+Definition at line 23 of file Grille.\+cpp.
+
+\hypertarget{class_grille_a6fedc971d7c1051301ddd636c28720a6}{}\index{Grille@{Grille}!sauvegarder@{sauvegarder}}
+\index{sauvegarder@{sauvegarder}!Grille@{Grille}}
+\subsubsection[{sauvegarder}]{\setlength{\rightskip}{0pt plus 5cm}bool Grille\+::sauvegarder (
+\begin{DoxyParamCaption}
+\item[{{\bf std\+::string}}]{nom\+Fichier}
+\end{DoxyParamCaption}
+)}\label{class_grille_a6fedc971d7c1051301ddd636c28720a6}
+Sauvegarde le membre \textquotesingle{}data\textquotesingle{} dans un fichier texte. 
+\begin{DoxyParams}{Parameters}
+{\em le} & nom du fichier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Renvoi vrai si la sauvegarde a fonctionné, faux sinon. 
+\end{DoxyReturn}
+
+
+Definition at line 414 of file Grille.\+cpp.
+
+\hypertarget{class_grille_a64d59aaaf414af9b079da1f39a730fd0}{}\index{Grille@{Grille}!set\+Bloc@{set\+Bloc}}
+\index{set\+Bloc@{set\+Bloc}!Grille@{Grille}}
+\subsubsection[{set\+Bloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Grille\+::set\+Bloc (
+\begin{DoxyParamCaption}
+\item[{{\bf int8\+\_\+t}}]{valeur, }
+\item[{{\bf int8\+\_\+t}}]{sur\+Case, }
+\item[{{\bf int8\+\_\+t}}]{sous\+Case}
+\end{DoxyParamCaption}
+)}\label{class_grille_a64d59aaaf414af9b079da1f39a730fd0}
+Place \textquotesingle{}valeur\textquotesingle{} dans la case repérée en bloc/sous-\/bloc 
+\begin{DoxyParams}{Parameters}
+{\em la} & valeur et l\textquotesingle{}emplacement de la case \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 38 of file Grille.\+cpp.
+
+\hypertarget{class_grille_a63b5d8370591c1226be85778ea750194}{}\index{Grille@{Grille}!set\+L\+C@{set\+L\+C}}
+\index{set\+L\+C@{set\+L\+C}!Grille@{Grille}}
+\subsubsection[{set\+L\+C}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Grille\+::set\+L\+C (
+\begin{DoxyParamCaption}
+\item[{{\bf int8\+\_\+t}}]{valeur, }
+\item[{{\bf int8\+\_\+t}}]{ligne, }
+\item[{{\bf int8\+\_\+t}}]{colonne}
+\end{DoxyParamCaption}
+)}\label{class_grille_a63b5d8370591c1226be85778ea750194}
+Place \textquotesingle{}valeur\textquotesingle{} dans la case repérée en ligne/colonne 
+\begin{DoxyParams}{Parameters}
+{\em la} & valeur et l\textquotesingle{}emplacement de la case \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 33 of file Grille.\+cpp.
+
+\hypertarget{class_grille_a070c5a3cac66d19a51d78fcce240804c}{}\index{Grille@{Grille}!test\+Resolution@{test\+Resolution}}
+\index{test\+Resolution@{test\+Resolution}!Grille@{Grille}}
+\subsubsection[{test\+Resolution}]{\setlength{\rightskip}{0pt plus 5cm}bool Grille\+::test\+Resolution (
+\begin{DoxyParamCaption}
+\item[{{\bf Grille}}]{grille\+Ref}
+\end{DoxyParamCaption}
+)}\label{class_grille_a070c5a3cac66d19a51d78fcce240804c}
+Test unitaire comme promis ! 
+\begin{DoxyParams}{Parameters}
+{\em la} & grille \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Renvoi Vrai si tout va bien. Renvoi Vrai si tout va bien. 
+\end{DoxyReturn}
+
+
+Definition at line 430 of file Grille.\+cpp.
+
+\hypertarget{class_grille_a54a7537f4d21d81769fb11028af22a8a}{}\index{Grille@{Grille}!vider@{vider}}
+\index{vider@{vider}!Grille@{Grille}}
+\subsubsection[{vider}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Grille\+::vider (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_grille_a54a7537f4d21d81769fb11028af22a8a}
+Réinitialise tous les attributs de la grille \+: data et grille 
+
+Definition at line 11 of file Grille.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{_grille_8h}{Grille.\+h}\item 
+src/\hyperlink{_grille_8cpp}{Grille.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,336 @@
+\hypertarget{_s_d_l__gfx_blit_func_8h}{}\section{S\+D\+L\+\_\+gfx-\/2.0.25/\+S\+D\+L\+\_\+gfx\+Blit\+Func.h File Reference}
+\label{_s_d_l__gfx_blit_func_8h}\index{S\+D\+L\+\_\+gfx-\/2.\+0.\+25/\+S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx-\/2.\+0.\+25/\+S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}S\+D\+L.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+video.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_s_d_l__gfx_blit_info}{S\+D\+L\+\_\+gfx\+Blit\+Info}
+\begin{DoxyCompactList}\small\item\em The structure passed to the low level blit functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_s_d_l__gfx_blit_func_8h_a8fcea397327309f4ab31a3251f15f911}{S\+D\+L\+\_\+\+G\+F\+X\+B\+L\+I\+T\+F\+U\+N\+C\+\_\+\+S\+C\+O\+P\+E}~extern
+\item 
+\#define \hyperlink{_s_d_l__gfx_blit_func_8h_ae6b2c815be86ad92310efb40d4b0b30e}{G\+F\+X\+\_\+\+R\+G\+B\+A\+\_\+\+F\+R\+O\+M\+\_\+\+P\+I\+X\+E\+L}(pixel,  fmt,  \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r},  \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g},  \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b},  \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Unwrap R\+G\+B\+A values from a pixel using mask, shift and loss for surface. \end{DoxyCompactList}\item 
+\#define \hyperlink{_s_d_l__gfx_blit_func_8h_a7dda3984ca04929e2ea0a3679f7452a9}{G\+F\+X\+\_\+\+D\+I\+S\+A\+S\+S\+E\+M\+B\+L\+E\+\_\+\+R\+G\+B\+A}(buf,  bpp,  fmt,  pixel,  \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r},  \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g},  \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b},  \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Disassemble buffer pointer into a pixel and separate R\+G\+B\+A values. \end{DoxyCompactList}\item 
+\#define \hyperlink{_s_d_l__gfx_blit_func_8h_a64927ca5690904716f7ac93b1fcd4420}{G\+F\+X\+\_\+\+P\+I\+X\+E\+L\+\_\+\+F\+R\+O\+M\+\_\+\+R\+G\+B\+A}(pixel,  fmt,  \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r},  \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g},  \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b},  \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Wrap a pixel from R\+G\+B\+A values using mask, shift and loss for surface. \end{DoxyCompactList}\item 
+\#define \hyperlink{_s_d_l__gfx_blit_func_8h_a4e59f926fb98a86c01a4ffc5cc20e8d5}{G\+F\+X\+\_\+\+A\+S\+S\+E\+M\+B\+L\+E\+\_\+\+R\+G\+B\+A}(buf,  bpp,  fmt,  \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r},  \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g},  \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b},  \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Assemble pixel into buffer pointer from separate R\+G\+B\+A values. \end{DoxyCompactList}\item 
+\#define \hyperlink{_s_d_l__gfx_blit_func_8h_ae3efb9e67172838c394c148a62822da6}{G\+F\+X\+\_\+\+A\+L\+P\+H\+A\+\_\+\+B\+L\+E\+N\+D}(s\+R,  s\+G,  s\+B,  A,  d\+R,  d\+G,  d\+B)
+\begin{DoxyCompactList}\small\item\em Blend the R\+G\+B values of two pixels based on a source alpha value. \end{DoxyCompactList}\item 
+\#define \hyperlink{_s_d_l__gfx_blit_func_8h_a44c498dca765a515f40eecad8f19aac4}{G\+F\+X\+\_\+\+D\+U\+F\+F\+S\+\_\+\+L\+O\+O\+P4}(pixel\+\_\+copy\+\_\+increment,  \hyperlink{_s_d_l__opengl_8h_a3ce386e55bbeb900c1b23e064b89bd04}{width})
+\begin{DoxyCompactList}\small\item\em 4-\/times unrolled D\+U\+F\+Fs loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_s_d_l__gfx_blit_func_8h_a8fcea397327309f4ab31a3251f15f911}{S\+D\+L\+\_\+\+G\+F\+X\+B\+L\+I\+T\+F\+U\+N\+C\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_blit_func_8h_ab49c560e89b8305051b2e6b347215f03}{S\+D\+L\+\_\+gfx\+Blit\+R\+G\+B\+A} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a72e0fdf0f845ded60b1fada9e9195cd7}{src}, \hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} $\ast$srcrect, \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} $\ast$dstrect)
+\begin{DoxyCompactList}\small\item\em Blitter for R\+G\+B\+A-\/$>$R\+G\+B\+A blits with alpha adjustment. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_blit_func_8h_a8fcea397327309f4ab31a3251f15f911}{S\+D\+L\+\_\+\+G\+F\+X\+B\+L\+I\+T\+F\+U\+N\+C\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_blit_func_8h_a4627ae4a0037d0b248bed87f3c294735}{S\+D\+L\+\_\+gfx\+Set\+Alpha} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a72e0fdf0f845ded60b1fada9e9195cd7}{src}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Sets the alpha channel in a 32 bit surface. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__gfx_blit_func_8h_a8fcea397327309f4ab31a3251f15f911}{S\+D\+L\+\_\+\+G\+F\+X\+B\+L\+I\+T\+F\+U\+N\+C\+\_\+\+S\+C\+O\+P\+E} int \hyperlink{_s_d_l__gfx_blit_func_8h_a7c93594525ae349b5cef0156b8f758fc}{S\+D\+L\+\_\+gfx\+Multiply\+Alpha} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a72e0fdf0f845ded60b1fada9e9195cd7}{src}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\begin{DoxyCompactList}\small\item\em Multiply the alpha channel in a 32bit surface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const unsigned int \hyperlink{_s_d_l__gfx_blit_func_8h_a6d0c17342154e14322a281603960691a}{G\+F\+X\+\_\+\+A\+L\+P\+H\+A\+\_\+\+A\+D\+J\+U\+S\+T\+\_\+\+A\+R\+R\+A\+Y} \mbox{[}256\mbox{]}
+\begin{DoxyCompactList}\small\item\em Alpha adjustment table for custom blitter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_s_d_l__gfx_blit_func_8h_ae3efb9e67172838c394c148a62822da6}{}\index{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}!G\+F\+X\+\_\+\+A\+L\+P\+H\+A\+\_\+\+B\+L\+E\+N\+D@{G\+F\+X\+\_\+\+A\+L\+P\+H\+A\+\_\+\+B\+L\+E\+N\+D}}
+\index{G\+F\+X\+\_\+\+A\+L\+P\+H\+A\+\_\+\+B\+L\+E\+N\+D@{G\+F\+X\+\_\+\+A\+L\+P\+H\+A\+\_\+\+B\+L\+E\+N\+D}!S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}}
+\subsubsection[{G\+F\+X\+\_\+\+A\+L\+P\+H\+A\+\_\+\+B\+L\+E\+N\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+F\+X\+\_\+\+A\+L\+P\+H\+A\+\_\+\+B\+L\+E\+N\+D(
+\begin{DoxyParamCaption}
+\item[{}]{s\+R, }
+\item[{}]{s\+G, }
+\item[{}]{s\+B, }
+\item[{}]{A, }
+\item[{}]{d\+R, }
+\item[{}]{d\+G, }
+\item[{}]{d\+B}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_blit_func_8h_ae3efb9e67172838c394c148a62822da6}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                        \(\backslash\)
+    dR = (((sR-dR)*(A))/255)+dR;        \(\backslash\)
+    dG = (((sG-dG)*(A))/255)+dG;        \(\backslash\)
+    dB = (((sB-dB)*(A))/255)+dB;        \(\backslash\)
+    \} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Blend the R\+G\+B values of two pixels based on a source alpha value. 
+
+
+
+Definition at line 138 of file S\+D\+L\+\_\+gfx\+Blit\+Func.\+h.
+
+\hypertarget{_s_d_l__gfx_blit_func_8h_a4e59f926fb98a86c01a4ffc5cc20e8d5}{}\index{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}!G\+F\+X\+\_\+\+A\+S\+S\+E\+M\+B\+L\+E\+\_\+\+R\+G\+B\+A@{G\+F\+X\+\_\+\+A\+S\+S\+E\+M\+B\+L\+E\+\_\+\+R\+G\+B\+A}}
+\index{G\+F\+X\+\_\+\+A\+S\+S\+E\+M\+B\+L\+E\+\_\+\+R\+G\+B\+A@{G\+F\+X\+\_\+\+A\+S\+S\+E\+M\+B\+L\+E\+\_\+\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}}
+\subsubsection[{G\+F\+X\+\_\+\+A\+S\+S\+E\+M\+B\+L\+E\+\_\+\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+F\+X\+\_\+\+A\+S\+S\+E\+M\+B\+L\+E\+\_\+\+R\+G\+B\+A(
+\begin{DoxyParamCaption}
+\item[{}]{buf, }
+\item[{}]{bpp, }
+\item[{}]{fmt, }
+\item[{}]{{\bf r}, }
+\item[{}]{{\bf g}, }
+\item[{}]{{\bf b}, }
+\item[{}]{{\bf a}}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_blit_func_8h_a4e59f926fb98a86c01a4ffc5cc20e8d5}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                   \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{\(\backslash\)}
+\hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{    Uint32} pixel;                    \hyperlink{_s_d_l__gfx_blit_func_8h_a64927ca5690904716f7ac93b1fcd4420}{\(\backslash\)}
+\hyperlink{_s_d_l__gfx_blit_func_8h_a64927ca5690904716f7ac93b1fcd4420}{    \(\backslash\)}
+\hyperlink{_s_d_l__gfx_blit_func_8h_a64927ca5690904716f7ac93b1fcd4420}{    GFX\_PIXEL\_FROM\_RGBA}(pixel, fmt, \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a});    \(\backslash\)
+    *((\hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} *)(buf)) = pixel;           \(\backslash\)
+    \}
+\end{DoxyCode}
+
+
+Assemble pixel into buffer pointer from separate R\+G\+B\+A values. 
+
+
+
+Definition at line 127 of file S\+D\+L\+\_\+gfx\+Blit\+Func.\+h.
+
+\hypertarget{_s_d_l__gfx_blit_func_8h_a7dda3984ca04929e2ea0a3679f7452a9}{}\index{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}!G\+F\+X\+\_\+\+D\+I\+S\+A\+S\+S\+E\+M\+B\+L\+E\+\_\+\+R\+G\+B\+A@{G\+F\+X\+\_\+\+D\+I\+S\+A\+S\+S\+E\+M\+B\+L\+E\+\_\+\+R\+G\+B\+A}}
+\index{G\+F\+X\+\_\+\+D\+I\+S\+A\+S\+S\+E\+M\+B\+L\+E\+\_\+\+R\+G\+B\+A@{G\+F\+X\+\_\+\+D\+I\+S\+A\+S\+S\+E\+M\+B\+L\+E\+\_\+\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}}
+\subsubsection[{G\+F\+X\+\_\+\+D\+I\+S\+A\+S\+S\+E\+M\+B\+L\+E\+\_\+\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+F\+X\+\_\+\+D\+I\+S\+A\+S\+S\+E\+M\+B\+L\+E\+\_\+\+R\+G\+B\+A(
+\begin{DoxyParamCaption}
+\item[{}]{buf, }
+\item[{}]{bpp, }
+\item[{}]{fmt, }
+\item[{}]{pixel, }
+\item[{}]{{\bf r}, }
+\item[{}]{{\bf g}, }
+\item[{}]{{\bf b}, }
+\item[{}]{{\bf a}}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_blit_func_8h_a7dda3984ca04929e2ea0a3679f7452a9}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                                       \(\backslash\)
+    pixel = *((\hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} *)(buf));                      \hyperlink{_s_d_l__gfx_blit_func_8h_ae6b2c815be86ad92310efb40d4b0b30e}{\(\backslash\)}
+\hyperlink{_s_d_l__gfx_blit_func_8h_ae6b2c815be86ad92310efb40d4b0b30e}{    GFX\_RGBA\_FROM\_PIXEL}(pixel, fmt, \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a});               \(\backslash\)
+    pixel &= ~fmt->Amask;                          \(\backslash\)
+    \} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Disassemble buffer pointer into a pixel and separate R\+G\+B\+A values. 
+
+
+
+Definition at line 106 of file S\+D\+L\+\_\+gfx\+Blit\+Func.\+h.
+
+\hypertarget{_s_d_l__gfx_blit_func_8h_a44c498dca765a515f40eecad8f19aac4}{}\index{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}!G\+F\+X\+\_\+\+D\+U\+F\+F\+S\+\_\+\+L\+O\+O\+P4@{G\+F\+X\+\_\+\+D\+U\+F\+F\+S\+\_\+\+L\+O\+O\+P4}}
+\index{G\+F\+X\+\_\+\+D\+U\+F\+F\+S\+\_\+\+L\+O\+O\+P4@{G\+F\+X\+\_\+\+D\+U\+F\+F\+S\+\_\+\+L\+O\+O\+P4}!S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}}
+\subsubsection[{G\+F\+X\+\_\+\+D\+U\+F\+F\+S\+\_\+\+L\+O\+O\+P4}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+F\+X\+\_\+\+D\+U\+F\+F\+S\+\_\+\+L\+O\+O\+P4(
+\begin{DoxyParamCaption}
+\item[{}]{pixel\+\_\+copy\+\_\+increment, }
+\item[{}]{{\bf width}}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_blit_func_8h_a44c498dca765a515f40eecad8f19aac4}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{ \textcolor{keywordtype}{int} \hyperlink{_s_d_l__opengl_8h_a0788d3762d0c3c76e4c094d8078b4c27}{n} = (\hyperlink{_s_d_l__opengl_8h_a3ce386e55bbeb900c1b23e064b89bd04}{width}+3)/4;                            \(\backslash\)
+    switch (\hyperlink{_s_d_l__opengl_8h_a3ce386e55bbeb900c1b23e064b89bd04}{width} & 3) \{                       \(\backslash\)
+    case 0: \textcolor{keywordflow}{do} \{    pixel\_copy\_increment;               \(\backslash\)
+    case 3:     pixel\_copy\_increment;               \(\backslash\)
+    case 2:     pixel\_copy\_increment;               \(\backslash\)
+    case 1:     pixel\_copy\_increment;               \(\backslash\)
+    \} \textcolor{keywordflow}{while} ( --n > 0 );                    \(\backslash\)
+    \}                               \(\backslash\)
+    \}
+\end{DoxyCode}
+
+
+4-\/times unrolled D\+U\+F\+Fs loop. 
+
+This is a very useful loop for optimizing blitters. 
+
+Definition at line 150 of file S\+D\+L\+\_\+gfx\+Blit\+Func.\+h.
+
+\hypertarget{_s_d_l__gfx_blit_func_8h_a64927ca5690904716f7ac93b1fcd4420}{}\index{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}!G\+F\+X\+\_\+\+P\+I\+X\+E\+L\+\_\+\+F\+R\+O\+M\+\_\+\+R\+G\+B\+A@{G\+F\+X\+\_\+\+P\+I\+X\+E\+L\+\_\+\+F\+R\+O\+M\+\_\+\+R\+G\+B\+A}}
+\index{G\+F\+X\+\_\+\+P\+I\+X\+E\+L\+\_\+\+F\+R\+O\+M\+\_\+\+R\+G\+B\+A@{G\+F\+X\+\_\+\+P\+I\+X\+E\+L\+\_\+\+F\+R\+O\+M\+\_\+\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}}
+\subsubsection[{G\+F\+X\+\_\+\+P\+I\+X\+E\+L\+\_\+\+F\+R\+O\+M\+\_\+\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+F\+X\+\_\+\+P\+I\+X\+E\+L\+\_\+\+F\+R\+O\+M\+\_\+\+R\+G\+B\+A(
+\begin{DoxyParamCaption}
+\item[{}]{pixel, }
+\item[{}]{fmt, }
+\item[{}]{{\bf r}, }
+\item[{}]{{\bf g}, }
+\item[{}]{{\bf b}, }
+\item[{}]{{\bf a}}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_blit_func_8h_a64927ca5690904716f7ac93b1fcd4420}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                   \(\backslash\)
+    pixel = ((\hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}>>fmt->Rloss)<<fmt->Rshift)|                \(\backslash\)
+    ((\hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}>>fmt->Gloss)<<fmt->Gshift)|                \(\backslash\)
+    ((\hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}>>fmt->Bloss)<<fmt->Bshift)|                \(\backslash\)
+    ((\hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a}<<fmt->Aloss)<<fmt->Ashift);                \(\backslash\)
+    \}
+\end{DoxyCode}
+
+
+Wrap a pixel from R\+G\+B\+A values using mask, shift and loss for surface. 
+
+
+
+Definition at line 116 of file S\+D\+L\+\_\+gfx\+Blit\+Func.\+h.
+
+\hypertarget{_s_d_l__gfx_blit_func_8h_ae6b2c815be86ad92310efb40d4b0b30e}{}\index{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}!G\+F\+X\+\_\+\+R\+G\+B\+A\+\_\+\+F\+R\+O\+M\+\_\+\+P\+I\+X\+E\+L@{G\+F\+X\+\_\+\+R\+G\+B\+A\+\_\+\+F\+R\+O\+M\+\_\+\+P\+I\+X\+E\+L}}
+\index{G\+F\+X\+\_\+\+R\+G\+B\+A\+\_\+\+F\+R\+O\+M\+\_\+\+P\+I\+X\+E\+L@{G\+F\+X\+\_\+\+R\+G\+B\+A\+\_\+\+F\+R\+O\+M\+\_\+\+P\+I\+X\+E\+L}!S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}}
+\subsubsection[{G\+F\+X\+\_\+\+R\+G\+B\+A\+\_\+\+F\+R\+O\+M\+\_\+\+P\+I\+X\+E\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+F\+X\+\_\+\+R\+G\+B\+A\+\_\+\+F\+R\+O\+M\+\_\+\+P\+I\+X\+E\+L(
+\begin{DoxyParamCaption}
+\item[{}]{pixel, }
+\item[{}]{fmt, }
+\item[{}]{{\bf r}, }
+\item[{}]{{\bf g}, }
+\item[{}]{{\bf b}, }
+\item[{}]{{\bf a}}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_blit_func_8h_ae6b2c815be86ad92310efb40d4b0b30e}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                   \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{\(\backslash\)}
+\hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{    r} = ((pixel&fmt->Rmask)>>fmt->Rshift)<<fmt->Rloss;        \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{\(\backslash\)}
+\hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{    g} = ((pixel&fmt->Gmask)>>fmt->Gshift)<<fmt->Gloss;        \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{\(\backslash\)}
+\hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{    b} = ((pixel&fmt->Bmask)>>fmt->Bshift)<<fmt->Bloss;        \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{\(\backslash\)}
+\hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{    a} = ((pixel&fmt->Amask)>>fmt->Ashift)<<fmt->Aloss;        \(\backslash\)
+    \}
+\end{DoxyCode}
+
+
+Unwrap R\+G\+B\+A values from a pixel using mask, shift and loss for surface. 
+
+
+
+Definition at line 95 of file S\+D\+L\+\_\+gfx\+Blit\+Func.\+h.
+
+\hypertarget{_s_d_l__gfx_blit_func_8h_a8fcea397327309f4ab31a3251f15f911}{}\index{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}!S\+D\+L\+\_\+\+G\+F\+X\+B\+L\+I\+T\+F\+U\+N\+C\+\_\+\+S\+C\+O\+P\+E@{S\+D\+L\+\_\+\+G\+F\+X\+B\+L\+I\+T\+F\+U\+N\+C\+\_\+\+S\+C\+O\+P\+E}}
+\index{S\+D\+L\+\_\+\+G\+F\+X\+B\+L\+I\+T\+F\+U\+N\+C\+\_\+\+S\+C\+O\+P\+E@{S\+D\+L\+\_\+\+G\+F\+X\+B\+L\+I\+T\+F\+U\+N\+C\+\_\+\+S\+C\+O\+P\+E}!S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+G\+F\+X\+B\+L\+I\+T\+F\+U\+N\+C\+\_\+\+S\+C\+O\+P\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+G\+F\+X\+B\+L\+I\+T\+F\+U\+N\+C\+\_\+\+S\+C\+O\+P\+E~extern}\label{_s_d_l__gfx_blit_func_8h_a8fcea397327309f4ab31a3251f15f911}
+
+
+Definition at line 59 of file S\+D\+L\+\_\+gfx\+Blit\+Func.\+h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_s_d_l__gfx_blit_func_8h_ab49c560e89b8305051b2e6b347215f03}{}\index{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}!S\+D\+L\+\_\+gfx\+Blit\+R\+G\+B\+A@{S\+D\+L\+\_\+gfx\+Blit\+R\+G\+B\+A}}
+\index{S\+D\+L\+\_\+gfx\+Blit\+R\+G\+B\+A@{S\+D\+L\+\_\+gfx\+Blit\+R\+G\+B\+A}!S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}}
+\subsubsection[{S\+D\+L\+\_\+gfx\+Blit\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+B\+L\+I\+T\+F\+U\+N\+C\+\_\+\+S\+C\+O\+P\+E} int S\+D\+L\+\_\+gfx\+Blit\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{src, }
+\item[{{\bf S\+D\+L\+\_\+\+Rect} $\ast$}]{srcrect, }
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf S\+D\+L\+\_\+\+Rect} $\ast$}]{dstrect}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_blit_func_8h_ab49c560e89b8305051b2e6b347215f03}
+
+
+Blitter for R\+G\+B\+A-\/$>$R\+G\+B\+A blits with alpha adjustment. 
+
+Verifies the input \textquotesingle{}src\textquotesingle{} and \textquotesingle{}dst\textquotesingle{} surfaces and rectangles and performs blit. The destination clip rectangle is honored.
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & The source surface. \\
+\hline
+{\em srcrect} & The source rectangle. \\
+\hline
+{\em dst} & The destination surface. \\
+\hline
+{\em dstrect} & The destination rectangle.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 1 if blit was performed, 0 otherwise, or -\/1 if an error occured. 
+\end{DoxyReturn}
+
+
+Definition at line 411 of file S\+D\+L\+\_\+gfx\+Blit\+Func.\+c.
+
+\hypertarget{_s_d_l__gfx_blit_func_8h_a7c93594525ae349b5cef0156b8f758fc}{}\index{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}!S\+D\+L\+\_\+gfx\+Multiply\+Alpha@{S\+D\+L\+\_\+gfx\+Multiply\+Alpha}}
+\index{S\+D\+L\+\_\+gfx\+Multiply\+Alpha@{S\+D\+L\+\_\+gfx\+Multiply\+Alpha}!S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}}
+\subsubsection[{S\+D\+L\+\_\+gfx\+Multiply\+Alpha}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+B\+L\+I\+T\+F\+U\+N\+C\+\_\+\+S\+C\+O\+P\+E} int S\+D\+L\+\_\+gfx\+Multiply\+Alpha (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{src, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_blit_func_8h_a7c93594525ae349b5cef0156b8f758fc}
+
+
+Multiply the alpha channel in a 32bit surface. 
+
+Helper function that multiplies the alpha channel in a 32 bit surface with a constant value. The final alpha is always scaled to the range 0-\/255 (i.\+e. the factor is a/256).
+
+Only 32 bit surfaces can be used with this function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & Pointer to the target surface to change. \\
+\hline
+{\em a} & The alpha value to multiply with. When a is 255, this function is a No\+Op.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 1 if alpha was changed, 0 otherwise. Returns -\/1 if input surface is invalid. 
+\end{DoxyReturn}
+
+
+Definition at line 587 of file S\+D\+L\+\_\+gfx\+Blit\+Func.\+c.
+
+\hypertarget{_s_d_l__gfx_blit_func_8h_a4627ae4a0037d0b248bed87f3c294735}{}\index{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}!S\+D\+L\+\_\+gfx\+Set\+Alpha@{S\+D\+L\+\_\+gfx\+Set\+Alpha}}
+\index{S\+D\+L\+\_\+gfx\+Set\+Alpha@{S\+D\+L\+\_\+gfx\+Set\+Alpha}!S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}}
+\subsubsection[{S\+D\+L\+\_\+gfx\+Set\+Alpha}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+G\+F\+X\+B\+L\+I\+T\+F\+U\+N\+C\+\_\+\+S\+C\+O\+P\+E} int S\+D\+L\+\_\+gfx\+Set\+Alpha (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{src, }
+\item[{{\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__gfx_blit_func_8h_a4627ae4a0037d0b248bed87f3c294735}
+
+
+Sets the alpha channel in a 32 bit surface. 
+
+Helper function that sets the alpha channel in a 32 bit surface to a constant value. Only 32 bit surfaces can be used with this function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & Pointer to the target surface to change. \\
+\hline
+{\em a} & The alpha value to set.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 1 if alpha was changed, -\/1 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 524 of file S\+D\+L\+\_\+gfx\+Blit\+Func.\+c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{_s_d_l__gfx_blit_func_8h_a6d0c17342154e14322a281603960691a}{}\index{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}!G\+F\+X\+\_\+\+A\+L\+P\+H\+A\+\_\+\+A\+D\+J\+U\+S\+T\+\_\+\+A\+R\+R\+A\+Y@{G\+F\+X\+\_\+\+A\+L\+P\+H\+A\+\_\+\+A\+D\+J\+U\+S\+T\+\_\+\+A\+R\+R\+A\+Y}}
+\index{G\+F\+X\+\_\+\+A\+L\+P\+H\+A\+\_\+\+A\+D\+J\+U\+S\+T\+\_\+\+A\+R\+R\+A\+Y@{G\+F\+X\+\_\+\+A\+L\+P\+H\+A\+\_\+\+A\+D\+J\+U\+S\+T\+\_\+\+A\+R\+R\+A\+Y}!S\+D\+L\+\_\+gfx\+Blit\+Func.\+h@{S\+D\+L\+\_\+gfx\+Blit\+Func.\+h}}
+\subsubsection[{G\+F\+X\+\_\+\+A\+L\+P\+H\+A\+\_\+\+A\+D\+J\+U\+S\+T\+\_\+\+A\+R\+R\+A\+Y}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int G\+F\+X\+\_\+\+A\+L\+P\+H\+A\+\_\+\+A\+D\+J\+U\+S\+T\+\_\+\+A\+R\+R\+A\+Y\mbox{[}256\mbox{]}}\label{_s_d_l__gfx_blit_func_8h_a6d0c17342154e14322a281603960691a}
+
+
+Alpha adjustment table for custom blitter. 
+
+The table provides values for a modified, non-\/linear transfer function which maintain brightness. 
+
+Definition at line 39 of file S\+D\+L\+\_\+gfx\+Blit\+Func.\+c.
+
