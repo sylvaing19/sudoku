@@ -20,7 +20,7 @@ InterfaceGraphique::InterfaceGraphique()
 
     //La taille de l'ecran se recupere sur les infos
 	/*tailleX = 800;
-	tailleY = 400;*/
+	tailleY = 400;/*/
 	tailleX=infosUser->current_w;
 	tailleY=infosUser->current_h;
 
@@ -117,6 +117,7 @@ void InterfaceGraphique::resoudre()
 	//Resolution
 	if (grille.completer()) // Si on a reussi
 	{
+        score.stopTimer();
         if(!finiSansResoudre)
             score.removeScore(score.getScore());
 
@@ -726,7 +727,7 @@ void InterfaceGraphique::grilleAleatoire()
 
 	//paramètres du bouton medium
 	{
-		boutonMedium.positionBouton.x = ((tailleX/9+ boutonEasy.positionBouton.w+boutonEasy.positionBouton.x)* zoomX);
+		boutonMedium.positionBouton.x = (tailleX/9*zoomX+ boutonEasy.positionBouton.w+boutonEasy.positionBouton.x);
 		boutonMedium.positionBouton.y = (tailleY/3 * zoomX);
 		std::string a = "images/BoutonMenu.bmp";
 		boutonMedium.nomImageBouton = a;
@@ -742,7 +743,7 @@ void InterfaceGraphique::grilleAleatoire()
 
 	//paramètres du bouton hard
 	{
-		boutonHard.positionBouton.x = ((tailleX/9+ boutonMedium.positionBouton.w+boutonMedium.positionBouton.x)* zoomX);
+		boutonHard.positionBouton.x = (tailleX/9* zoomX)+ boutonMedium.positionBouton.w+boutonMedium.positionBouton.x;
 		boutonHard.positionBouton.y = (tailleY/3 * zoomX);
 		std::string a = "images/BoutonMenu.bmp";
 		boutonHard.nomImageBouton = a;
@@ -1146,14 +1147,14 @@ void InterfaceGraphique::animationFin()
     SDL_Flip(fond);
 	SDL_Delay(700);
 
-    positionArtifice.x = (tailleX ) / (rand()%9+2);
-	positionArtifice.y = (tailleY ) / (rand()%9+2);
-	positionArtifice2.x=  (tailleX) *(rand()%9+2)/15;
-	positionArtifice2.y=  (tailleY) *(rand()%9+2)/12;
-    positionArtifice3.x = (tailleX ) /(rand()%9+2);
-	positionArtifice3.y = (tailleY ) / (rand()%9+2);
-    positionArtifice4.x = (tailleX ) / (rand()%9+2)/16;
-	positionArtifice4.y = (tailleY )*(rand()%9+2)/20;
+    positionArtifice.x =  (tailleX) *(rand()%10+1)/10;
+	positionArtifice.y =  (tailleY) *(rand()%10+1)/10;
+	positionArtifice2.x=  (tailleX) *(rand()%10+1)/10;
+	positionArtifice2.y=  (tailleY) *(rand()%10+1)/10;
+    positionArtifice3.x = (tailleX) *(rand()%10+1)/10;
+	positionArtifice3.y = (tailleY) *(rand()%10+1)/10;
+    positionArtifice4.x = (tailleX) *(rand()%10+1)/10;
+	positionArtifice4.y = (tailleY) *(rand()%10+1)/10;
 
 	for(int i=7;i<19;i++)
 	{
