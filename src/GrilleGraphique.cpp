@@ -115,8 +115,6 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 	positionSudokuVierge.x = tailleX / 2 - ((imageSudokuVierge->w)) / 2 * zoomX;
 	positionSudokuVierge.y = tailleY / 2 - ((imageSudokuVierge->h)) / 2 * zoomY;
 
-	//booleen verifiant l'existance d'erreur
-	erreurExistante = false;
 
 	SDL_SetColorKey(imageSudokuVierge, SDL_SRCCOLORKEY, SDL_MapRGB(imageSudokuVierge->format, 255, 255, 255)); // met le blanc en transparent pour le sudoku
 	imageSudokuVierge = zoomSurface(imageSudokuVierge, zoomX, zoomY, 0);
@@ -131,6 +129,11 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 
 void GrilleGraphique::afficherIndice()
 {
+
+
+	//booleen verifiant l'existance d'erreur
+	erreurExistante = false;
+
 	// Sauvegarde des positions
 	int posX = positionSudokuVierge.x + (58 - 47) / 2 * zoomX;
 	int posY = positionSudokuVierge.y + (58 - 47) / 2 * zoomY;
@@ -167,7 +170,7 @@ void GrilleGraphique::afficherIndice()
 					erreurExistante = true;
 					sudokuBouton[ligne][colonne].chargerBouton();
 					SDL_Flip(fond);
-				}
+                }
 				else
 				{ // si il n'y a pas de veritable erreur mais que la valeur ne permet pas la resolution
 					if (valResolue>0 && valResolue <= 9)
@@ -184,6 +187,7 @@ void GrilleGraphique::afficherIndice()
 							sudokuBouton[ligne][colonne].modifieErreur = false;
 						}
 				}
+
 			}
 
 			//On verifie si la grille est solvable, si non, on met la valeur en rouge
