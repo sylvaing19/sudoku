@@ -32,7 +32,8 @@ InterfaceGraphique::InterfaceGraphique()
     SDL_WM_SetCaption("SuDoKu-Solver", NULL);
     TTF_Init();
 
-	fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
+	fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_FULLSCREEN
+); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
 
 	couleurN = { 1, 1, 1 };
 	couleurB = { 0, 0, 255 };
@@ -188,7 +189,7 @@ void InterfaceGraphique::initBoutonsMenuPrincipal()
 {
     //gestion du zoom, de la taille
     initFondZoomTailleBouton(boutonMenu1);
-    initFondZoomTailleBouton(boutonMenu2);
+  //  initFondZoomTailleBouton(boutonMenu2);
     initFondZoomTailleBouton(boutonQuitter);
 
     //paramètres du bouton 1
@@ -208,7 +209,7 @@ void InterfaceGraphique::initBoutonsMenuPrincipal()
                                       +positionTitre.y+imageTitre->h)*zoomX;
     }
     boutonMenu1.chargerBouton();
-
+/*
     //paramètres du bouton 2
     {
         std::string a="images/BoutonMenu.bmp";
@@ -223,7 +224,7 @@ void InterfaceGraphique::initBoutonsMenuPrincipal()
         boutonMenu2.centreX="oui";
         boutonMenu2.positionBouton.y+=(boutonMenu1.positionBouton.y+(boutonMenu1.imageBouton->h)*3/2);
     }
-    boutonMenu2.chargerBouton();
+    boutonMenu2.chargerBouton();*/
 
     //paramètres du bouton quitter
     {
@@ -311,7 +312,7 @@ void InterfaceGraphique::initBoutonsMenuResoudre()
 void InterfaceGraphique::chargerBoutonsMenuPrincipal()
 {
     boutonQuitter.chargerBouton();
-    boutonMenu2.chargerBouton();
+   // boutonMenu2.chargerBouton();
     boutonMenu1.chargerBouton();
 }
 
@@ -414,10 +415,10 @@ void InterfaceGraphique::eventMenuPrincipal()
 			}
 
 			//clic sur le menu 2
-			else if (boutonMenu2.estClique(event))
+			/*else if (boutonMenu2.estClique(event))
 			{
 				boutonMenu2=eventBoutonClique(boutonMenu2);
-			}
+			}*/
 			break;
 		default:
 			;

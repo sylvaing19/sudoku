@@ -145,9 +145,25 @@ void GrilleGraphique::afficherIndice()
 		for (int colonne = 0; colonne<9; colonne++)
 		{
 			int8_t val = grille.getLC(ligne, colonne);
+            int8_t valResolue = grilleResolue.getLC(ligne, colonne);
+
 			if (val>0 && val <= 9)
 			{//On prend la valeur
-				if (!grille.estPlacable(val, ligne, colonne))// Si il y a une erreur
+
+			// si la case est placable mais a été categorisée comme fausse precedement
+                if ( ( grille.estPlacable(val, ligne, colonne)  ||  valResolue == val )
+                        && sudokuBouton[ligne][colonne].couleurTexteBouton.r==couleurR.r
+                        && sudokuBouton[ligne][colonne].couleurTexteBouton.g==couleurR.g
+                        && sudokuBouton[ligne][colonne].couleurTexteBouton.b==couleurR.b )// Si il y a une erreur
+                {
+                    if(sudokuBouton[ligne][colonne].modifieParUser)
+                        sudokuBouton[ligne][colonne].couleurTexteBouton = couleurB;
+                    else
+                        sudokuBouton[ligne][colonne].couleurTexteBouton = couleurN;
+                    sudokuBouton[ligne][colonne].chargerBouton();
+					SDL_Flip(fond);
+                }
+                if (!grille.estPlacable(val, ligne, colonne))// Si il y a une erreur
 				{
 					sudokuBouton[ligne][colonne].couleurTexteBouton = couleurR;
 					sudokuBouton[ligne][colonne].modifieErreur = true;
@@ -157,7 +173,6 @@ void GrilleGraphique::afficherIndice()
                 }
 				else
 				{ // si il n'y a pas de veritable erreur mais que la valeur ne permet pas la resolution
-					int8_t valResolue = grilleResolue.getLC(ligne, colonne);
 					if (valResolue>0 && valResolue <= 9)
 						if (!(valResolue == val))
 						{
