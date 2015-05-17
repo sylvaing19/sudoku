@@ -19,6 +19,8 @@ sudoku.layout
 **/*.filters
 **/*.user
 **/*.opensdf
-**/*.txt
 sudoku/sudoku/Debug/
 sudoku/sudoku/Release/
+
+#Fichiers de photoshop
+*.psd
