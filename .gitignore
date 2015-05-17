@@ -8,6 +8,7 @@ bin/
 obj/
 sudoku.depend
 sudoku.layout
+**/LICENSE.*
 
 
 #Fichiers de Visual Studio
@@ -21,6 +22,8 @@ sudoku.layout
 **/*.opensdf
 sudoku/sudoku/Debug/
 sudoku/sudoku/Release/
+sudoku/Debug/
+sudoku/Release/
 
 #Fichiers de photoshop
 *.psd
