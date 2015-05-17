@@ -20,7 +20,7 @@ InterfaceGraphique::InterfaceGraphique()
 
     //La taille de l'ecran se recupere sur les infos
 	/*tailleX = 800;
-	tailleY = 400;*/
+	tailleY = 400;/*/
 	tailleX=infosUser->current_w;
 	tailleY=infosUser->current_h;
 
@@ -32,7 +32,8 @@ InterfaceGraphique::InterfaceGraphique()
     SDL_WM_SetCaption("SuDoKu-Solver", NULL);
     TTF_Init();
 
-	fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
+	fond = SDL_SetVideoMode(tailleX, tailleY, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_FULLSCREEN
+); //Definition du fond : fullscreen, etc  | SDL_FULLSCREEN
 
 	couleurN = { 1, 1, 1 };
 	couleurB = { 0, 0, 255 };
@@ -117,6 +118,7 @@ void InterfaceGraphique::resoudre()
 	//Resolution
 	if (grille.completer()) // Si on a reussi
 	{
+        score.stopTimer();
         if(!finiSansResoudre)
             score.removeScore(score.getScore());
 
@@ -187,7 +189,7 @@ void InterfaceGraphique::initBoutonsMenuPrincipal()
 {
     //gestion du zoom, de la taille
     initFondZoomTailleBouton(boutonMenu1);
-    initFondZoomTailleBouton(boutonMenu2);
+  //  initFondZoomTailleBouton(boutonMenu2);
     initFondZoomTailleBouton(boutonQuitter);
 
     //paramètres du bouton 1
@@ -207,7 +209,7 @@ void InterfaceGraphique::initBoutonsMenuPrincipal()
                                       +positionTitre.y+imageTitre->h)*zoomX;
     }
     boutonMenu1.chargerBouton();
-
+/*
     //paramètres du bouton 2
     {
         std::string a="images/BoutonMenu.bmp";
@@ -222,7 +224,7 @@ void InterfaceGraphique::initBoutonsMenuPrincipal()
         boutonMenu2.centreX="oui";
         boutonMenu2.positionBouton.y+=(boutonMenu1.positionBouton.y+(boutonMenu1.imageBouton->h)*3/2);
     }
-    boutonMenu2.chargerBouton();
+    boutonMenu2.chargerBouton();*/
 
     //paramètres du bouton quitter
     {
@@ -310,7 +312,7 @@ void InterfaceGraphique::initBoutonsMenuResoudre()
 void InterfaceGraphique::chargerBoutonsMenuPrincipal()
 {
     boutonQuitter.chargerBouton();
-    boutonMenu2.chargerBouton();
+   // boutonMenu2.chargerBouton();
     boutonMenu1.chargerBouton();
 }
 
@@ -413,10 +415,10 @@ void InterfaceGraphique::eventMenuPrincipal()
 			}
 
 			//clic sur le menu 2
-			else if (boutonMenu2.estClique(event))
+			/*else if (boutonMenu2.estClique(event))
 			{
 				boutonMenu2=eventBoutonClique(boutonMenu2);
-			}
+			}*/
 			break;
 		default:
 			;
@@ -726,7 +728,7 @@ void InterfaceGraphique::grilleAleatoire()
 
 	//paramètres du bouton medium
 	{
-		boutonMedium.positionBouton.x = ((tailleX/9+ boutonEasy.positionBouton.w+boutonEasy.positionBouton.x)* zoomX);
+		boutonMedium.positionBouton.x = (tailleX/9*zoomX+ boutonEasy.positionBouton.w+boutonEasy.positionBouton.x);
 		boutonMedium.positionBouton.y = (tailleY/3 * zoomX);
 		std::string a = "images/BoutonMenu.bmp";
 		boutonMedium.nomImageBouton = a;
@@ -742,7 +744,7 @@ void InterfaceGraphique::grilleAleatoire()
 
 	//paramètres du bouton hard
 	{
-		boutonHard.positionBouton.x = ((tailleX/9+ boutonMedium.positionBouton.w+boutonMedium.positionBouton.x)* zoomX);
+		boutonHard.positionBouton.x = (tailleX/9* zoomX)+ boutonMedium.positionBouton.w+boutonMedium.positionBouton.x;
 		boutonHard.positionBouton.y = (tailleY/3 * zoomX);
 		std::string a = "images/BoutonMenu.bmp";
 		boutonHard.nomImageBouton = a;
@@ -1146,14 +1148,14 @@ void InterfaceGraphique::animationFin()
     SDL_Flip(fond);
 	SDL_Delay(700);
 
-    positionArtifice.x = (tailleX ) / (rand()%9+2);
-	positionArtifice.y = (tailleY ) / (rand()%9+2);
-	positionArtifice2.x=  (tailleX) *(rand()%9+2)/15;
-	positionArtifice2.y=  (tailleY) *(rand()%9+2)/12;
-    positionArtifice3.x = (tailleX ) /(rand()%9+2);
-	positionArtifice3.y = (tailleY ) / (rand()%9+2);
-    positionArtifice4.x = (tailleX ) / (rand()%9+2)/16;
-	positionArtifice4.y = (tailleY )*(rand()%9+2)/20;
+    positionArtifice.x =  (tailleX) *(rand()%10+1)/10;
+	positionArtifice.y =  (tailleY) *(rand()%10+1)/10;
+	positionArtifice2.x=  (tailleX) *(rand()%10+1)/10;
+	positionArtifice2.y=  (tailleY) *(rand()%10+1)/10;
+    positionArtifice3.x = (tailleX) *(rand()%10+1)/10;
+	positionArtifice3.y = (tailleY) *(rand()%10+1)/10;
+    positionArtifice4.x = (tailleX) *(rand()%10+1)/10;
+	positionArtifice4.y = (tailleY) *(rand()%10+1)/10;
 
 	for(int i=7;i<19;i++)
 	{
