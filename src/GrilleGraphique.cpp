@@ -226,13 +226,29 @@ bool GrilleGraphique::estComplete()
 	{
 		for (int colonne = 0; colonne<9; colonne++)
 		{
-			if (sudokuBouton[ligne][colonne].messageBouton  != "0")
+            if( sudokuBouton[ligne][colonne].messageBouton == " ")
 				estComplete=false;
 		}
 	}
 	if(estComplete)
-        ;
+        printf("Grille finie ! ");
 	return estComplete;
+}
+
+bool GrilleGraphique::estCorrecte(GrilleGraphique resolue)
+{
+	bool estCorrecte = true;
+	for (int ligne = 0; ligne<9; ligne++)
+	{
+		for (int colonne = 0; colonne<9; colonne++)
+		{
+            if( sudokuBouton[ligne][colonne].messageBouton != resolue.sudokuBouton[ligne][colonne].messageBouton )
+				estCorrecte=false;
+		}
+	}
+	if(estCorrecte)
+        printf("Grille correcte ! ");
+	return estCorrecte;
 }
 
 void GrilleGraphique::afficherGrille()
