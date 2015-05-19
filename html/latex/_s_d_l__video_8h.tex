@@ -1,0 +1,1268 @@
+\hypertarget{_s_d_l__video_8h}{}\section{S\+D\+L-\/1.2.15/include/\+S\+D\+L\+\_\+video.h File Reference}
+\label{_s_d_l__video_8h}\index{S\+D\+L-\/1.\+2.\+15/include/\+S\+D\+L\+\_\+video.\+h@{S\+D\+L-\/1.\+2.\+15/include/\+S\+D\+L\+\_\+video.\+h}}
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+stdinc.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+error.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+rwops.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect}
+\item 
+struct \hyperlink{struct_s_d_l___color}{S\+D\+L\+\_\+\+Color}
+\item 
+struct \hyperlink{struct_s_d_l___palette}{S\+D\+L\+\_\+\+Palette}
+\item 
+struct \hyperlink{struct_s_d_l___pixel_format}{S\+D\+L\+\_\+\+Pixel\+Format}
+\item 
+struct \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface}
+\item 
+struct \hyperlink{struct_s_d_l___video_info}{S\+D\+L\+\_\+\+Video\+Info}
+\item 
+struct \hyperlink{struct_s_d_l___overlay}{S\+D\+L\+\_\+\+Overlay}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_s_d_l__video_8h_a0bce24bb7b85d73c1f7328b176bd506f}{S\+D\+L\+\_\+\+M\+U\+S\+T\+L\+O\+C\+K}(surface)
+\item 
+\#define \hyperlink{_s_d_l__video_8h_aa800a80fc2278f1b392d4cdcd793d3e9}{S\+D\+L\+\_\+\+Alloc\+Surface}~\hyperlink{_s_d_l__video_8h_aac106bf796c828587cce76cb847d11ae}{S\+D\+L\+\_\+\+Create\+R\+G\+B\+Surface}
+\item 
+\#define \hyperlink{_s_d_l__video_8h_ae63aa646481001be542220a8733c3ce0}{S\+D\+L\+\_\+\+Load\+B\+M\+P}(file)~\hyperlink{_s_d_l__video_8h_aac1d1435b9fa8523d699c3a33264d559}{S\+D\+L\+\_\+\+Load\+B\+M\+P\+\_\+\+R\+W}(\hyperlink{_s_d_l__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{S\+D\+L\+\_\+\+R\+W\+From\+File}(file, \char`\"{}rb\char`\"{}), 1)
+\item 
+\#define \hyperlink{_s_d_l__video_8h_a425e7a69acbdf2bd9ba46d332d917320}{S\+D\+L\+\_\+\+Save\+B\+M\+P}(surface,  file)~\hyperlink{_s_d_l__video_8h_aadc126a4edeafb5033d5e942cf32db6a}{S\+D\+L\+\_\+\+Save\+B\+M\+P\+\_\+\+R\+W}(surface, \hyperlink{_s_d_l__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{S\+D\+L\+\_\+\+R\+W\+From\+File}(file, \char`\"{}wb\char`\"{}), 1)
+\item 
+\#define \hyperlink{_s_d_l__video_8h_aad8d7ebe5e953593cb7d91373e73ba9a}{S\+D\+L\+\_\+\+Blit\+Surface}~\hyperlink{_s_d_l__video_8h_a6f9b0bc3c7b6495894af65ccebfae90e}{S\+D\+L\+\_\+\+Upper\+Blit}
+\end{DoxyCompactItemize}
+\begin{Indent}{\bf Transparency definitions}\par
+{\em These define alpha as the opacity of a surface }\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_s_d_l__video_8h_a5d933eb0233ca33d598800f33ef43376}{S\+D\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+O\+P\+A\+Q\+U\+E}~255
+\item 
+\#define \hyperlink{_s_d_l__video_8h_a604d4b3b28add80eb4824ffd083d3ef4}{S\+D\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+T\+R\+A\+N\+S\+P\+A\+R\+E\+N\+T}~0
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf S\+D\+L\+\_\+\+Surface Flags}\par
+{\em These are the currently supported flags for the S\+D\+L\+\_\+surface }\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_s_d_l__video_8h_a59c7111f96872f973d0f058362761776}{S\+D\+L\+\_\+\+S\+W\+S\+U\+R\+F\+A\+C\+E}~0x00000000
+\item 
+\#define \hyperlink{_s_d_l__video_8h_ac96afe7a08477c328bc0f3dbf483b756}{S\+D\+L\+\_\+\+H\+W\+S\+U\+R\+F\+A\+C\+E}~0x00000001
+\item 
+\#define \hyperlink{_s_d_l__video_8h_a47b116b3ee7ccbe0f2af7132d30c7c3d}{S\+D\+L\+\_\+\+A\+S\+Y\+N\+C\+B\+L\+I\+T}~0x00000004
+\end{DoxyCompactItemize}
+\end{Indent}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_s_d_l__video_8h_af6bb568980ebb32b7d75636c0d8ac52f}{S\+D\+L\+\_\+\+A\+N\+Y\+F\+O\+R\+M\+A\+T}~0x10000000
+\item 
+\#define \hyperlink{_s_d_l__video_8h_a35ce56a732020a782fb150e2cb04a16c}{S\+D\+L\+\_\+\+H\+W\+P\+A\+L\+E\+T\+T\+E}~0x20000000
+\item 
+\#define \hyperlink{_s_d_l__video_8h_a60caadae566ee82f98caa82ae6442414}{S\+D\+L\+\_\+\+D\+O\+U\+B\+L\+E\+B\+U\+F}~0x40000000
+\item 
+\#define \hyperlink{_s_d_l__video_8h_ad113101076cec2715ac629d0b2eb44ad}{S\+D\+L\+\_\+\+F\+U\+L\+L\+S\+C\+R\+E\+E\+N}~0x80000000
+\item 
+\#define \hyperlink{_s_d_l__video_8h_af2cb4a2748fc1095ea5f7710abf3e348}{S\+D\+L\+\_\+\+O\+P\+E\+N\+G\+L}~0x00000002
+\item 
+\#define \hyperlink{_s_d_l__video_8h_a93c109785d84311b4bd17b28577ac3de}{S\+D\+L\+\_\+\+O\+P\+E\+N\+G\+L\+B\+L\+I\+T}~0x0000000\+A
+\item 
+\#define \hyperlink{_s_d_l__video_8h_a2d7176bad10adae1594494ced111a4d2}{S\+D\+L\+\_\+\+R\+E\+S\+I\+Z\+A\+B\+L\+E}~0x00000010
+\item 
+\#define \hyperlink{_s_d_l__video_8h_ab83b5ff570038ceff6da669720cfa826}{S\+D\+L\+\_\+\+N\+O\+F\+R\+A\+M\+E}~0x00000020
+\end{DoxyCompactItemize}
+
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_s_d_l__video_8h_ac6d875e661ba09d5bf1ab5be76ea4250}{S\+D\+L\+\_\+\+H\+W\+A\+C\+C\+E\+L}~0x00000100
+\item 
+\#define \hyperlink{_s_d_l__video_8h_aa751d435ed0e4f6a0dd94bf05c070439}{S\+D\+L\+\_\+\+S\+R\+C\+C\+O\+L\+O\+R\+K\+E\+Y}~0x00001000
+\item 
+\#define \hyperlink{_s_d_l__video_8h_a6f8fadc5d095634b9717c0d7ba858a45}{S\+D\+L\+\_\+\+R\+L\+E\+A\+C\+C\+E\+L\+O\+K}~0x00002000
+\item 
+\#define \hyperlink{_s_d_l__video_8h_a3b3d53ad7ba0b7294ca25251d88d40fb}{S\+D\+L\+\_\+\+R\+L\+E\+A\+C\+C\+E\+L}~0x00004000
+\item 
+\#define \hyperlink{_s_d_l__video_8h_af3239de7885d1b3eb045a88e130d3575}{S\+D\+L\+\_\+\+S\+R\+C\+A\+L\+P\+H\+A}~0x00010000
+\item 
+\#define \hyperlink{_s_d_l__video_8h_a4a5f795a69ac626fba73c4bd0bfd9626}{S\+D\+L\+\_\+\+P\+R\+E\+A\+L\+L\+O\+C}~0x01000000
+\end{DoxyCompactItemize}
+
+\begin{Indent}{\bf Overlay Formats}\par
+{\em The most common video overlay formats. For an explanation of these pixel formats, see\+: \href{http://www.webartz.com/fourcc/indexyuv.htm}{\tt http\+://www.\+webartz.\+com/fourcc/indexyuv.\+htm}
+
+For information on the relationship between color spaces, see\+: \href{http://www.neuro.sfc.keio.ac.jp/~aly/polygon/info/color-space-faq.html}{\tt http\+://www.\+neuro.\+sfc.\+keio.\+ac.\+jp/$\sim$aly/polygon/info/color-\/space-\/faq.\+html} }\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_s_d_l__video_8h_ab5f4d08ed249ba1b3edc253a0e79778b}{S\+D\+L\+\_\+\+Y\+V12\+\_\+\+O\+V\+E\+R\+L\+A\+Y}~0x32315659
+\item 
+\#define \hyperlink{_s_d_l__video_8h_a9e41f272610649ee0fee58029eeb1c23}{S\+D\+L\+\_\+\+I\+Y\+U\+V\+\_\+\+O\+V\+E\+R\+L\+A\+Y}~0x56555949
+\item 
+\#define \hyperlink{_s_d_l__video_8h_a3f2d61b3a4e8fdf1c489a5159ddc9564}{S\+D\+L\+\_\+\+Y\+U\+Y2\+\_\+\+O\+V\+E\+R\+L\+A\+Y}~0x32595559
+\item 
+\#define \hyperlink{_s_d_l__video_8h_a10c8c4d78982fb5df0951e6bc291743f}{S\+D\+L\+\_\+\+U\+Y\+V\+Y\+\_\+\+O\+V\+E\+R\+L\+A\+Y}~0x59565955
+\item 
+\#define \hyperlink{_s_d_l__video_8h_a06ec7684b45eb880714141eefbf66eb8}{S\+D\+L\+\_\+\+Y\+V\+Y\+U\+\_\+\+O\+V\+E\+R\+L\+A\+Y}~0x55595659
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf flags for S\+D\+L\+\_\+\+Set\+Palette()}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_s_d_l__video_8h_a721065ea8fe651200aab7af9e0fcb3cc}{S\+D\+L\+\_\+\+L\+O\+G\+P\+A\+L}~0x01
+\item 
+\#define \hyperlink{_s_d_l__video_8h_a6b82552312c695a75a9f4046436c1679}{S\+D\+L\+\_\+\+P\+H\+Y\+S\+P\+A\+L}~0x02
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct_s_d_l___pixel_format}{S\+D\+L\+\_\+\+Pixel\+Format} \hyperlink{_s_d_l__video_8h_a9e5dc2921ca058ecb7cbe15ff38248e2}{S\+D\+L\+\_\+\+Pixel\+Format}
+\item 
+typedef struct \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} \hyperlink{_s_d_l__video_8h_a32471ad028ae3d2a132302bc5efcb1ee}{S\+D\+L\+\_\+\+Surface}
+\item 
+typedef int($\ast$ \hyperlink{_s_d_l__video_8h_a28fe7ff2a357ef0c078db3290a44df41}{S\+D\+L\+\_\+blit}) (struct \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a72e0fdf0f845ded60b1fada9e9195cd7}{src}, \hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} $\ast$srcrect, struct \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} $\ast$dstrect)
+\item 
+typedef struct \hyperlink{struct_s_d_l___video_info}{S\+D\+L\+\_\+\+Video\+Info} \hyperlink{_s_d_l__video_8h_a7a6c28c396b5b87b3adc1bde63c80381}{S\+D\+L\+\_\+\+Video\+Info}
+\item 
+typedef struct \hyperlink{struct_s_d_l___overlay}{S\+D\+L\+\_\+\+Overlay} \hyperlink{_s_d_l__video_8h_ae819ecf00f0fbd952c5645ff69f87ac4}{S\+D\+L\+\_\+\+Overlay}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4}{S\+D\+L\+\_\+\+G\+Lattr} \{ \\*
+\hyperlink{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4ab91e9b7978b6d2c62291b9d7e88a1903}{S\+D\+L\+\_\+\+G\+L\+\_\+\+R\+E\+D\+\_\+\+S\+I\+Z\+E}, 
+\hyperlink{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4af32b5125f656487de9d3c1600c6e4eb9}{S\+D\+L\+\_\+\+G\+L\+\_\+\+G\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E}, 
+\hyperlink{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4aa7f058249f389ebba59f5d3cb00d7806}{S\+D\+L\+\_\+\+G\+L\+\_\+\+B\+L\+U\+E\+\_\+\+S\+I\+Z\+E}, 
+\hyperlink{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4abe24aa11a8007880290835e7eb07d5d7}{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+S\+I\+Z\+E}, 
+\\*
+\hyperlink{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4ac41c21ee24979f52471afd0712ee08c4}{S\+D\+L\+\_\+\+G\+L\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}, 
+\hyperlink{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a28c3841afe3b66ab86a267bf5d0a28e0}{S\+D\+L\+\_\+\+G\+L\+\_\+\+D\+O\+U\+B\+L\+E\+B\+U\+F\+F\+E\+R}, 
+\hyperlink{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4addf8f9d5c6d217954b14ece543dcbf17}{S\+D\+L\+\_\+\+G\+L\+\_\+\+D\+E\+P\+T\+H\+\_\+\+S\+I\+Z\+E}, 
+\hyperlink{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a29dc7e9872be52f3327a452b6875c102}{S\+D\+L\+\_\+\+G\+L\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+S\+I\+Z\+E}, 
+\\*
+\hyperlink{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4ae43ed10c33a2cc5b98a8c3d71e94ba43}{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+R\+E\+D\+\_\+\+S\+I\+Z\+E}, 
+\hyperlink{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a901dce8f81e72cd6c0efa1f32ac96c2d}{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+G\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E}, 
+\hyperlink{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4acc5dc0cb2c0e9e16d64dbdbde177d775}{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+B\+L\+U\+E\+\_\+\+S\+I\+Z\+E}, 
+\hyperlink{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a4c35a77fa9c78ac60997b3c15e158b2e}{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+A\+L\+P\+H\+A\+\_\+\+S\+I\+Z\+E}, 
+\\*
+\hyperlink{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a7d51f1f66a480883c5e7a7d58f668d72}{S\+D\+L\+\_\+\+G\+L\+\_\+\+S\+T\+E\+R\+E\+O}, 
+\hyperlink{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a83d7d3086480baed28bed6be4dadc8bf}{S\+D\+L\+\_\+\+G\+L\+\_\+\+M\+U\+L\+T\+I\+S\+A\+M\+P\+L\+E\+B\+U\+F\+F\+E\+R\+S}, 
+\hyperlink{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a54761551da12a1de15e2f844c70d19ad}{S\+D\+L\+\_\+\+G\+L\+\_\+\+M\+U\+L\+T\+I\+S\+A\+M\+P\+L\+E\+S\+A\+M\+P\+L\+E\+S}, 
+\hyperlink{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4ac48c7a4cf9eff0fa154878988b6697db}{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+E\+D\+\_\+\+V\+I\+S\+U\+A\+L}, 
+\\*
+\hyperlink{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a1c4b6dc12f92d91c6b38dd0be8290eef}{S\+D\+L\+\_\+\+G\+L\+\_\+\+S\+W\+A\+P\+\_\+\+C\+O\+N\+T\+R\+O\+L}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} char $\ast$\hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a2750e9681ab7b493ab730f4aca2d1cc9}{S\+D\+L\+\_\+\+Video\+Driver\+Name} (char $\ast$namebuf, int maxlen)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_ac502be87203c942ab06cbb18ae65abfc}{S\+D\+L\+\_\+\+Get\+Video\+Surface} (\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} const \hyperlink{struct_s_d_l___video_info}{S\+D\+L\+\_\+\+Video\+Info} $\ast$\hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_ae7ce182f8b24961efc6d1a8260c50ffd}{S\+D\+L\+\_\+\+Get\+Video\+Info} (\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a5021ea314f3db53664a3703670d82b0d}{S\+D\+L\+\_\+\+Video\+Mode\+O\+K} (int \hyperlink{_s_d_l__opengl_8h_a3ce386e55bbeb900c1b23e064b89bd04}{width}, int \hyperlink{_s_d_l__opengl_8h_aedd0ea77029b98ce91e47c19addcb68f}{height}, int bpp, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} flags)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} $\ast$$\ast$\hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a42252a3fc90d8dcaf727c4bddab1e3fd}{S\+D\+L\+\_\+\+List\+Modes} (\hyperlink{struct_s_d_l___pixel_format}{S\+D\+L\+\_\+\+Pixel\+Format} $\ast$\hyperlink{_s_d_l__opengl_8h_ae2d3db041c6004a67047659b42f73a44}{format}, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} flags)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a6ef2b117d8295ba60dc07d038fead288}{S\+D\+L\+\_\+\+Set\+Video\+Mode} (int \hyperlink{_s_d_l__opengl_8h_a3ce386e55bbeb900c1b23e064b89bd04}{width}, int \hyperlink{_s_d_l__opengl_8h_aedd0ea77029b98ce91e47c19addcb68f}{height}, int bpp, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} flags)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a3fb4f43ce7a5032d7e8ac778f3dacd7f}{S\+D\+L\+\_\+\+Flip} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$screen)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_acbf56583f5807bd45812bacd8a4b99b4}{S\+D\+L\+\_\+\+Set\+Gamma} (float red, float \hyperlink{_s_d_l__opengl_8h_ac57fb4e15aa855fa227d97909b37ed5b}{green}, float \hyperlink{_s_d_l__opengl_8h_af7c76492ef0f7ddda2f5f079041e5a8e}{blue})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a68a1f804962104530584410a51fc745f}{S\+D\+L\+\_\+\+Set\+Gamma\+Ramp} (const \hyperlink{_s_d_l__stdinc_8h_a31fcc0a076c9068668173ee26d33e42b}{Uint16} $\ast$red, const \hyperlink{_s_d_l__stdinc_8h_a31fcc0a076c9068668173ee26d33e42b}{Uint16} $\ast$\hyperlink{_s_d_l__opengl_8h_ac57fb4e15aa855fa227d97909b37ed5b}{green}, const \hyperlink{_s_d_l__stdinc_8h_a31fcc0a076c9068668173ee26d33e42b}{Uint16} $\ast$\hyperlink{_s_d_l__opengl_8h_af7c76492ef0f7ddda2f5f079041e5a8e}{blue})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a98ede6a1eb94d3b68413848629b675d3}{S\+D\+L\+\_\+\+Get\+Gamma\+Ramp} (\hyperlink{_s_d_l__stdinc_8h_a31fcc0a076c9068668173ee26d33e42b}{Uint16} $\ast$red, \hyperlink{_s_d_l__stdinc_8h_a31fcc0a076c9068668173ee26d33e42b}{Uint16} $\ast$\hyperlink{_s_d_l__opengl_8h_ac57fb4e15aa855fa227d97909b37ed5b}{green}, \hyperlink{_s_d_l__stdinc_8h_a31fcc0a076c9068668173ee26d33e42b}{Uint16} $\ast$\hyperlink{_s_d_l__opengl_8h_af7c76492ef0f7ddda2f5f079041e5a8e}{blue})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_ad2bec38aa7164bf5560a71a340ccd7aa}{S\+D\+L\+\_\+\+Set\+Colors} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$surface, \hyperlink{struct_s_d_l___color}{S\+D\+L\+\_\+\+Color} $\ast$colors, int firstcolor, int ncolors)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a54b145fcea4b9825a1464264301a1da7}{S\+D\+L\+\_\+\+Set\+Palette} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$surface, int flags, \hyperlink{struct_s_d_l___color}{S\+D\+L\+\_\+\+Color} $\ast$colors, int firstcolor, int ncolors)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a7aab2d186086a09d626378c53f209352}{S\+D\+L\+\_\+\+Map\+R\+G\+B} (const \hyperlink{struct_s_d_l___pixel_format}{S\+D\+L\+\_\+\+Pixel\+Format} $\ast$const \hyperlink{_s_d_l__opengl_8h_ae2d3db041c6004a67047659b42f73a44}{format}, const \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, const \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, const \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_ae9ad39309698067c7a8670ea01ba8a4c}{S\+D\+L\+\_\+\+Map\+R\+G\+B\+A} (const \hyperlink{struct_s_d_l___pixel_format}{S\+D\+L\+\_\+\+Pixel\+Format} $\ast$const \hyperlink{_s_d_l__opengl_8h_ae2d3db041c6004a67047659b42f73a44}{format}, const \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, const \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, const \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, const \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a4e883f7c9b17e4cdcef7c71e3a41df48}{S\+D\+L\+\_\+\+Get\+R\+G\+B} (\hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} pixel, const \hyperlink{struct_s_d_l___pixel_format}{S\+D\+L\+\_\+\+Pixel\+Format} $\ast$const fmt, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} $\ast$\hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} $\ast$\hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} $\ast$\hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a3dbc4a45554bf5ef48e064617e7b1da7}{S\+D\+L\+\_\+\+Get\+R\+G\+B\+A} (\hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} pixel, const \hyperlink{struct_s_d_l___pixel_format}{S\+D\+L\+\_\+\+Pixel\+Format} $\ast$const fmt, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} $\ast$\hyperlink{_s_d_l__opengl_8h_a31034e24af8271ed8267858116fe2e48}{r}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} $\ast$\hyperlink{_s_d_l__opengl_8h_acaceb3a655ff28b75259860bcb868f9f}{g}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} $\ast$\hyperlink{_s_d_l__opengl_8h_a0f71581a41fd2264c8944126dabbd010}{b}, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} $\ast$\hyperlink{_s_d_l__opengl_8h_a3309789fc188587d666cda5ece79cf82}{a})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_aac106bf796c828587cce76cb847d11ae}{S\+D\+L\+\_\+\+Create\+R\+G\+B\+Surface} (\hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} flags, int \hyperlink{_s_d_l__opengl_8h_a3ce386e55bbeb900c1b23e064b89bd04}{width}, int \hyperlink{_s_d_l__opengl_8h_aedd0ea77029b98ce91e47c19addcb68f}{height}, int \hyperlink{_s_d_l__opengl_8h_a1c814629538debe12a7bfe2509a3671e}{depth}, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} Rmask, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} Gmask, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} Bmask, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} Amask)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a25c74ddbc73538e9a4accb42e1c09971}{S\+D\+L\+\_\+\+Create\+R\+G\+B\+Surface\+From} (\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} $\ast$\hyperlink{_s_d_l__opengl_8h_a314ae25bb13f298e0aaff5f9637afff8}{pixels}, int \hyperlink{_s_d_l__opengl_8h_a3ce386e55bbeb900c1b23e064b89bd04}{width}, int \hyperlink{_s_d_l__opengl_8h_aedd0ea77029b98ce91e47c19addcb68f}{height}, int \hyperlink{_s_d_l__opengl_8h_a1c814629538debe12a7bfe2509a3671e}{depth}, int pitch, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} Rmask, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} Gmask, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} Bmask, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} Amask)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a7b8d4f9cc058822501896a2eed81220e}{S\+D\+L\+\_\+\+Free\+Surface} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$surface)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a3d1da1c7ecdaa461fac51a10785f5077}{S\+D\+L\+\_\+\+Lock\+Surface} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$surface)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a56b93f51358b55d7fc213a3ba9b02c24}{S\+D\+L\+\_\+\+Unlock\+Surface} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$surface)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_aac1d1435b9fa8523d699c3a33264d559}{S\+D\+L\+\_\+\+Load\+B\+M\+P\+\_\+\+R\+W} (\hyperlink{struct_s_d_l___r_wops}{S\+D\+L\+\_\+\+R\+Wops} $\ast$\hyperlink{_s_d_l__opengl_8h_a72e0fdf0f845ded60b1fada9e9195cd7}{src}, int freesrc)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_aadc126a4edeafb5033d5e942cf32db6a}{S\+D\+L\+\_\+\+Save\+B\+M\+P\+\_\+\+R\+W} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$surface, \hyperlink{struct_s_d_l___r_wops}{S\+D\+L\+\_\+\+R\+Wops} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, int freedst)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_adc7e866ce5cb8dd77974bdf4375c13ad}{S\+D\+L\+\_\+\+Set\+Color\+Key} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$surface, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} flag, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} key)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a81a9bae0b4a4ee36770eb3ba68e7b323}{S\+D\+L\+\_\+\+Set\+Alpha} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$surface, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} flag, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a1e566ae365860db53d0c241c526b52c3}{alpha})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__stdinc_8h_a8fca68df0f976765230fe589a7c7733b}{S\+D\+L\+\_\+bool} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a6cf2c30be55f51fe9e4faf97e3f8d08b}{S\+D\+L\+\_\+\+Set\+Clip\+Rect} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$surface, const \hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} $\ast$rect)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a7d7f71b94748a1b0db3b5b769834ed27}{S\+D\+L\+\_\+\+Get\+Clip\+Rect} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$surface, \hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} $\ast$rect)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a4098aa5d51f85c7a0c7d032737ce9e74}{S\+D\+L\+\_\+\+Convert\+Surface} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a72e0fdf0f845ded60b1fada9e9195cd7}{src}, \hyperlink{struct_s_d_l___pixel_format}{S\+D\+L\+\_\+\+Pixel\+Format} $\ast$fmt, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} flags)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a6f9b0bc3c7b6495894af65ccebfae90e}{S\+D\+L\+\_\+\+Upper\+Blit} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a72e0fdf0f845ded60b1fada9e9195cd7}{src}, \hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} $\ast$srcrect, \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} $\ast$dstrect)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a82bd1c0e0886d77e287207fe6351bf87}{S\+D\+L\+\_\+\+Lower\+Blit} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a72e0fdf0f845ded60b1fada9e9195cd7}{src}, \hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} $\ast$srcrect, \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} $\ast$dstrect)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a793f5101d80cf442790fcead1f9e45f7}{S\+D\+L\+\_\+\+Fill\+Rect} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} $\ast$dstrect, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} color)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a32cfda22be05857a99d7b65264109e07}{S\+D\+L\+\_\+\+Display\+Format} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$surface)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a5335421963a8fe82502903c4e5b9dd84}{S\+D\+L\+\_\+\+Display\+Format\+Alpha} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$surface)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a38a6d2af389294c32a3cca8bdd637790}{S\+D\+L\+\_\+\+Soft\+Stretch} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a72e0fdf0f845ded60b1fada9e9195cd7}{src}, \hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} $\ast$srcrect, \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a92034251bfd455d524a9b5610cddba00}{dst}, \hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} $\ast$dstrect)
+\end{DoxyCompactItemize}
+\begin{Indent}{\bf Video Init and Quit}\par
+{\em These functions are used internally, and should not be used unless you have a specific need to specify the video driver you want to use. You should normally use \hyperlink{_s_d_l_8h_a8fc8d35348d7c74bad8392d776c937b8}{S\+D\+L\+\_\+\+Init()} or \hyperlink{_s_d_l_8h_adfbfddc0ec609b5e5e5cb1c89298e4db}{S\+D\+L\+\_\+\+Init\+Sub\+System()}. }\begin{DoxyCompactItemize}
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a5f56f36b68b0f95bb715390b39af111d}{S\+D\+L\+\_\+\+Video\+Init} (const char $\ast$driver\+\_\+name, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} flags)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_ade5fc4847320fb235f17265b683fa013}{S\+D\+L\+\_\+\+Video\+Quit} (\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void})
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf S\+D\+L\+\_\+\+Update Functions}\par
+{\em These functions should not be called while \textquotesingle{}screen\textquotesingle{} is locked. }\begin{DoxyCompactItemize}
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a86a9e79d5178eee0e084099db4adb459}{S\+D\+L\+\_\+\+Update\+Rects} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$screen, int numrects, \hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} $\ast$rects)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_ace0326e8377f77eae661f4733a68f72d}{S\+D\+L\+\_\+\+Update\+Rect} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$screen, \hyperlink{_s_d_l__stdinc_8h_a7a90b941db9d4582e9ad7abb9940ff7e}{Sint32} \hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}, \hyperlink{_s_d_l__stdinc_8h_a7a90b941db9d4582e9ad7abb9940ff7e}{Sint32} \hyperlink{_s_d_l__opengl_8h_a6b933de812613e6b69cf9a98aacc9916}{y}, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} \hyperlink{_s_d_l__opengl_8h_ad47d000a8e40b26a33682e10ae32a1b6}{w}, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} h)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Y\+U\+V video surface overlay functions}\par
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{struct_s_d_l___overlay}{S\+D\+L\+\_\+\+Overlay} $\ast$\hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a9ad289eba60a09fdc59cf37b3bb488ae}{S\+D\+L\+\_\+\+Create\+Y\+U\+V\+Overlay} (int \hyperlink{_s_d_l__opengl_8h_a3ce386e55bbeb900c1b23e064b89bd04}{width}, int \hyperlink{_s_d_l__opengl_8h_aedd0ea77029b98ce91e47c19addcb68f}{height}, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} \hyperlink{_s_d_l__opengl_8h_ae2d3db041c6004a67047659b42f73a44}{format}, \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$display)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a55438076f93d0fe00905cb14569f8a0c}{S\+D\+L\+\_\+\+Lock\+Y\+U\+V\+Overlay} (\hyperlink{struct_s_d_l___overlay}{S\+D\+L\+\_\+\+Overlay} $\ast$overlay)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a1f16d6da4164bab7636fd8085ba23dce}{S\+D\+L\+\_\+\+Unlock\+Y\+U\+V\+Overlay} (\hyperlink{struct_s_d_l___overlay}{S\+D\+L\+\_\+\+Overlay} $\ast$overlay)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a06dddda830e801d6dd389d4ad8a2cf6c}{S\+D\+L\+\_\+\+Display\+Y\+U\+V\+Overlay} (\hyperlink{struct_s_d_l___overlay}{S\+D\+L\+\_\+\+Overlay} $\ast$overlay, \hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} $\ast$dstrect)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_ac31e4e0119d1c58b3a79d62a576af8ed}{S\+D\+L\+\_\+\+Free\+Y\+U\+V\+Overlay} (\hyperlink{struct_s_d_l___overlay}{S\+D\+L\+\_\+\+Overlay} $\ast$overlay)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Open\+G\+L support functions.}\par
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a398df9aaf43a69dc2cfaab5b306b8f91}{S\+D\+L\+\_\+\+G\+L\+\_\+\+Load\+Library} (const char $\ast$path)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} $\ast$\hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a6329bc32811639fe6f71606801cd9e7b}{S\+D\+L\+\_\+\+G\+L\+\_\+\+Get\+Proc\+Address} (const char $\ast$proc)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_aed4d4347f2d5def1532bc22893e0e0d9}{S\+D\+L\+\_\+\+G\+L\+\_\+\+Set\+Attribute} (\hyperlink{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4}{S\+D\+L\+\_\+\+G\+Lattr} attr, int \hyperlink{_s_d_l__opengl_8h_a6a4f8a1a444e9080b297963b3db29fe0}{value})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a611bbed6c7374329e1d1b9c31b06976d}{S\+D\+L\+\_\+\+G\+L\+\_\+\+Get\+Attribute} (\hyperlink{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4}{S\+D\+L\+\_\+\+G\+Lattr} attr, int $\ast$\hyperlink{_s_d_l__opengl_8h_a6a4f8a1a444e9080b297963b3db29fe0}{value})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_ac928f4440899850e2f1c773c3d38356d}{S\+D\+L\+\_\+\+G\+L\+\_\+\+Swap\+Buffers} (\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void})
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Open\+G\+L Internal Functions}\par
+{\em Internal functions that should not be called unless you have read and understood the source code for these functions. }\begin{DoxyCompactItemize}
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a97bf15b296228d9b86650227ab0cfefc}{S\+D\+L\+\_\+\+G\+L\+\_\+\+Update\+Rects} (int numrects, \hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} $\ast$rects)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_af83377afb9d9303ec831ae34e695f0ee}{S\+D\+L\+\_\+\+G\+L\+\_\+\+Lock} (\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a680b9667d535c557f36dcaca54f69687}{S\+D\+L\+\_\+\+G\+L\+\_\+\+Unlock} (\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void})
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Useful data types}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_s_d_l__video_8h_aceb6cb42789d5646f5206f02a07a36dc}{S\+D\+L\+\_\+\+Colour}~\hyperlink{struct_s_d_l___color}{S\+D\+L\+\_\+\+Color}
+\item 
+typedef struct \hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} \hyperlink{_s_d_l__video_8h_ab9e65f8131b4e7faad18d498e7dbde8c}{S\+D\+L\+\_\+\+Rect}
+\item 
+typedef struct \hyperlink{struct_s_d_l___color}{S\+D\+L\+\_\+\+Color} \hyperlink{_s_d_l__video_8h_a6c62a9e85197f93df21a6a4a9d36eb25}{S\+D\+L\+\_\+\+Color}
+\item 
+typedef struct \hyperlink{struct_s_d_l___palette}{S\+D\+L\+\_\+\+Palette} \hyperlink{_s_d_l__video_8h_a801e2814517a3e61daf86403d4dd1c6e}{S\+D\+L\+\_\+\+Palette}
+\end{DoxyCompactItemize}
+\subsection*{Window Manager Functions}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{_s_d_l__video_8h_ae199e83984ab7d3e2ebacc8541f7bb36}{S\+D\+L\+\_\+\+Grab\+Mode} \{ \hyperlink{_s_d_l__video_8h_ae199e83984ab7d3e2ebacc8541f7bb36a95937e0353c50af4c2d996adc616cdc2}{S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+Q\+U\+E\+R\+Y} = -\/1, 
+\hyperlink{_s_d_l__video_8h_ae199e83984ab7d3e2ebacc8541f7bb36aa6b78f1aba65a1cdc2ae9c5711d86e27}{S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+O\+F\+F} = 0, 
+\hyperlink{_s_d_l__video_8h_ae199e83984ab7d3e2ebacc8541f7bb36a5772a2d81a7b7c2805f330a44938a155}{S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+O\+N} = 1, 
+\hyperlink{_s_d_l__video_8h_ae199e83984ab7d3e2ebacc8541f7bb36a7446cf721805c7f1428d2a810025d56d}{S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+F\+U\+L\+L\+S\+C\+R\+E\+E\+N}
+ \}
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a3c68abe491c620fadb50d267d586b1bc}{S\+D\+L\+\_\+\+W\+M\+\_\+\+Set\+Caption} (const char $\ast$title, const char $\ast$icon)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a4b1425746427d78fa1b47f217a7b948f}{S\+D\+L\+\_\+\+W\+M\+\_\+\+Get\+Caption} (char $\ast$$\ast$title, char $\ast$$\ast$icon)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_ac16d7d1c3c6efdec28683c07a14634ef}{S\+D\+L\+\_\+\+W\+M\+\_\+\+Set\+Icon} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$icon, \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} $\ast$\hyperlink{_s_d_l__opengl_8h_a5612bf87afe1aa200ad412866de45c1f}{mask})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_af2cb0a180eda7245d21a5026f8e84d1b}{S\+D\+L\+\_\+\+W\+M\+\_\+\+Iconify\+Window} (\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_ac30e8923098e3b60647026ea06dc4016}{S\+D\+L\+\_\+\+W\+M\+\_\+\+Toggle\+Full\+Screen} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$surface)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__video_8h_ae199e83984ab7d3e2ebacc8541f7bb36}{S\+D\+L\+\_\+\+Grab\+Mode} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__video_8h_a3e8447321132e521521256ff78a0479d}{S\+D\+L\+\_\+\+W\+M\+\_\+\+Grab\+Input} (\hyperlink{_s_d_l__video_8h_ae199e83984ab7d3e2ebacc8541f7bb36}{S\+D\+L\+\_\+\+Grab\+Mode} \hyperlink{_s_d_l__opengl_8h_a1e71d9c196e4683cc06c4b54d53f7ef5}{mode})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header file for access to the S\+D\+L raw framebuffer window 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_s_d_l__video_8h_aa800a80fc2278f1b392d4cdcd793d3e9}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Alloc\+Surface@{S\+D\+L\+\_\+\+Alloc\+Surface}}
+\index{S\+D\+L\+\_\+\+Alloc\+Surface@{S\+D\+L\+\_\+\+Alloc\+Surface}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Alloc\+Surface}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+Alloc\+Surface~{\bf S\+D\+L\+\_\+\+Create\+R\+G\+B\+Surface}}\label{_s_d_l__video_8h_aa800a80fc2278f1b392d4cdcd793d3e9}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{_s_d_l__video_8h_aac106bf796c828587cce76cb847d11ae}{S\+D\+L\+\_\+\+Create\+R\+G\+B\+Surface} 
+\end{DoxySeeAlso}
+
+
+Definition at line 518 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_a5d933eb0233ca33d598800f33ef43376}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+O\+P\+A\+Q\+U\+E@{S\+D\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+O\+P\+A\+Q\+U\+E}}
+\index{S\+D\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+O\+P\+A\+Q\+U\+E@{S\+D\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+O\+P\+A\+Q\+U\+E}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+O\+P\+A\+Q\+U\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+O\+P\+A\+Q\+U\+E~255}\label{_s_d_l__video_8h_a5d933eb0233ca33d598800f33ef43376}
+
+
+Definition at line 44 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_a604d4b3b28add80eb4824ffd083d3ef4}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+T\+R\+A\+N\+S\+P\+A\+R\+E\+N\+T@{S\+D\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+T\+R\+A\+N\+S\+P\+A\+R\+E\+N\+T}}
+\index{S\+D\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+T\+R\+A\+N\+S\+P\+A\+R\+E\+N\+T@{S\+D\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+T\+R\+A\+N\+S\+P\+A\+R\+E\+N\+T}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+T\+R\+A\+N\+S\+P\+A\+R\+E\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+T\+R\+A\+N\+S\+P\+A\+R\+E\+N\+T~0}\label{_s_d_l__video_8h_a604d4b3b28add80eb4824ffd083d3ef4}
+
+
+Definition at line 45 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_af6bb568980ebb32b7d75636c0d8ac52f}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+A\+N\+Y\+F\+O\+R\+M\+A\+T@{S\+D\+L\+\_\+\+A\+N\+Y\+F\+O\+R\+M\+A\+T}}
+\index{S\+D\+L\+\_\+\+A\+N\+Y\+F\+O\+R\+M\+A\+T@{S\+D\+L\+\_\+\+A\+N\+Y\+F\+O\+R\+M\+A\+T}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+A\+N\+Y\+F\+O\+R\+M\+A\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+A\+N\+Y\+F\+O\+R\+M\+A\+T~0x10000000}\label{_s_d_l__video_8h_af6bb568980ebb32b7d75636c0d8ac52f}
+Available for \hyperlink{_s_d_l__video_8h_a6ef2b117d8295ba60dc07d038fead288}{S\+D\+L\+\_\+\+Set\+Video\+Mode()} Allow any video depth/pixel-\/format 
+
+Definition at line 138 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_a47b116b3ee7ccbe0f2af7132d30c7c3d}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+A\+S\+Y\+N\+C\+B\+L\+I\+T@{S\+D\+L\+\_\+\+A\+S\+Y\+N\+C\+B\+L\+I\+T}}
+\index{S\+D\+L\+\_\+\+A\+S\+Y\+N\+C\+B\+L\+I\+T@{S\+D\+L\+\_\+\+A\+S\+Y\+N\+C\+B\+L\+I\+T}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+A\+S\+Y\+N\+C\+B\+L\+I\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+A\+S\+Y\+N\+C\+B\+L\+I\+T~0x00000004}\label{_s_d_l__video_8h_a47b116b3ee7ccbe0f2af7132d30c7c3d}
+Use asynchronous blits if possible 
+
+Definition at line 133 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_aad8d7ebe5e953593cb7d91373e73ba9a}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Blit\+Surface@{S\+D\+L\+\_\+\+Blit\+Surface}}
+\index{S\+D\+L\+\_\+\+Blit\+Surface@{S\+D\+L\+\_\+\+Blit\+Surface}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Blit\+Surface}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+Blit\+Surface~{\bf S\+D\+L\+\_\+\+Upper\+Blit}}\label{_s_d_l__video_8h_aad8d7ebe5e953593cb7d91373e73ba9a}
+This performs a fast blit from the source surface to the destination surface. It assumes that the source and destination rectangles are the same size. If either \textquotesingle{}srcrect\textquotesingle{} or \textquotesingle{}dstrect\textquotesingle{} are N\+U\+L\+L, the entire surface (src or dst) is copied. The final blit rectangles are saved in \textquotesingle{}srcrect\textquotesingle{} and \textquotesingle{}dstrect\textquotesingle{} after all clipping is performed. If the blit is successful, it returns 0, otherwise it returns -\/1.
+
+The blit function should not be called on a locked surface.
+
+The blit semantics for surfaces with and without alpha and colorkey are defined as follows\+:
+
+R\+G\+B\+A-\/$>$R\+G\+B\+: S\+D\+L\+\_\+\+S\+R\+C\+A\+L\+P\+H\+A set\+: alpha-\/blend (using alpha-\/channel). S\+D\+L\+\_\+\+S\+R\+C\+C\+O\+L\+O\+R\+K\+E\+Y ignored. S\+D\+L\+\_\+\+S\+R\+C\+A\+L\+P\+H\+A not set\+: copy R\+G\+B. if S\+D\+L\+\_\+\+S\+R\+C\+C\+O\+L\+O\+R\+K\+E\+Y set, only copy the pixels matching the R\+G\+B values of the source colour key, ignoring alpha in the comparison.
+
+R\+G\+B-\/$>$R\+G\+B\+A\+: S\+D\+L\+\_\+\+S\+R\+C\+A\+L\+P\+H\+A set\+: alpha-\/blend (using the source per-\/surface alpha value); set destination alpha to opaque. S\+D\+L\+\_\+\+S\+R\+C\+A\+L\+P\+H\+A not set\+: copy R\+G\+B, set destination alpha to source per-\/surface alpha value. both\+: if S\+D\+L\+\_\+\+S\+R\+C\+C\+O\+L\+O\+R\+K\+E\+Y set, only copy the pixels matching the source colour key.
+
+R\+G\+B\+A-\/$>$R\+G\+B\+A\+: S\+D\+L\+\_\+\+S\+R\+C\+A\+L\+P\+H\+A set\+: alpha-\/blend (using the source alpha channel) the R\+G\+B values; leave destination alpha untouched. \mbox{[}Note\+: is this correct?\mbox{]} S\+D\+L\+\_\+\+S\+R\+C\+C\+O\+L\+O\+R\+K\+E\+Y ignored. S\+D\+L\+\_\+\+S\+R\+C\+A\+L\+P\+H\+A not set\+: copy all of R\+G\+B\+A to the destination. if S\+D\+L\+\_\+\+S\+R\+C\+C\+O\+L\+O\+R\+K\+E\+Y set, only copy the pixels matching the R\+G\+B values of the source colour key, ignoring alpha in the comparison.
+
+R\+G\+B-\/$>$R\+G\+B\+: S\+D\+L\+\_\+\+S\+R\+C\+A\+L\+P\+H\+A set\+: alpha-\/blend (using the source per-\/surface alpha value). S\+D\+L\+\_\+\+S\+R\+C\+A\+L\+P\+H\+A not set\+: copy R\+G\+B. both\+: if S\+D\+L\+\_\+\+S\+R\+C\+C\+O\+L\+O\+R\+K\+E\+Y set, only copy the pixels matching the source colour key.
+
+If either of the surfaces were in video memory, and the blit returns -\/2, the video memory was lost, so it should be reloaded with artwork and re-\/blitted\+: 
+\begin{DoxyCode}
+1 while ( SDL\_BlitSurface(image, imgrect, screen, dstrect) == -2 ) \{
+2    while ( SDL\_LockSurface(image) < 0 )
+3        Sleep(10);
+4    -- Write image pixels to image->pixels --
+5    SDL\_UnlockSurface(image);
+6 \}
+\end{DoxyCode}
+
+
+This happens under Direct\+X 5.\+0 when the system switches away from your fullscreen application. The lock will also fail until you have access to the video memory again.
+
+You should call \hyperlink{_s_d_l__video_8h_aad8d7ebe5e953593cb7d91373e73ba9a}{S\+D\+L\+\_\+\+Blit\+Surface()} unless you know exactly how S\+D\+L blitting works internally and how to use the other blit functions. 
+
+Definition at line 743 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_aceb6cb42789d5646f5206f02a07a36dc}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Colour@{S\+D\+L\+\_\+\+Colour}}
+\index{S\+D\+L\+\_\+\+Colour@{S\+D\+L\+\_\+\+Colour}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Colour}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+Colour~{\bf S\+D\+L\+\_\+\+Color}}\label{_s_d_l__video_8h_aceb6cb42789d5646f5206f02a07a36dc}
+
+
+Definition at line 61 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_a60caadae566ee82f98caa82ae6442414}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+D\+O\+U\+B\+L\+E\+B\+U\+F@{S\+D\+L\+\_\+\+D\+O\+U\+B\+L\+E\+B\+U\+F}}
+\index{S\+D\+L\+\_\+\+D\+O\+U\+B\+L\+E\+B\+U\+F@{S\+D\+L\+\_\+\+D\+O\+U\+B\+L\+E\+B\+U\+F}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+D\+O\+U\+B\+L\+E\+B\+U\+F}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+D\+O\+U\+B\+L\+E\+B\+U\+F~0x40000000}\label{_s_d_l__video_8h_a60caadae566ee82f98caa82ae6442414}
+Set up double-\/buffered video mode 
+
+Definition at line 140 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_ad113101076cec2715ac629d0b2eb44ad}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+F\+U\+L\+L\+S\+C\+R\+E\+E\+N@{S\+D\+L\+\_\+\+F\+U\+L\+L\+S\+C\+R\+E\+E\+N}}
+\index{S\+D\+L\+\_\+\+F\+U\+L\+L\+S\+C\+R\+E\+E\+N@{S\+D\+L\+\_\+\+F\+U\+L\+L\+S\+C\+R\+E\+E\+N}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+F\+U\+L\+L\+S\+C\+R\+E\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+F\+U\+L\+L\+S\+C\+R\+E\+E\+N~0x80000000}\label{_s_d_l__video_8h_ad113101076cec2715ac629d0b2eb44ad}
+Surface is a full screen display 
+
+Definition at line 141 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_ac6d875e661ba09d5bf1ab5be76ea4250}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+H\+W\+A\+C\+C\+E\+L@{S\+D\+L\+\_\+\+H\+W\+A\+C\+C\+E\+L}}
+\index{S\+D\+L\+\_\+\+H\+W\+A\+C\+C\+E\+L@{S\+D\+L\+\_\+\+H\+W\+A\+C\+C\+E\+L}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+H\+W\+A\+C\+C\+E\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+H\+W\+A\+C\+C\+E\+L~0x00000100}\label{_s_d_l__video_8h_ac6d875e661ba09d5bf1ab5be76ea4250}
+Used internally (read-\/only) Blit uses hardware acceleration 
+
+Definition at line 150 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_a35ce56a732020a782fb150e2cb04a16c}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+H\+W\+P\+A\+L\+E\+T\+T\+E@{S\+D\+L\+\_\+\+H\+W\+P\+A\+L\+E\+T\+T\+E}}
+\index{S\+D\+L\+\_\+\+H\+W\+P\+A\+L\+E\+T\+T\+E@{S\+D\+L\+\_\+\+H\+W\+P\+A\+L\+E\+T\+T\+E}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+H\+W\+P\+A\+L\+E\+T\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+H\+W\+P\+A\+L\+E\+T\+T\+E~0x20000000}\label{_s_d_l__video_8h_a35ce56a732020a782fb150e2cb04a16c}
+Surface has exclusive palette 
+
+Definition at line 139 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_ac96afe7a08477c328bc0f3dbf483b756}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+H\+W\+S\+U\+R\+F\+A\+C\+E@{S\+D\+L\+\_\+\+H\+W\+S\+U\+R\+F\+A\+C\+E}}
+\index{S\+D\+L\+\_\+\+H\+W\+S\+U\+R\+F\+A\+C\+E@{S\+D\+L\+\_\+\+H\+W\+S\+U\+R\+F\+A\+C\+E}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+H\+W\+S\+U\+R\+F\+A\+C\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+H\+W\+S\+U\+R\+F\+A\+C\+E~0x00000001}\label{_s_d_l__video_8h_ac96afe7a08477c328bc0f3dbf483b756}
+Surface is in video memory 
+
+Definition at line 132 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_a9e41f272610649ee0fee58029eeb1c23}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+I\+Y\+U\+V\+\_\+\+O\+V\+E\+R\+L\+A\+Y@{S\+D\+L\+\_\+\+I\+Y\+U\+V\+\_\+\+O\+V\+E\+R\+L\+A\+Y}}
+\index{S\+D\+L\+\_\+\+I\+Y\+U\+V\+\_\+\+O\+V\+E\+R\+L\+A\+Y@{S\+D\+L\+\_\+\+I\+Y\+U\+V\+\_\+\+O\+V\+E\+R\+L\+A\+Y}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+I\+Y\+U\+V\+\_\+\+O\+V\+E\+R\+L\+A\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+I\+Y\+U\+V\+\_\+\+O\+V\+E\+R\+L\+A\+Y~0x56555949}\label{_s_d_l__video_8h_a9e41f272610649ee0fee58029eeb1c23}
+Planar mode\+: Y + U + V (3 planes) 
+
+Definition at line 201 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_ae63aa646481001be542220a8733c3ce0}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Load\+B\+M\+P@{S\+D\+L\+\_\+\+Load\+B\+M\+P}}
+\index{S\+D\+L\+\_\+\+Load\+B\+M\+P@{S\+D\+L\+\_\+\+Load\+B\+M\+P}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Load\+B\+M\+P}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+Load\+B\+M\+P(
+\begin{DoxyParamCaption}
+\item[{}]{file}
+\end{DoxyParamCaption}
+)~{\bf S\+D\+L\+\_\+\+Load\+B\+M\+P\+\_\+\+R\+W}({\bf S\+D\+L\+\_\+\+R\+W\+From\+File}(file, \char`\"{}rb\char`\"{}), 1)}\label{_s_d_l__video_8h_ae63aa646481001be542220a8733c3ce0}
+Convenience macro -- load a surface from a file 
+
+Definition at line 592 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_a721065ea8fe651200aab7af9e0fcb3cc}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+L\+O\+G\+P\+A\+L@{S\+D\+L\+\_\+\+L\+O\+G\+P\+A\+L}}
+\index{S\+D\+L\+\_\+\+L\+O\+G\+P\+A\+L@{S\+D\+L\+\_\+\+L\+O\+G\+P\+A\+L}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+L\+O\+G\+P\+A\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+L\+O\+G\+P\+A\+L~0x01}\label{_s_d_l__video_8h_a721065ea8fe651200aab7af9e0fcb3cc}
+
+
+Definition at line 252 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_a0bce24bb7b85d73c1f7328b176bd506f}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+M\+U\+S\+T\+L\+O\+C\+K@{S\+D\+L\+\_\+\+M\+U\+S\+T\+L\+O\+C\+K}}
+\index{S\+D\+L\+\_\+\+M\+U\+S\+T\+L\+O\+C\+K@{S\+D\+L\+\_\+\+M\+U\+S\+T\+L\+O\+C\+K}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+M\+U\+S\+T\+L\+O\+C\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+M\+U\+S\+T\+L\+O\+C\+K(
+\begin{DoxyParamCaption}
+\item[{}]{surface}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a0bce24bb7b85d73c1f7328b176bd506f}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(surface->offset ||     \(\backslash\)
+  ((surface->flags & (\hyperlink{_s_d_l__video_8h_ac96afe7a08477c328bc0f3dbf483b756}{SDL\_HWSURFACE}|\hyperlink{_s_d_l__video_8h_a47b116b3ee7ccbe0f2af7132d30c7c3d}{SDL\_ASYNCBLIT}|
+      \hyperlink{_s_d_l__video_8h_a3b3d53ad7ba0b7294ca25251d88d40fb}{SDL\_RLEACCEL})) != 0))
+\end{DoxyCode}
+Evaluates to true if the surface needs to be locked before access 
+
+Definition at line 161 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_ab83b5ff570038ceff6da669720cfa826}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+N\+O\+F\+R\+A\+M\+E@{S\+D\+L\+\_\+\+N\+O\+F\+R\+A\+M\+E}}
+\index{S\+D\+L\+\_\+\+N\+O\+F\+R\+A\+M\+E@{S\+D\+L\+\_\+\+N\+O\+F\+R\+A\+M\+E}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+N\+O\+F\+R\+A\+M\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+N\+O\+F\+R\+A\+M\+E~0x00000020}\label{_s_d_l__video_8h_ab83b5ff570038ceff6da669720cfa826}
+No window caption or edge frame 
+
+Definition at line 145 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_af2cb4a2748fc1095ea5f7710abf3e348}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+O\+P\+E\+N\+G\+L@{S\+D\+L\+\_\+\+O\+P\+E\+N\+G\+L}}
+\index{S\+D\+L\+\_\+\+O\+P\+E\+N\+G\+L@{S\+D\+L\+\_\+\+O\+P\+E\+N\+G\+L}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+O\+P\+E\+N\+G\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+O\+P\+E\+N\+G\+L~0x00000002}\label{_s_d_l__video_8h_af2cb4a2748fc1095ea5f7710abf3e348}
+Create an Open\+G\+L rendering context 
+
+Definition at line 142 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_a93c109785d84311b4bd17b28577ac3de}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+O\+P\+E\+N\+G\+L\+B\+L\+I\+T@{S\+D\+L\+\_\+\+O\+P\+E\+N\+G\+L\+B\+L\+I\+T}}
+\index{S\+D\+L\+\_\+\+O\+P\+E\+N\+G\+L\+B\+L\+I\+T@{S\+D\+L\+\_\+\+O\+P\+E\+N\+G\+L\+B\+L\+I\+T}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+O\+P\+E\+N\+G\+L\+B\+L\+I\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+O\+P\+E\+N\+G\+L\+B\+L\+I\+T~0x0000000\+A}\label{_s_d_l__video_8h_a93c109785d84311b4bd17b28577ac3de}
+Create an Open\+G\+L rendering context and use it for blitting 
+
+Definition at line 143 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_a6b82552312c695a75a9f4046436c1679}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+P\+H\+Y\+S\+P\+A\+L@{S\+D\+L\+\_\+\+P\+H\+Y\+S\+P\+A\+L}}
+\index{S\+D\+L\+\_\+\+P\+H\+Y\+S\+P\+A\+L@{S\+D\+L\+\_\+\+P\+H\+Y\+S\+P\+A\+L}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+P\+H\+Y\+S\+P\+A\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+P\+H\+Y\+S\+P\+A\+L~0x02}\label{_s_d_l__video_8h_a6b82552312c695a75a9f4046436c1679}
+
+
+Definition at line 253 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_a4a5f795a69ac626fba73c4bd0bfd9626}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+P\+R\+E\+A\+L\+L\+O\+C@{S\+D\+L\+\_\+\+P\+R\+E\+A\+L\+L\+O\+C}}
+\index{S\+D\+L\+\_\+\+P\+R\+E\+A\+L\+L\+O\+C@{S\+D\+L\+\_\+\+P\+R\+E\+A\+L\+L\+O\+C}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+P\+R\+E\+A\+L\+L\+O\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+P\+R\+E\+A\+L\+L\+O\+C~0x01000000}\label{_s_d_l__video_8h_a4a5f795a69ac626fba73c4bd0bfd9626}
+Surface uses preallocated memory 
+
+Definition at line 155 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_a2d7176bad10adae1594494ced111a4d2}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+R\+E\+S\+I\+Z\+A\+B\+L\+E@{S\+D\+L\+\_\+\+R\+E\+S\+I\+Z\+A\+B\+L\+E}}
+\index{S\+D\+L\+\_\+\+R\+E\+S\+I\+Z\+A\+B\+L\+E@{S\+D\+L\+\_\+\+R\+E\+S\+I\+Z\+A\+B\+L\+E}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+R\+E\+S\+I\+Z\+A\+B\+L\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+R\+E\+S\+I\+Z\+A\+B\+L\+E~0x00000010}\label{_s_d_l__video_8h_a2d7176bad10adae1594494ced111a4d2}
+This video mode may be resized 
+
+Definition at line 144 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_a3b3d53ad7ba0b7294ca25251d88d40fb}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+R\+L\+E\+A\+C\+C\+E\+L@{S\+D\+L\+\_\+\+R\+L\+E\+A\+C\+C\+E\+L}}
+\index{S\+D\+L\+\_\+\+R\+L\+E\+A\+C\+C\+E\+L@{S\+D\+L\+\_\+\+R\+L\+E\+A\+C\+C\+E\+L}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+R\+L\+E\+A\+C\+C\+E\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+R\+L\+E\+A\+C\+C\+E\+L~0x00004000}\label{_s_d_l__video_8h_a3b3d53ad7ba0b7294ca25251d88d40fb}
+Surface is R\+L\+E encoded 
+
+Definition at line 153 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_a6f8fadc5d095634b9717c0d7ba858a45}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+R\+L\+E\+A\+C\+C\+E\+L\+O\+K@{S\+D\+L\+\_\+\+R\+L\+E\+A\+C\+C\+E\+L\+O\+K}}
+\index{S\+D\+L\+\_\+\+R\+L\+E\+A\+C\+C\+E\+L\+O\+K@{S\+D\+L\+\_\+\+R\+L\+E\+A\+C\+C\+E\+L\+O\+K}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+R\+L\+E\+A\+C\+C\+E\+L\+O\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+R\+L\+E\+A\+C\+C\+E\+L\+O\+K~0x00002000}\label{_s_d_l__video_8h_a6f8fadc5d095634b9717c0d7ba858a45}
+Private flag 
+
+Definition at line 152 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_a425e7a69acbdf2bd9ba46d332d917320}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Save\+B\+M\+P@{S\+D\+L\+\_\+\+Save\+B\+M\+P}}
+\index{S\+D\+L\+\_\+\+Save\+B\+M\+P@{S\+D\+L\+\_\+\+Save\+B\+M\+P}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Save\+B\+M\+P}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+Save\+B\+M\+P(
+\begin{DoxyParamCaption}
+\item[{}]{surface, }
+\item[{}]{file}
+\end{DoxyParamCaption}
+)~{\bf S\+D\+L\+\_\+\+Save\+B\+M\+P\+\_\+\+R\+W}(surface, {\bf S\+D\+L\+\_\+\+R\+W\+From\+File}(file, \char`\"{}wb\char`\"{}), 1)}\label{_s_d_l__video_8h_a425e7a69acbdf2bd9ba46d332d917320}
+Convenience macro -- save a surface to a file 
+
+Definition at line 603 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_af3239de7885d1b3eb045a88e130d3575}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+S\+R\+C\+A\+L\+P\+H\+A@{S\+D\+L\+\_\+\+S\+R\+C\+A\+L\+P\+H\+A}}
+\index{S\+D\+L\+\_\+\+S\+R\+C\+A\+L\+P\+H\+A@{S\+D\+L\+\_\+\+S\+R\+C\+A\+L\+P\+H\+A}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+S\+R\+C\+A\+L\+P\+H\+A}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+S\+R\+C\+A\+L\+P\+H\+A~0x00010000}\label{_s_d_l__video_8h_af3239de7885d1b3eb045a88e130d3575}
+Blit uses source alpha blending 
+
+Definition at line 154 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_aa751d435ed0e4f6a0dd94bf05c070439}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+S\+R\+C\+C\+O\+L\+O\+R\+K\+E\+Y@{S\+D\+L\+\_\+\+S\+R\+C\+C\+O\+L\+O\+R\+K\+E\+Y}}
+\index{S\+D\+L\+\_\+\+S\+R\+C\+C\+O\+L\+O\+R\+K\+E\+Y@{S\+D\+L\+\_\+\+S\+R\+C\+C\+O\+L\+O\+R\+K\+E\+Y}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+S\+R\+C\+C\+O\+L\+O\+R\+K\+E\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+S\+R\+C\+C\+O\+L\+O\+R\+K\+E\+Y~0x00001000}\label{_s_d_l__video_8h_aa751d435ed0e4f6a0dd94bf05c070439}
+Blit uses a source color key 
+
+Definition at line 151 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_a59c7111f96872f973d0f058362761776}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+S\+W\+S\+U\+R\+F\+A\+C\+E@{S\+D\+L\+\_\+\+S\+W\+S\+U\+R\+F\+A\+C\+E}}
+\index{S\+D\+L\+\_\+\+S\+W\+S\+U\+R\+F\+A\+C\+E@{S\+D\+L\+\_\+\+S\+W\+S\+U\+R\+F\+A\+C\+E}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+S\+W\+S\+U\+R\+F\+A\+C\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+S\+W\+S\+U\+R\+F\+A\+C\+E~0x00000000}\label{_s_d_l__video_8h_a59c7111f96872f973d0f058362761776}
+Available for \hyperlink{_s_d_l__video_8h_aac106bf796c828587cce76cb847d11ae}{S\+D\+L\+\_\+\+Create\+R\+G\+B\+Surface()} or \hyperlink{_s_d_l__video_8h_a6ef2b117d8295ba60dc07d038fead288}{S\+D\+L\+\_\+\+Set\+Video\+Mode()} Surface is in system memory 
+
+Definition at line 131 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_a10c8c4d78982fb5df0951e6bc291743f}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+U\+Y\+V\+Y\+\_\+\+O\+V\+E\+R\+L\+A\+Y@{S\+D\+L\+\_\+\+U\+Y\+V\+Y\+\_\+\+O\+V\+E\+R\+L\+A\+Y}}
+\index{S\+D\+L\+\_\+\+U\+Y\+V\+Y\+\_\+\+O\+V\+E\+R\+L\+A\+Y@{S\+D\+L\+\_\+\+U\+Y\+V\+Y\+\_\+\+O\+V\+E\+R\+L\+A\+Y}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+U\+Y\+V\+Y\+\_\+\+O\+V\+E\+R\+L\+A\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+U\+Y\+V\+Y\+\_\+\+O\+V\+E\+R\+L\+A\+Y~0x59565955}\label{_s_d_l__video_8h_a10c8c4d78982fb5df0951e6bc291743f}
+Packed mode\+: U0+\+Y0+\+V0+\+Y1 (1 plane) 
+
+Definition at line 203 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_a3f2d61b3a4e8fdf1c489a5159ddc9564}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Y\+U\+Y2\+\_\+\+O\+V\+E\+R\+L\+A\+Y@{S\+D\+L\+\_\+\+Y\+U\+Y2\+\_\+\+O\+V\+E\+R\+L\+A\+Y}}
+\index{S\+D\+L\+\_\+\+Y\+U\+Y2\+\_\+\+O\+V\+E\+R\+L\+A\+Y@{S\+D\+L\+\_\+\+Y\+U\+Y2\+\_\+\+O\+V\+E\+R\+L\+A\+Y}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Y\+U\+Y2\+\_\+\+O\+V\+E\+R\+L\+A\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+Y\+U\+Y2\+\_\+\+O\+V\+E\+R\+L\+A\+Y~0x32595559}\label{_s_d_l__video_8h_a3f2d61b3a4e8fdf1c489a5159ddc9564}
+Packed mode\+: Y0+\+U0+\+Y1+\+V0 (1 plane) 
+
+Definition at line 202 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_ab5f4d08ed249ba1b3edc253a0e79778b}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Y\+V12\+\_\+\+O\+V\+E\+R\+L\+A\+Y@{S\+D\+L\+\_\+\+Y\+V12\+\_\+\+O\+V\+E\+R\+L\+A\+Y}}
+\index{S\+D\+L\+\_\+\+Y\+V12\+\_\+\+O\+V\+E\+R\+L\+A\+Y@{S\+D\+L\+\_\+\+Y\+V12\+\_\+\+O\+V\+E\+R\+L\+A\+Y}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Y\+V12\+\_\+\+O\+V\+E\+R\+L\+A\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+Y\+V12\+\_\+\+O\+V\+E\+R\+L\+A\+Y~0x32315659}\label{_s_d_l__video_8h_ab5f4d08ed249ba1b3edc253a0e79778b}
+Planar mode\+: Y + V + U (3 planes) 
+
+Definition at line 200 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_a06ec7684b45eb880714141eefbf66eb8}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Y\+V\+Y\+U\+\_\+\+O\+V\+E\+R\+L\+A\+Y@{S\+D\+L\+\_\+\+Y\+V\+Y\+U\+\_\+\+O\+V\+E\+R\+L\+A\+Y}}
+\index{S\+D\+L\+\_\+\+Y\+V\+Y\+U\+\_\+\+O\+V\+E\+R\+L\+A\+Y@{S\+D\+L\+\_\+\+Y\+V\+Y\+U\+\_\+\+O\+V\+E\+R\+L\+A\+Y}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Y\+V\+Y\+U\+\_\+\+O\+V\+E\+R\+L\+A\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+Y\+V\+Y\+U\+\_\+\+O\+V\+E\+R\+L\+A\+Y~0x55595659}\label{_s_d_l__video_8h_a06ec7684b45eb880714141eefbf66eb8}
+Packed mode\+: Y0+\+V0+\+Y1+\+U0 (1 plane) 
+
+Definition at line 204 of file S\+D\+L\+\_\+video.\+h.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{_s_d_l__video_8h_a28fe7ff2a357ef0c078db3290a44df41}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+blit@{S\+D\+L\+\_\+blit}}
+\index{S\+D\+L\+\_\+blit@{S\+D\+L\+\_\+blit}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+blit}]{\setlength{\rightskip}{0pt plus 5cm}typedef int($\ast$ S\+D\+L\+\_\+blit) (struct {\bf S\+D\+L\+\_\+\+Surface} $\ast${\bf src}, {\bf S\+D\+L\+\_\+\+Rect} $\ast$srcrect, struct {\bf S\+D\+L\+\_\+\+Surface} $\ast${\bf dst}, {\bf S\+D\+L\+\_\+\+Rect} $\ast$dstrect)}\label{_s_d_l__video_8h_a28fe7ff2a357ef0c078db3290a44df41}
+typedef for private surface blitting functions 
+
+Definition at line 166 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_a6c62a9e85197f93df21a6a4a9d36eb25}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Color@{S\+D\+L\+\_\+\+Color}}
+\index{S\+D\+L\+\_\+\+Color@{S\+D\+L\+\_\+\+Color}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Color}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+Color}  {\bf S\+D\+L\+\_\+\+Color}}\label{_s_d_l__video_8h_a6c62a9e85197f93df21a6a4a9d36eb25}
+\hypertarget{_s_d_l__video_8h_ae819ecf00f0fbd952c5645ff69f87ac4}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}}
+\index{S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Overlay}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+Overlay}  {\bf S\+D\+L\+\_\+\+Overlay}}\label{_s_d_l__video_8h_ae819ecf00f0fbd952c5645ff69f87ac4}
+The Y\+U\+V hardware video overlay \hypertarget{_s_d_l__video_8h_a801e2814517a3e61daf86403d4dd1c6e}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Palette@{S\+D\+L\+\_\+\+Palette}}
+\index{S\+D\+L\+\_\+\+Palette@{S\+D\+L\+\_\+\+Palette}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Palette}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+Palette}  {\bf S\+D\+L\+\_\+\+Palette}}\label{_s_d_l__video_8h_a801e2814517a3e61daf86403d4dd1c6e}
+\hypertarget{_s_d_l__video_8h_a9e5dc2921ca058ecb7cbe15ff38248e2}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Pixel\+Format@{S\+D\+L\+\_\+\+Pixel\+Format}}
+\index{S\+D\+L\+\_\+\+Pixel\+Format@{S\+D\+L\+\_\+\+Pixel\+Format}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Pixel\+Format}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+Pixel\+Format}  {\bf S\+D\+L\+\_\+\+Pixel\+Format}}\label{_s_d_l__video_8h_a9e5dc2921ca058ecb7cbe15ff38248e2}
+Everything in the pixel format structure is read-\/only \hypertarget{_s_d_l__video_8h_ab9e65f8131b4e7faad18d498e7dbde8c}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Rect@{S\+D\+L\+\_\+\+Rect}}
+\index{S\+D\+L\+\_\+\+Rect@{S\+D\+L\+\_\+\+Rect}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Rect}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+Rect}  {\bf S\+D\+L\+\_\+\+Rect}}\label{_s_d_l__video_8h_ab9e65f8131b4e7faad18d498e7dbde8c}
+\hypertarget{_s_d_l__video_8h_a32471ad028ae3d2a132302bc5efcb1ee}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}}
+\index{S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Surface}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+Surface}  {\bf S\+D\+L\+\_\+\+Surface}}\label{_s_d_l__video_8h_a32471ad028ae3d2a132302bc5efcb1ee}
+This structure should be treated as read-\/only, except for \textquotesingle{}pixels\textquotesingle{}, which, if not N\+U\+L\+L, contains the raw pixel data for the surface. \hypertarget{_s_d_l__video_8h_a7a6c28c396b5b87b3adc1bde63c80381}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Video\+Info@{S\+D\+L\+\_\+\+Video\+Info}}
+\index{S\+D\+L\+\_\+\+Video\+Info@{S\+D\+L\+\_\+\+Video\+Info}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Video\+Info}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+Video\+Info}  {\bf S\+D\+L\+\_\+\+Video\+Info}}\label{_s_d_l__video_8h_a7a6c28c396b5b87b3adc1bde63c80381}
+Useful for determining the video hardware capabilities 
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+Lattr@{S\+D\+L\+\_\+\+G\+Lattr}}
+\index{S\+D\+L\+\_\+\+G\+Lattr@{S\+D\+L\+\_\+\+G\+Lattr}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+G\+Lattr}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf S\+D\+L\+\_\+\+G\+Lattr}}\label{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4}
+Public enumeration for setting the Open\+G\+L window attributes. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+R\+E\+D\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+R\+E\+D\+\_\+\+S\+I\+Z\+E}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+R\+E\+D\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+R\+E\+D\+\_\+\+S\+I\+Z\+E}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4ab91e9b7978b6d2c62291b9d7e88a1903}{}S\+D\+L\+\_\+\+G\+L\+\_\+\+R\+E\+D\+\_\+\+S\+I\+Z\+E\label{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4ab91e9b7978b6d2c62291b9d7e88a1903}
+}]\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+G\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+G\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+G\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+G\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4af32b5125f656487de9d3c1600c6e4eb9}{}S\+D\+L\+\_\+\+G\+L\+\_\+\+G\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E\label{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4af32b5125f656487de9d3c1600c6e4eb9}
+}]\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+B\+L\+U\+E\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+B\+L\+U\+E\+\_\+\+S\+I\+Z\+E}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+B\+L\+U\+E\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+B\+L\+U\+E\+\_\+\+S\+I\+Z\+E}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4aa7f058249f389ebba59f5d3cb00d7806}{}S\+D\+L\+\_\+\+G\+L\+\_\+\+B\+L\+U\+E\+\_\+\+S\+I\+Z\+E\label{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4aa7f058249f389ebba59f5d3cb00d7806}
+}]\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+S\+I\+Z\+E}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+S\+I\+Z\+E}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4abe24aa11a8007880290835e7eb07d5d7}{}S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+S\+I\+Z\+E\label{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4abe24aa11a8007880290835e7eb07d5d7}
+}]\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4ac41c21ee24979f52471afd0712ee08c4}{}S\+D\+L\+\_\+\+G\+L\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E\label{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4ac41c21ee24979f52471afd0712ee08c4}
+}]\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+D\+O\+U\+B\+L\+E\+B\+U\+F\+F\+E\+R@{S\+D\+L\+\_\+\+G\+L\+\_\+\+D\+O\+U\+B\+L\+E\+B\+U\+F\+F\+E\+R}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+D\+O\+U\+B\+L\+E\+B\+U\+F\+F\+E\+R@{S\+D\+L\+\_\+\+G\+L\+\_\+\+D\+O\+U\+B\+L\+E\+B\+U\+F\+F\+E\+R}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a28c3841afe3b66ab86a267bf5d0a28e0}{}S\+D\+L\+\_\+\+G\+L\+\_\+\+D\+O\+U\+B\+L\+E\+B\+U\+F\+F\+E\+R\label{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a28c3841afe3b66ab86a267bf5d0a28e0}
+}]\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+D\+E\+P\+T\+H\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+D\+E\+P\+T\+H\+\_\+\+S\+I\+Z\+E}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+D\+E\+P\+T\+H\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+D\+E\+P\+T\+H\+\_\+\+S\+I\+Z\+E}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4addf8f9d5c6d217954b14ece543dcbf17}{}S\+D\+L\+\_\+\+G\+L\+\_\+\+D\+E\+P\+T\+H\+\_\+\+S\+I\+Z\+E\label{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4addf8f9d5c6d217954b14ece543dcbf17}
+}]\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+S\+I\+Z\+E}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+S\+I\+Z\+E}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a29dc7e9872be52f3327a452b6875c102}{}S\+D\+L\+\_\+\+G\+L\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+S\+I\+Z\+E\label{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a29dc7e9872be52f3327a452b6875c102}
+}]\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+R\+E\+D\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+R\+E\+D\+\_\+\+S\+I\+Z\+E}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+R\+E\+D\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+R\+E\+D\+\_\+\+S\+I\+Z\+E}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4ae43ed10c33a2cc5b98a8c3d71e94ba43}{}S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+R\+E\+D\+\_\+\+S\+I\+Z\+E\label{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4ae43ed10c33a2cc5b98a8c3d71e94ba43}
+}]\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+G\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+G\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+G\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+G\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a901dce8f81e72cd6c0efa1f32ac96c2d}{}S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+G\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E\label{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a901dce8f81e72cd6c0efa1f32ac96c2d}
+}]\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+B\+L\+U\+E\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+B\+L\+U\+E\+\_\+\+S\+I\+Z\+E}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+B\+L\+U\+E\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+B\+L\+U\+E\+\_\+\+S\+I\+Z\+E}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4acc5dc0cb2c0e9e16d64dbdbde177d775}{}S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+B\+L\+U\+E\+\_\+\+S\+I\+Z\+E\label{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4acc5dc0cb2c0e9e16d64dbdbde177d775}
+}]\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+A\+L\+P\+H\+A\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+A\+L\+P\+H\+A\+\_\+\+S\+I\+Z\+E}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+A\+L\+P\+H\+A\+\_\+\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+A\+L\+P\+H\+A\+\_\+\+S\+I\+Z\+E}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a4c35a77fa9c78ac60997b3c15e158b2e}{}S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+U\+M\+\_\+\+A\+L\+P\+H\+A\+\_\+\+S\+I\+Z\+E\label{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a4c35a77fa9c78ac60997b3c15e158b2e}
+}]\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+S\+T\+E\+R\+E\+O@{S\+D\+L\+\_\+\+G\+L\+\_\+\+S\+T\+E\+R\+E\+O}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+S\+T\+E\+R\+E\+O@{S\+D\+L\+\_\+\+G\+L\+\_\+\+S\+T\+E\+R\+E\+O}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a7d51f1f66a480883c5e7a7d58f668d72}{}S\+D\+L\+\_\+\+G\+L\+\_\+\+S\+T\+E\+R\+E\+O\label{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a7d51f1f66a480883c5e7a7d58f668d72}
+}]\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+M\+U\+L\+T\+I\+S\+A\+M\+P\+L\+E\+B\+U\+F\+F\+E\+R\+S@{S\+D\+L\+\_\+\+G\+L\+\_\+\+M\+U\+L\+T\+I\+S\+A\+M\+P\+L\+E\+B\+U\+F\+F\+E\+R\+S}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+M\+U\+L\+T\+I\+S\+A\+M\+P\+L\+E\+B\+U\+F\+F\+E\+R\+S@{S\+D\+L\+\_\+\+G\+L\+\_\+\+M\+U\+L\+T\+I\+S\+A\+M\+P\+L\+E\+B\+U\+F\+F\+E\+R\+S}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a83d7d3086480baed28bed6be4dadc8bf}{}S\+D\+L\+\_\+\+G\+L\+\_\+\+M\+U\+L\+T\+I\+S\+A\+M\+P\+L\+E\+B\+U\+F\+F\+E\+R\+S\label{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a83d7d3086480baed28bed6be4dadc8bf}
+}]\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+M\+U\+L\+T\+I\+S\+A\+M\+P\+L\+E\+S\+A\+M\+P\+L\+E\+S@{S\+D\+L\+\_\+\+G\+L\+\_\+\+M\+U\+L\+T\+I\+S\+A\+M\+P\+L\+E\+S\+A\+M\+P\+L\+E\+S}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+M\+U\+L\+T\+I\+S\+A\+M\+P\+L\+E\+S\+A\+M\+P\+L\+E\+S@{S\+D\+L\+\_\+\+G\+L\+\_\+\+M\+U\+L\+T\+I\+S\+A\+M\+P\+L\+E\+S\+A\+M\+P\+L\+E\+S}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a54761551da12a1de15e2f844c70d19ad}{}S\+D\+L\+\_\+\+G\+L\+\_\+\+M\+U\+L\+T\+I\+S\+A\+M\+P\+L\+E\+S\+A\+M\+P\+L\+E\+S\label{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a54761551da12a1de15e2f844c70d19ad}
+}]\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+E\+D\+\_\+\+V\+I\+S\+U\+A\+L@{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+E\+D\+\_\+\+V\+I\+S\+U\+A\+L}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+E\+D\+\_\+\+V\+I\+S\+U\+A\+L@{S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+E\+D\+\_\+\+V\+I\+S\+U\+A\+L}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4ac48c7a4cf9eff0fa154878988b6697db}{}S\+D\+L\+\_\+\+G\+L\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+E\+D\+\_\+\+V\+I\+S\+U\+A\+L\label{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4ac48c7a4cf9eff0fa154878988b6697db}
+}]\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+S\+W\+A\+P\+\_\+\+C\+O\+N\+T\+R\+O\+L@{S\+D\+L\+\_\+\+G\+L\+\_\+\+S\+W\+A\+P\+\_\+\+C\+O\+N\+T\+R\+O\+L}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+S\+W\+A\+P\+\_\+\+C\+O\+N\+T\+R\+O\+L@{S\+D\+L\+\_\+\+G\+L\+\_\+\+S\+W\+A\+P\+\_\+\+C\+O\+N\+T\+R\+O\+L}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a1c4b6dc12f92d91c6b38dd0be8290eef}{}S\+D\+L\+\_\+\+G\+L\+\_\+\+S\+W\+A\+P\+\_\+\+C\+O\+N\+T\+R\+O\+L\label{_s_d_l__video_8h_a2de24951bbc6626dc259ec0db5ae8ed4a1c4b6dc12f92d91c6b38dd0be8290eef}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 230 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{_s_d_l__video_8h_ae199e83984ab7d3e2ebacc8541f7bb36}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Grab\+Mode@{S\+D\+L\+\_\+\+Grab\+Mode}}
+\index{S\+D\+L\+\_\+\+Grab\+Mode@{S\+D\+L\+\_\+\+Grab\+Mode}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Grab\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf S\+D\+L\+\_\+\+Grab\+Mode}}\label{_s_d_l__video_8h_ae199e83984ab7d3e2ebacc8541f7bb36}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+Q\+U\+E\+R\+Y@{S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+Q\+U\+E\+R\+Y}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+Q\+U\+E\+R\+Y@{S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+Q\+U\+E\+R\+Y}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_ae199e83984ab7d3e2ebacc8541f7bb36a95937e0353c50af4c2d996adc616cdc2}{}S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+Q\+U\+E\+R\+Y\label{_s_d_l__video_8h_ae199e83984ab7d3e2ebacc8541f7bb36a95937e0353c50af4c2d996adc616cdc2}
+}]\index{S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+O\+F\+F@{S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+O\+F\+F}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+O\+F\+F@{S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+O\+F\+F}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_ae199e83984ab7d3e2ebacc8541f7bb36aa6b78f1aba65a1cdc2ae9c5711d86e27}{}S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+O\+F\+F\label{_s_d_l__video_8h_ae199e83984ab7d3e2ebacc8541f7bb36aa6b78f1aba65a1cdc2ae9c5711d86e27}
+}]\index{S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+O\+N@{S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+O\+N}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+O\+N@{S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+O\+N}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_ae199e83984ab7d3e2ebacc8541f7bb36a5772a2d81a7b7c2805f330a44938a155}{}S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+O\+N\label{_s_d_l__video_8h_ae199e83984ab7d3e2ebacc8541f7bb36a5772a2d81a7b7c2805f330a44938a155}
+}]\index{S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+F\+U\+L\+L\+S\+C\+R\+E\+E\+N@{S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+F\+U\+L\+L\+S\+C\+R\+E\+E\+N}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+F\+U\+L\+L\+S\+C\+R\+E\+E\+N@{S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+F\+U\+L\+L\+S\+C\+R\+E\+E\+N}}\item[{\em 
+\hypertarget{_s_d_l__video_8h_ae199e83984ab7d3e2ebacc8541f7bb36a7446cf721805c7f1428d2a810025d56d}{}S\+D\+L\+\_\+\+G\+R\+A\+B\+\_\+\+F\+U\+L\+L\+S\+C\+R\+E\+E\+N\label{_s_d_l__video_8h_ae199e83984ab7d3e2ebacc8541f7bb36a7446cf721805c7f1428d2a810025d56d}
+}]Used internally \end{description}
+\end{Desc}
+
+
+Definition at line 923 of file S\+D\+L\+\_\+video.\+h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_s_d_l__video_8h_a4098aa5d51f85c7a0c7d032737ce9e74}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Convert\+Surface@{S\+D\+L\+\_\+\+Convert\+Surface}}
+\index{S\+D\+L\+\_\+\+Convert\+Surface@{S\+D\+L\+\_\+\+Convert\+Surface}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Convert\+Surface}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf S\+D\+L\+\_\+\+Surface}$\ast$ {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Convert\+Surface (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{src, }
+\item[{{\bf S\+D\+L\+\_\+\+Pixel\+Format} $\ast$}]{fmt, }
+\item[{{\bf Uint32}}]{flags}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a4098aa5d51f85c7a0c7d032737ce9e74}
+Creates a new surface of the specified format, and then copies and maps the given surface to it so the blit of the converted surface will be as fast as possible. If this function fails, it returns N\+U\+L\+L.
+
+The \textquotesingle{}flags\textquotesingle{} parameter is passed to \hyperlink{_s_d_l__video_8h_aac106bf796c828587cce76cb847d11ae}{S\+D\+L\+\_\+\+Create\+R\+G\+B\+Surface()} and has those semantics. You can also pass S\+D\+L\+\_\+\+R\+L\+E\+A\+C\+C\+E\+L in the flags parameter and S\+D\+L will try to R\+L\+E accelerate colorkey and alpha blits in the resulting surface.
+
+This function is used internally by \hyperlink{_s_d_l__video_8h_a32cfda22be05857a99d7b65264109e07}{S\+D\+L\+\_\+\+Display\+Format()}. \hypertarget{_s_d_l__video_8h_aac106bf796c828587cce76cb847d11ae}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Create\+R\+G\+B\+Surface@{S\+D\+L\+\_\+\+Create\+R\+G\+B\+Surface}}
+\index{S\+D\+L\+\_\+\+Create\+R\+G\+B\+Surface@{S\+D\+L\+\_\+\+Create\+R\+G\+B\+Surface}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Create\+R\+G\+B\+Surface}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf S\+D\+L\+\_\+\+Surface}$\ast$ {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Create\+R\+G\+B\+Surface (
+\begin{DoxyParamCaption}
+\item[{{\bf Uint32}}]{flags, }
+\item[{int}]{width, }
+\item[{int}]{height, }
+\item[{int}]{depth, }
+\item[{{\bf Uint32}}]{Rmask, }
+\item[{{\bf Uint32}}]{Gmask, }
+\item[{{\bf Uint32}}]{Bmask, }
+\item[{{\bf Uint32}}]{Amask}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_aac106bf796c828587cce76cb847d11ae}
+Allocate and free an R\+G\+B surface (must be called after S\+D\+L\+\_\+\+Set\+Video\+Mode) If the depth is 4 or 8 bits, an empty palette is allocated for the surface. If the depth is greater than 8 bits, the pixel format is set using the flags \textquotesingle{}\mbox{[}R\+G\+B\mbox{]}mask\textquotesingle{}. If the function runs out of memory, it will return N\+U\+L\+L.
+
+The \textquotesingle{}flags\textquotesingle{} tell what kind of surface to create. S\+D\+L\+\_\+\+S\+W\+S\+U\+R\+F\+A\+C\+E means that the surface should be created in system memory. S\+D\+L\+\_\+\+H\+W\+S\+U\+R\+F\+A\+C\+E means that the surface should be created in video memory, with the same format as the display surface. This is useful for surfaces that will not change much, to take advantage of hardware acceleration when being blitted to the display surface. S\+D\+L\+\_\+\+A\+S\+Y\+N\+C\+B\+L\+I\+T means that S\+D\+L will try to perform asynchronous blits with this surface, but you must always lock it before accessing the pixels. S\+D\+L will wait for current blits to finish before returning from the lock. S\+D\+L\+\_\+\+S\+R\+C\+C\+O\+L\+O\+R\+K\+E\+Y indicates that the surface will be used for colorkey blits. If the hardware supports acceleration of colorkey blits between two surfaces in video memory, S\+D\+L will try to place the surface in video memory. If this isn\textquotesingle{}t possible or if there is no hardware acceleration available, the surface will be placed in system memory. S\+D\+L\+\_\+\+S\+R\+C\+A\+L\+P\+H\+A means that the surface will be used for alpha blits and if the hardware supports hardware acceleration of alpha blits between two surfaces in video memory, to place the surface in video memory if possible, otherwise it will be placed in system memory. If the surface is created in video memory, blits will be {\itshape much} faster, but the surface format must be identical to the video surface format, and the only way to access the pixels member of the surface is to use the \hyperlink{_s_d_l__video_8h_a3d1da1c7ecdaa461fac51a10785f5077}{S\+D\+L\+\_\+\+Lock\+Surface()} and \hyperlink{_s_d_l__video_8h_a56b93f51358b55d7fc213a3ba9b02c24}{S\+D\+L\+\_\+\+Unlock\+Surface()} calls. If the requested surface actually resides in video memory, S\+D\+L\+\_\+\+H\+W\+S\+U\+R\+F\+A\+C\+E will be set in the flags member of the returned surface. If for some reason the surface could not be placed in video memory, it will not have the S\+D\+L\+\_\+\+H\+W\+S\+U\+R\+F\+A\+C\+E flag set, and will be created in system memory instead. \hypertarget{_s_d_l__video_8h_a25c74ddbc73538e9a4accb42e1c09971}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Create\+R\+G\+B\+Surface\+From@{S\+D\+L\+\_\+\+Create\+R\+G\+B\+Surface\+From}}
+\index{S\+D\+L\+\_\+\+Create\+R\+G\+B\+Surface\+From@{S\+D\+L\+\_\+\+Create\+R\+G\+B\+Surface\+From}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Create\+R\+G\+B\+Surface\+From}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf S\+D\+L\+\_\+\+Surface}$\ast$ {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Create\+R\+G\+B\+Surface\+From (
+\begin{DoxyParamCaption}
+\item[{{\bf void} $\ast$}]{pixels, }
+\item[{int}]{width, }
+\item[{int}]{height, }
+\item[{int}]{depth, }
+\item[{int}]{pitch, }
+\item[{{\bf Uint32}}]{Rmask, }
+\item[{{\bf Uint32}}]{Gmask, }
+\item[{{\bf Uint32}}]{Bmask, }
+\item[{{\bf Uint32}}]{Amask}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a25c74ddbc73538e9a4accb42e1c09971}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{_s_d_l__video_8h_aac106bf796c828587cce76cb847d11ae}{S\+D\+L\+\_\+\+Create\+R\+G\+B\+Surface} 
+\end{DoxySeeAlso}
+\hypertarget{_s_d_l__video_8h_a9ad289eba60a09fdc59cf37b3bb488ae}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Create\+Y\+U\+V\+Overlay@{S\+D\+L\+\_\+\+Create\+Y\+U\+V\+Overlay}}
+\index{S\+D\+L\+\_\+\+Create\+Y\+U\+V\+Overlay@{S\+D\+L\+\_\+\+Create\+Y\+U\+V\+Overlay}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Create\+Y\+U\+V\+Overlay}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf S\+D\+L\+\_\+\+Overlay}$\ast$ {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Create\+Y\+U\+V\+Overlay (
+\begin{DoxyParamCaption}
+\item[{int}]{width, }
+\item[{int}]{height, }
+\item[{{\bf Uint32}}]{format, }
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{display}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a9ad289eba60a09fdc59cf37b3bb488ae}
+This function creates a video output overlay Calling the returned surface an overlay is something of a misnomer because the contents of the display surface underneath the area where the overlay is shown is undefined -\/ it may be overwritten with the converted Y\+U\+V data. \hypertarget{_s_d_l__video_8h_a32cfda22be05857a99d7b65264109e07}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Display\+Format@{S\+D\+L\+\_\+\+Display\+Format}}
+\index{S\+D\+L\+\_\+\+Display\+Format@{S\+D\+L\+\_\+\+Display\+Format}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Display\+Format}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf S\+D\+L\+\_\+\+Surface}$\ast$ {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Display\+Format (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{surface}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a32cfda22be05857a99d7b65264109e07}
+This function takes a surface and copies it to a new surface of the pixel format and colors of the video framebuffer, suitable for fast blitting onto the display surface. It calls \hyperlink{_s_d_l__video_8h_a4098aa5d51f85c7a0c7d032737ce9e74}{S\+D\+L\+\_\+\+Convert\+Surface()}
+
+If you want to take advantage of hardware colorkey or alpha blit acceleration, you should set the colorkey and alpha value before calling this function.
+
+If the conversion fails or runs out of memory, it returns N\+U\+L\+L \hypertarget{_s_d_l__video_8h_a5335421963a8fe82502903c4e5b9dd84}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Display\+Format\+Alpha@{S\+D\+L\+\_\+\+Display\+Format\+Alpha}}
+\index{S\+D\+L\+\_\+\+Display\+Format\+Alpha@{S\+D\+L\+\_\+\+Display\+Format\+Alpha}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Display\+Format\+Alpha}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf S\+D\+L\+\_\+\+Surface}$\ast$ {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Display\+Format\+Alpha (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{surface}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a5335421963a8fe82502903c4e5b9dd84}
+This function takes a surface and copies it to a new surface of the pixel format and colors of the video framebuffer (if possible), suitable for fast alpha blitting onto the display surface. The new surface will always have an alpha channel.
+
+If you want to take advantage of hardware colorkey or alpha blit acceleration, you should set the colorkey and alpha value before calling this function.
+
+If the conversion fails or runs out of memory, it returns N\+U\+L\+L \hypertarget{_s_d_l__video_8h_a06dddda830e801d6dd389d4ad8a2cf6c}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Display\+Y\+U\+V\+Overlay@{S\+D\+L\+\_\+\+Display\+Y\+U\+V\+Overlay}}
+\index{S\+D\+L\+\_\+\+Display\+Y\+U\+V\+Overlay@{S\+D\+L\+\_\+\+Display\+Y\+U\+V\+Overlay}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Display\+Y\+U\+V\+Overlay}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Display\+Y\+U\+V\+Overlay (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Overlay} $\ast$}]{overlay, }
+\item[{{\bf S\+D\+L\+\_\+\+Rect} $\ast$}]{dstrect}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a06dddda830e801d6dd389d4ad8a2cf6c}
+Blit a video overlay to the display surface. The contents of the video surface underneath the blit destination are not defined. The width and height of the destination rectangle may be different from that of the overlay, but currently only 2x scaling is supported. \hypertarget{_s_d_l__video_8h_a793f5101d80cf442790fcead1f9e45f7}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Fill\+Rect@{S\+D\+L\+\_\+\+Fill\+Rect}}
+\index{S\+D\+L\+\_\+\+Fill\+Rect@{S\+D\+L\+\_\+\+Fill\+Rect}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Fill\+Rect}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Fill\+Rect (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf S\+D\+L\+\_\+\+Rect} $\ast$}]{dstrect, }
+\item[{{\bf Uint32}}]{color}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a793f5101d80cf442790fcead1f9e45f7}
+This function performs a fast fill of the given rectangle with \textquotesingle{}color\textquotesingle{} The given rectangle is clipped to the destination surface clip area and the final fill rectangle is saved in the passed in pointer. If \textquotesingle{}dstrect\textquotesingle{} is N\+U\+L\+L, the whole surface will be filled with \textquotesingle{}color\textquotesingle{} The color should be a pixel of the format used by the surface, and can be generated by the \hyperlink{_s_d_l__video_8h_a7aab2d186086a09d626378c53f209352}{S\+D\+L\+\_\+\+Map\+R\+G\+B()} function. This function returns 0 on success, or -\/1 on error. \hypertarget{_s_d_l__video_8h_a3fb4f43ce7a5032d7e8ac778f3dacd7f}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Flip@{S\+D\+L\+\_\+\+Flip}}
+\index{S\+D\+L\+\_\+\+Flip@{S\+D\+L\+\_\+\+Flip}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Flip}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Flip (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{screen}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a3fb4f43ce7a5032d7e8ac778f3dacd7f}
+On hardware that supports double-\/buffering, this function sets up a flip and returns. The hardware will wait for vertical retrace, and then swap video buffers before the next video surface blit or lock will return. On hardware that doesn not support double-\/buffering, this is equivalent to calling S\+D\+L\+\_\+\+Update\+Rect(screen, 0, 0, 0, 0); The S\+D\+L\+\_\+\+D\+O\+U\+B\+L\+E\+B\+U\+F flag must have been passed to \hyperlink{_s_d_l__video_8h_a6ef2b117d8295ba60dc07d038fead288}{S\+D\+L\+\_\+\+Set\+Video\+Mode()} when setting the video mode for this function to perform hardware flipping. This function returns 0 if successful, or -\/1 if there was an error. \hypertarget{_s_d_l__video_8h_a7b8d4f9cc058822501896a2eed81220e}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Free\+Surface@{S\+D\+L\+\_\+\+Free\+Surface}}
+\index{S\+D\+L\+\_\+\+Free\+Surface@{S\+D\+L\+\_\+\+Free\+Surface}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Free\+Surface}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Free\+Surface (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{surface}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a7b8d4f9cc058822501896a2eed81220e}
+\hypertarget{_s_d_l__video_8h_ac31e4e0119d1c58b3a79d62a576af8ed}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Free\+Y\+U\+V\+Overlay@{S\+D\+L\+\_\+\+Free\+Y\+U\+V\+Overlay}}
+\index{S\+D\+L\+\_\+\+Free\+Y\+U\+V\+Overlay@{S\+D\+L\+\_\+\+Free\+Y\+U\+V\+Overlay}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Free\+Y\+U\+V\+Overlay}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Free\+Y\+U\+V\+Overlay (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Overlay} $\ast$}]{overlay}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_ac31e4e0119d1c58b3a79d62a576af8ed}
+Free a video overlay \hypertarget{_s_d_l__video_8h_a7d7f71b94748a1b0db3b5b769834ed27}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Get\+Clip\+Rect@{S\+D\+L\+\_\+\+Get\+Clip\+Rect}}
+\index{S\+D\+L\+\_\+\+Get\+Clip\+Rect@{S\+D\+L\+\_\+\+Get\+Clip\+Rect}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Get\+Clip\+Rect}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Get\+Clip\+Rect (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{surface, }
+\item[{{\bf S\+D\+L\+\_\+\+Rect} $\ast$}]{rect}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a7d7f71b94748a1b0db3b5b769834ed27}
+Gets the clipping rectangle for the destination surface in a blit. \textquotesingle{}rect\textquotesingle{} must be a pointer to a valid rectangle which will be filled with the correct values. \hypertarget{_s_d_l__video_8h_a98ede6a1eb94d3b68413848629b675d3}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Get\+Gamma\+Ramp@{S\+D\+L\+\_\+\+Get\+Gamma\+Ramp}}
+\index{S\+D\+L\+\_\+\+Get\+Gamma\+Ramp@{S\+D\+L\+\_\+\+Get\+Gamma\+Ramp}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Get\+Gamma\+Ramp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Get\+Gamma\+Ramp (
+\begin{DoxyParamCaption}
+\item[{{\bf Uint16} $\ast$}]{red, }
+\item[{{\bf Uint16} $\ast$}]{green, }
+\item[{{\bf Uint16} $\ast$}]{blue}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a98ede6a1eb94d3b68413848629b675d3}
+Retrieve the current values of the gamma translation tables.
+
+You must pass in valid pointers to arrays of 256 16-\/bit quantities. Any of the pointers may be N\+U\+L\+L to ignore that channel. If the call succeeds, it will return 0. If the display driver or hardware does not support gamma translation, or otherwise fails, this function will return -\/1. \hypertarget{_s_d_l__video_8h_a4e883f7c9b17e4cdcef7c71e3a41df48}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Get\+R\+G\+B@{S\+D\+L\+\_\+\+Get\+R\+G\+B}}
+\index{S\+D\+L\+\_\+\+Get\+R\+G\+B@{S\+D\+L\+\_\+\+Get\+R\+G\+B}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Get\+R\+G\+B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Get\+R\+G\+B (
+\begin{DoxyParamCaption}
+\item[{{\bf Uint32}}]{pixel, }
+\item[{const {\bf S\+D\+L\+\_\+\+Pixel\+Format} $\ast$const}]{fmt, }
+\item[{{\bf Uint8} $\ast$}]{r, }
+\item[{{\bf Uint8} $\ast$}]{g, }
+\item[{{\bf Uint8} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a4e883f7c9b17e4cdcef7c71e3a41df48}
+Maps a pixel value into the R\+G\+B components for a given pixel format \hypertarget{_s_d_l__video_8h_a3dbc4a45554bf5ef48e064617e7b1da7}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Get\+R\+G\+B\+A@{S\+D\+L\+\_\+\+Get\+R\+G\+B\+A}}
+\index{S\+D\+L\+\_\+\+Get\+R\+G\+B\+A@{S\+D\+L\+\_\+\+Get\+R\+G\+B\+A}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Get\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Get\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf Uint32}}]{pixel, }
+\item[{const {\bf S\+D\+L\+\_\+\+Pixel\+Format} $\ast$const}]{fmt, }
+\item[{{\bf Uint8} $\ast$}]{r, }
+\item[{{\bf Uint8} $\ast$}]{g, }
+\item[{{\bf Uint8} $\ast$}]{b, }
+\item[{{\bf Uint8} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a3dbc4a45554bf5ef48e064617e7b1da7}
+Maps a pixel value into the R\+G\+B\+A components for a given pixel format \hypertarget{_s_d_l__video_8h_ae7ce182f8b24961efc6d1a8260c50ffd}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Get\+Video\+Info@{S\+D\+L\+\_\+\+Get\+Video\+Info}}
+\index{S\+D\+L\+\_\+\+Get\+Video\+Info@{S\+D\+L\+\_\+\+Get\+Video\+Info}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Get\+Video\+Info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} const {\bf S\+D\+L\+\_\+\+Video\+Info}$\ast$ {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Get\+Video\+Info (
+\begin{DoxyParamCaption}
+\item[{{\bf void}}]{}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_ae7ce182f8b24961efc6d1a8260c50ffd}
+This function returns a read-\/only pointer to information about the video hardware. If this is called before \hyperlink{_s_d_l__video_8h_a6ef2b117d8295ba60dc07d038fead288}{S\+D\+L\+\_\+\+Set\+Video\+Mode()}, the \textquotesingle{}vfmt\textquotesingle{} member of the returned structure will contain the pixel format of the \char`\"{}best\char`\"{} video mode. \hypertarget{_s_d_l__video_8h_ac502be87203c942ab06cbb18ae65abfc}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Get\+Video\+Surface@{S\+D\+L\+\_\+\+Get\+Video\+Surface}}
+\index{S\+D\+L\+\_\+\+Get\+Video\+Surface@{S\+D\+L\+\_\+\+Get\+Video\+Surface}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Get\+Video\+Surface}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf S\+D\+L\+\_\+\+Surface}$\ast$ {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Get\+Video\+Surface (
+\begin{DoxyParamCaption}
+\item[{{\bf void}}]{}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_ac502be87203c942ab06cbb18ae65abfc}
+This function returns a pointer to the current display surface. If S\+D\+L is doing format conversion on the display surface, this function returns the publicly visible surface, not the real video surface. \hypertarget{_s_d_l__video_8h_a611bbed6c7374329e1d1b9c31b06976d}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+Get\+Attribute@{S\+D\+L\+\_\+\+G\+L\+\_\+\+Get\+Attribute}}
+\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+Get\+Attribute@{S\+D\+L\+\_\+\+G\+L\+\_\+\+Get\+Attribute}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+G\+L\+\_\+\+Get\+Attribute}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+G\+L\+\_\+\+Get\+Attribute (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+G\+Lattr}}]{attr, }
+\item[{int $\ast$}]{value}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a611bbed6c7374329e1d1b9c31b06976d}
+Get an attribute of the Open\+G\+L subsystem from the windowing interface, such as gl\+X. This is of course different from getting the values from S\+D\+L\textquotesingle{}s internal Open\+G\+L subsystem, which only stores the values you request before initialization.
+
+Developers should track the values they pass into S\+D\+L\+\_\+\+G\+L\+\_\+\+Set\+Attribute themselves if they want to retrieve these values. \hypertarget{_s_d_l__video_8h_a6329bc32811639fe6f71606801cd9e7b}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+Get\+Proc\+Address@{S\+D\+L\+\_\+\+G\+L\+\_\+\+Get\+Proc\+Address}}
+\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+Get\+Proc\+Address@{S\+D\+L\+\_\+\+G\+L\+\_\+\+Get\+Proc\+Address}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+G\+L\+\_\+\+Get\+Proc\+Address}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void}$\ast$ {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+G\+L\+\_\+\+Get\+Proc\+Address (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{proc}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a6329bc32811639fe6f71606801cd9e7b}
+Get the address of a G\+L function \hypertarget{_s_d_l__video_8h_a398df9aaf43a69dc2cfaab5b306b8f91}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+Load\+Library@{S\+D\+L\+\_\+\+G\+L\+\_\+\+Load\+Library}}
+\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+Load\+Library@{S\+D\+L\+\_\+\+G\+L\+\_\+\+Load\+Library}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+G\+L\+\_\+\+Load\+Library}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+G\+L\+\_\+\+Load\+Library (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a398df9aaf43a69dc2cfaab5b306b8f91}
+Dynamically load an Open\+G\+L library, or the default one if path is N\+U\+L\+L
+
+If you do this, you need to retrieve all of the G\+L functions used in your program from the dynamic library using \hyperlink{_s_d_l__video_8h_a6329bc32811639fe6f71606801cd9e7b}{S\+D\+L\+\_\+\+G\+L\+\_\+\+Get\+Proc\+Address()}. \hypertarget{_s_d_l__video_8h_af83377afb9d9303ec831ae34e695f0ee}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+Lock@{S\+D\+L\+\_\+\+G\+L\+\_\+\+Lock}}
+\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+Lock@{S\+D\+L\+\_\+\+G\+L\+\_\+\+Lock}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+G\+L\+\_\+\+Lock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+G\+L\+\_\+\+Lock (
+\begin{DoxyParamCaption}
+\item[{{\bf void}}]{}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_af83377afb9d9303ec831ae34e695f0ee}
+\hypertarget{_s_d_l__video_8h_aed4d4347f2d5def1532bc22893e0e0d9}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+Set\+Attribute@{S\+D\+L\+\_\+\+G\+L\+\_\+\+Set\+Attribute}}
+\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+Set\+Attribute@{S\+D\+L\+\_\+\+G\+L\+\_\+\+Set\+Attribute}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+G\+L\+\_\+\+Set\+Attribute}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+G\+L\+\_\+\+Set\+Attribute (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+G\+Lattr}}]{attr, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_aed4d4347f2d5def1532bc22893e0e0d9}
+Set an attribute of the Open\+G\+L subsystem before intialization. \hypertarget{_s_d_l__video_8h_ac928f4440899850e2f1c773c3d38356d}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+Swap\+Buffers@{S\+D\+L\+\_\+\+G\+L\+\_\+\+Swap\+Buffers}}
+\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+Swap\+Buffers@{S\+D\+L\+\_\+\+G\+L\+\_\+\+Swap\+Buffers}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+G\+L\+\_\+\+Swap\+Buffers}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+G\+L\+\_\+\+Swap\+Buffers (
+\begin{DoxyParamCaption}
+\item[{{\bf void}}]{}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_ac928f4440899850e2f1c773c3d38356d}
+Swap the Open\+G\+L buffers, if double-\/buffering is supported. \hypertarget{_s_d_l__video_8h_a680b9667d535c557f36dcaca54f69687}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+Unlock@{S\+D\+L\+\_\+\+G\+L\+\_\+\+Unlock}}
+\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+Unlock@{S\+D\+L\+\_\+\+G\+L\+\_\+\+Unlock}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+G\+L\+\_\+\+Unlock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+G\+L\+\_\+\+Unlock (
+\begin{DoxyParamCaption}
+\item[{{\bf void}}]{}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a680b9667d535c557f36dcaca54f69687}
+\hypertarget{_s_d_l__video_8h_a97bf15b296228d9b86650227ab0cfefc}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+G\+L\+\_\+\+Update\+Rects@{S\+D\+L\+\_\+\+G\+L\+\_\+\+Update\+Rects}}
+\index{S\+D\+L\+\_\+\+G\+L\+\_\+\+Update\+Rects@{S\+D\+L\+\_\+\+G\+L\+\_\+\+Update\+Rects}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+G\+L\+\_\+\+Update\+Rects}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+G\+L\+\_\+\+Update\+Rects (
+\begin{DoxyParamCaption}
+\item[{int}]{numrects, }
+\item[{{\bf S\+D\+L\+\_\+\+Rect} $\ast$}]{rects}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a97bf15b296228d9b86650227ab0cfefc}
+\hypertarget{_s_d_l__video_8h_a42252a3fc90d8dcaf727c4bddab1e3fd}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+List\+Modes@{S\+D\+L\+\_\+\+List\+Modes}}
+\index{S\+D\+L\+\_\+\+List\+Modes@{S\+D\+L\+\_\+\+List\+Modes}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+List\+Modes}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf S\+D\+L\+\_\+\+Rect}$\ast$$\ast$ {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+List\+Modes (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Pixel\+Format} $\ast$}]{format, }
+\item[{{\bf Uint32}}]{flags}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a42252a3fc90d8dcaf727c4bddab1e3fd}
+Return a pointer to an array of available screen dimensions for the given format and video flags, sorted largest to smallest. Returns N\+U\+L\+L if there are no dimensions available for a particular format, or (\hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} $\ast$$\ast$)-\/1 if any dimension is okay for the given format.
+
+If \textquotesingle{}format\textquotesingle{} is N\+U\+L\+L, the mode list will be for the format given by \hyperlink{_s_d_l__video_8h_ae7ce182f8b24961efc6d1a8260c50ffd}{S\+D\+L\+\_\+\+Get\+Video\+Info()}-\/$>$vfmt \hypertarget{_s_d_l__video_8h_aac1d1435b9fa8523d699c3a33264d559}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Load\+B\+M\+P\+\_\+\+R\+W@{S\+D\+L\+\_\+\+Load\+B\+M\+P\+\_\+\+R\+W}}
+\index{S\+D\+L\+\_\+\+Load\+B\+M\+P\+\_\+\+R\+W@{S\+D\+L\+\_\+\+Load\+B\+M\+P\+\_\+\+R\+W}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Load\+B\+M\+P\+\_\+\+R\+W}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf S\+D\+L\+\_\+\+Surface}$\ast$ {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Load\+B\+M\+P\+\_\+\+R\+W (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+R\+Wops} $\ast$}]{src, }
+\item[{int}]{freesrc}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_aac1d1435b9fa8523d699c3a33264d559}
+Load a surface from a seekable S\+D\+L data source (memory or file.) If \textquotesingle{}freesrc\textquotesingle{} is non-\/zero, the source will be closed after being read. Returns the new surface, or N\+U\+L\+L if there was an error. The new surface should be freed with \hyperlink{_s_d_l__video_8h_a7b8d4f9cc058822501896a2eed81220e}{S\+D\+L\+\_\+\+Free\+Surface()}. \hypertarget{_s_d_l__video_8h_a3d1da1c7ecdaa461fac51a10785f5077}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Lock\+Surface@{S\+D\+L\+\_\+\+Lock\+Surface}}
+\index{S\+D\+L\+\_\+\+Lock\+Surface@{S\+D\+L\+\_\+\+Lock\+Surface}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Lock\+Surface}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Lock\+Surface (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{surface}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a3d1da1c7ecdaa461fac51a10785f5077}
+\hyperlink{_s_d_l__video_8h_a3d1da1c7ecdaa461fac51a10785f5077}{S\+D\+L\+\_\+\+Lock\+Surface()} sets up a surface for directly accessing the pixels. Between calls to \hyperlink{_s_d_l__video_8h_a3d1da1c7ecdaa461fac51a10785f5077}{S\+D\+L\+\_\+\+Lock\+Surface()}/\+S\+D\+L\+\_\+\+Unlock\+Surface(), you can write to and read from \textquotesingle{}surface-\/$>$pixels\textquotesingle{}, using the pixel format stored in \textquotesingle{}surface-\/$>$format\textquotesingle{}. Once you are done accessing the surface, you should use \hyperlink{_s_d_l__video_8h_a56b93f51358b55d7fc213a3ba9b02c24}{S\+D\+L\+\_\+\+Unlock\+Surface()} to release it.
+
+Not all surfaces require locking. If \hyperlink{_s_d_l__video_8h_a0bce24bb7b85d73c1f7328b176bd506f}{S\+D\+L\+\_\+\+M\+U\+S\+T\+L\+O\+C\+K(surface)} evaluates to 0, then you can read and write to the surface at any time, and the pixel format of the surface will not change. In particular, if the S\+D\+L\+\_\+\+H\+W\+S\+U\+R\+F\+A\+C\+E flag is not given when calling \hyperlink{_s_d_l__video_8h_a6ef2b117d8295ba60dc07d038fead288}{S\+D\+L\+\_\+\+Set\+Video\+Mode()}, you will not need to lock the display surface before accessing it.
+
+No operating system or library calls should be made between lock/unlock pairs, as critical system locks may be held during this time.
+
+\hyperlink{_s_d_l__video_8h_a3d1da1c7ecdaa461fac51a10785f5077}{S\+D\+L\+\_\+\+Lock\+Surface()} returns 0, or -\/1 if the surface couldn\textquotesingle{}t be locked. \hypertarget{_s_d_l__video_8h_a55438076f93d0fe00905cb14569f8a0c}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Lock\+Y\+U\+V\+Overlay@{S\+D\+L\+\_\+\+Lock\+Y\+U\+V\+Overlay}}
+\index{S\+D\+L\+\_\+\+Lock\+Y\+U\+V\+Overlay@{S\+D\+L\+\_\+\+Lock\+Y\+U\+V\+Overlay}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Lock\+Y\+U\+V\+Overlay}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Lock\+Y\+U\+V\+Overlay (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Overlay} $\ast$}]{overlay}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a55438076f93d0fe00905cb14569f8a0c}
+Lock an overlay for direct access, and unlock it when you are done \hypertarget{_s_d_l__video_8h_a82bd1c0e0886d77e287207fe6351bf87}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Lower\+Blit@{S\+D\+L\+\_\+\+Lower\+Blit}}
+\index{S\+D\+L\+\_\+\+Lower\+Blit@{S\+D\+L\+\_\+\+Lower\+Blit}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Lower\+Blit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Lower\+Blit (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{src, }
+\item[{{\bf S\+D\+L\+\_\+\+Rect} $\ast$}]{srcrect, }
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf S\+D\+L\+\_\+\+Rect} $\ast$}]{dstrect}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a82bd1c0e0886d77e287207fe6351bf87}
+This is a semi-\/private blit function and it performs low-\/level surface blitting only. \hypertarget{_s_d_l__video_8h_a7aab2d186086a09d626378c53f209352}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Map\+R\+G\+B@{S\+D\+L\+\_\+\+Map\+R\+G\+B}}
+\index{S\+D\+L\+\_\+\+Map\+R\+G\+B@{S\+D\+L\+\_\+\+Map\+R\+G\+B}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Map\+R\+G\+B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf Uint32} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Map\+R\+G\+B (
+\begin{DoxyParamCaption}
+\item[{const {\bf S\+D\+L\+\_\+\+Pixel\+Format} $\ast$const}]{format, }
+\item[{const {\bf Uint8}}]{r, }
+\item[{const {\bf Uint8}}]{g, }
+\item[{const {\bf Uint8}}]{b}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a7aab2d186086a09d626378c53f209352}
+Maps an R\+G\+B triple to an opaque pixel value for a given pixel format \hypertarget{_s_d_l__video_8h_ae9ad39309698067c7a8670ea01ba8a4c}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Map\+R\+G\+B\+A@{S\+D\+L\+\_\+\+Map\+R\+G\+B\+A}}
+\index{S\+D\+L\+\_\+\+Map\+R\+G\+B\+A@{S\+D\+L\+\_\+\+Map\+R\+G\+B\+A}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Map\+R\+G\+B\+A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf Uint32} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Map\+R\+G\+B\+A (
+\begin{DoxyParamCaption}
+\item[{const {\bf S\+D\+L\+\_\+\+Pixel\+Format} $\ast$const}]{format, }
+\item[{const {\bf Uint8}}]{r, }
+\item[{const {\bf Uint8}}]{g, }
+\item[{const {\bf Uint8}}]{b, }
+\item[{const {\bf Uint8}}]{a}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_ae9ad39309698067c7a8670ea01ba8a4c}
+Maps an R\+G\+B\+A quadruple to a pixel value for a given pixel format \hypertarget{_s_d_l__video_8h_aadc126a4edeafb5033d5e942cf32db6a}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Save\+B\+M\+P\+\_\+\+R\+W@{S\+D\+L\+\_\+\+Save\+B\+M\+P\+\_\+\+R\+W}}
+\index{S\+D\+L\+\_\+\+Save\+B\+M\+P\+\_\+\+R\+W@{S\+D\+L\+\_\+\+Save\+B\+M\+P\+\_\+\+R\+W}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Save\+B\+M\+P\+\_\+\+R\+W}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Save\+B\+M\+P\+\_\+\+R\+W (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{surface, }
+\item[{{\bf S\+D\+L\+\_\+\+R\+Wops} $\ast$}]{dst, }
+\item[{int}]{freedst}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_aadc126a4edeafb5033d5e942cf32db6a}
+Save a surface to a seekable S\+D\+L data source (memory or file.) If \textquotesingle{}freedst\textquotesingle{} is non-\/zero, the source will be closed after being written. Returns 0 if successful or -\/1 if there was an error. \hypertarget{_s_d_l__video_8h_a81a9bae0b4a4ee36770eb3ba68e7b323}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Set\+Alpha@{S\+D\+L\+\_\+\+Set\+Alpha}}
+\index{S\+D\+L\+\_\+\+Set\+Alpha@{S\+D\+L\+\_\+\+Set\+Alpha}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Set\+Alpha}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Set\+Alpha (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{surface, }
+\item[{{\bf Uint32}}]{flag, }
+\item[{{\bf Uint8}}]{alpha}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a81a9bae0b4a4ee36770eb3ba68e7b323}
+This function sets the alpha value for the entire surface, as opposed to using the alpha component of each pixel. This value measures the range of transparency of the surface, 0 being completely transparent to 255 being completely opaque. An \textquotesingle{}alpha\textquotesingle{} value of 255 causes blits to be opaque, the source pixels copied to the destination (the default). Note that per-\/surface alpha can be combined with colorkey transparency.
+
+If \textquotesingle{}flag\textquotesingle{} is 0, alpha blending is disabled for the surface. If \textquotesingle{}flag\textquotesingle{} is S\+D\+L\+\_\+\+S\+R\+C\+A\+L\+P\+H\+A, alpha blending is enabled for the surface. O\+R\+:ing the flag with S\+D\+L\+\_\+\+R\+L\+E\+A\+C\+C\+E\+L requests R\+L\+E acceleration for the surface; if S\+D\+L\+\_\+\+R\+L\+E\+A\+C\+C\+E\+L is not specified, the R\+L\+E accel will be removed.
+
+The \textquotesingle{}alpha\textquotesingle{} parameter is ignored for surfaces that have an alpha channel. \hypertarget{_s_d_l__video_8h_a6cf2c30be55f51fe9e4faf97e3f8d08b}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Set\+Clip\+Rect@{S\+D\+L\+\_\+\+Set\+Clip\+Rect}}
+\index{S\+D\+L\+\_\+\+Set\+Clip\+Rect@{S\+D\+L\+\_\+\+Set\+Clip\+Rect}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Set\+Clip\+Rect}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf S\+D\+L\+\_\+bool} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Set\+Clip\+Rect (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{surface, }
+\item[{const {\bf S\+D\+L\+\_\+\+Rect} $\ast$}]{rect}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a6cf2c30be55f51fe9e4faf97e3f8d08b}
+Sets the clipping rectangle for the destination surface in a blit.
+
+If the clip rectangle is N\+U\+L\+L, clipping will be disabled. If the clip rectangle doesn\textquotesingle{}t intersect the surface, the function will return S\+D\+L\+\_\+\+F\+A\+L\+S\+E and blits will be completely clipped. Otherwise the function returns S\+D\+L\+\_\+\+T\+R\+U\+E and blits to the surface will be clipped to the intersection of the surface area and the clipping rectangle.
+
+Note that blits are automatically clipped to the edges of the source and destination surfaces. \hypertarget{_s_d_l__video_8h_adc7e866ce5cb8dd77974bdf4375c13ad}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Set\+Color\+Key@{S\+D\+L\+\_\+\+Set\+Color\+Key}}
+\index{S\+D\+L\+\_\+\+Set\+Color\+Key@{S\+D\+L\+\_\+\+Set\+Color\+Key}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Set\+Color\+Key}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Set\+Color\+Key (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{surface, }
+\item[{{\bf Uint32}}]{flag, }
+\item[{{\bf Uint32}}]{key}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_adc7e866ce5cb8dd77974bdf4375c13ad}
+Sets the color key (transparent pixel) in a blittable surface. If \textquotesingle{}flag\textquotesingle{} is S\+D\+L\+\_\+\+S\+R\+C\+C\+O\+L\+O\+R\+K\+E\+Y (optionally O\+R\textquotesingle{}d with S\+D\+L\+\_\+\+R\+L\+E\+A\+C\+C\+E\+L), \textquotesingle{}key\textquotesingle{} will be the transparent pixel in the source image of a blit. S\+D\+L\+\_\+\+R\+L\+E\+A\+C\+C\+E\+L requests R\+L\+E acceleration for the surface if present, and removes R\+L\+E acceleration if absent. If \textquotesingle{}flag\textquotesingle{} is 0, this function clears any current color key. This function returns 0, or -\/1 if there was an error. \hypertarget{_s_d_l__video_8h_ad2bec38aa7164bf5560a71a340ccd7aa}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Set\+Colors@{S\+D\+L\+\_\+\+Set\+Colors}}
+\index{S\+D\+L\+\_\+\+Set\+Colors@{S\+D\+L\+\_\+\+Set\+Colors}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Set\+Colors}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Set\+Colors (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{surface, }
+\item[{{\bf S\+D\+L\+\_\+\+Color} $\ast$}]{colors, }
+\item[{int}]{firstcolor, }
+\item[{int}]{ncolors}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_ad2bec38aa7164bf5560a71a340ccd7aa}
+Sets a portion of the colormap for the given 8-\/bit surface. If \textquotesingle{}surface\textquotesingle{} is not a palettized surface, this function does nothing, returning 0. If all of the colors were set as passed to \hyperlink{_s_d_l__video_8h_ad2bec38aa7164bf5560a71a340ccd7aa}{S\+D\+L\+\_\+\+Set\+Colors()}, it will return 1. If not all the color entries were set exactly as given, it will return 0, and you should look at the surface palette to determine the actual color palette.
+
+When \textquotesingle{}surface\textquotesingle{} is the surface associated with the current display, the display colormap will be updated with the requested colors. If S\+D\+L\+\_\+\+H\+W\+P\+A\+L\+E\+T\+T\+E was set in \hyperlink{_s_d_l__video_8h_a6ef2b117d8295ba60dc07d038fead288}{S\+D\+L\+\_\+\+Set\+Video\+Mode()} flags, \hyperlink{_s_d_l__video_8h_ad2bec38aa7164bf5560a71a340ccd7aa}{S\+D\+L\+\_\+\+Set\+Colors()} will always return 1, and the palette is guaranteed to be set the way you desire, even if the window colormap has to be warped or run under emulation. \hypertarget{_s_d_l__video_8h_acbf56583f5807bd45812bacd8a4b99b4}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Set\+Gamma@{S\+D\+L\+\_\+\+Set\+Gamma}}
+\index{S\+D\+L\+\_\+\+Set\+Gamma@{S\+D\+L\+\_\+\+Set\+Gamma}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Set\+Gamma}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Set\+Gamma (
+\begin{DoxyParamCaption}
+\item[{float}]{red, }
+\item[{float}]{green, }
+\item[{float}]{blue}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_acbf56583f5807bd45812bacd8a4b99b4}
+Set the gamma correction for each of the color channels. The gamma values range (approximately) between 0.\+1 and 10.\+0
+
+If this function isn\textquotesingle{}t supported directly by the hardware, it will be emulated using gamma ramps, if available. If successful, this function returns 0, otherwise it returns -\/1. \hypertarget{_s_d_l__video_8h_a68a1f804962104530584410a51fc745f}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Set\+Gamma\+Ramp@{S\+D\+L\+\_\+\+Set\+Gamma\+Ramp}}
+\index{S\+D\+L\+\_\+\+Set\+Gamma\+Ramp@{S\+D\+L\+\_\+\+Set\+Gamma\+Ramp}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Set\+Gamma\+Ramp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Set\+Gamma\+Ramp (
+\begin{DoxyParamCaption}
+\item[{const {\bf Uint16} $\ast$}]{red, }
+\item[{const {\bf Uint16} $\ast$}]{green, }
+\item[{const {\bf Uint16} $\ast$}]{blue}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a68a1f804962104530584410a51fc745f}
+Set the gamma translation table for the red, green, and blue channels of the video hardware. Each table is an array of 256 16-\/bit quantities, representing a mapping between the input and output for that channel. The input is the index into the array, and the output is the 16-\/bit gamma value at that index, scaled to the output color precision.
+
+You may pass N\+U\+L\+L for any of the channels to leave it unchanged. If the call succeeds, it will return 0. If the display driver or hardware does not support gamma translation, or otherwise fails, this function will return -\/1. \hypertarget{_s_d_l__video_8h_a54b145fcea4b9825a1464264301a1da7}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Set\+Palette@{S\+D\+L\+\_\+\+Set\+Palette}}
+\index{S\+D\+L\+\_\+\+Set\+Palette@{S\+D\+L\+\_\+\+Set\+Palette}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Set\+Palette}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Set\+Palette (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{surface, }
+\item[{int}]{flags, }
+\item[{{\bf S\+D\+L\+\_\+\+Color} $\ast$}]{colors, }
+\item[{int}]{firstcolor, }
+\item[{int}]{ncolors}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a54b145fcea4b9825a1464264301a1da7}
+Sets a portion of the colormap for a given 8-\/bit surface. \textquotesingle{}flags\textquotesingle{} is one or both of\+: S\+D\+L\+\_\+\+L\+O\+G\+P\+A\+L -- set logical palette, which controls how blits are mapped to/from the surface, S\+D\+L\+\_\+\+P\+H\+Y\+S\+P\+A\+L -- set physical palette, which controls how pixels look on the screen Only screens have physical palettes. Separate change of physical/logical palettes is only possible if the screen has S\+D\+L\+\_\+\+H\+W\+P\+A\+L\+E\+T\+T\+E set.
+
+The return value is 1 if all colours could be set as requested, and 0 otherwise.
+
+\hyperlink{_s_d_l__video_8h_ad2bec38aa7164bf5560a71a340ccd7aa}{S\+D\+L\+\_\+\+Set\+Colors()} is equivalent to calling this function with flags = (S\+D\+L\+\_\+\+L\+O\+G\+P\+A\+L$\vert$\+S\+D\+L\+\_\+\+P\+H\+Y\+S\+P\+A\+L). \hypertarget{_s_d_l__video_8h_a6ef2b117d8295ba60dc07d038fead288}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Set\+Video\+Mode@{S\+D\+L\+\_\+\+Set\+Video\+Mode}}
+\index{S\+D\+L\+\_\+\+Set\+Video\+Mode@{S\+D\+L\+\_\+\+Set\+Video\+Mode}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Set\+Video\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf S\+D\+L\+\_\+\+Surface}$\ast$ {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Set\+Video\+Mode (
+\begin{DoxyParamCaption}
+\item[{int}]{width, }
+\item[{int}]{height, }
+\item[{int}]{bpp, }
+\item[{{\bf Uint32}}]{flags}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a6ef2b117d8295ba60dc07d038fead288}
+Set up a video mode with the specified width, height and bits-\/per-\/pixel.
+
+If \textquotesingle{}bpp\textquotesingle{} is 0, it is treated as the current display bits per pixel.
+
+If S\+D\+L\+\_\+\+A\+N\+Y\+F\+O\+R\+M\+A\+T is set in \textquotesingle{}flags\textquotesingle{}, the S\+D\+L library will try to set the requested bits-\/per-\/pixel, but will return whatever video pixel format is available. The default is to emulate the requested pixel format if it is not natively available.
+
+If S\+D\+L\+\_\+\+H\+W\+S\+U\+R\+F\+A\+C\+E is set in \textquotesingle{}flags\textquotesingle{}, the video surface will be placed in video memory, if possible, and you may have to call \hyperlink{_s_d_l__video_8h_a3d1da1c7ecdaa461fac51a10785f5077}{S\+D\+L\+\_\+\+Lock\+Surface()} in order to access the raw framebuffer. Otherwise, the video surface will be created in system memory.
+
+If S\+D\+L\+\_\+\+A\+S\+Y\+N\+C\+B\+L\+I\+T is set in \textquotesingle{}flags\textquotesingle{}, S\+D\+L will try to perform rectangle updates asynchronously, but you must always lock before accessing pixels. S\+D\+L will wait for updates to complete before returning from the lock.
+
+If S\+D\+L\+\_\+\+H\+W\+P\+A\+L\+E\+T\+T\+E is set in \textquotesingle{}flags\textquotesingle{}, the S\+D\+L library will guarantee that the colors set by \hyperlink{_s_d_l__video_8h_ad2bec38aa7164bf5560a71a340ccd7aa}{S\+D\+L\+\_\+\+Set\+Colors()} will be the colors you get. Otherwise, in 8-\/bit mode, \hyperlink{_s_d_l__video_8h_ad2bec38aa7164bf5560a71a340ccd7aa}{S\+D\+L\+\_\+\+Set\+Colors()} may not be able to set all of the colors exactly the way they are requested, and you should look at the video surface structure to determine the actual palette. If S\+D\+L cannot guarantee that the colors you request can be set, i.\+e. if the colormap is shared, then the video surface may be created under emulation in system memory, overriding the S\+D\+L\+\_\+\+H\+W\+S\+U\+R\+F\+A\+C\+E flag.
+
+If S\+D\+L\+\_\+\+F\+U\+L\+L\+S\+C\+R\+E\+E\+N is set in \textquotesingle{}flags\textquotesingle{}, the S\+D\+L library will try to set a fullscreen video mode. The default is to create a windowed mode if the current graphics system has a window manager. If the S\+D\+L library is able to set a fullscreen video mode, this flag will be set in the surface that is returned.
+
+If S\+D\+L\+\_\+\+D\+O\+U\+B\+L\+E\+B\+U\+F is set in \textquotesingle{}flags\textquotesingle{}, the S\+D\+L library will try to set up two surfaces in video memory and swap between them when you call \hyperlink{_s_d_l__video_8h_a3fb4f43ce7a5032d7e8ac778f3dacd7f}{S\+D\+L\+\_\+\+Flip()}. This is usually slower than the normal single-\/buffering scheme, but prevents \char`\"{}tearing\char`\"{} artifacts caused by modifying video memory while the monitor is refreshing. It should only be used by applications that redraw the entire screen on every update.
+
+If S\+D\+L\+\_\+\+R\+E\+S\+I\+Z\+A\+B\+L\+E is set in \textquotesingle{}flags\textquotesingle{}, the S\+D\+L library will allow the window manager, if any, to resize the window at runtime. When this occurs, S\+D\+L will send a S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+R\+E\+S\+I\+Z\+E event to you application, and you must respond to the event by re-\/calling \hyperlink{_s_d_l__video_8h_a6ef2b117d8295ba60dc07d038fead288}{S\+D\+L\+\_\+\+Set\+Video\+Mode()} with the requested size (or another size that suits the application).
+
+If S\+D\+L\+\_\+\+N\+O\+F\+R\+A\+M\+E is set in \textquotesingle{}flags\textquotesingle{}, the S\+D\+L library will create a window without any title bar or frame decoration. Fullscreen video modes have this flag set automatically.
+
+This function returns the video framebuffer surface, or N\+U\+L\+L if it fails.
+
+If you rely on functionality provided by certain video flags, check the flags of the returned surface to make sure that functionality is available. S\+D\+L will fall back to reduced functionality if the exact flags you wanted are not available. \hypertarget{_s_d_l__video_8h_a38a6d2af389294c32a3cca8bdd637790}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Soft\+Stretch@{S\+D\+L\+\_\+\+Soft\+Stretch}}
+\index{S\+D\+L\+\_\+\+Soft\+Stretch@{S\+D\+L\+\_\+\+Soft\+Stretch}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Soft\+Stretch}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Soft\+Stretch (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{src, }
+\item[{{\bf S\+D\+L\+\_\+\+Rect} $\ast$}]{srcrect, }
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf S\+D\+L\+\_\+\+Rect} $\ast$}]{dstrect}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a38a6d2af389294c32a3cca8bdd637790}
+\hypertarget{_s_d_l__video_8h_a56b93f51358b55d7fc213a3ba9b02c24}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Unlock\+Surface@{S\+D\+L\+\_\+\+Unlock\+Surface}}
+\index{S\+D\+L\+\_\+\+Unlock\+Surface@{S\+D\+L\+\_\+\+Unlock\+Surface}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Unlock\+Surface}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Unlock\+Surface (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{surface}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a56b93f51358b55d7fc213a3ba9b02c24}
+\hypertarget{_s_d_l__video_8h_a1f16d6da4164bab7636fd8085ba23dce}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Unlock\+Y\+U\+V\+Overlay@{S\+D\+L\+\_\+\+Unlock\+Y\+U\+V\+Overlay}}
+\index{S\+D\+L\+\_\+\+Unlock\+Y\+U\+V\+Overlay@{S\+D\+L\+\_\+\+Unlock\+Y\+U\+V\+Overlay}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Unlock\+Y\+U\+V\+Overlay}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Unlock\+Y\+U\+V\+Overlay (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Overlay} $\ast$}]{overlay}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a1f16d6da4164bab7636fd8085ba23dce}
+\hypertarget{_s_d_l__video_8h_ace0326e8377f77eae661f4733a68f72d}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Update\+Rect@{S\+D\+L\+\_\+\+Update\+Rect}}
+\index{S\+D\+L\+\_\+\+Update\+Rect@{S\+D\+L\+\_\+\+Update\+Rect}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Update\+Rect}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Update\+Rect (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{screen, }
+\item[{{\bf Sint32}}]{x, }
+\item[{{\bf Sint32}}]{y, }
+\item[{{\bf Uint32}}]{w, }
+\item[{{\bf Uint32}}]{h}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_ace0326e8377f77eae661f4733a68f72d}
+If \textquotesingle{}x\textquotesingle{}, \textquotesingle{}y\textquotesingle{}, \textquotesingle{}w\textquotesingle{} and \textquotesingle{}h\textquotesingle{} are all 0, S\+D\+L\+\_\+\+Update\+Rect will update the entire screen. \hypertarget{_s_d_l__video_8h_a86a9e79d5178eee0e084099db4adb459}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Update\+Rects@{S\+D\+L\+\_\+\+Update\+Rects}}
+\index{S\+D\+L\+\_\+\+Update\+Rects@{S\+D\+L\+\_\+\+Update\+Rects}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Update\+Rects}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Update\+Rects (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{screen, }
+\item[{int}]{numrects, }
+\item[{{\bf S\+D\+L\+\_\+\+Rect} $\ast$}]{rects}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a86a9e79d5178eee0e084099db4adb459}
+Makes sure the given list of rectangles is updated on the given screen. \hypertarget{_s_d_l__video_8h_a6f9b0bc3c7b6495894af65ccebfae90e}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Upper\+Blit@{S\+D\+L\+\_\+\+Upper\+Blit}}
+\index{S\+D\+L\+\_\+\+Upper\+Blit@{S\+D\+L\+\_\+\+Upper\+Blit}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Upper\+Blit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Upper\+Blit (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{src, }
+\item[{{\bf S\+D\+L\+\_\+\+Rect} $\ast$}]{srcrect, }
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{dst, }
+\item[{{\bf S\+D\+L\+\_\+\+Rect} $\ast$}]{dstrect}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a6f9b0bc3c7b6495894af65ccebfae90e}
+This is the public blit function, \hyperlink{_s_d_l__video_8h_aad8d7ebe5e953593cb7d91373e73ba9a}{S\+D\+L\+\_\+\+Blit\+Surface()}, and it performs rectangle validation and clipping before passing it to \hyperlink{_s_d_l__video_8h_a82bd1c0e0886d77e287207fe6351bf87}{S\+D\+L\+\_\+\+Lower\+Blit()} \hypertarget{_s_d_l__video_8h_a2750e9681ab7b493ab730f4aca2d1cc9}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Video\+Driver\+Name@{S\+D\+L\+\_\+\+Video\+Driver\+Name}}
+\index{S\+D\+L\+\_\+\+Video\+Driver\+Name@{S\+D\+L\+\_\+\+Video\+Driver\+Name}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Video\+Driver\+Name}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} char$\ast$ {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Video\+Driver\+Name (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{namebuf, }
+\item[{int}]{maxlen}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a2750e9681ab7b493ab730f4aca2d1cc9}
+This function fills the given character buffer with the name of the video driver, and returns a pointer to it if the video driver has been initialized. It returns N\+U\+L\+L if no driver has been initialized. \hypertarget{_s_d_l__video_8h_a5f56f36b68b0f95bb715390b39af111d}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Video\+Init@{S\+D\+L\+\_\+\+Video\+Init}}
+\index{S\+D\+L\+\_\+\+Video\+Init@{S\+D\+L\+\_\+\+Video\+Init}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Video\+Init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Video\+Init (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{driver\+\_\+name, }
+\item[{{\bf Uint32}}]{flags}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a5f56f36b68b0f95bb715390b39af111d}
+Initializes the video subsystem. Sets up a connection to the window manager, etc, and determines the current video mode and pixel format, but does not initialize a window or graphics mode. Note that event handling is activated by this routine.
+
+If you use both sound and video in your application, you need to call \hyperlink{_s_d_l_8h_a8fc8d35348d7c74bad8392d776c937b8}{S\+D\+L\+\_\+\+Init()} before opening the sound device, otherwise under Win32 Direct\+X, you won\textquotesingle{}t be able to set full-\/screen display modes. \hypertarget{_s_d_l__video_8h_a5021ea314f3db53664a3703670d82b0d}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Video\+Mode\+O\+K@{S\+D\+L\+\_\+\+Video\+Mode\+O\+K}}
+\index{S\+D\+L\+\_\+\+Video\+Mode\+O\+K@{S\+D\+L\+\_\+\+Video\+Mode\+O\+K}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Video\+Mode\+O\+K}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Video\+Mode\+O\+K (
+\begin{DoxyParamCaption}
+\item[{int}]{width, }
+\item[{int}]{height, }
+\item[{int}]{bpp, }
+\item[{{\bf Uint32}}]{flags}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a5021ea314f3db53664a3703670d82b0d}
+Check to see if a particular video mode is supported. It returns 0 if the requested mode is not supported under any bit depth, or returns the bits-\/per-\/pixel of the closest available mode with the given width and height. If this bits-\/per-\/pixel is different from the one used when setting the video mode, \hyperlink{_s_d_l__video_8h_a6ef2b117d8295ba60dc07d038fead288}{S\+D\+L\+\_\+\+Set\+Video\+Mode()} will succeed, but will emulate the requested bits-\/per-\/pixel with a shadow surface.
+
+The arguments to \hyperlink{_s_d_l__video_8h_a5021ea314f3db53664a3703670d82b0d}{S\+D\+L\+\_\+\+Video\+Mode\+O\+K()} are the same ones you would pass to \hyperlink{_s_d_l__video_8h_a6ef2b117d8295ba60dc07d038fead288}{S\+D\+L\+\_\+\+Set\+Video\+Mode()} \hypertarget{_s_d_l__video_8h_ade5fc4847320fb235f17265b683fa013}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+Video\+Quit@{S\+D\+L\+\_\+\+Video\+Quit}}
+\index{S\+D\+L\+\_\+\+Video\+Quit@{S\+D\+L\+\_\+\+Video\+Quit}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Video\+Quit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Video\+Quit (
+\begin{DoxyParamCaption}
+\item[{{\bf void}}]{}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_ade5fc4847320fb235f17265b683fa013}
+\hypertarget{_s_d_l__video_8h_a4b1425746427d78fa1b47f217a7b948f}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+W\+M\+\_\+\+Get\+Caption@{S\+D\+L\+\_\+\+W\+M\+\_\+\+Get\+Caption}}
+\index{S\+D\+L\+\_\+\+W\+M\+\_\+\+Get\+Caption@{S\+D\+L\+\_\+\+W\+M\+\_\+\+Get\+Caption}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+W\+M\+\_\+\+Get\+Caption}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+W\+M\+\_\+\+Get\+Caption (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{title, }
+\item[{char $\ast$$\ast$}]{icon}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a4b1425746427d78fa1b47f217a7b948f}
+Gets the title and icon text of the display window (U\+T\+F-\/8 encoded) \hypertarget{_s_d_l__video_8h_a3e8447321132e521521256ff78a0479d}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+W\+M\+\_\+\+Grab\+Input@{S\+D\+L\+\_\+\+W\+M\+\_\+\+Grab\+Input}}
+\index{S\+D\+L\+\_\+\+W\+M\+\_\+\+Grab\+Input@{S\+D\+L\+\_\+\+W\+M\+\_\+\+Grab\+Input}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+W\+M\+\_\+\+Grab\+Input}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf S\+D\+L\+\_\+\+Grab\+Mode} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+W\+M\+\_\+\+Grab\+Input (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Grab\+Mode}}]{mode}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a3e8447321132e521521256ff78a0479d}
+This function allows you to set and query the input grab state of the application. It returns the new input grab state.
+
+Grabbing means that the mouse is confined to the application window, and nearly all keyboard input is passed directly to the application, and not interpreted by a window manager, if any. \hypertarget{_s_d_l__video_8h_af2cb0a180eda7245d21a5026f8e84d1b}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+W\+M\+\_\+\+Iconify\+Window@{S\+D\+L\+\_\+\+W\+M\+\_\+\+Iconify\+Window}}
+\index{S\+D\+L\+\_\+\+W\+M\+\_\+\+Iconify\+Window@{S\+D\+L\+\_\+\+W\+M\+\_\+\+Iconify\+Window}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+W\+M\+\_\+\+Iconify\+Window}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+W\+M\+\_\+\+Iconify\+Window (
+\begin{DoxyParamCaption}
+\item[{{\bf void}}]{}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_af2cb0a180eda7245d21a5026f8e84d1b}
+This function iconifies the window, and returns 1 if it succeeded. If the function succeeds, it generates an S\+D\+L\+\_\+\+A\+P\+P\+A\+C\+T\+I\+V\+E loss event. This function is a noop and returns 0 in non-\/windowed environments. \hypertarget{_s_d_l__video_8h_a3c68abe491c620fadb50d267d586b1bc}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+W\+M\+\_\+\+Set\+Caption@{S\+D\+L\+\_\+\+W\+M\+\_\+\+Set\+Caption}}
+\index{S\+D\+L\+\_\+\+W\+M\+\_\+\+Set\+Caption@{S\+D\+L\+\_\+\+W\+M\+\_\+\+Set\+Caption}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+W\+M\+\_\+\+Set\+Caption}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+W\+M\+\_\+\+Set\+Caption (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{title, }
+\item[{const char $\ast$}]{icon}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_a3c68abe491c620fadb50d267d586b1bc}
+These functions allow interaction with the window manager, if any. Sets the title and icon text of the display window (U\+T\+F-\/8 encoded) \hypertarget{_s_d_l__video_8h_ac16d7d1c3c6efdec28683c07a14634ef}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+W\+M\+\_\+\+Set\+Icon@{S\+D\+L\+\_\+\+W\+M\+\_\+\+Set\+Icon}}
+\index{S\+D\+L\+\_\+\+W\+M\+\_\+\+Set\+Icon@{S\+D\+L\+\_\+\+W\+M\+\_\+\+Set\+Icon}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+W\+M\+\_\+\+Set\+Icon}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+W\+M\+\_\+\+Set\+Icon (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{icon, }
+\item[{{\bf Uint8} $\ast$}]{mask}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_ac16d7d1c3c6efdec28683c07a14634ef}
+Sets the icon for the display window. This function must be called before the first call to \hyperlink{_s_d_l__video_8h_a6ef2b117d8295ba60dc07d038fead288}{S\+D\+L\+\_\+\+Set\+Video\+Mode()}. It takes an icon surface, and a mask in M\+S\+B format. If \textquotesingle{}mask\textquotesingle{} is N\+U\+L\+L, the entire icon surface will be used as the icon. \hypertarget{_s_d_l__video_8h_ac30e8923098e3b60647026ea06dc4016}{}\index{S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}!S\+D\+L\+\_\+\+W\+M\+\_\+\+Toggle\+Full\+Screen@{S\+D\+L\+\_\+\+W\+M\+\_\+\+Toggle\+Full\+Screen}}
+\index{S\+D\+L\+\_\+\+W\+M\+\_\+\+Toggle\+Full\+Screen@{S\+D\+L\+\_\+\+W\+M\+\_\+\+Toggle\+Full\+Screen}!S\+D\+L\+\_\+video.\+h@{S\+D\+L\+\_\+video.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+W\+M\+\_\+\+Toggle\+Full\+Screen}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+W\+M\+\_\+\+Toggle\+Full\+Screen (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{surface}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__video_8h_ac30e8923098e3b60647026ea06dc4016}
+Toggle fullscreen mode without changing the contents of the screen. If the display surface does not require locking before accessing the pixel information, then the memory pointers will not change.
+
+If this function was able to toggle fullscreen mode (change from running in a window to fullscreen, or vice-\/versa), it will return 1. If it is not implemented, or fails, it returns 0.
+
+The next call to \hyperlink{_s_d_l__video_8h_a6ef2b117d8295ba60dc07d038fead288}{S\+D\+L\+\_\+\+Set\+Video\+Mode()} will set the mode fullscreen attribute based on the flags parameter -\/ if S\+D\+L\+\_\+\+F\+U\+L\+L\+S\+C\+R\+E\+E\+N is not set, then the display will be windowed by default where supported.
+
+This is currently only implemented in the X11 video driver. 

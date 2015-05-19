@@ -3,12 +3,12 @@
 
 #Fichiers de CodeBlocks, gedit, emacs...
 *.[oa]
-*.html
 *~
 bin/
 obj/
 sudoku.depend
 sudoku.layout
+**/LICENSE.*
 
 
 #Fichiers de Visual Studio
@@ -20,6 +20,10 @@ sudoku.layout
 **/*.filters
 **/*.user
 **/*.opensdf
-**/*.txt
 sudoku/sudoku/Debug/
 sudoku/sudoku/Release/
+sudoku/Debug/
+sudoku/Release/
+
+#Fichiers de photoshop
+*.psd

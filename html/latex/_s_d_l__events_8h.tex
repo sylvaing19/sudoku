@@ -1,0 +1,537 @@
+\hypertarget{_s_d_l__events_8h}{}\section{S\+D\+L-\/1.2.15/include/\+S\+D\+L\+\_\+events.h File Reference}
+\label{_s_d_l__events_8h}\index{S\+D\+L-\/1.\+2.\+15/include/\+S\+D\+L\+\_\+events.\+h@{S\+D\+L-\/1.\+2.\+15/include/\+S\+D\+L\+\_\+events.\+h}}
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+stdinc.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+error.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+active.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+keyboard.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+mouse.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+joystick.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+quit.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_s_d_l___active_event}{S\+D\+L\+\_\+\+Active\+Event}
+\item 
+struct \hyperlink{struct_s_d_l___keyboard_event}{S\+D\+L\+\_\+\+Keyboard\+Event}
+\item 
+struct \hyperlink{struct_s_d_l___mouse_motion_event}{S\+D\+L\+\_\+\+Mouse\+Motion\+Event}
+\item 
+struct \hyperlink{struct_s_d_l___mouse_button_event}{S\+D\+L\+\_\+\+Mouse\+Button\+Event}
+\item 
+struct \hyperlink{struct_s_d_l___joy_axis_event}{S\+D\+L\+\_\+\+Joy\+Axis\+Event}
+\item 
+struct \hyperlink{struct_s_d_l___joy_ball_event}{S\+D\+L\+\_\+\+Joy\+Ball\+Event}
+\item 
+struct \hyperlink{struct_s_d_l___joy_hat_event}{S\+D\+L\+\_\+\+Joy\+Hat\+Event}
+\item 
+struct \hyperlink{struct_s_d_l___joy_button_event}{S\+D\+L\+\_\+\+Joy\+Button\+Event}
+\item 
+struct \hyperlink{struct_s_d_l___resize_event}{S\+D\+L\+\_\+\+Resize\+Event}
+\item 
+struct \hyperlink{struct_s_d_l___expose_event}{S\+D\+L\+\_\+\+Expose\+Event}
+\item 
+struct \hyperlink{struct_s_d_l___quit_event}{S\+D\+L\+\_\+\+Quit\+Event}
+\item 
+struct \hyperlink{struct_s_d_l___user_event}{S\+D\+L\+\_\+\+User\+Event}
+\item 
+struct \hyperlink{struct_s_d_l___sys_w_m_event}{S\+D\+L\+\_\+\+Sys\+W\+M\+Event}
+\item 
+union \hyperlink{union_s_d_l___event}{S\+D\+L\+\_\+\+Event}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{Indent}{\bf General keyboard/mouse state definitions}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_s_d_l__events_8h_ad680a069f9fcab80de91b3eefdf29c3c}{S\+D\+L\+\_\+\+R\+E\+L\+E\+A\+S\+E\+D}~0
+\item 
+\#define \hyperlink{_s_d_l__events_8h_aee81bbffbc8489bdea8fecd1232c4bd1}{S\+D\+L\+\_\+\+P\+R\+E\+S\+S\+E\+D}~1
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Event State}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_s_d_l__events_8h_a56cee6a1344dd6d33598af982fa9607f}{S\+D\+L\+\_\+\+Q\+U\+E\+R\+Y}~-\/1
+\item 
+\#define \hyperlink{_s_d_l__events_8h_af1ff071ae5e1576d6de5663d68391ac5}{S\+D\+L\+\_\+\+I\+G\+N\+O\+R\+E}~0
+\item 
+\#define \hyperlink{_s_d_l__events_8h_a8190e7249139292b676f0cfcaf7d590a}{S\+D\+L\+\_\+\+D\+I\+S\+A\+B\+L\+E}~0
+\item 
+\#define \hyperlink{_s_d_l__events_8h_ae8ffaa5d3d65f4dd75dcf1563e1cc8a9}{S\+D\+L\+\_\+\+E\+N\+A\+B\+L\+E}~1
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct_s_d_l___active_event}{S\+D\+L\+\_\+\+Active\+Event} \hyperlink{_s_d_l__events_8h_a951f49b468c4a2b3dfcc0b6dfb01a155}{S\+D\+L\+\_\+\+Active\+Event}
+\item 
+typedef struct \hyperlink{struct_s_d_l___keyboard_event}{S\+D\+L\+\_\+\+Keyboard\+Event} \hyperlink{_s_d_l__events_8h_a2dfd49e5d1391bed57dcbc2359d9580f}{S\+D\+L\+\_\+\+Keyboard\+Event}
+\item 
+typedef struct \hyperlink{struct_s_d_l___mouse_motion_event}{S\+D\+L\+\_\+\+Mouse\+Motion\+Event} \hyperlink{_s_d_l__events_8h_aefe38e3abc59e3312e5a50d98f708de4}{S\+D\+L\+\_\+\+Mouse\+Motion\+Event}
+\item 
+typedef struct \hyperlink{struct_s_d_l___mouse_button_event}{S\+D\+L\+\_\+\+Mouse\+Button\+Event} \hyperlink{_s_d_l__events_8h_ad32036e6c0ba8aeadfb3063a5e945e8d}{S\+D\+L\+\_\+\+Mouse\+Button\+Event}
+\item 
+typedef struct \hyperlink{struct_s_d_l___joy_axis_event}{S\+D\+L\+\_\+\+Joy\+Axis\+Event} \hyperlink{_s_d_l__events_8h_a12d4cc4e7665b37af0cf4352cb522b71}{S\+D\+L\+\_\+\+Joy\+Axis\+Event}
+\item 
+typedef struct \hyperlink{struct_s_d_l___joy_ball_event}{S\+D\+L\+\_\+\+Joy\+Ball\+Event} \hyperlink{_s_d_l__events_8h_a5811cd314ff0fcb4a5a8d3da110e59b6}{S\+D\+L\+\_\+\+Joy\+Ball\+Event}
+\item 
+typedef struct \hyperlink{struct_s_d_l___joy_hat_event}{S\+D\+L\+\_\+\+Joy\+Hat\+Event} \hyperlink{_s_d_l__events_8h_a5753fe82887f64c4feef90a9f0a19099}{S\+D\+L\+\_\+\+Joy\+Hat\+Event}
+\item 
+typedef struct \hyperlink{struct_s_d_l___joy_button_event}{S\+D\+L\+\_\+\+Joy\+Button\+Event} \hyperlink{_s_d_l__events_8h_a1c9066d1e7d075042a55a5a0ebdeaf3e}{S\+D\+L\+\_\+\+Joy\+Button\+Event}
+\item 
+typedef struct \hyperlink{struct_s_d_l___resize_event}{S\+D\+L\+\_\+\+Resize\+Event} \hyperlink{_s_d_l__events_8h_a00ff869b4b6d9d829b84f5f6d0ae31ad}{S\+D\+L\+\_\+\+Resize\+Event}
+\item 
+typedef struct \hyperlink{struct_s_d_l___expose_event}{S\+D\+L\+\_\+\+Expose\+Event} \hyperlink{_s_d_l__events_8h_a81cdf3a42369fb5fd992beca1affa646}{S\+D\+L\+\_\+\+Expose\+Event}
+\item 
+typedef struct \hyperlink{struct_s_d_l___quit_event}{S\+D\+L\+\_\+\+Quit\+Event} \hyperlink{_s_d_l__events_8h_a2aa3b2097d14330fadfc91585fd18dfc}{S\+D\+L\+\_\+\+Quit\+Event}
+\item 
+typedef struct \hyperlink{struct_s_d_l___user_event}{S\+D\+L\+\_\+\+User\+Event} \hyperlink{_s_d_l__events_8h_a3c174fcb2518c4c9b858c8e3c3840830}{S\+D\+L\+\_\+\+User\+Event}
+\item 
+typedef struct \hyperlink{struct_s_d_l___sys_w_mmsg}{S\+D\+L\+\_\+\+Sys\+W\+Mmsg} \hyperlink{_s_d_l__events_8h_a1ebcb2014aeef8b8c2cfdd66c91ce3c8}{S\+D\+L\+\_\+\+Sys\+W\+Mmsg}
+\item 
+typedef struct \hyperlink{struct_s_d_l___sys_w_m_event}{S\+D\+L\+\_\+\+Sys\+W\+M\+Event} \hyperlink{_s_d_l__events_8h_aac1ed3c867af6ba87928d86a4c16e7e5}{S\+D\+L\+\_\+\+Sys\+W\+M\+Event}
+\item 
+typedef union \hyperlink{union_s_d_l___event}{S\+D\+L\+\_\+\+Event} \hyperlink{_s_d_l__events_8h_ac123539589592fb2a938d43fa7e13794}{S\+D\+L\+\_\+\+Event}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fcca}{S\+D\+L\+\_\+\+Event\+Type} \{ \\*
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa8d638d6b7c16579b793f08165b11ea68}{S\+D\+L\+\_\+\+N\+O\+E\+V\+E\+N\+T} = 0, 
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa805c60f34b315629064b897318ea7b0f}{S\+D\+L\+\_\+\+A\+C\+T\+I\+V\+E\+E\+V\+E\+N\+T}, 
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaacaf8cfd53c985cdbf6a90c811d51a1fc}{S\+D\+L\+\_\+\+K\+E\+Y\+D\+O\+W\+N}, 
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaadefb8866b9d28be21c2c33c35cc66c4b}{S\+D\+L\+\_\+\+K\+E\+Y\+U\+P}, 
+\\*
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa04c436ef80fef38fb77a89e0e9124c30}{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+M\+O\+T\+I\+O\+N}, 
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa9267166e1536dfa8b0daa98c0afa9052}{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N}, 
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa4ab85278398d29b9e50f500aad2b952b}{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+U\+P}, 
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaaf0803b3f8a12de3d85f81ebd7b514cd1}{S\+D\+L\+\_\+\+J\+O\+Y\+A\+X\+I\+S\+M\+O\+T\+I\+O\+N}, 
+\\*
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa78f859489cfd565c305c7f6f9d5b25c1}{S\+D\+L\+\_\+\+J\+O\+Y\+B\+A\+L\+L\+M\+O\+T\+I\+O\+N}, 
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaafba4080bfbad335e520097b2024f0dff}{S\+D\+L\+\_\+\+J\+O\+Y\+H\+A\+T\+M\+O\+T\+I\+O\+N}, 
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa386ac978bc145a45883fe0adab70710b}{S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N}, 
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa76f91c81110f012e3a47cbbc0449e3c3}{S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+U\+P}, 
+\\*
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa31acc5fdafc86ebe2c1f5c3cae48d603}{S\+D\+L\+\_\+\+Q\+U\+I\+T}, 
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa73749d735a18ce6ef17a09ee70d5dbe7}{S\+D\+L\+\_\+\+S\+Y\+S\+W\+M\+E\+V\+E\+N\+T}, 
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa064075bce2d1a3cd68f103de46dbccb6}{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D\+A}, 
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaace4664e201bf199751bec7e9b9b56982}{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D\+B}, 
+\\*
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa328321c1c9ef88537e94fb6ca42fa050}{S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+R\+E\+S\+I\+Z\+E}, 
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa71837d3c769d3830d721b911797f04bc}{S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+E\+X\+P\+O\+S\+E}, 
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa167cadab6f99867d8a8cded5f058ab25}{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D2}, 
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa4273409cb098de861ffb00d10f7b7afb}{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D3}, 
+\\*
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaaa1ff31a05eea53c8081fc268e08a470c}{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D4}, 
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaaf2ec84e8d348aa4f4271c8d3937611c2}{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D5}, 
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa4ebdb51555100069c32e8afd106827ac}{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D6}, 
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa294d4d209bd2324f697f50f8e87cf483}{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D7}, 
+\\*
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa4364c23f54802309e83fdb9b1c07c719}{S\+D\+L\+\_\+\+U\+S\+E\+R\+E\+V\+E\+N\+T} = 24, 
+\hyperlink{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaac7ab35bfec8662d148fd20d75c6117e7}{S\+D\+L\+\_\+\+N\+U\+M\+E\+V\+E\+N\+T\+S} = 32
+ \}
+\item 
+enum \hyperlink{_s_d_l__events_8h_a8fdf1485b0419bb77b89e745267dc179}{S\+D\+L\+\_\+eventaction} \{ \hyperlink{_s_d_l__events_8h_a8fdf1485b0419bb77b89e745267dc179a3cfcf139ec3d85b9ed46931b3ee5542f}{S\+D\+L\+\_\+\+A\+D\+D\+E\+V\+E\+N\+T}, 
+\hyperlink{_s_d_l__events_8h_a8fdf1485b0419bb77b89e745267dc179a75469beff07bfd6aa7fa4f54674ce34d}{S\+D\+L\+\_\+\+P\+E\+E\+K\+E\+V\+E\+N\+T}, 
+\hyperlink{_s_d_l__events_8h_a8fdf1485b0419bb77b89e745267dc179ae5f9b281fd90b9a836b50bfa5c520333}{S\+D\+L\+\_\+\+G\+E\+T\+E\+V\+E\+N\+T}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__events_8h_aa15403d1c8fc341cd9cf750e27a66d19}{S\+D\+L\+\_\+\+Pump\+Events} (\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__events_8h_a3b4a79e56dbe6f770572ef45575e6ef1}{S\+D\+L\+\_\+\+Peep\+Events} (\hyperlink{union_s_d_l___event}{S\+D\+L\+\_\+\+Event} $\ast$events, int numevents, \hyperlink{_s_d_l__events_8h_a8fdf1485b0419bb77b89e745267dc179}{S\+D\+L\+\_\+eventaction} action, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} \hyperlink{_s_d_l__opengl_8h_a5612bf87afe1aa200ad412866de45c1f}{mask})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__events_8h_acfa517963c25f8b71acc6b56721c5d9b}{S\+D\+L\+\_\+\+Poll\+Event} (\hyperlink{union_s_d_l___event}{S\+D\+L\+\_\+\+Event} $\ast$event)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__events_8h_af37c266ea979ba39b82079d9eb401003}{S\+D\+L\+\_\+\+Wait\+Event} (\hyperlink{union_s_d_l___event}{S\+D\+L\+\_\+\+Event} $\ast$event)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__events_8h_adced45c8816620846a6fde2a7d54b446}{S\+D\+L\+\_\+\+Push\+Event} (\hyperlink{union_s_d_l___event}{S\+D\+L\+\_\+\+Event} $\ast$event)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__events_8h_a946c32ab98f1d4ec927e8917f01520e2}{S\+D\+L\+\_\+\+Event\+State} (\hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} \hyperlink{_s_d_l__opengl_8h_a7d05960f4f1c1b11f3177dc963a45d86}{type}, int state)
+\end{DoxyCompactItemize}
+\subsection*{Predefined event masks}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_s_d_l__events_8h_ab631e5f1db261985cf5a8d32ea3dd382}{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K}(X)~(1$<$$<$(X))
+\item 
+\#define \hyperlink{_s_d_l__events_8h_aed93f15a1934ce4845afb7664a710bc2}{S\+D\+L\+\_\+\+A\+L\+L\+E\+V\+E\+N\+T\+S}~0x\+F\+F\+F\+F\+F\+F\+F\+F
+\item 
+enum \hyperlink{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21}{S\+D\+L\+\_\+\+Event\+Mask} \{ \\*
+\hyperlink{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a8a97e481115efeb0ee31fd6e81ef2b81}{S\+D\+L\+\_\+\+A\+C\+T\+I\+V\+E\+E\+V\+E\+N\+T\+M\+A\+S\+K} = S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K(S\+D\+L\+\_\+\+A\+C\+T\+I\+V\+E\+E\+V\+E\+N\+T), 
+\hyperlink{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a52b8fa6cf1a7214090c06be111d04e48}{S\+D\+L\+\_\+\+K\+E\+Y\+D\+O\+W\+N\+M\+A\+S\+K} = S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K(S\+D\+L\+\_\+\+K\+E\+Y\+D\+O\+W\+N), 
+\hyperlink{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a9fbc3ccae1b1d9935275a02decae9995}{S\+D\+L\+\_\+\+K\+E\+Y\+U\+P\+M\+A\+S\+K} = S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K(S\+D\+L\+\_\+\+K\+E\+Y\+U\+P), 
+\hyperlink{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a8860026cbe28b3e376ccf1c5d21c254b}{S\+D\+L\+\_\+\+K\+E\+Y\+E\+V\+E\+N\+T\+M\+A\+S\+K}, 
+\\*
+\hyperlink{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21aa718cca8b91688ca88756aa2eb91c3b7}{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K} = S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K(S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+M\+O\+T\+I\+O\+N), 
+\hyperlink{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a0bb1de8588fbb53c79eca2c85d9262d4}{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N\+M\+A\+S\+K} = S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K(S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N), 
+\hyperlink{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21adf767ef1b867fa5cce5fe420624aff4b}{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+U\+P\+M\+A\+S\+K} = S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K(S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+U\+P), 
+\hyperlink{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a3c866ab29d88907460559e54a67e2086}{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+E\+V\+E\+N\+T\+M\+A\+S\+K}, 
+\\*
+\hyperlink{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a85f19114c895045af5a8a53003834086}{S\+D\+L\+\_\+\+J\+O\+Y\+A\+X\+I\+S\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K} = S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K(S\+D\+L\+\_\+\+J\+O\+Y\+A\+X\+I\+S\+M\+O\+T\+I\+O\+N), 
+\hyperlink{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21aea1d7ee578ef7f570535e09bea417702}{S\+D\+L\+\_\+\+J\+O\+Y\+B\+A\+L\+L\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K} = S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K(S\+D\+L\+\_\+\+J\+O\+Y\+B\+A\+L\+L\+M\+O\+T\+I\+O\+N), 
+\hyperlink{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a8a75c60c6124aef9280d1205bed1090e}{S\+D\+L\+\_\+\+J\+O\+Y\+H\+A\+T\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K} = S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K(S\+D\+L\+\_\+\+J\+O\+Y\+H\+A\+T\+M\+O\+T\+I\+O\+N), 
+\hyperlink{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a22435679e1aaa219d1abed7a5e6a4208}{S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N\+M\+A\+S\+K} = S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K(S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N), 
+\\*
+\hyperlink{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a6508c6588626d515f39887eed7ba30fd}{S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+U\+P\+M\+A\+S\+K} = S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K(S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+U\+P), 
+\hyperlink{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21af3899e28982ddea10656471dfe9e4861}{S\+D\+L\+\_\+\+J\+O\+Y\+E\+V\+E\+N\+T\+M\+A\+S\+K}, 
+\hyperlink{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a5869f85c70e9bcb1f528d5f8ec2cf621}{S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+R\+E\+S\+I\+Z\+E\+M\+A\+S\+K} = S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K(S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+R\+E\+S\+I\+Z\+E), 
+\hyperlink{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21ae6b397a8a71ae72b14bb01c868a3f1e5}{S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+E\+X\+P\+O\+S\+E\+M\+A\+S\+K} = S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K(S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+E\+X\+P\+O\+S\+E), 
+\\*
+\hyperlink{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a8915aa88cadda7514324d22a7e685b40}{S\+D\+L\+\_\+\+Q\+U\+I\+T\+M\+A\+S\+K} = S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K(S\+D\+L\+\_\+\+Q\+U\+I\+T), 
+\hyperlink{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a84e24617fbe97f1baff0e53efc6474ba}{S\+D\+L\+\_\+\+S\+Y\+S\+W\+M\+E\+V\+E\+N\+T\+M\+A\+S\+K} = S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K(S\+D\+L\+\_\+\+S\+Y\+S\+W\+M\+E\+V\+E\+N\+T)
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Event Filtering}
+\begin{DoxyCompactItemize}
+\item 
+typedef int(\hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} $\ast$ \hyperlink{_s_d_l__events_8h_aa26e6a96de52e105eea34ca00a9fd87c}{S\+D\+L\+\_\+\+Event\+Filter}) (const \hyperlink{union_s_d_l___event}{S\+D\+L\+\_\+\+Event} $\ast$event)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__events_8h_acc4080d9db1e2cd5946e274212ec0f8a}{S\+D\+L\+\_\+\+Set\+Event\+Filter} (\hyperlink{_s_d_l__events_8h_aa26e6a96de52e105eea34ca00a9fd87c}{S\+D\+L\+\_\+\+Event\+Filter} \hyperlink{_s_d_l__opengl_8h_ab3664546554b8fc4b0b5a1a981ad97ec}{filter})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__events_8h_aa26e6a96de52e105eea34ca00a9fd87c}{S\+D\+L\+\_\+\+Event\+Filter} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__events_8h_a6379e3346737caed714cdbe48379c800}{S\+D\+L\+\_\+\+Get\+Event\+Filter} (\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Include file for S\+D\+L event handling 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_s_d_l__events_8h_aed93f15a1934ce4845afb7664a710bc2}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+A\+L\+L\+E\+V\+E\+N\+T\+S@{S\+D\+L\+\_\+\+A\+L\+L\+E\+V\+E\+N\+T\+S}}
+\index{S\+D\+L\+\_\+\+A\+L\+L\+E\+V\+E\+N\+T\+S@{S\+D\+L\+\_\+\+A\+L\+L\+E\+V\+E\+N\+T\+S}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+A\+L\+L\+E\+V\+E\+N\+T\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+A\+L\+L\+E\+V\+E\+N\+T\+S~0x\+F\+F\+F\+F\+F\+F\+F\+F}\label{_s_d_l__events_8h_aed93f15a1934ce4845afb7664a710bc2}
+
+
+Definition at line 115 of file S\+D\+L\+\_\+events.\+h.
+
+\hypertarget{_s_d_l__events_8h_a8190e7249139292b676f0cfcaf7d590a}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+D\+I\+S\+A\+B\+L\+E@{S\+D\+L\+\_\+\+D\+I\+S\+A\+B\+L\+E}}
+\index{S\+D\+L\+\_\+\+D\+I\+S\+A\+B\+L\+E@{S\+D\+L\+\_\+\+D\+I\+S\+A\+B\+L\+E}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+D\+I\+S\+A\+B\+L\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+D\+I\+S\+A\+B\+L\+E~0}\label{_s_d_l__events_8h_a8190e7249139292b676f0cfcaf7d590a}
+
+
+Definition at line 336 of file S\+D\+L\+\_\+events.\+h.
+
+\hypertarget{_s_d_l__events_8h_ae8ffaa5d3d65f4dd75dcf1563e1cc8a9}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+E\+N\+A\+B\+L\+E@{S\+D\+L\+\_\+\+E\+N\+A\+B\+L\+E}}
+\index{S\+D\+L\+\_\+\+E\+N\+A\+B\+L\+E@{S\+D\+L\+\_\+\+E\+N\+A\+B\+L\+E}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+E\+N\+A\+B\+L\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+E\+N\+A\+B\+L\+E~1}\label{_s_d_l__events_8h_ae8ffaa5d3d65f4dd75dcf1563e1cc8a9}
+
+
+Definition at line 337 of file S\+D\+L\+\_\+events.\+h.
+
+\hypertarget{_s_d_l__events_8h_ab631e5f1db261985cf5a8d32ea3dd382}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K@{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K}}
+\index{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K@{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+M\+A\+S\+K(
+\begin{DoxyParamCaption}
+\item[{}]{X}
+\end{DoxyParamCaption}
+)~(1$<$$<$(X))}\label{_s_d_l__events_8h_ab631e5f1db261985cf5a8d32ea3dd382}
+
+
+Definition at line 87 of file S\+D\+L\+\_\+events.\+h.
+
+\hypertarget{_s_d_l__events_8h_af1ff071ae5e1576d6de5663d68391ac5}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+I\+G\+N\+O\+R\+E@{S\+D\+L\+\_\+\+I\+G\+N\+O\+R\+E}}
+\index{S\+D\+L\+\_\+\+I\+G\+N\+O\+R\+E@{S\+D\+L\+\_\+\+I\+G\+N\+O\+R\+E}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+I\+G\+N\+O\+R\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+I\+G\+N\+O\+R\+E~0}\label{_s_d_l__events_8h_af1ff071ae5e1576d6de5663d68391ac5}
+
+
+Definition at line 335 of file S\+D\+L\+\_\+events.\+h.
+
+\hypertarget{_s_d_l__events_8h_aee81bbffbc8489bdea8fecd1232c4bd1}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+P\+R\+E\+S\+S\+E\+D@{S\+D\+L\+\_\+\+P\+R\+E\+S\+S\+E\+D}}
+\index{S\+D\+L\+\_\+\+P\+R\+E\+S\+S\+E\+D@{S\+D\+L\+\_\+\+P\+R\+E\+S\+S\+E\+D}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+P\+R\+E\+S\+S\+E\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+P\+R\+E\+S\+S\+E\+D~1}\label{_s_d_l__events_8h_aee81bbffbc8489bdea8fecd1232c4bd1}
+
+
+Definition at line 48 of file S\+D\+L\+\_\+events.\+h.
+
+\hypertarget{_s_d_l__events_8h_a56cee6a1344dd6d33598af982fa9607f}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Q\+U\+E\+R\+Y@{S\+D\+L\+\_\+\+Q\+U\+E\+R\+Y}}
+\index{S\+D\+L\+\_\+\+Q\+U\+E\+R\+Y@{S\+D\+L\+\_\+\+Q\+U\+E\+R\+Y}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Q\+U\+E\+R\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+Q\+U\+E\+R\+Y~-\/1}\label{_s_d_l__events_8h_a56cee6a1344dd6d33598af982fa9607f}
+
+
+Definition at line 334 of file S\+D\+L\+\_\+events.\+h.
+
+\hypertarget{_s_d_l__events_8h_ad680a069f9fcab80de91b3eefdf29c3c}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+R\+E\+L\+E\+A\+S\+E\+D@{S\+D\+L\+\_\+\+R\+E\+L\+E\+A\+S\+E\+D}}
+\index{S\+D\+L\+\_\+\+R\+E\+L\+E\+A\+S\+E\+D@{S\+D\+L\+\_\+\+R\+E\+L\+E\+A\+S\+E\+D}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+R\+E\+L\+E\+A\+S\+E\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+R\+E\+L\+E\+A\+S\+E\+D~0}\label{_s_d_l__events_8h_ad680a069f9fcab80de91b3eefdf29c3c}
+
+
+Definition at line 47 of file S\+D\+L\+\_\+events.\+h.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{_s_d_l__events_8h_a951f49b468c4a2b3dfcc0b6dfb01a155}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Active\+Event@{S\+D\+L\+\_\+\+Active\+Event}}
+\index{S\+D\+L\+\_\+\+Active\+Event@{S\+D\+L\+\_\+\+Active\+Event}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Active\+Event}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+Active\+Event}  {\bf S\+D\+L\+\_\+\+Active\+Event}}\label{_s_d_l__events_8h_a951f49b468c4a2b3dfcc0b6dfb01a155}
+Application visibility event structure \hypertarget{_s_d_l__events_8h_ac123539589592fb2a938d43fa7e13794}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Event@{S\+D\+L\+\_\+\+Event}}
+\index{S\+D\+L\+\_\+\+Event@{S\+D\+L\+\_\+\+Event}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Event}]{\setlength{\rightskip}{0pt plus 5cm}typedef union {\bf S\+D\+L\+\_\+\+Event}  {\bf S\+D\+L\+\_\+\+Event}}\label{_s_d_l__events_8h_ac123539589592fb2a938d43fa7e13794}
+General event structure \hypertarget{_s_d_l__events_8h_aa26e6a96de52e105eea34ca00a9fd87c}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Event\+Filter@{S\+D\+L\+\_\+\+Event\+Filter}}
+\index{S\+D\+L\+\_\+\+Event\+Filter@{S\+D\+L\+\_\+\+Event\+Filter}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Event\+Filter}]{\setlength{\rightskip}{0pt plus 5cm}typedef int({\bf S\+D\+L\+C\+A\+L\+L} $\ast$ S\+D\+L\+\_\+\+Event\+Filter) (const {\bf S\+D\+L\+\_\+\+Event} $\ast$event)}\label{_s_d_l__events_8h_aa26e6a96de52e105eea34ca00a9fd87c}
+
+
+Definition at line 300 of file S\+D\+L\+\_\+events.\+h.
+
+\hypertarget{_s_d_l__events_8h_a81cdf3a42369fb5fd992beca1affa646}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Expose\+Event@{S\+D\+L\+\_\+\+Expose\+Event}}
+\index{S\+D\+L\+\_\+\+Expose\+Event@{S\+D\+L\+\_\+\+Expose\+Event}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Expose\+Event}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+Expose\+Event}  {\bf S\+D\+L\+\_\+\+Expose\+Event}}\label{_s_d_l__events_8h_a81cdf3a42369fb5fd992beca1affa646}
+The \char`\"{}screen redraw\char`\"{} event \hypertarget{_s_d_l__events_8h_a12d4cc4e7665b37af0cf4352cb522b71}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Joy\+Axis\+Event@{S\+D\+L\+\_\+\+Joy\+Axis\+Event}}
+\index{S\+D\+L\+\_\+\+Joy\+Axis\+Event@{S\+D\+L\+\_\+\+Joy\+Axis\+Event}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Joy\+Axis\+Event}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+Joy\+Axis\+Event}  {\bf S\+D\+L\+\_\+\+Joy\+Axis\+Event}}\label{_s_d_l__events_8h_a12d4cc4e7665b37af0cf4352cb522b71}
+Joystick axis motion event structure \hypertarget{_s_d_l__events_8h_a5811cd314ff0fcb4a5a8d3da110e59b6}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Joy\+Ball\+Event@{S\+D\+L\+\_\+\+Joy\+Ball\+Event}}
+\index{S\+D\+L\+\_\+\+Joy\+Ball\+Event@{S\+D\+L\+\_\+\+Joy\+Ball\+Event}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Joy\+Ball\+Event}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+Joy\+Ball\+Event}  {\bf S\+D\+L\+\_\+\+Joy\+Ball\+Event}}\label{_s_d_l__events_8h_a5811cd314ff0fcb4a5a8d3da110e59b6}
+Joystick trackball motion event structure \hypertarget{_s_d_l__events_8h_a1c9066d1e7d075042a55a5a0ebdeaf3e}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Joy\+Button\+Event@{S\+D\+L\+\_\+\+Joy\+Button\+Event}}
+\index{S\+D\+L\+\_\+\+Joy\+Button\+Event@{S\+D\+L\+\_\+\+Joy\+Button\+Event}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Joy\+Button\+Event}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+Joy\+Button\+Event}  {\bf S\+D\+L\+\_\+\+Joy\+Button\+Event}}\label{_s_d_l__events_8h_a1c9066d1e7d075042a55a5a0ebdeaf3e}
+Joystick button event structure \hypertarget{_s_d_l__events_8h_a5753fe82887f64c4feef90a9f0a19099}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Joy\+Hat\+Event@{S\+D\+L\+\_\+\+Joy\+Hat\+Event}}
+\index{S\+D\+L\+\_\+\+Joy\+Hat\+Event@{S\+D\+L\+\_\+\+Joy\+Hat\+Event}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Joy\+Hat\+Event}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+Joy\+Hat\+Event}  {\bf S\+D\+L\+\_\+\+Joy\+Hat\+Event}}\label{_s_d_l__events_8h_a5753fe82887f64c4feef90a9f0a19099}
+Joystick hat position change event structure \hypertarget{_s_d_l__events_8h_a2dfd49e5d1391bed57dcbc2359d9580f}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Keyboard\+Event@{S\+D\+L\+\_\+\+Keyboard\+Event}}
+\index{S\+D\+L\+\_\+\+Keyboard\+Event@{S\+D\+L\+\_\+\+Keyboard\+Event}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Keyboard\+Event}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+Keyboard\+Event}  {\bf S\+D\+L\+\_\+\+Keyboard\+Event}}\label{_s_d_l__events_8h_a2dfd49e5d1391bed57dcbc2359d9580f}
+Keyboard event structure \hypertarget{_s_d_l__events_8h_ad32036e6c0ba8aeadfb3063a5e945e8d}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Mouse\+Button\+Event@{S\+D\+L\+\_\+\+Mouse\+Button\+Event}}
+\index{S\+D\+L\+\_\+\+Mouse\+Button\+Event@{S\+D\+L\+\_\+\+Mouse\+Button\+Event}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Mouse\+Button\+Event}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+Mouse\+Button\+Event}  {\bf S\+D\+L\+\_\+\+Mouse\+Button\+Event}}\label{_s_d_l__events_8h_ad32036e6c0ba8aeadfb3063a5e945e8d}
+Mouse button event structure \hypertarget{_s_d_l__events_8h_aefe38e3abc59e3312e5a50d98f708de4}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Mouse\+Motion\+Event@{S\+D\+L\+\_\+\+Mouse\+Motion\+Event}}
+\index{S\+D\+L\+\_\+\+Mouse\+Motion\+Event@{S\+D\+L\+\_\+\+Mouse\+Motion\+Event}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Mouse\+Motion\+Event}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+Mouse\+Motion\+Event}  {\bf S\+D\+L\+\_\+\+Mouse\+Motion\+Event}}\label{_s_d_l__events_8h_aefe38e3abc59e3312e5a50d98f708de4}
+Mouse motion event structure \hypertarget{_s_d_l__events_8h_a2aa3b2097d14330fadfc91585fd18dfc}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Quit\+Event@{S\+D\+L\+\_\+\+Quit\+Event}}
+\index{S\+D\+L\+\_\+\+Quit\+Event@{S\+D\+L\+\_\+\+Quit\+Event}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Quit\+Event}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+Quit\+Event}  {\bf S\+D\+L\+\_\+\+Quit\+Event}}\label{_s_d_l__events_8h_a2aa3b2097d14330fadfc91585fd18dfc}
+The \char`\"{}quit requested\char`\"{} event \hypertarget{_s_d_l__events_8h_a00ff869b4b6d9d829b84f5f6d0ae31ad}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Resize\+Event@{S\+D\+L\+\_\+\+Resize\+Event}}
+\index{S\+D\+L\+\_\+\+Resize\+Event@{S\+D\+L\+\_\+\+Resize\+Event}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Resize\+Event}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+Resize\+Event}  {\bf S\+D\+L\+\_\+\+Resize\+Event}}\label{_s_d_l__events_8h_a00ff869b4b6d9d829b84f5f6d0ae31ad}
+The \char`\"{}window resized\char`\"{} event When you get this event, you are responsible for setting a new video mode with the new width and height. \hypertarget{_s_d_l__events_8h_aac1ed3c867af6ba87928d86a4c16e7e5}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Sys\+W\+M\+Event@{S\+D\+L\+\_\+\+Sys\+W\+M\+Event}}
+\index{S\+D\+L\+\_\+\+Sys\+W\+M\+Event@{S\+D\+L\+\_\+\+Sys\+W\+M\+Event}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Sys\+W\+M\+Event}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+Sys\+W\+M\+Event}  {\bf S\+D\+L\+\_\+\+Sys\+W\+M\+Event}}\label{_s_d_l__events_8h_aac1ed3c867af6ba87928d86a4c16e7e5}
+\hypertarget{_s_d_l__events_8h_a1ebcb2014aeef8b8c2cfdd66c91ce3c8}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Sys\+W\+Mmsg@{S\+D\+L\+\_\+\+Sys\+W\+Mmsg}}
+\index{S\+D\+L\+\_\+\+Sys\+W\+Mmsg@{S\+D\+L\+\_\+\+Sys\+W\+Mmsg}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Sys\+W\+Mmsg}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+Sys\+W\+Mmsg} {\bf S\+D\+L\+\_\+\+Sys\+W\+Mmsg}}\label{_s_d_l__events_8h_a1ebcb2014aeef8b8c2cfdd66c91ce3c8}
+
+
+Definition at line 220 of file S\+D\+L\+\_\+events.\+h.
+
+\hypertarget{_s_d_l__events_8h_a3c174fcb2518c4c9b858c8e3c3840830}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+User\+Event@{S\+D\+L\+\_\+\+User\+Event}}
+\index{S\+D\+L\+\_\+\+User\+Event@{S\+D\+L\+\_\+\+User\+Event}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+User\+Event}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf S\+D\+L\+\_\+\+User\+Event}  {\bf S\+D\+L\+\_\+\+User\+Event}}\label{_s_d_l__events_8h_a3c174fcb2518c4c9b858c8e3c3840830}
+A user-\/defined event type 
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{_s_d_l__events_8h_a8fdf1485b0419bb77b89e745267dc179}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+eventaction@{S\+D\+L\+\_\+eventaction}}
+\index{S\+D\+L\+\_\+eventaction@{S\+D\+L\+\_\+eventaction}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+eventaction}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf S\+D\+L\+\_\+eventaction}}\label{_s_d_l__events_8h_a8fdf1485b0419bb77b89e745267dc179}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{S\+D\+L\+\_\+\+A\+D\+D\+E\+V\+E\+N\+T@{S\+D\+L\+\_\+\+A\+D\+D\+E\+V\+E\+N\+T}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+A\+D\+D\+E\+V\+E\+N\+T@{S\+D\+L\+\_\+\+A\+D\+D\+E\+V\+E\+N\+T}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a8fdf1485b0419bb77b89e745267dc179a3cfcf139ec3d85b9ed46931b3ee5542f}{}S\+D\+L\+\_\+\+A\+D\+D\+E\+V\+E\+N\+T\label{_s_d_l__events_8h_a8fdf1485b0419bb77b89e745267dc179a3cfcf139ec3d85b9ed46931b3ee5542f}
+}]\index{S\+D\+L\+\_\+\+P\+E\+E\+K\+E\+V\+E\+N\+T@{S\+D\+L\+\_\+\+P\+E\+E\+K\+E\+V\+E\+N\+T}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+P\+E\+E\+K\+E\+V\+E\+N\+T@{S\+D\+L\+\_\+\+P\+E\+E\+K\+E\+V\+E\+N\+T}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a8fdf1485b0419bb77b89e745267dc179a75469beff07bfd6aa7fa4f54674ce34d}{}S\+D\+L\+\_\+\+P\+E\+E\+K\+E\+V\+E\+N\+T\label{_s_d_l__events_8h_a8fdf1485b0419bb77b89e745267dc179a75469beff07bfd6aa7fa4f54674ce34d}
+}]\index{S\+D\+L\+\_\+\+G\+E\+T\+E\+V\+E\+N\+T@{S\+D\+L\+\_\+\+G\+E\+T\+E\+V\+E\+N\+T}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+G\+E\+T\+E\+V\+E\+N\+T@{S\+D\+L\+\_\+\+G\+E\+T\+E\+V\+E\+N\+T}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a8fdf1485b0419bb77b89e745267dc179ae5f9b281fd90b9a836b50bfa5c520333}{}S\+D\+L\+\_\+\+G\+E\+T\+E\+V\+E\+N\+T\label{_s_d_l__events_8h_a8fdf1485b0419bb77b89e745267dc179ae5f9b281fd90b9a836b50bfa5c520333}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 253 of file S\+D\+L\+\_\+events.\+h.
+
+\hypertarget{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Event\+Mask@{S\+D\+L\+\_\+\+Event\+Mask}}
+\index{S\+D\+L\+\_\+\+Event\+Mask@{S\+D\+L\+\_\+\+Event\+Mask}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Event\+Mask}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf S\+D\+L\+\_\+\+Event\+Mask}}\label{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{S\+D\+L\+\_\+\+A\+C\+T\+I\+V\+E\+E\+V\+E\+N\+T\+M\+A\+S\+K@{S\+D\+L\+\_\+\+A\+C\+T\+I\+V\+E\+E\+V\+E\+N\+T\+M\+A\+S\+K}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+A\+C\+T\+I\+V\+E\+E\+V\+E\+N\+T\+M\+A\+S\+K@{S\+D\+L\+\_\+\+A\+C\+T\+I\+V\+E\+E\+V\+E\+N\+T\+M\+A\+S\+K}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a8a97e481115efeb0ee31fd6e81ef2b81}{}S\+D\+L\+\_\+\+A\+C\+T\+I\+V\+E\+E\+V\+E\+N\+T\+M\+A\+S\+K\label{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a8a97e481115efeb0ee31fd6e81ef2b81}
+}]\index{S\+D\+L\+\_\+\+K\+E\+Y\+D\+O\+W\+N\+M\+A\+S\+K@{S\+D\+L\+\_\+\+K\+E\+Y\+D\+O\+W\+N\+M\+A\+S\+K}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+K\+E\+Y\+D\+O\+W\+N\+M\+A\+S\+K@{S\+D\+L\+\_\+\+K\+E\+Y\+D\+O\+W\+N\+M\+A\+S\+K}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a52b8fa6cf1a7214090c06be111d04e48}{}S\+D\+L\+\_\+\+K\+E\+Y\+D\+O\+W\+N\+M\+A\+S\+K\label{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a52b8fa6cf1a7214090c06be111d04e48}
+}]\index{S\+D\+L\+\_\+\+K\+E\+Y\+U\+P\+M\+A\+S\+K@{S\+D\+L\+\_\+\+K\+E\+Y\+U\+P\+M\+A\+S\+K}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+K\+E\+Y\+U\+P\+M\+A\+S\+K@{S\+D\+L\+\_\+\+K\+E\+Y\+U\+P\+M\+A\+S\+K}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a9fbc3ccae1b1d9935275a02decae9995}{}S\+D\+L\+\_\+\+K\+E\+Y\+U\+P\+M\+A\+S\+K\label{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a9fbc3ccae1b1d9935275a02decae9995}
+}]\index{S\+D\+L\+\_\+\+K\+E\+Y\+E\+V\+E\+N\+T\+M\+A\+S\+K@{S\+D\+L\+\_\+\+K\+E\+Y\+E\+V\+E\+N\+T\+M\+A\+S\+K}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+K\+E\+Y\+E\+V\+E\+N\+T\+M\+A\+S\+K@{S\+D\+L\+\_\+\+K\+E\+Y\+E\+V\+E\+N\+T\+M\+A\+S\+K}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a8860026cbe28b3e376ccf1c5d21c254b}{}S\+D\+L\+\_\+\+K\+E\+Y\+E\+V\+E\+N\+T\+M\+A\+S\+K\label{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a8860026cbe28b3e376ccf1c5d21c254b}
+}]\index{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K@{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K@{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21aa718cca8b91688ca88756aa2eb91c3b7}{}S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K\label{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21aa718cca8b91688ca88756aa2eb91c3b7}
+}]\index{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N\+M\+A\+S\+K@{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N\+M\+A\+S\+K}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N\+M\+A\+S\+K@{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N\+M\+A\+S\+K}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a0bb1de8588fbb53c79eca2c85d9262d4}{}S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N\+M\+A\+S\+K\label{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a0bb1de8588fbb53c79eca2c85d9262d4}
+}]\index{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+U\+P\+M\+A\+S\+K@{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+U\+P\+M\+A\+S\+K}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+U\+P\+M\+A\+S\+K@{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+U\+P\+M\+A\+S\+K}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21adf767ef1b867fa5cce5fe420624aff4b}{}S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+U\+P\+M\+A\+S\+K\label{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21adf767ef1b867fa5cce5fe420624aff4b}
+}]\index{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+E\+V\+E\+N\+T\+M\+A\+S\+K@{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+E\+V\+E\+N\+T\+M\+A\+S\+K}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+E\+V\+E\+N\+T\+M\+A\+S\+K@{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+E\+V\+E\+N\+T\+M\+A\+S\+K}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a3c866ab29d88907460559e54a67e2086}{}S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+E\+V\+E\+N\+T\+M\+A\+S\+K\label{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a3c866ab29d88907460559e54a67e2086}
+}]\index{S\+D\+L\+\_\+\+J\+O\+Y\+A\+X\+I\+S\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K@{S\+D\+L\+\_\+\+J\+O\+Y\+A\+X\+I\+S\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+J\+O\+Y\+A\+X\+I\+S\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K@{S\+D\+L\+\_\+\+J\+O\+Y\+A\+X\+I\+S\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a85f19114c895045af5a8a53003834086}{}S\+D\+L\+\_\+\+J\+O\+Y\+A\+X\+I\+S\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K\label{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a85f19114c895045af5a8a53003834086}
+}]\index{S\+D\+L\+\_\+\+J\+O\+Y\+B\+A\+L\+L\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K@{S\+D\+L\+\_\+\+J\+O\+Y\+B\+A\+L\+L\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+J\+O\+Y\+B\+A\+L\+L\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K@{S\+D\+L\+\_\+\+J\+O\+Y\+B\+A\+L\+L\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21aea1d7ee578ef7f570535e09bea417702}{}S\+D\+L\+\_\+\+J\+O\+Y\+B\+A\+L\+L\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K\label{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21aea1d7ee578ef7f570535e09bea417702}
+}]\index{S\+D\+L\+\_\+\+J\+O\+Y\+H\+A\+T\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K@{S\+D\+L\+\_\+\+J\+O\+Y\+H\+A\+T\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+J\+O\+Y\+H\+A\+T\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K@{S\+D\+L\+\_\+\+J\+O\+Y\+H\+A\+T\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a8a75c60c6124aef9280d1205bed1090e}{}S\+D\+L\+\_\+\+J\+O\+Y\+H\+A\+T\+M\+O\+T\+I\+O\+N\+M\+A\+S\+K\label{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a8a75c60c6124aef9280d1205bed1090e}
+}]\index{S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N\+M\+A\+S\+K@{S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N\+M\+A\+S\+K}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N\+M\+A\+S\+K@{S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N\+M\+A\+S\+K}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a22435679e1aaa219d1abed7a5e6a4208}{}S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N\+M\+A\+S\+K\label{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a22435679e1aaa219d1abed7a5e6a4208}
+}]\index{S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+U\+P\+M\+A\+S\+K@{S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+U\+P\+M\+A\+S\+K}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+U\+P\+M\+A\+S\+K@{S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+U\+P\+M\+A\+S\+K}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a6508c6588626d515f39887eed7ba30fd}{}S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+U\+P\+M\+A\+S\+K\label{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a6508c6588626d515f39887eed7ba30fd}
+}]\index{S\+D\+L\+\_\+\+J\+O\+Y\+E\+V\+E\+N\+T\+M\+A\+S\+K@{S\+D\+L\+\_\+\+J\+O\+Y\+E\+V\+E\+N\+T\+M\+A\+S\+K}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+J\+O\+Y\+E\+V\+E\+N\+T\+M\+A\+S\+K@{S\+D\+L\+\_\+\+J\+O\+Y\+E\+V\+E\+N\+T\+M\+A\+S\+K}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21af3899e28982ddea10656471dfe9e4861}{}S\+D\+L\+\_\+\+J\+O\+Y\+E\+V\+E\+N\+T\+M\+A\+S\+K\label{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21af3899e28982ddea10656471dfe9e4861}
+}]\index{S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+R\+E\+S\+I\+Z\+E\+M\+A\+S\+K@{S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+R\+E\+S\+I\+Z\+E\+M\+A\+S\+K}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+R\+E\+S\+I\+Z\+E\+M\+A\+S\+K@{S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+R\+E\+S\+I\+Z\+E\+M\+A\+S\+K}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a5869f85c70e9bcb1f528d5f8ec2cf621}{}S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+R\+E\+S\+I\+Z\+E\+M\+A\+S\+K\label{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a5869f85c70e9bcb1f528d5f8ec2cf621}
+}]\index{S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+E\+X\+P\+O\+S\+E\+M\+A\+S\+K@{S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+E\+X\+P\+O\+S\+E\+M\+A\+S\+K}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+E\+X\+P\+O\+S\+E\+M\+A\+S\+K@{S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+E\+X\+P\+O\+S\+E\+M\+A\+S\+K}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21ae6b397a8a71ae72b14bb01c868a3f1e5}{}S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+E\+X\+P\+O\+S\+E\+M\+A\+S\+K\label{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21ae6b397a8a71ae72b14bb01c868a3f1e5}
+}]\index{S\+D\+L\+\_\+\+Q\+U\+I\+T\+M\+A\+S\+K@{S\+D\+L\+\_\+\+Q\+U\+I\+T\+M\+A\+S\+K}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Q\+U\+I\+T\+M\+A\+S\+K@{S\+D\+L\+\_\+\+Q\+U\+I\+T\+M\+A\+S\+K}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a8915aa88cadda7514324d22a7e685b40}{}S\+D\+L\+\_\+\+Q\+U\+I\+T\+M\+A\+S\+K\label{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a8915aa88cadda7514324d22a7e685b40}
+}]\index{S\+D\+L\+\_\+\+S\+Y\+S\+W\+M\+E\+V\+E\+N\+T\+M\+A\+S\+K@{S\+D\+L\+\_\+\+S\+Y\+S\+W\+M\+E\+V\+E\+N\+T\+M\+A\+S\+K}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+S\+Y\+S\+W\+M\+E\+V\+E\+N\+T\+M\+A\+S\+K@{S\+D\+L\+\_\+\+S\+Y\+S\+W\+M\+E\+V\+E\+N\+T\+M\+A\+S\+K}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a84e24617fbe97f1baff0e53efc6474ba}{}S\+D\+L\+\_\+\+S\+Y\+S\+W\+M\+E\+V\+E\+N\+T\+M\+A\+S\+K\label{_s_d_l__events_8h_a07339c3fbda4c18a07fad288a2e23d21a84e24617fbe97f1baff0e53efc6474ba}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 88 of file S\+D\+L\+\_\+events.\+h.
+
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fcca}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Event\+Type@{S\+D\+L\+\_\+\+Event\+Type}}
+\index{S\+D\+L\+\_\+\+Event\+Type@{S\+D\+L\+\_\+\+Event\+Type}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Event\+Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf S\+D\+L\+\_\+\+Event\+Type}}\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fcca}
+Event enumerations \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{S\+D\+L\+\_\+\+N\+O\+E\+V\+E\+N\+T@{S\+D\+L\+\_\+\+N\+O\+E\+V\+E\+N\+T}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+N\+O\+E\+V\+E\+N\+T@{S\+D\+L\+\_\+\+N\+O\+E\+V\+E\+N\+T}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa8d638d6b7c16579b793f08165b11ea68}{}S\+D\+L\+\_\+\+N\+O\+E\+V\+E\+N\+T\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa8d638d6b7c16579b793f08165b11ea68}
+}]Unused (do not remove) \index{S\+D\+L\+\_\+\+A\+C\+T\+I\+V\+E\+E\+V\+E\+N\+T@{S\+D\+L\+\_\+\+A\+C\+T\+I\+V\+E\+E\+V\+E\+N\+T}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+A\+C\+T\+I\+V\+E\+E\+V\+E\+N\+T@{S\+D\+L\+\_\+\+A\+C\+T\+I\+V\+E\+E\+V\+E\+N\+T}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa805c60f34b315629064b897318ea7b0f}{}S\+D\+L\+\_\+\+A\+C\+T\+I\+V\+E\+E\+V\+E\+N\+T\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa805c60f34b315629064b897318ea7b0f}
+}]Application loses/gains visibility \index{S\+D\+L\+\_\+\+K\+E\+Y\+D\+O\+W\+N@{S\+D\+L\+\_\+\+K\+E\+Y\+D\+O\+W\+N}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+K\+E\+Y\+D\+O\+W\+N@{S\+D\+L\+\_\+\+K\+E\+Y\+D\+O\+W\+N}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaacaf8cfd53c985cdbf6a90c811d51a1fc}{}S\+D\+L\+\_\+\+K\+E\+Y\+D\+O\+W\+N\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaacaf8cfd53c985cdbf6a90c811d51a1fc}
+}]Keys pressed \index{S\+D\+L\+\_\+\+K\+E\+Y\+U\+P@{S\+D\+L\+\_\+\+K\+E\+Y\+U\+P}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+K\+E\+Y\+U\+P@{S\+D\+L\+\_\+\+K\+E\+Y\+U\+P}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaadefb8866b9d28be21c2c33c35cc66c4b}{}S\+D\+L\+\_\+\+K\+E\+Y\+U\+P\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaadefb8866b9d28be21c2c33c35cc66c4b}
+}]Keys released \index{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+M\+O\+T\+I\+O\+N@{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+M\+O\+T\+I\+O\+N}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+M\+O\+T\+I\+O\+N@{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+M\+O\+T\+I\+O\+N}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa04c436ef80fef38fb77a89e0e9124c30}{}S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+M\+O\+T\+I\+O\+N\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa04c436ef80fef38fb77a89e0e9124c30}
+}]Mouse moved \index{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N@{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N@{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa9267166e1536dfa8b0daa98c0afa9052}{}S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa9267166e1536dfa8b0daa98c0afa9052}
+}]Mouse button pressed \index{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+U\+P@{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+U\+P}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+U\+P@{S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+U\+P}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa4ab85278398d29b9e50f500aad2b952b}{}S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+U\+P\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa4ab85278398d29b9e50f500aad2b952b}
+}]Mouse button released \index{S\+D\+L\+\_\+\+J\+O\+Y\+A\+X\+I\+S\+M\+O\+T\+I\+O\+N@{S\+D\+L\+\_\+\+J\+O\+Y\+A\+X\+I\+S\+M\+O\+T\+I\+O\+N}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+J\+O\+Y\+A\+X\+I\+S\+M\+O\+T\+I\+O\+N@{S\+D\+L\+\_\+\+J\+O\+Y\+A\+X\+I\+S\+M\+O\+T\+I\+O\+N}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaaf0803b3f8a12de3d85f81ebd7b514cd1}{}S\+D\+L\+\_\+\+J\+O\+Y\+A\+X\+I\+S\+M\+O\+T\+I\+O\+N\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaaf0803b3f8a12de3d85f81ebd7b514cd1}
+}]Joystick axis motion \index{S\+D\+L\+\_\+\+J\+O\+Y\+B\+A\+L\+L\+M\+O\+T\+I\+O\+N@{S\+D\+L\+\_\+\+J\+O\+Y\+B\+A\+L\+L\+M\+O\+T\+I\+O\+N}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+J\+O\+Y\+B\+A\+L\+L\+M\+O\+T\+I\+O\+N@{S\+D\+L\+\_\+\+J\+O\+Y\+B\+A\+L\+L\+M\+O\+T\+I\+O\+N}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa78f859489cfd565c305c7f6f9d5b25c1}{}S\+D\+L\+\_\+\+J\+O\+Y\+B\+A\+L\+L\+M\+O\+T\+I\+O\+N\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa78f859489cfd565c305c7f6f9d5b25c1}
+}]Joystick trackball motion \index{S\+D\+L\+\_\+\+J\+O\+Y\+H\+A\+T\+M\+O\+T\+I\+O\+N@{S\+D\+L\+\_\+\+J\+O\+Y\+H\+A\+T\+M\+O\+T\+I\+O\+N}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+J\+O\+Y\+H\+A\+T\+M\+O\+T\+I\+O\+N@{S\+D\+L\+\_\+\+J\+O\+Y\+H\+A\+T\+M\+O\+T\+I\+O\+N}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaafba4080bfbad335e520097b2024f0dff}{}S\+D\+L\+\_\+\+J\+O\+Y\+H\+A\+T\+M\+O\+T\+I\+O\+N\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaafba4080bfbad335e520097b2024f0dff}
+}]Joystick hat position change \index{S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N@{S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N@{S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa386ac978bc145a45883fe0adab70710b}{}S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+D\+O\+W\+N\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa386ac978bc145a45883fe0adab70710b}
+}]Joystick button pressed \index{S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+U\+P@{S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+U\+P}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+U\+P@{S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+U\+P}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa76f91c81110f012e3a47cbbc0449e3c3}{}S\+D\+L\+\_\+\+J\+O\+Y\+B\+U\+T\+T\+O\+N\+U\+P\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa76f91c81110f012e3a47cbbc0449e3c3}
+}]Joystick button released \index{S\+D\+L\+\_\+\+Q\+U\+I\+T@{S\+D\+L\+\_\+\+Q\+U\+I\+T}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Q\+U\+I\+T@{S\+D\+L\+\_\+\+Q\+U\+I\+T}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa31acc5fdafc86ebe2c1f5c3cae48d603}{}S\+D\+L\+\_\+\+Q\+U\+I\+T\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa31acc5fdafc86ebe2c1f5c3cae48d603}
+}]User-\/requested quit \index{S\+D\+L\+\_\+\+S\+Y\+S\+W\+M\+E\+V\+E\+N\+T@{S\+D\+L\+\_\+\+S\+Y\+S\+W\+M\+E\+V\+E\+N\+T}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+S\+Y\+S\+W\+M\+E\+V\+E\+N\+T@{S\+D\+L\+\_\+\+S\+Y\+S\+W\+M\+E\+V\+E\+N\+T}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa73749d735a18ce6ef17a09ee70d5dbe7}{}S\+D\+L\+\_\+\+S\+Y\+S\+W\+M\+E\+V\+E\+N\+T\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa73749d735a18ce6ef17a09ee70d5dbe7}
+}]System specific event \index{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D\+A@{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D\+A}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D\+A@{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D\+A}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa064075bce2d1a3cd68f103de46dbccb6}{}S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D\+A\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa064075bce2d1a3cd68f103de46dbccb6}
+}]Reserved for future use.. \index{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D\+B@{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D\+B}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D\+B@{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D\+B}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaace4664e201bf199751bec7e9b9b56982}{}S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D\+B\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaace4664e201bf199751bec7e9b9b56982}
+}]Reserved for future use.. \index{S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+R\+E\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+R\+E\+S\+I\+Z\+E}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+R\+E\+S\+I\+Z\+E@{S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+R\+E\+S\+I\+Z\+E}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa328321c1c9ef88537e94fb6ca42fa050}{}S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+R\+E\+S\+I\+Z\+E\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa328321c1c9ef88537e94fb6ca42fa050}
+}]User resized video mode \index{S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+E\+X\+P\+O\+S\+E@{S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+E\+X\+P\+O\+S\+E}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+E\+X\+P\+O\+S\+E@{S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+E\+X\+P\+O\+S\+E}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa71837d3c769d3830d721b911797f04bc}{}S\+D\+L\+\_\+\+V\+I\+D\+E\+O\+E\+X\+P\+O\+S\+E\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa71837d3c769d3830d721b911797f04bc}
+}]Screen needs to be redrawn \index{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D2@{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D2}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D2@{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D2}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa167cadab6f99867d8a8cded5f058ab25}{}S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D2\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa167cadab6f99867d8a8cded5f058ab25}
+}]Reserved for future use.. \index{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D3@{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D3}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D3@{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D3}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa4273409cb098de861ffb00d10f7b7afb}{}S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D3\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa4273409cb098de861ffb00d10f7b7afb}
+}]Reserved for future use.. \index{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D4@{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D4}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D4@{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D4}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaaa1ff31a05eea53c8081fc268e08a470c}{}S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D4\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaaa1ff31a05eea53c8081fc268e08a470c}
+}]Reserved for future use.. \index{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D5@{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D5}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D5@{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D5}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaaf2ec84e8d348aa4f4271c8d3937611c2}{}S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D5\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaaf2ec84e8d348aa4f4271c8d3937611c2}
+}]Reserved for future use.. \index{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D6@{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D6}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D6@{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D6}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa4ebdb51555100069c32e8afd106827ac}{}S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D6\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa4ebdb51555100069c32e8afd106827ac}
+}]Reserved for future use.. \index{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D7@{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D7}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D7@{S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D7}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa294d4d209bd2324f697f50f8e87cf483}{}S\+D\+L\+\_\+\+E\+V\+E\+N\+T\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D7\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa294d4d209bd2324f697f50f8e87cf483}
+}]Reserved for future use.. \index{S\+D\+L\+\_\+\+U\+S\+E\+R\+E\+V\+E\+N\+T@{S\+D\+L\+\_\+\+U\+S\+E\+R\+E\+V\+E\+N\+T}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+U\+S\+E\+R\+E\+V\+E\+N\+T@{S\+D\+L\+\_\+\+U\+S\+E\+R\+E\+V\+E\+N\+T}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa4364c23f54802309e83fdb9b1c07c719}{}S\+D\+L\+\_\+\+U\+S\+E\+R\+E\+V\+E\+N\+T\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa4364c23f54802309e83fdb9b1c07c719}
+}]Events S\+D\+L\+\_\+\+U\+S\+E\+R\+E\+V\+E\+N\+T through S\+D\+L\+\_\+\+M\+A\+X\+E\+V\+E\+N\+T\+S-\/1 are for your use \index{S\+D\+L\+\_\+\+N\+U\+M\+E\+V\+E\+N\+T\+S@{S\+D\+L\+\_\+\+N\+U\+M\+E\+V\+E\+N\+T\+S}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+N\+U\+M\+E\+V\+E\+N\+T\+S@{S\+D\+L\+\_\+\+N\+U\+M\+E\+V\+E\+N\+T\+S}}\item[{\em 
+\hypertarget{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaac7ab35bfec8662d148fd20d75c6117e7}{}S\+D\+L\+\_\+\+N\+U\+M\+E\+V\+E\+N\+T\+S\label{_s_d_l__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaac7ab35bfec8662d148fd20d75c6117e7}
+}]This last event is only for bounding internal arrays It is the number of bits in the event mask datatype -- Uint32 \end{description}
+\end{Desc}
+
+
+Definition at line 52 of file S\+D\+L\+\_\+events.\+h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_s_d_l__events_8h_a946c32ab98f1d4ec927e8917f01520e2}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Event\+State@{S\+D\+L\+\_\+\+Event\+State}}
+\index{S\+D\+L\+\_\+\+Event\+State@{S\+D\+L\+\_\+\+Event\+State}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Event\+State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf Uint8} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Event\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf Uint8}}]{type, }
+\item[{int}]{state}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__events_8h_a946c32ab98f1d4ec927e8917f01520e2}
+This function allows you to set the state of processing certain events. If \textquotesingle{}state\textquotesingle{} is set to S\+D\+L\+\_\+\+I\+G\+N\+O\+R\+E, that event will be automatically dropped from the event queue and will not event be filtered. If \textquotesingle{}state\textquotesingle{} is set to S\+D\+L\+\_\+\+E\+N\+A\+B\+L\+E, that event will be processed normally. If \textquotesingle{}state\textquotesingle{} is set to S\+D\+L\+\_\+\+Q\+U\+E\+R\+Y, \hyperlink{_s_d_l__events_8h_a946c32ab98f1d4ec927e8917f01520e2}{S\+D\+L\+\_\+\+Event\+State()} will return the current processing state of the specified event. \hypertarget{_s_d_l__events_8h_a6379e3346737caed714cdbe48379c800}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Get\+Event\+Filter@{S\+D\+L\+\_\+\+Get\+Event\+Filter}}
+\index{S\+D\+L\+\_\+\+Get\+Event\+Filter@{S\+D\+L\+\_\+\+Get\+Event\+Filter}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Get\+Event\+Filter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf S\+D\+L\+\_\+\+Event\+Filter} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Get\+Event\+Filter (
+\begin{DoxyParamCaption}
+\item[{{\bf void}}]{}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__events_8h_a6379e3346737caed714cdbe48379c800}
+Return the current event filter -\/ can be used to \char`\"{}chain\char`\"{} filters. If there is no event filter set, this function returns N\+U\+L\+L. \hypertarget{_s_d_l__events_8h_a3b4a79e56dbe6f770572ef45575e6ef1}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Peep\+Events@{S\+D\+L\+\_\+\+Peep\+Events}}
+\index{S\+D\+L\+\_\+\+Peep\+Events@{S\+D\+L\+\_\+\+Peep\+Events}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Peep\+Events}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Peep\+Events (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Event} $\ast$}]{events, }
+\item[{int}]{numevents, }
+\item[{{\bf S\+D\+L\+\_\+eventaction}}]{action, }
+\item[{{\bf Uint32}}]{mask}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__events_8h_a3b4a79e56dbe6f770572ef45575e6ef1}
+Checks the event queue for messages and optionally returns them.
+
+If \textquotesingle{}action\textquotesingle{} is S\+D\+L\+\_\+\+A\+D\+D\+E\+V\+E\+N\+T, up to \textquotesingle{}numevents\textquotesingle{} events will be added to the back of the event queue. If \textquotesingle{}action\textquotesingle{} is S\+D\+L\+\_\+\+P\+E\+E\+K\+E\+V\+E\+N\+T, up to \textquotesingle{}numevents\textquotesingle{} events at the front of the event queue, matching \textquotesingle{}mask\textquotesingle{}, will be returned and will not be removed from the queue. If \textquotesingle{}action\textquotesingle{} is S\+D\+L\+\_\+\+G\+E\+T\+E\+V\+E\+N\+T, up to \textquotesingle{}numevents\textquotesingle{} events at the front of the event queue, matching \textquotesingle{}mask\textquotesingle{}, will be returned and will be removed from the queue.
+
+\begin{DoxyReturn}{Returns}
+This function returns the number of events actually stored, or -\/1 if there was an error.
+\end{DoxyReturn}
+This function is thread-\/safe. \hypertarget{_s_d_l__events_8h_acfa517963c25f8b71acc6b56721c5d9b}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Poll\+Event@{S\+D\+L\+\_\+\+Poll\+Event}}
+\index{S\+D\+L\+\_\+\+Poll\+Event@{S\+D\+L\+\_\+\+Poll\+Event}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Poll\+Event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Poll\+Event (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Event} $\ast$}]{event}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__events_8h_acfa517963c25f8b71acc6b56721c5d9b}
+Polls for currently pending events, and returns 1 if there are any pending events, or 0 if there are none available. If \textquotesingle{}event\textquotesingle{} is not N\+U\+L\+L, the next event is removed from the queue and stored in that area. \hypertarget{_s_d_l__events_8h_aa15403d1c8fc341cd9cf750e27a66d19}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Pump\+Events@{S\+D\+L\+\_\+\+Pump\+Events}}
+\index{S\+D\+L\+\_\+\+Pump\+Events@{S\+D\+L\+\_\+\+Pump\+Events}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Pump\+Events}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Pump\+Events (
+\begin{DoxyParamCaption}
+\item[{{\bf void}}]{}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__events_8h_aa15403d1c8fc341cd9cf750e27a66d19}
+Pumps the event loop, gathering events from the input devices. This function updates the event queue and internal input device state. This should only be run in the thread that sets the video mode. \hypertarget{_s_d_l__events_8h_adced45c8816620846a6fde2a7d54b446}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Push\+Event@{S\+D\+L\+\_\+\+Push\+Event}}
+\index{S\+D\+L\+\_\+\+Push\+Event@{S\+D\+L\+\_\+\+Push\+Event}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Push\+Event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Push\+Event (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Event} $\ast$}]{event}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__events_8h_adced45c8816620846a6fde2a7d54b446}
+Add an event to the event queue. This function returns 0 on success, or -\/1 if the event queue was full or there was some other error. \hypertarget{_s_d_l__events_8h_acc4080d9db1e2cd5946e274212ec0f8a}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Set\+Event\+Filter@{S\+D\+L\+\_\+\+Set\+Event\+Filter}}
+\index{S\+D\+L\+\_\+\+Set\+Event\+Filter@{S\+D\+L\+\_\+\+Set\+Event\+Filter}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Set\+Event\+Filter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Set\+Event\+Filter (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Event\+Filter}}]{filter}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__events_8h_acc4080d9db1e2cd5946e274212ec0f8a}
+This function sets up a filter to process all events before they change internal state and are posted to the internal event queue.
+
+The filter is protypted as\+: 
+\begin{DoxyCode}
+1 typedef int (SDLCALL *SDL\_EventFilter)(const SDL\_Event *event); 
+\end{DoxyCode}
+
+
+If the filter returns 1, then the event will be added to the internal queue. If it returns 0, then the event will be dropped from the queue, but the internal state will still be updated. This allows selective filtering of dynamically arriving events.
+
+\begin{DoxyWarning}{Warning}
+Be very careful of what you do in the event filter function, as it may run in a different thread!
+\end{DoxyWarning}
+There is one caveat when dealing with the S\+D\+L\+\_\+\+Q\+U\+I\+T\+E\+V\+E\+N\+T event type. The event filter is only called when the window manager desires to close the application window. If the event filter returns 1, then the window will be closed, otherwise the window will remain open if possible. If the quit event is generated by an interrupt signal, it will bypass the internal queue and be delivered to the application at the next event poll. \hypertarget{_s_d_l__events_8h_af37c266ea979ba39b82079d9eb401003}{}\index{S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}!S\+D\+L\+\_\+\+Wait\+Event@{S\+D\+L\+\_\+\+Wait\+Event}}
+\index{S\+D\+L\+\_\+\+Wait\+Event@{S\+D\+L\+\_\+\+Wait\+Event}!S\+D\+L\+\_\+events.\+h@{S\+D\+L\+\_\+events.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Wait\+Event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Wait\+Event (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Event} $\ast$}]{event}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__events_8h_af37c266ea979ba39b82079d9eb401003}
+Waits indefinitely for the next available event, returning 1, or 0 if there was an error while waiting for events. If \textquotesingle{}event\textquotesingle{} is not N\+U\+L\+L, the next event is removed from the queue and stored in that area. 

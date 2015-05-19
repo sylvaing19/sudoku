@@ -1,0 +1,122 @@
+\hypertarget{struct_s_d_l___overlay}{}\section{S\+D\+L\+\_\+\+Overlay Struct Reference}
+\label{struct_s_d_l___overlay}\index{S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}}
+
+
+{\ttfamily \#include $<$S\+D\+L\+\_\+video.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} \hyperlink{struct_s_d_l___overlay_a421f873d1ffc5530c1f9d4b49be75d4e}{format}
+\item 
+int \hyperlink{struct_s_d_l___overlay_a8a73fe76717c183d52dd67a6981fd84d}{w}
+\item 
+int \hyperlink{struct_s_d_l___overlay_af1402a7a7cd8ba2816ddc7542c9d3e67}{h}
+\item 
+int \hyperlink{struct_s_d_l___overlay_ab91d676ef6310197aa189c469be3d50a}{planes}
+\item 
+\hyperlink{_s_d_l__stdinc_8h_a31fcc0a076c9068668173ee26d33e42b}{Uint16} $\ast$ \hyperlink{struct_s_d_l___overlay_ad88bb773013ff535c647af38760c69e8}{pitches}
+\item 
+\hyperlink{_s_d_l__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}{Uint8} $\ast$$\ast$ \hyperlink{struct_s_d_l___overlay_a782b8904e618e8a1c2c8299c3994ec8f}{pixels}
+\end{DoxyCompactItemize}
+\begin{Indent}{\bf Hardware-\/specific surface info}\par
+\begin{DoxyCompactItemize}
+\item 
+struct private\+\_\+yuvhwfuncs $\ast$ \hyperlink{struct_s_d_l___overlay_aba6df163c475c57ba729bd9b86f87963}{hwfuncs}
+\item 
+struct private\+\_\+yuvhwdata $\ast$ \hyperlink{struct_s_d_l___overlay_acc40482a067d5c106747dab61bcee3c4}{hwdata}
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Special flags}\par
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} \hyperlink{struct_s_d_l___overlay_a3c24f3b1805074deb9ce6ef5b14f70dc}{hw\+\_\+overlay}\+:1
+\item 
+\hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} \hyperlink{struct_s_d_l___overlay_a3dff6185e5d7cba5455b17cbf96d23ed}{Unused\+Bits}\+:31
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsection{Detailed Description}
+The Y\+U\+V hardware video overlay 
+
+Definition at line 208 of file S\+D\+L\+\_\+video.\+h.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_s_d_l___overlay_a421f873d1ffc5530c1f9d4b49be75d4e}{}\index{S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}!format@{format}}
+\index{format@{format}!S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}}
+\subsubsection[{format}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Uint32} S\+D\+L\+\_\+\+Overlay\+::format}\label{struct_s_d_l___overlay_a421f873d1ffc5530c1f9d4b49be75d4e}
+Read-\/only 
+
+Definition at line 209 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___overlay_af1402a7a7cd8ba2816ddc7542c9d3e67}{}\index{S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}!h@{h}}
+\index{h@{h}!S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}}
+\subsubsection[{h}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+\+Overlay\+::h}\label{struct_s_d_l___overlay_af1402a7a7cd8ba2816ddc7542c9d3e67}
+Read-\/only 
+
+Definition at line 210 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___overlay_a3c24f3b1805074deb9ce6ef5b14f70dc}{}\index{S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}!hw\+\_\+overlay@{hw\+\_\+overlay}}
+\index{hw\+\_\+overlay@{hw\+\_\+overlay}!S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}}
+\subsubsection[{hw\+\_\+overlay}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Uint32} S\+D\+L\+\_\+\+Overlay\+::hw\+\_\+overlay}\label{struct_s_d_l___overlay_a3c24f3b1805074deb9ce6ef5b14f70dc}
+Flag\+: This overlay hardware accelerated? 
+
+Definition at line 223 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___overlay_acc40482a067d5c106747dab61bcee3c4}{}\index{S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}!hwdata@{hwdata}}
+\index{hwdata@{hwdata}!S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}}
+\subsubsection[{hwdata}]{\setlength{\rightskip}{0pt plus 5cm}struct private\+\_\+yuvhwdata$\ast$ S\+D\+L\+\_\+\+Overlay\+::hwdata}\label{struct_s_d_l___overlay_acc40482a067d5c106747dab61bcee3c4}
+
+
+Definition at line 218 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___overlay_aba6df163c475c57ba729bd9b86f87963}{}\index{S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}!hwfuncs@{hwfuncs}}
+\index{hwfuncs@{hwfuncs}!S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}}
+\subsubsection[{hwfuncs}]{\setlength{\rightskip}{0pt plus 5cm}struct private\+\_\+yuvhwfuncs$\ast$ S\+D\+L\+\_\+\+Overlay\+::hwfuncs}\label{struct_s_d_l___overlay_aba6df163c475c57ba729bd9b86f87963}
+
+
+Definition at line 217 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___overlay_ad88bb773013ff535c647af38760c69e8}{}\index{S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}!pitches@{pitches}}
+\index{pitches@{pitches}!S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}}
+\subsubsection[{pitches}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Uint16}$\ast$ S\+D\+L\+\_\+\+Overlay\+::pitches}\label{struct_s_d_l___overlay_ad88bb773013ff535c647af38760c69e8}
+Read-\/only 
+
+Definition at line 212 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___overlay_a782b8904e618e8a1c2c8299c3994ec8f}{}\index{S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}!pixels@{pixels}}
+\index{pixels@{pixels}!S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}}
+\subsubsection[{pixels}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Uint8}$\ast$$\ast$ S\+D\+L\+\_\+\+Overlay\+::pixels}\label{struct_s_d_l___overlay_a782b8904e618e8a1c2c8299c3994ec8f}
+Read-\/write 
+
+Definition at line 213 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___overlay_ab91d676ef6310197aa189c469be3d50a}{}\index{S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}!planes@{planes}}
+\index{planes@{planes}!S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}}
+\subsubsection[{planes}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+\+Overlay\+::planes}\label{struct_s_d_l___overlay_ab91d676ef6310197aa189c469be3d50a}
+Read-\/only 
+
+Definition at line 211 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___overlay_a3dff6185e5d7cba5455b17cbf96d23ed}{}\index{S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}!Unused\+Bits@{Unused\+Bits}}
+\index{Unused\+Bits@{Unused\+Bits}!S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}}
+\subsubsection[{Unused\+Bits}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Uint32} S\+D\+L\+\_\+\+Overlay\+::\+Unused\+Bits}\label{struct_s_d_l___overlay_a3dff6185e5d7cba5455b17cbf96d23ed}
+
+
+Definition at line 224 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___overlay_a8a73fe76717c183d52dd67a6981fd84d}{}\index{S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}!w@{w}}
+\index{w@{w}!S\+D\+L\+\_\+\+Overlay@{S\+D\+L\+\_\+\+Overlay}}
+\subsubsection[{w}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+\+Overlay\+::w}\label{struct_s_d_l___overlay_a8a73fe76717c183d52dd67a6981fd84d}
+
+
+Definition at line 210 of file S\+D\+L\+\_\+video.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+S\+D\+L-\/1.\+2.\+15/include/\hyperlink{_s_d_l__video_8h}{S\+D\+L\+\_\+video.\+h}\end{DoxyCompactItemize}

@@ -334,6 +334,21 @@ void Grille::generer(Difficulte difficulte)
 	vector<unsigned int> tabIndicesSupprimables;
 	array<int, 10> nbChiffresRestant;
 	unsigned int nbReveles = 81;
+    unsigned int nbDiffSup;
+    unsigned int nbDiffInf;
+
+    if (difficulte == FACILE) {
+        nbDiffSup = 45;
+        nbDiffInf = 38;
+    }
+    else if (difficulte == MOYEN) {
+        nbDiffSup = 37;
+        nbDiffInf = 32;
+    }
+    else {
+        nbDiffSup = 34;
+        nbDiffInf = 25;
+    }
 
 	for (unsigned int i = 0; i < 81; i++)
 	{
@@ -344,13 +359,13 @@ void Grille::generer(Difficulte difficulte)
 		nbChiffresRestant[i] = 9;
 	}
 
-	while (nbReveles > 34)
+	while (nbReveles > nbDiffSup)
 	{
 		supprimerCaseRandom(tabIndicesSupprimables, nbChiffresRestant, nbReveles);
 	}
 
 	bool continuer = true;
-	while (nbReveles > 28 && continuer)
+	while (nbReveles > nbDiffInf && continuer)
 	{
 		continuer = supprimerCaseRandom(tabIndicesSupprimables, nbChiffresRestant, nbReveles);
 	}

@@ -1,0 +1,365 @@
+\hypertarget{_s_d_l__rotozoom_8h}{}\section{S\+D\+L\+\_\+gfx-\/2.0.25/\+S\+D\+L\+\_\+rotozoom.h File Reference}
+\label{_s_d_l__rotozoom_8h}\index{S\+D\+L\+\_\+gfx-\/2.\+0.\+25/\+S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+gfx-\/2.\+0.\+25/\+S\+D\+L\+\_\+rotozoom.\+h}}
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}S\+D\+L.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_s_d_l__rotozoom_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+P\+I}~3.\+141592654
+\item 
+\#define \hyperlink{_s_d_l__rotozoom_8h_a6541cd06edcce77d8a6f1c6350c988af}{S\+M\+O\+O\+T\+H\+I\+N\+G\+\_\+\+O\+F\+F}~0
+\begin{DoxyCompactList}\small\item\em Disable anti-\/aliasing (no smoothing). \end{DoxyCompactList}\item 
+\#define \hyperlink{_s_d_l__rotozoom_8h_abeb6ae7618fcb315d0399fe65849a2e8}{S\+M\+O\+O\+T\+H\+I\+N\+G\+\_\+\+O\+N}~1
+\begin{DoxyCompactList}\small\item\em Enable anti-\/aliasing (smoothing). \end{DoxyCompactList}\item 
+\#define \hyperlink{_s_d_l__rotozoom_8h_a5115250bd769f389e278cd5adfb63179}{S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E}~extern
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_s_d_l__rotozoom_8h_a5115250bd769f389e278cd5adfb63179}{S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E} \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$ \hyperlink{_s_d_l__rotozoom_8h_a3cb0c11d5edc929579c807dc7612348c}{rotozoom\+Surface} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a72e0fdf0f845ded60b1fada9e9195cd7}{src}, double angle, double zoom, int smooth)
+\begin{DoxyCompactList}\small\item\em Rotates and zooms a surface and optional anti-\/aliasing. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__rotozoom_8h_a5115250bd769f389e278cd5adfb63179}{S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E} \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$ \hyperlink{_s_d_l__rotozoom_8h_a454d4234a45eab6ec238a40cc44051d4}{rotozoom\+Surface\+X\+Y} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a72e0fdf0f845ded60b1fada9e9195cd7}{src}, double angle, double zoomx, double zoomy, int smooth)
+\begin{DoxyCompactList}\small\item\em Rotates and zooms a surface with different horizontal and vertival scaling factors and optional anti-\/aliasing. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__rotozoom_8h_a5115250bd769f389e278cd5adfb63179}{S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{_s_d_l__rotozoom_8h_a3ca2316375d6faf4f19b26c2f1f14bbc}{rotozoom\+Surface\+Size} (int \hyperlink{_s_d_l__opengl_8h_a3ce386e55bbeb900c1b23e064b89bd04}{width}, int \hyperlink{_s_d_l__opengl_8h_aedd0ea77029b98ce91e47c19addcb68f}{height}, double angle, double zoom, int $\ast$dstwidth, int $\ast$dstheight)
+\begin{DoxyCompactList}\small\item\em Returns the size of the resulting target surface for a \hyperlink{_s_d_l__rotozoom_8c_a5f64ed53eeee5f2667971c857698d1e5}{rotozoom\+Surface()} call. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__rotozoom_8h_a5115250bd769f389e278cd5adfb63179}{S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{_s_d_l__rotozoom_8h_a612334fa642f672af953f544da6245d0}{rotozoom\+Surface\+Size\+X\+Y} (int \hyperlink{_s_d_l__opengl_8h_a3ce386e55bbeb900c1b23e064b89bd04}{width}, int \hyperlink{_s_d_l__opengl_8h_aedd0ea77029b98ce91e47c19addcb68f}{height}, double angle, double zoomx, double zoomy, int $\ast$dstwidth, int $\ast$dstheight)
+\begin{DoxyCompactList}\small\item\em Returns the size of the resulting target surface for a \hyperlink{_s_d_l__rotozoom_8c_aab98b5b0da4ea468bacf47f7b85f0ee2}{rotozoom\+Surface\+X\+Y()} call. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__rotozoom_8h_a5115250bd769f389e278cd5adfb63179}{S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E} \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$ \hyperlink{_s_d_l__rotozoom_8h_a06c8108f8fe8de77cf841c176ee64850}{zoom\+Surface} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a72e0fdf0f845ded60b1fada9e9195cd7}{src}, double zoomx, double zoomy, int smooth)
+\begin{DoxyCompactList}\small\item\em Zoom a surface by independent horizontal and vertical factors with optional smoothing. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__rotozoom_8h_a5115250bd769f389e278cd5adfb63179}{S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{_s_d_l__rotozoom_8h_a7927e415d87ea7856794cd4cc77e0a25}{zoom\+Surface\+Size} (int \hyperlink{_s_d_l__opengl_8h_a3ce386e55bbeb900c1b23e064b89bd04}{width}, int \hyperlink{_s_d_l__opengl_8h_aedd0ea77029b98ce91e47c19addcb68f}{height}, double zoomx, double zoomy, int $\ast$dstwidth, int $\ast$dstheight)
+\begin{DoxyCompactList}\small\item\em Calculates the size of the target surface for a \hyperlink{_s_d_l__rotozoom_8c_abdd772b2f6b1f26134e4e90cda657a21}{zoom\+Surface()} call. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__rotozoom_8h_a5115250bd769f389e278cd5adfb63179}{S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E} \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$ \hyperlink{_s_d_l__rotozoom_8h_a7a7ac2cc0d79d282b5a4c76143b7e7a9}{shrink\+Surface} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a72e0fdf0f845ded60b1fada9e9195cd7}{src}, int factorx, int factory)
+\begin{DoxyCompactList}\small\item\em Shrink a surface by an integer ratio using averaging. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__rotozoom_8h_a5115250bd769f389e278cd5adfb63179}{S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E} \hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$ \hyperlink{_s_d_l__rotozoom_8h_ac06e9fa4fce6a1dbae45462529be581e}{rotate\+Surface90\+Degrees} (\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$\hyperlink{_s_d_l__opengl_8h_a72e0fdf0f845ded60b1fada9e9195cd7}{src}, int num\+Clockwise\+Turns)
+\begin{DoxyCompactList}\small\item\em Rotates a 32 bit surface in increments of 90 degrees. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_s_d_l__rotozoom_8h_ae71449b1cc6e6250b91f539153a7a0d3}{}\index{S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}!M\+\_\+\+P\+I@{M\+\_\+\+P\+I}}
+\index{M\+\_\+\+P\+I@{M\+\_\+\+P\+I}!S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}}
+\subsubsection[{M\+\_\+\+P\+I}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+\_\+\+P\+I~3.\+141592654}\label{_s_d_l__rotozoom_8h_ae71449b1cc6e6250b91f539153a7a0d3}
+S\+D\+L\+\_\+rotozoom.\+c\+: rotozoomer, zoomer and shrinker for 32bit or 8bit surfaces
+
+Copyright (C) 2001-\/2012 Andreas Schiffler
+
+This software is provided \textquotesingle{}as-\/is\textquotesingle{}, without any express or implied warranty. In no event will the authors be held liable for any damages arising from the use of this software.
+
+Permission is granted to anyone to use this software for any purpose, including commercial applications, and to alter it and redistribute it freely, subject to the following restrictions\+:
+
+
+\begin{DoxyEnumerate}
+\item The origin of this software must not be misrepresented; you must not claim that you wrote the original software. If you use this software in a product, an acknowledgment in the product documentation would be appreciated but is not required.
+\item Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.
+\item This notice may not be removed or altered from any source distribution.
+\end{DoxyEnumerate}
+
+Andreas Schiffler -- aschiffler at ferzkopp dot net 
+
+Definition at line 48 of file S\+D\+L\+\_\+rotozoom.\+h.
+
+\hypertarget{_s_d_l__rotozoom_8h_a5115250bd769f389e278cd5adfb63179}{}\index{S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}!S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E@{S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E}}
+\index{S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E@{S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E}!S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E~extern}\label{_s_d_l__rotozoom_8h_a5115250bd769f389e278cd5adfb63179}
+
+
+Definition at line 77 of file S\+D\+L\+\_\+rotozoom.\+h.
+
+\hypertarget{_s_d_l__rotozoom_8h_a6541cd06edcce77d8a6f1c6350c988af}{}\index{S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}!S\+M\+O\+O\+T\+H\+I\+N\+G\+\_\+\+O\+F\+F@{S\+M\+O\+O\+T\+H\+I\+N\+G\+\_\+\+O\+F\+F}}
+\index{S\+M\+O\+O\+T\+H\+I\+N\+G\+\_\+\+O\+F\+F@{S\+M\+O\+O\+T\+H\+I\+N\+G\+\_\+\+O\+F\+F}!S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}}
+\subsubsection[{S\+M\+O\+O\+T\+H\+I\+N\+G\+\_\+\+O\+F\+F}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+M\+O\+O\+T\+H\+I\+N\+G\+\_\+\+O\+F\+F~0}\label{_s_d_l__rotozoom_8h_a6541cd06edcce77d8a6f1c6350c988af}
+
+
+Disable anti-\/aliasing (no smoothing). 
+
+
+
+Definition at line 58 of file S\+D\+L\+\_\+rotozoom.\+h.
+
+\hypertarget{_s_d_l__rotozoom_8h_abeb6ae7618fcb315d0399fe65849a2e8}{}\index{S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}!S\+M\+O\+O\+T\+H\+I\+N\+G\+\_\+\+O\+N@{S\+M\+O\+O\+T\+H\+I\+N\+G\+\_\+\+O\+N}}
+\index{S\+M\+O\+O\+T\+H\+I\+N\+G\+\_\+\+O\+N@{S\+M\+O\+O\+T\+H\+I\+N\+G\+\_\+\+O\+N}!S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}}
+\subsubsection[{S\+M\+O\+O\+T\+H\+I\+N\+G\+\_\+\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+M\+O\+O\+T\+H\+I\+N\+G\+\_\+\+O\+N~1}\label{_s_d_l__rotozoom_8h_abeb6ae7618fcb315d0399fe65849a2e8}
+
+
+Enable anti-\/aliasing (smoothing). 
+
+
+
+Definition at line 63 of file S\+D\+L\+\_\+rotozoom.\+h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_s_d_l__rotozoom_8h_ac06e9fa4fce6a1dbae45462529be581e}{}\index{S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}!rotate\+Surface90\+Degrees@{rotate\+Surface90\+Degrees}}
+\index{rotate\+Surface90\+Degrees@{rotate\+Surface90\+Degrees}!S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}}
+\subsubsection[{rotate\+Surface90\+Degrees}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E} {\bf S\+D\+L\+\_\+\+Surface}$\ast$ rotate\+Surface90\+Degrees (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{src, }
+\item[{int}]{num\+Clockwise\+Turns}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__rotozoom_8h_ac06e9fa4fce6a1dbae45462529be581e}
+
+
+Rotates a 32 bit surface in increments of 90 degrees. 
+
+Specialized 90 degree rotator which rotates a \textquotesingle{}src\textquotesingle{} surface in 90 degree increments clockwise returning a new surface. Faster than rotozoomer since not scanning or interpolation takes place. Input surface must be 32 bit. (code contributed by J. Schiller, improved by C. Allport and A. Schiffler)
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & Source surface to rotate. \\
+\hline
+{\em num\+Clockwise\+Turns} & Number of clockwise 90 degree turns to apply to the source.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new, rotated surface; or N\+U\+L\+L for surfaces with incorrect input format. 
+\end{DoxyReturn}
+
+
+Definition at line 814 of file S\+D\+L\+\_\+rotozoom.\+c.
+
+\hypertarget{_s_d_l__rotozoom_8h_a3cb0c11d5edc929579c807dc7612348c}{}\index{S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}!rotozoom\+Surface@{rotozoom\+Surface}}
+\index{rotozoom\+Surface@{rotozoom\+Surface}!S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}}
+\subsubsection[{rotozoom\+Surface}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E} {\bf S\+D\+L\+\_\+\+Surface}$\ast$ rotozoom\+Surface (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{src, }
+\item[{double}]{angle, }
+\item[{double}]{zoom, }
+\item[{int}]{smooth}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__rotozoom_8h_a3cb0c11d5edc929579c807dc7612348c}
+
+
+Rotates and zooms a surface and optional anti-\/aliasing. 
+
+Rotates and zoomes a 32bit or 8bit \textquotesingle{}src\textquotesingle{} surface to newly created \textquotesingle{}dst\textquotesingle{} surface. \textquotesingle{}angle\textquotesingle{} is the rotation in degrees and \textquotesingle{}zoom\textquotesingle{} a scaling factor. If \textquotesingle{}smooth\textquotesingle{} is set then the destination 32bit surface is anti-\/aliased. If the surface is not 8bit or 32bit R\+G\+B\+A/\+A\+B\+G\+R it will be converted into a 32bit R\+G\+B\+A format on the fly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & The surface to rotozoom. \\
+\hline
+{\em angle} & The angle to rotate in degrees. \\
+\hline
+{\em zoom} & The scaling factor. \\
+\hline
+{\em smooth} & Antialiasing flag; set to S\+M\+O\+O\+T\+H\+I\+N\+G\+\_\+\+O\+N to enable.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new rotozoomed surface. 
+\end{DoxyReturn}
+
+
+Definition at line 1030 of file S\+D\+L\+\_\+rotozoom.\+c.
+
+\hypertarget{_s_d_l__rotozoom_8h_a3ca2316375d6faf4f19b26c2f1f14bbc}{}\index{S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}!rotozoom\+Surface\+Size@{rotozoom\+Surface\+Size}}
+\index{rotozoom\+Surface\+Size@{rotozoom\+Surface\+Size}!S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}}
+\subsubsection[{rotozoom\+Surface\+Size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E} {\bf void} rotozoom\+Surface\+Size (
+\begin{DoxyParamCaption}
+\item[{int}]{width, }
+\item[{int}]{height, }
+\item[{double}]{angle, }
+\item[{double}]{zoom, }
+\item[{int $\ast$}]{dstwidth, }
+\item[{int $\ast$}]{dstheight}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__rotozoom_8h_a3ca2316375d6faf4f19b26c2f1f14bbc}
+
+
+Returns the size of the resulting target surface for a \hyperlink{_s_d_l__rotozoom_8c_a5f64ed53eeee5f2667971c857698d1e5}{rotozoom\+Surface()} call. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & The source surface width. \\
+\hline
+{\em height} & The source surface height. \\
+\hline
+{\em angle} & The angle to rotate in degrees. \\
+\hline
+{\em zoom} & The scaling factor. \\
+\hline
+{\em dstwidth} & The calculated width of the rotozoomed destination surface. \\
+\hline
+{\em dstheight} & The calculated height of the rotozoomed destination surface. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1008 of file S\+D\+L\+\_\+rotozoom.\+c.
+
+\hypertarget{_s_d_l__rotozoom_8h_a612334fa642f672af953f544da6245d0}{}\index{S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}!rotozoom\+Surface\+Size\+X\+Y@{rotozoom\+Surface\+Size\+X\+Y}}
+\index{rotozoom\+Surface\+Size\+X\+Y@{rotozoom\+Surface\+Size\+X\+Y}!S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}}
+\subsubsection[{rotozoom\+Surface\+Size\+X\+Y}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E} {\bf void} rotozoom\+Surface\+Size\+X\+Y (
+\begin{DoxyParamCaption}
+\item[{int}]{width, }
+\item[{int}]{height, }
+\item[{double}]{angle, }
+\item[{double}]{zoomx, }
+\item[{double}]{zoomy, }
+\item[{int $\ast$}]{dstwidth, }
+\item[{int $\ast$}]{dstheight}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__rotozoom_8h_a612334fa642f672af953f544da6245d0}
+
+
+Returns the size of the resulting target surface for a \hyperlink{_s_d_l__rotozoom_8c_aab98b5b0da4ea468bacf47f7b85f0ee2}{rotozoom\+Surface\+X\+Y()} call. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & The source surface width. \\
+\hline
+{\em height} & The source surface height. \\
+\hline
+{\em angle} & The angle to rotate in degrees. \\
+\hline
+{\em zoomx} & The horizontal scaling factor. \\
+\hline
+{\em zoomy} & The vertical scaling factor. \\
+\hline
+{\em dstwidth} & The calculated width of the rotozoomed destination surface. \\
+\hline
+{\em dstheight} & The calculated height of the rotozoomed destination surface. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 991 of file S\+D\+L\+\_\+rotozoom.\+c.
+
+\hypertarget{_s_d_l__rotozoom_8h_a454d4234a45eab6ec238a40cc44051d4}{}\index{S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}!rotozoom\+Surface\+X\+Y@{rotozoom\+Surface\+X\+Y}}
+\index{rotozoom\+Surface\+X\+Y@{rotozoom\+Surface\+X\+Y}!S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}}
+\subsubsection[{rotozoom\+Surface\+X\+Y}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E} {\bf S\+D\+L\+\_\+\+Surface}$\ast$ rotozoom\+Surface\+X\+Y (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{src, }
+\item[{double}]{angle, }
+\item[{double}]{zoomx, }
+\item[{double}]{zoomy, }
+\item[{int}]{smooth}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__rotozoom_8h_a454d4234a45eab6ec238a40cc44051d4}
+
+
+Rotates and zooms a surface with different horizontal and vertival scaling factors and optional anti-\/aliasing. 
+
+Rotates and zooms a 32bit or 8bit \textquotesingle{}src\textquotesingle{} surface to newly created \textquotesingle{}dst\textquotesingle{} surface. \textquotesingle{}angle\textquotesingle{} is the rotation in degrees, \textquotesingle{}zoomx and \textquotesingle{}zoomy\textquotesingle{} scaling factors. If \textquotesingle{}smooth\textquotesingle{} is set then the destination 32bit surface is anti-\/aliased. If the surface is not 8bit or 32bit R\+G\+B\+A/\+A\+B\+G\+R it will be converted into a 32bit R\+G\+B\+A format on the fly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & The surface to rotozoom. \\
+\hline
+{\em angle} & The angle to rotate in degrees. \\
+\hline
+{\em zoomx} & The horizontal scaling factor. \\
+\hline
+{\em zoomy} & The vertical scaling factor. \\
+\hline
+{\em smooth} & Antialiasing flag; set to S\+M\+O\+O\+T\+H\+I\+N\+G\+\_\+\+O\+N to enable.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new rotozoomed surface. 
+\end{DoxyReturn}
+
+
+Definition at line 1051 of file S\+D\+L\+\_\+rotozoom.\+c.
+
+\hypertarget{_s_d_l__rotozoom_8h_a7a7ac2cc0d79d282b5a4c76143b7e7a9}{}\index{S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}!shrink\+Surface@{shrink\+Surface}}
+\index{shrink\+Surface@{shrink\+Surface}!S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}}
+\subsubsection[{shrink\+Surface}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E} {\bf S\+D\+L\+\_\+\+Surface}$\ast$ shrink\+Surface (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{src, }
+\item[{int}]{factorx, }
+\item[{int}]{factory}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__rotozoom_8h_a7a7ac2cc0d79d282b5a4c76143b7e7a9}
+
+
+Shrink a surface by an integer ratio using averaging. 
+
+Shrinks a 32bit or 8bit \textquotesingle{}src\textquotesingle{} surface to a newly created \textquotesingle{}dst\textquotesingle{} surface. \textquotesingle{}factorx\textquotesingle{} and \textquotesingle{}factory\textquotesingle{} are the shrinking ratios (i.\+e. 2=1/2 the size, 3=1/3 the size, etc.) The destination surface is antialiased by averaging the source box R\+G\+B\+A or Y information. If the surface is not 8bit or 32bit R\+G\+B\+A/\+A\+B\+G\+R it will be converted into a 32bit R\+G\+B\+A format on the fly. The input surface is not modified. The output surface is newly allocated.
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & The surface to shrink. \\
+\hline
+{\em factorx} & The horizontal shrinking ratio. \\
+\hline
+{\em factory} & The vertical shrinking ratio.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new, shrunken surface. 
+\end{DoxyReturn}
+
+
+Definition at line 1548 of file S\+D\+L\+\_\+rotozoom.\+c.
+
+\hypertarget{_s_d_l__rotozoom_8h_a06c8108f8fe8de77cf841c176ee64850}{}\index{S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}!zoom\+Surface@{zoom\+Surface}}
+\index{zoom\+Surface@{zoom\+Surface}!S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}}
+\subsubsection[{zoom\+Surface}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E} {\bf S\+D\+L\+\_\+\+Surface}$\ast$ zoom\+Surface (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Surface} $\ast$}]{src, }
+\item[{double}]{zoomx, }
+\item[{double}]{zoomy, }
+\item[{int}]{smooth}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__rotozoom_8h_a06c8108f8fe8de77cf841c176ee64850}
+
+
+Zoom a surface by independent horizontal and vertical factors with optional smoothing. 
+
+Zooms a 32bit or 8bit \textquotesingle{}src\textquotesingle{} surface to newly created \textquotesingle{}dst\textquotesingle{} surface. \textquotesingle{}zoomx\textquotesingle{} and \textquotesingle{}zoomy\textquotesingle{} are scaling factors for width and height. If \textquotesingle{}smooth\textquotesingle{} is on then the destination 32bit surface is anti-\/aliased. If the surface is not 8bit or 32bit R\+G\+B\+A/\+A\+B\+G\+R it will be converted into a 32bit R\+G\+B\+A format on the fly. If zoom factors are negative, the image is flipped on the axes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & The surface to zoom. \\
+\hline
+{\em zoomx} & The horizontal zoom factor. \\
+\hline
+{\em zoomy} & The vertical zoom factor. \\
+\hline
+{\em smooth} & Antialiasing flag; set to S\+M\+O\+O\+T\+H\+I\+N\+G\+\_\+\+O\+N to enable.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new, zoomed surface. 
+\end{DoxyReturn}
+
+
+Definition at line 1392 of file S\+D\+L\+\_\+rotozoom.\+c.
+
+\hypertarget{_s_d_l__rotozoom_8h_a7927e415d87ea7856794cd4cc77e0a25}{}\index{S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}!zoom\+Surface\+Size@{zoom\+Surface\+Size}}
+\index{zoom\+Surface\+Size@{zoom\+Surface\+Size}!S\+D\+L\+\_\+rotozoom.\+h@{S\+D\+L\+\_\+rotozoom.\+h}}
+\subsubsection[{zoom\+Surface\+Size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+R\+O\+T\+O\+Z\+O\+O\+M\+\_\+\+S\+C\+O\+P\+E} {\bf void} zoom\+Surface\+Size (
+\begin{DoxyParamCaption}
+\item[{int}]{width, }
+\item[{int}]{height, }
+\item[{double}]{zoomx, }
+\item[{double}]{zoomy, }
+\item[{int $\ast$}]{dstwidth, }
+\item[{int $\ast$}]{dstheight}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__rotozoom_8h_a7927e415d87ea7856794cd4cc77e0a25}
+
+
+Calculates the size of the target surface for a \hyperlink{_s_d_l__rotozoom_8c_abdd772b2f6b1f26134e4e90cda657a21}{zoom\+Surface()} call. 
+
+The minimum size of the target surface is 1. The input factors can be positive or negative.
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & The width of the source surface to zoom. \\
+\hline
+{\em height} & The height of the source surface to zoom. \\
+\hline
+{\em zoomx} & The horizontal zoom factor. \\
+\hline
+{\em zoomy} & The vertical zoom factor. \\
+\hline
+{\em dstwidth} & Pointer to an integer to store the calculated width of the zoomed target surface. \\
+\hline
+{\em dstheight} & Pointer to an integer to store the calculated height of the zoomed target surface. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1342 of file S\+D\+L\+\_\+rotozoom.\+c.
+

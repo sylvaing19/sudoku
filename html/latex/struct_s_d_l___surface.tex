@@ -1,0 +1,150 @@
+\hypertarget{struct_s_d_l___surface}{}\section{S\+D\+L\+\_\+\+Surface Struct Reference}
+\label{struct_s_d_l___surface}\index{S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}}
+
+
+{\ttfamily \#include $<$S\+D\+L\+\_\+video.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} \hyperlink{struct_s_d_l___surface_a86d78b665d5dfd7aa1dd9696b067641b}{flags}
+\item 
+\hyperlink{struct_s_d_l___pixel_format}{S\+D\+L\+\_\+\+Pixel\+Format} $\ast$ \hyperlink{struct_s_d_l___surface_a0a90721f947c10c3b79e02ccb419ca62}{format}
+\item 
+int \hyperlink{struct_s_d_l___surface_a9b0ec7185dcdb2a3530a9160a6ea83d9}{w}
+\item 
+int \hyperlink{struct_s_d_l___surface_af33bcf87a1f5e10a99b3c7e8626b38c8}{h}
+\item 
+\hyperlink{_s_d_l__stdinc_8h_a31fcc0a076c9068668173ee26d33e42b}{Uint16} \hyperlink{struct_s_d_l___surface_a53fd25784c0f6efd7dd19bb0afce5452}{pitch}
+\item 
+\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} $\ast$ \hyperlink{struct_s_d_l___surface_abd9597e0e084b8ef33fe0397bc26d911}{pixels}
+\item 
+int \hyperlink{struct_s_d_l___surface_ab40c060fa976dbb25bebc7869132ffda}{offset}
+\item 
+struct private\+\_\+hwdata $\ast$ \hyperlink{struct_s_d_l___surface_a2d3ce688b6cfb72875f2411ea0560f18}{hwdata}
+\item 
+\hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} \hyperlink{struct_s_d_l___surface_aa9a0da3b38261dad6cf0cc4e3bb5b0c3}{clip\+\_\+rect}
+\item 
+\hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} \hyperlink{struct_s_d_l___surface_a41066cf7cc91d2f032dd0f29cc418ec4}{unused1}
+\item 
+\hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} \hyperlink{struct_s_d_l___surface_ae807b7e4f4174d56e6cf40df12c8cefe}{locked}
+\item 
+struct S\+D\+L\+\_\+\+Blit\+Map $\ast$ \hyperlink{struct_s_d_l___surface_a8c1ecad399b0d4f525b1a53b6ee9393f}{map}
+\item 
+unsigned int \hyperlink{struct_s_d_l___surface_a71e84e52b2faf69be9739f97b248342a}{format\+\_\+version}
+\item 
+int \hyperlink{struct_s_d_l___surface_a03d10628a359c0674f5ceffd574f1641}{refcount}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This structure should be treated as read-\/only, except for \textquotesingle{}pixels\textquotesingle{}, which, if not N\+U\+L\+L, contains the raw pixel data for the surface. 
+
+Definition at line 96 of file S\+D\+L\+\_\+video.\+h.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_s_d_l___surface_aa9a0da3b38261dad6cf0cc4e3bb5b0c3}{}\index{S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}!clip\+\_\+rect@{clip\+\_\+rect}}
+\index{clip\+\_\+rect@{clip\+\_\+rect}!S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}}
+\subsubsection[{clip\+\_\+rect}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+Rect} S\+D\+L\+\_\+\+Surface\+::clip\+\_\+rect}\label{struct_s_d_l___surface_aa9a0da3b38261dad6cf0cc4e3bb5b0c3}
+clipping information Read-\/only 
+
+Definition at line 108 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___surface_a86d78b665d5dfd7aa1dd9696b067641b}{}\index{S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}!flags@{flags}}
+\index{flags@{flags}!S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}}
+\subsubsection[{flags}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Uint32} S\+D\+L\+\_\+\+Surface\+::flags}\label{struct_s_d_l___surface_a86d78b665d5dfd7aa1dd9696b067641b}
+Read-\/only 
+
+Definition at line 97 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___surface_a0a90721f947c10c3b79e02ccb419ca62}{}\index{S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}!format@{format}}
+\index{format@{format}!S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}}
+\subsubsection[{format}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+Pixel\+Format}$\ast$ S\+D\+L\+\_\+\+Surface\+::format}\label{struct_s_d_l___surface_a0a90721f947c10c3b79e02ccb419ca62}
+Read-\/only 
+
+Definition at line 98 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___surface_a71e84e52b2faf69be9739f97b248342a}{}\index{S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}!format\+\_\+version@{format\+\_\+version}}
+\index{format\+\_\+version@{format\+\_\+version}!S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}}
+\subsubsection[{format\+\_\+version}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int S\+D\+L\+\_\+\+Surface\+::format\+\_\+version}\label{struct_s_d_l___surface_a71e84e52b2faf69be9739f97b248342a}
+format version, bumped at every change to invalidate blit maps Private 
+
+Definition at line 118 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___surface_af33bcf87a1f5e10a99b3c7e8626b38c8}{}\index{S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}!h@{h}}
+\index{h@{h}!S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}}
+\subsubsection[{h}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+\+Surface\+::h}\label{struct_s_d_l___surface_af33bcf87a1f5e10a99b3c7e8626b38c8}
+Read-\/only 
+
+Definition at line 99 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___surface_a2d3ce688b6cfb72875f2411ea0560f18}{}\index{S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}!hwdata@{hwdata}}
+\index{hwdata@{hwdata}!S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}}
+\subsubsection[{hwdata}]{\setlength{\rightskip}{0pt plus 5cm}struct private\+\_\+hwdata$\ast$ S\+D\+L\+\_\+\+Surface\+::hwdata}\label{struct_s_d_l___surface_a2d3ce688b6cfb72875f2411ea0560f18}
+Hardware-\/specific surface info 
+
+Definition at line 105 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___surface_ae807b7e4f4174d56e6cf40df12c8cefe}{}\index{S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}!locked@{locked}}
+\index{locked@{locked}!S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}}
+\subsubsection[{locked}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Uint32} S\+D\+L\+\_\+\+Surface\+::locked}\label{struct_s_d_l___surface_ae807b7e4f4174d56e6cf40df12c8cefe}
+Allow recursive locks Private 
+
+Definition at line 112 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___surface_a8c1ecad399b0d4f525b1a53b6ee9393f}{}\index{S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}!map@{map}}
+\index{map@{map}!S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}}
+\subsubsection[{map}]{\setlength{\rightskip}{0pt plus 5cm}struct S\+D\+L\+\_\+\+Blit\+Map$\ast$ S\+D\+L\+\_\+\+Surface\+::map}\label{struct_s_d_l___surface_a8c1ecad399b0d4f525b1a53b6ee9393f}
+info for fast blit mapping to other surfaces Private 
+
+Definition at line 115 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___surface_ab40c060fa976dbb25bebc7869132ffda}{}\index{S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}!offset@{offset}}
+\index{offset@{offset}!S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}}
+\subsubsection[{offset}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+\+Surface\+::offset}\label{struct_s_d_l___surface_ab40c060fa976dbb25bebc7869132ffda}
+Private 
+
+Definition at line 102 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___surface_a53fd25784c0f6efd7dd19bb0afce5452}{}\index{S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}!pitch@{pitch}}
+\index{pitch@{pitch}!S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}}
+\subsubsection[{pitch}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Uint16} S\+D\+L\+\_\+\+Surface\+::pitch}\label{struct_s_d_l___surface_a53fd25784c0f6efd7dd19bb0afce5452}
+Read-\/only 
+
+Definition at line 100 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___surface_abd9597e0e084b8ef33fe0397bc26d911}{}\index{S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}!pixels@{pixels}}
+\index{pixels@{pixels}!S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}}
+\subsubsection[{pixels}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void}$\ast$ S\+D\+L\+\_\+\+Surface\+::pixels}\label{struct_s_d_l___surface_abd9597e0e084b8ef33fe0397bc26d911}
+Read-\/write 
+
+Definition at line 101 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___surface_a03d10628a359c0674f5ceffd574f1641}{}\index{S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}!refcount@{refcount}}
+\index{refcount@{refcount}!S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}}
+\subsubsection[{refcount}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+\+Surface\+::refcount}\label{struct_s_d_l___surface_a03d10628a359c0674f5ceffd574f1641}
+Reference count -- used when freeing surface Read-\/mostly 
+
+Definition at line 121 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___surface_a41066cf7cc91d2f032dd0f29cc418ec4}{}\index{S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}!unused1@{unused1}}
+\index{unused1@{unused1}!S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}}
+\subsubsection[{unused1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Uint32} S\+D\+L\+\_\+\+Surface\+::unused1}\label{struct_s_d_l___surface_a41066cf7cc91d2f032dd0f29cc418ec4}
+for binary compatibility 
+
+Definition at line 109 of file S\+D\+L\+\_\+video.\+h.
+
+\hypertarget{struct_s_d_l___surface_a9b0ec7185dcdb2a3530a9160a6ea83d9}{}\index{S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}!w@{w}}
+\index{w@{w}!S\+D\+L\+\_\+\+Surface@{S\+D\+L\+\_\+\+Surface}}
+\subsubsection[{w}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+\+Surface\+::w}\label{struct_s_d_l___surface_a9b0ec7185dcdb2a3530a9160a6ea83d9}
+
+
+Definition at line 99 of file S\+D\+L\+\_\+video.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+S\+D\+L-\/1.\+2.\+15/include/\hyperlink{_s_d_l__video_8h}{S\+D\+L\+\_\+video.\+h}\end{DoxyCompactItemize}

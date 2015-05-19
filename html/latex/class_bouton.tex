@@ -1,0 +1,279 @@
+\hypertarget{class_bouton}{}\section{Bouton Class Reference}
+\label{class_bouton}\index{Bouton@{Bouton}}
+
+
+{\ttfamily \#include $<$Bouton.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_bouton_ad1e4f684cad81db47393df0be7a65658}{Bouton} ()
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{class_bouton_ad380f12cb79e60662f7b48fb8b1a3f88}{charger\+Bouton} ()
+\begin{DoxyCompactList}\small\item\em Prototypes de fonctions. \end{DoxyCompactList}\item 
+bool \hyperlink{class_bouton_a6607b52390ab4363317a78acbb2142ea}{est\+Clique} (\hyperlink{union_s_d_l___event}{S\+D\+L\+\_\+\+Event} \hyperlink{class_bouton_a499f5c9de8eea03c8194eb3ecf4b7c00}{event})
+\begin{DoxyCompactList}\small\item\em verifie si le bouton en argument est cliqué, et renvoie un booleen repondant à la question \char`\"{}est-\/ce cliqué ?\char`\"{} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_bouton_a4c73aa4a6e96eaae8a1d3a63c8dac983}{taille\+X}
+\item 
+int \hyperlink{class_bouton_a9f5d708b5c06847453b088e788538665}{taille\+Y}
+\item 
+double \hyperlink{class_bouton_ad2f8b0abcd023cbca599bca0af297192}{zoom\+X}
+\item 
+double \hyperlink{class_bouton_a47c6955b1d8b9e75b1c0ef72ef2a585f}{zoom\+Y}
+\item 
+\hyperlink{_s_d_l__opengl_8h_ae9ea2d206f76ea82db7a2ea002fdef2f}{std\+::string} \hyperlink{class_bouton_a01ce5478093e65e588cce2dbf94333cc}{centre\+X}
+\item 
+\hyperlink{_s_d_l__opengl_8h_ae9ea2d206f76ea82db7a2ea002fdef2f}{std\+::string} \hyperlink{class_bouton_ae511256fd074ca6df053b4700ab02101}{centre\+Y}
+\item 
+int \hyperlink{class_bouton_a5e552b3de0165eb901e0c0d5e44d3efe}{taille\+Police}
+\item 
+\hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} \hyperlink{class_bouton_af3cd11a5cba70dc2f12c0d993e7e06c1}{position\+Fond}
+\item 
+\hyperlink{struct_s_d_l___rect}{S\+D\+L\+\_\+\+Rect} \hyperlink{class_bouton_a0f5cf4db7a478cd25d6939585a38b1ec}{position\+Bouton}
+\item 
+\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$ \hyperlink{class_bouton_aa53b44d614e81eea3e1d93ac95099475}{fond} =\hyperlink{begin__code_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\item 
+\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$ \hyperlink{class_bouton_a500913a4699d8a5e650861552efd1365}{image\+Bouton} =\hyperlink{begin__code_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\item 
+\hyperlink{struct_s_d_l___surface}{S\+D\+L\+\_\+\+Surface} $\ast$ \hyperlink{class_bouton_a71cfadd4002fcb9f21feeea2ace385be}{texte\+Bouton} =\hyperlink{begin__code_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\item 
+\hyperlink{_s_d_l__opengl_8h_ae9ea2d206f76ea82db7a2ea002fdef2f}{std\+::string} \hyperlink{class_bouton_acc4ce08bca16c13c7f221b6f477b3939}{nom\+Image\+Fond}
+\item 
+\hyperlink{_s_d_l__opengl_8h_ae9ea2d206f76ea82db7a2ea002fdef2f}{std\+::string} \hyperlink{class_bouton_a7091aa4ae9bb51de3b01f37230d5c0f9}{nom\+Image\+Bouton}
+\item 
+\hyperlink{_s_d_l__opengl_8h_ae9ea2d206f76ea82db7a2ea002fdef2f}{std\+::string} \hyperlink{class_bouton_a545af4baad4f8926bbec4ede6cefb840}{message\+Bouton}
+\item 
+\hyperlink{_s_d_l__opengl_8h_ae9ea2d206f76ea82db7a2ea002fdef2f}{std\+::string} \hyperlink{class_bouton_a499f5c9de8eea03c8194eb3ecf4b7c00}{event}
+\item 
+\hyperlink{_s_d_l__opengl_8h_ae9ea2d206f76ea82db7a2ea002fdef2f}{std\+::string} \hyperlink{class_bouton_ac9c2102dfe76fe502d6a26270d45ba72}{nom\+Police}
+\item 
+\hyperlink{struct_s_d_l___color}{S\+D\+L\+\_\+\+Color} \hyperlink{class_bouton_a5dad2b0d5113cca14a1449ca3ec1668d}{couleur\+Texte\+Bouton}
+\item 
+bool \hyperlink{class_bouton_a96ebc0ef1ca73c65048e3d52293f6ad3}{modifie\+Par\+User}
+\begin{DoxyCompactList}\small\item\em booleen explicitant si la valeur a été modifiée par l\textquotesingle{}user ou s\textquotesingle{}il induit une erreur \end{DoxyCompactList}\item 
+bool \hyperlink{class_bouton_ad7f56d85125a4b1565969a68ce8f0823}{modifie\+Erreur}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 16 of file Bouton.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_bouton_ad1e4f684cad81db47393df0be7a65658}{}\index{Bouton@{Bouton}!Bouton@{Bouton}}
+\index{Bouton@{Bouton}!Bouton@{Bouton}}
+\subsubsection[{Bouton}]{\setlength{\rightskip}{0pt plus 5cm}Bouton\+::\+Bouton (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_bouton_ad1e4f684cad81db47393df0be7a65658}
+
+
+Constructeur. 
+
+Constructeur 
+
+Definition at line 4 of file Bouton.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_bouton_ad380f12cb79e60662f7b48fb8b1a3f88}{}\index{Bouton@{Bouton}!charger\+Bouton@{charger\+Bouton}}
+\index{charger\+Bouton@{charger\+Bouton}!Bouton@{Bouton}}
+\subsubsection[{charger\+Bouton}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Bouton\+::charger\+Bouton (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_bouton_ad380f12cb79e60662f7b48fb8b1a3f88}
+
+
+Prototypes de fonctions. 
+
+Charge le bouton dans le buffer, gere ses positions.
+
+charge le bouton dans le buffer, pret à flipper 
+
+Definition at line 51 of file Bouton.\+cpp.
+
+\hypertarget{class_bouton_a6607b52390ab4363317a78acbb2142ea}{}\index{Bouton@{Bouton}!est\+Clique@{est\+Clique}}
+\index{est\+Clique@{est\+Clique}!Bouton@{Bouton}}
+\subsubsection[{est\+Clique}]{\setlength{\rightskip}{0pt plus 5cm}bool Bouton\+::est\+Clique (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Event}}]{event}
+\end{DoxyParamCaption}
+)}\label{class_bouton_a6607b52390ab4363317a78acbb2142ea}
+
+
+verifie si le bouton en argument est cliqué, et renvoie un booleen repondant à la question \char`\"{}est-\/ce cliqué ?\char`\"{} 
+
+renvoie un booleen \+: vrai si le bouton est cliqué, faux sinon 
+\begin{DoxyParams}{Parameters}
+{\em l\textquotesingle{}evenement,et} & donc la position de la souris \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+si le bouton est cliqué ou non 
+\end{DoxyReturn}
+
+
+Definition at line 96 of file Bouton.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_bouton_a01ce5478093e65e588cce2dbf94333cc}{}\index{Bouton@{Bouton}!centre\+X@{centre\+X}}
+\index{centre\+X@{centre\+X}!Bouton@{Bouton}}
+\subsubsection[{centre\+X}]{\setlength{\rightskip}{0pt plus 5cm}{\bf std\+::string} Bouton\+::centre\+X}\label{class_bouton_a01ce5478093e65e588cce2dbf94333cc}
+
+
+Definition at line 35 of file Bouton.\+h.
+
+\hypertarget{class_bouton_ae511256fd074ca6df053b4700ab02101}{}\index{Bouton@{Bouton}!centre\+Y@{centre\+Y}}
+\index{centre\+Y@{centre\+Y}!Bouton@{Bouton}}
+\subsubsection[{centre\+Y}]{\setlength{\rightskip}{0pt plus 5cm}{\bf std\+::string} Bouton\+::centre\+Y}\label{class_bouton_ae511256fd074ca6df053b4700ab02101}
+
+
+Definition at line 36 of file Bouton.\+h.
+
+\hypertarget{class_bouton_a5dad2b0d5113cca14a1449ca3ec1668d}{}\index{Bouton@{Bouton}!couleur\+Texte\+Bouton@{couleur\+Texte\+Bouton}}
+\index{couleur\+Texte\+Bouton@{couleur\+Texte\+Bouton}!Bouton@{Bouton}}
+\subsubsection[{couleur\+Texte\+Bouton}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+Color} Bouton\+::couleur\+Texte\+Bouton}\label{class_bouton_a5dad2b0d5113cca14a1449ca3ec1668d}
+
+
+Definition at line 63 of file Bouton.\+h.
+
+\hypertarget{class_bouton_a499f5c9de8eea03c8194eb3ecf4b7c00}{}\index{Bouton@{Bouton}!event@{event}}
+\index{event@{event}!Bouton@{Bouton}}
+\subsubsection[{event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf std\+::string} Bouton\+::event}\label{class_bouton_a499f5c9de8eea03c8194eb3ecf4b7c00}
+
+
+Definition at line 62 of file Bouton.\+h.
+
+\hypertarget{class_bouton_aa53b44d614e81eea3e1d93ac95099475}{}\index{Bouton@{Bouton}!fond@{fond}}
+\index{fond@{fond}!Bouton@{Bouton}}
+\subsubsection[{fond}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+Surface}$\ast$ Bouton\+::fond ={\bf N\+U\+L\+L}}\label{class_bouton_aa53b44d614e81eea3e1d93ac95099475}
+
+
+Definition at line 46 of file Bouton.\+h.
+
+\hypertarget{class_bouton_a500913a4699d8a5e650861552efd1365}{}\index{Bouton@{Bouton}!image\+Bouton@{image\+Bouton}}
+\index{image\+Bouton@{image\+Bouton}!Bouton@{Bouton}}
+\subsubsection[{image\+Bouton}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+Surface}$\ast$ Bouton\+::image\+Bouton ={\bf N\+U\+L\+L}}\label{class_bouton_a500913a4699d8a5e650861552efd1365}
+
+
+Definition at line 47 of file Bouton.\+h.
+
+\hypertarget{class_bouton_a545af4baad4f8926bbec4ede6cefb840}{}\index{Bouton@{Bouton}!message\+Bouton@{message\+Bouton}}
+\index{message\+Bouton@{message\+Bouton}!Bouton@{Bouton}}
+\subsubsection[{message\+Bouton}]{\setlength{\rightskip}{0pt plus 5cm}{\bf std\+::string} Bouton\+::message\+Bouton}\label{class_bouton_a545af4baad4f8926bbec4ede6cefb840}
+
+
+Definition at line 62 of file Bouton.\+h.
+
+\hypertarget{class_bouton_ad7f56d85125a4b1565969a68ce8f0823}{}\index{Bouton@{Bouton}!modifie\+Erreur@{modifie\+Erreur}}
+\index{modifie\+Erreur@{modifie\+Erreur}!Bouton@{Bouton}}
+\subsubsection[{modifie\+Erreur}]{\setlength{\rightskip}{0pt plus 5cm}bool Bouton\+::modifie\+Erreur}\label{class_bouton_ad7f56d85125a4b1565969a68ce8f0823}
+
+
+Definition at line 76 of file Bouton.\+h.
+
+\hypertarget{class_bouton_a96ebc0ef1ca73c65048e3d52293f6ad3}{}\index{Bouton@{Bouton}!modifie\+Par\+User@{modifie\+Par\+User}}
+\index{modifie\+Par\+User@{modifie\+Par\+User}!Bouton@{Bouton}}
+\subsubsection[{modifie\+Par\+User}]{\setlength{\rightskip}{0pt plus 5cm}bool Bouton\+::modifie\+Par\+User}\label{class_bouton_a96ebc0ef1ca73c65048e3d52293f6ad3}
+
+
+booleen explicitant si la valeur a été modifiée par l\textquotesingle{}user ou s\textquotesingle{}il induit une erreur 
+
+
+
+Definition at line 76 of file Bouton.\+h.
+
+\hypertarget{class_bouton_a7091aa4ae9bb51de3b01f37230d5c0f9}{}\index{Bouton@{Bouton}!nom\+Image\+Bouton@{nom\+Image\+Bouton}}
+\index{nom\+Image\+Bouton@{nom\+Image\+Bouton}!Bouton@{Bouton}}
+\subsubsection[{nom\+Image\+Bouton}]{\setlength{\rightskip}{0pt plus 5cm}{\bf std\+::string} Bouton\+::nom\+Image\+Bouton}\label{class_bouton_a7091aa4ae9bb51de3b01f37230d5c0f9}
+
+
+Definition at line 61 of file Bouton.\+h.
+
+\hypertarget{class_bouton_acc4ce08bca16c13c7f221b6f477b3939}{}\index{Bouton@{Bouton}!nom\+Image\+Fond@{nom\+Image\+Fond}}
+\index{nom\+Image\+Fond@{nom\+Image\+Fond}!Bouton@{Bouton}}
+\subsubsection[{nom\+Image\+Fond}]{\setlength{\rightskip}{0pt plus 5cm}{\bf std\+::string} Bouton\+::nom\+Image\+Fond}\label{class_bouton_acc4ce08bca16c13c7f221b6f477b3939}
+
+
+Definition at line 61 of file Bouton.\+h.
+
+\hypertarget{class_bouton_ac9c2102dfe76fe502d6a26270d45ba72}{}\index{Bouton@{Bouton}!nom\+Police@{nom\+Police}}
+\index{nom\+Police@{nom\+Police}!Bouton@{Bouton}}
+\subsubsection[{nom\+Police}]{\setlength{\rightskip}{0pt plus 5cm}{\bf std\+::string} Bouton\+::nom\+Police}\label{class_bouton_ac9c2102dfe76fe502d6a26270d45ba72}
+
+
+Definition at line 62 of file Bouton.\+h.
+
+\hypertarget{class_bouton_a0f5cf4db7a478cd25d6939585a38b1ec}{}\index{Bouton@{Bouton}!position\+Bouton@{position\+Bouton}}
+\index{position\+Bouton@{position\+Bouton}!Bouton@{Bouton}}
+\subsubsection[{position\+Bouton}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+Rect} Bouton\+::position\+Bouton}\label{class_bouton_a0f5cf4db7a478cd25d6939585a38b1ec}
+
+
+Definition at line 43 of file Bouton.\+h.
+
+\hypertarget{class_bouton_af3cd11a5cba70dc2f12c0d993e7e06c1}{}\index{Bouton@{Bouton}!position\+Fond@{position\+Fond}}
+\index{position\+Fond@{position\+Fond}!Bouton@{Bouton}}
+\subsubsection[{position\+Fond}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+Rect} Bouton\+::position\+Fond}\label{class_bouton_af3cd11a5cba70dc2f12c0d993e7e06c1}
+
+
+Definition at line 42 of file Bouton.\+h.
+
+\hypertarget{class_bouton_a5e552b3de0165eb901e0c0d5e44d3efe}{}\index{Bouton@{Bouton}!taille\+Police@{taille\+Police}}
+\index{taille\+Police@{taille\+Police}!Bouton@{Bouton}}
+\subsubsection[{taille\+Police}]{\setlength{\rightskip}{0pt plus 5cm}int Bouton\+::taille\+Police}\label{class_bouton_a5e552b3de0165eb901e0c0d5e44d3efe}
+
+
+Definition at line 39 of file Bouton.\+h.
+
+\hypertarget{class_bouton_a4c73aa4a6e96eaae8a1d3a63c8dac983}{}\index{Bouton@{Bouton}!taille\+X@{taille\+X}}
+\index{taille\+X@{taille\+X}!Bouton@{Bouton}}
+\subsubsection[{taille\+X}]{\setlength{\rightskip}{0pt plus 5cm}int Bouton\+::taille\+X}\label{class_bouton_a4c73aa4a6e96eaae8a1d3a63c8dac983}
+
+
+Definition at line 28 of file Bouton.\+h.
+
+\hypertarget{class_bouton_a9f5d708b5c06847453b088e788538665}{}\index{Bouton@{Bouton}!taille\+Y@{taille\+Y}}
+\index{taille\+Y@{taille\+Y}!Bouton@{Bouton}}
+\subsubsection[{taille\+Y}]{\setlength{\rightskip}{0pt plus 5cm}int Bouton\+::taille\+Y}\label{class_bouton_a9f5d708b5c06847453b088e788538665}
+
+
+Definition at line 29 of file Bouton.\+h.
+
+\hypertarget{class_bouton_a71cfadd4002fcb9f21feeea2ace385be}{}\index{Bouton@{Bouton}!texte\+Bouton@{texte\+Bouton}}
+\index{texte\+Bouton@{texte\+Bouton}!Bouton@{Bouton}}
+\subsubsection[{texte\+Bouton}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+L\+\_\+\+Surface}$\ast$ Bouton\+::texte\+Bouton ={\bf N\+U\+L\+L}}\label{class_bouton_a71cfadd4002fcb9f21feeea2ace385be}
+
+
+Definition at line 48 of file Bouton.\+h.
+
+\hypertarget{class_bouton_ad2f8b0abcd023cbca599bca0af297192}{}\index{Bouton@{Bouton}!zoom\+X@{zoom\+X}}
+\index{zoom\+X@{zoom\+X}!Bouton@{Bouton}}
+\subsubsection[{zoom\+X}]{\setlength{\rightskip}{0pt plus 5cm}double Bouton\+::zoom\+X}\label{class_bouton_ad2f8b0abcd023cbca599bca0af297192}
+
+
+Definition at line 32 of file Bouton.\+h.
+
+\hypertarget{class_bouton_a47c6955b1d8b9e75b1c0ef72ef2a585f}{}\index{Bouton@{Bouton}!zoom\+Y@{zoom\+Y}}
+\index{zoom\+Y@{zoom\+Y}!Bouton@{Bouton}}
+\subsubsection[{zoom\+Y}]{\setlength{\rightskip}{0pt plus 5cm}double Bouton\+::zoom\+Y}\label{class_bouton_a47c6955b1d8b9e75b1c0ef72ef2a585f}
+
+
+Definition at line 32 of file Bouton.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{_bouton_8h}{Bouton.\+h}\item 
+src/\hyperlink{_bouton_8cpp}{Bouton.\+cpp}\end{DoxyCompactItemize}

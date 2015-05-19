@@ -1,0 +1,1533 @@
+\hypertarget{_s_d_l__image_filter_8c}{}\section{S\+D\+L\+\_\+gfx-\/2.0.25/\+S\+D\+L\+\_\+image\+Filter.c File Reference}
+\label{_s_d_l__image_filter_8c}\index{S\+D\+L\+\_\+gfx-\/2.\+0.\+25/\+S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+gfx-\/2.\+0.\+25/\+S\+D\+L\+\_\+image\+Filter.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$S\+D\+L\+\_\+cpuinfo.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+image\+Filter.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_s_d_l__image_filter_8c_a700fb30611761c46a674a45cc28ff561}{S\+W\+A\+P\+\_\+32}(\hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x})~(((\hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}) $>$$>$ 24) $\vert$ (((\hyperlink{_s_d_l__opengl_8h_ae8f024308aaf3cca3d48055ebb11f6ec}{x}) \& 0x00ff0000) $>$$>$ 8)  $\vert$ (((x) \& 0x0000ff00) $<$$<$ 8)  $\vert$ ((x) $<$$<$ 24))
+\begin{DoxyCompactList}\small\item\em Swaps the byte order in a 32bit integer (L\+S\+B becomes M\+S\+B, etc.). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_s_d_l__image_filter_8c_a798ce71024ee1a1d1b174fd60fe79917}{S\+D\+L\+\_\+image\+Filter\+M\+M\+Xdetect} (\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void})
+\begin{DoxyCompactList}\small\item\em M\+M\+X detection routine (with override flag). \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{_s_d_l__image_filter_8c_a5dff661660755161bb4aaf6199cd1384}{S\+D\+L\+\_\+image\+Filter\+M\+M\+Xoff} ()
+\begin{DoxyCompactList}\small\item\em Disable M\+M\+X check for filter functions and and force to use non-\/\+M\+M\+X C based code. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{_s_d_l__image_filter_8c_a353ee234c3b51b33c4c5c4b30db5832d}{S\+D\+L\+\_\+image\+Filter\+M\+M\+Xon} ()
+\begin{DoxyCompactList}\small\item\em Enable M\+M\+X check for filter functions and use M\+M\+X code if available. \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a9f06507eb0b63198dbd67495d61c9b20}{S\+D\+L\+\_\+image\+Filter\+Add} (unsigned char $\ast$Src1, unsigned char $\ast$Src2, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length})
+\begin{DoxyCompactList}\small\item\em Filter using Add\+: D = saturation255(S1 + S2) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_ace072118fef77973210eb04fb4bfc779}{S\+D\+L\+\_\+image\+Filter\+Mean} (unsigned char $\ast$Src1, unsigned char $\ast$Src2, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length})
+\begin{DoxyCompactList}\small\item\em Filter using Mean\+: D = S1/2 + S2/2. \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a3c01cf8576ea7a0dfc09dbaa953c9287}{S\+D\+L\+\_\+image\+Filter\+Sub} (unsigned char $\ast$Src1, unsigned char $\ast$Src2, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length})
+\begin{DoxyCompactList}\small\item\em Filter using Sub\+: D = saturation0(S1 -\/ S2) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a472909f904274255cd6793c520172e48}{S\+D\+L\+\_\+image\+Filter\+Abs\+Diff} (unsigned char $\ast$Src1, unsigned char $\ast$Src2, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length})
+\begin{DoxyCompactList}\small\item\em Filter using Abs\+Diff\+: D = $\vert$ S1 -\/ S2 $\vert$. \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_af4633031d40a9ea0956a2f3c6c87a384}{S\+D\+L\+\_\+image\+Filter\+Mult} (unsigned char $\ast$Src1, unsigned char $\ast$Src2, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length})
+\begin{DoxyCompactList}\small\item\em Filter using Mult\+: D = saturation255(\+S1 $\ast$ S2) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a346db972dff9c56e3c45c904eaa3c39a}{S\+D\+L\+\_\+image\+Filter\+Mult\+Nor\+A\+S\+M} (unsigned char $\ast$Src1, unsigned char $\ast$Src2, unsigned char $\ast$Dest, unsigned int Src\+Length)
+\begin{DoxyCompactList}\small\item\em Internal A\+S\+M Filter using Mult\+Nor\+: D = S1 $\ast$ S2. \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a5f3c9fd40426bb46eba5ac167505dcc5}{S\+D\+L\+\_\+image\+Filter\+Mult\+Nor} (unsigned char $\ast$Src1, unsigned char $\ast$Src2, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length})
+\begin{DoxyCompactList}\small\item\em Filter using Mult\+Nor\+: D = S1 $\ast$ S2. \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a80737f6427c7bdb30d39a92f6524fc14}{S\+D\+L\+\_\+image\+Filter\+Mult\+Divby2} (unsigned char $\ast$Src1, unsigned char $\ast$Src2, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length})
+\begin{DoxyCompactList}\small\item\em Filter using Mult\+Divby2\+: D = saturation255(S1/2 $\ast$ S2) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a30e685653eb1050c7d48feaeb8f801a1}{S\+D\+L\+\_\+image\+Filter\+Mult\+Divby4} (unsigned char $\ast$Src1, unsigned char $\ast$Src2, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length})
+\begin{DoxyCompactList}\small\item\em Filter using Mult\+Divby4\+: D = saturation255(S1/2 $\ast$ S2/2) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a85837ce1b5de1f907b6b9053922b5cbc}{S\+D\+L\+\_\+image\+Filter\+Bit\+And} (unsigned char $\ast$Src1, unsigned char $\ast$Src2, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length})
+\begin{DoxyCompactList}\small\item\em Filter using Bit\+And\+: D = S1 \& S2. \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a5cf1c477f4e32d02f74ee95d9f7b0021}{S\+D\+L\+\_\+image\+Filter\+Bit\+Or} (unsigned char $\ast$Src1, unsigned char $\ast$Src2, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length})
+\begin{DoxyCompactList}\small\item\em Filter using Bit\+Or\+: D = S1 $\vert$ S2. \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a0ea22f01c6a4724bac307da3e5355f58}{S\+D\+L\+\_\+image\+Filter\+Div} (unsigned char $\ast$Src1, unsigned char $\ast$Src2, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length})
+\begin{DoxyCompactList}\small\item\em Filter using Div\+: D = S1 / S2. \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_ac3abfaa8ec2e88c3c4893588c5555856}{S\+D\+L\+\_\+image\+Filter\+Bit\+Negation} (unsigned char $\ast$Src1, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length})
+\begin{DoxyCompactList}\small\item\em Filter using Bit\+Negation\+: D = !\+S. \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a812cb307cb60ef31f1ffe81a9eee6bb1}{S\+D\+L\+\_\+image\+Filter\+Add\+Byte} (unsigned char $\ast$Src1, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length}, unsigned char C)
+\begin{DoxyCompactList}\small\item\em Filter using Add\+Byte\+: D = saturation255(S + C) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a660543426c47dfec39a349eb3b8f905b}{S\+D\+L\+\_\+image\+Filter\+Add\+Uint} (unsigned char $\ast$Src1, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length}, unsigned int C)
+\begin{DoxyCompactList}\small\item\em Filter using Add\+Uint\+: D = saturation255((S\mbox{[}i\mbox{]} + Cs\mbox{[}i \% 4\mbox{]}), Cs=Swap32((uint)\+C) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_ab82db97d129c8cfc36780bcdc6286fcc}{S\+D\+L\+\_\+image\+Filter\+Add\+Byte\+To\+Half} (unsigned char $\ast$Src1, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length}, unsigned char C)
+\begin{DoxyCompactList}\small\item\em Filter using Add\+Byte\+To\+Half\+: D = saturation255(S/2 + C) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a657e128016cc448778007d8b6475dd65}{S\+D\+L\+\_\+image\+Filter\+Sub\+Byte\+M\+M\+X} (unsigned char $\ast$Src1, unsigned char $\ast$Dest, unsigned int Src\+Length, unsigned char C)
+\begin{DoxyCompactList}\small\item\em Internal M\+M\+X Filter using Sub\+Byte\+: D = saturation0(S -\/ C) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a387fb6f0d48cc5d08f37f7f9b92d14b2}{S\+D\+L\+\_\+image\+Filter\+Sub\+Byte} (unsigned char $\ast$Src1, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length}, unsigned char C)
+\begin{DoxyCompactList}\small\item\em Filter using Sub\+Byte\+: D = saturation0(S -\/ C) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_abb343ef95e22945e1d4d648b2e176e64}{S\+D\+L\+\_\+image\+Filter\+Sub\+Uint} (unsigned char $\ast$Src1, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length}, unsigned int C)
+\begin{DoxyCompactList}\small\item\em Filter using Sub\+Uint\+: D = saturation0(S\mbox{[}i\mbox{]} -\/ Cs\mbox{[}i \% 4\mbox{]}), Cs=Swap32((uint)\+C) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a68851aed2dcc5dfd2f3b258236f3b88c}{S\+D\+L\+\_\+image\+Filter\+Shift\+Right} (unsigned char $\ast$Src1, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length}, unsigned char N)
+\begin{DoxyCompactList}\small\item\em Filter using Shift\+Right\+: D = saturation0(\+S $>$$>$ N) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a540d4625d76bcd03318c2a59ce650fdb}{S\+D\+L\+\_\+image\+Filter\+Shift\+Right\+Uint} (unsigned char $\ast$Src1, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length}, unsigned char N)
+\begin{DoxyCompactList}\small\item\em Filter using Shift\+Right\+Uint\+: D = saturation0((uint)\+S\mbox{[}i\mbox{]} $>$$>$ N) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a06f7a19d6e2fc89d7b48cc45d715806d}{S\+D\+L\+\_\+image\+Filter\+Mult\+By\+Byte} (unsigned char $\ast$Src1, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length}, unsigned char C)
+\begin{DoxyCompactList}\small\item\em Filter using Mult\+By\+Byte\+: D = saturation255(\+S $\ast$ C) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a0713d6c267fba9756d6beae81e89f9e4}{S\+D\+L\+\_\+image\+Filter\+Shift\+Right\+And\+Mult\+By\+Byte} (unsigned char $\ast$Src1, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length}, unsigned char N, unsigned char C)
+\begin{DoxyCompactList}\small\item\em Filter using Shift\+Right\+And\+Mult\+By\+Byte\+: D = saturation255((\+S $>$$>$ N) $\ast$ C) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a4561a73b249a26babc4c469ffbdae604}{S\+D\+L\+\_\+image\+Filter\+Shift\+Left\+Byte} (unsigned char $\ast$Src1, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length}, unsigned char N)
+\begin{DoxyCompactList}\small\item\em Filter using Shift\+Left\+Byte\+: D = (S $<$$<$ N) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a250e796fb2db470da0a78b74b78114e8}{S\+D\+L\+\_\+image\+Filter\+Shift\+Left\+Uint} (unsigned char $\ast$Src1, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length}, unsigned char N)
+\begin{DoxyCompactList}\small\item\em Filter using Shift\+Left\+Uint\+: D = ((uint)S $<$$<$ N) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a98372fea76310903abef7808db10d226}{S\+D\+L\+\_\+image\+Filter\+Shift\+Left} (unsigned char $\ast$Src1, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length}, unsigned char N)
+\begin{DoxyCompactList}\small\item\em Filter Shift\+Left\+: D = saturation255(\+S $<$$<$ N) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a951a062e15df290a137428e1e0f4d5ce}{S\+D\+L\+\_\+image\+Filter\+Binarize\+Using\+Threshold} (unsigned char $\ast$Src1, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length}, unsigned char T)
+\begin{DoxyCompactList}\small\item\em Filter using Binarize\+Using\+Threshold\+: D = (S $>$= T) ? 255\+:0. \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_ab7224abc4ecc1b8a6f4441ef8379515f}{S\+D\+L\+\_\+image\+Filter\+Clip\+To\+Range} (unsigned char $\ast$Src1, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length}, unsigned char Tmin, unsigned char Tmax)
+\begin{DoxyCompactList}\small\item\em Filter using Clip\+To\+Range\+: D = (S $>$= Tmin) \& (S $<$= Tmax) S\+:Tmin $\vert$ Tmax. \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_ab018ace4db884cac953b06b09c00828b}{S\+D\+L\+\_\+image\+Filter\+Normalize\+Linear} (unsigned char $\ast$Src, unsigned char $\ast$Dest, unsigned int \hyperlink{_s_d_l__opengl_8h_a78c5c8710130a1a634d6a81d52be8db8}{length}, int Cmin, int Cmax, int Nmin, int Nmax)
+\begin{DoxyCompactList}\small\item\em Filter using Normalize\+Linear\+: D = saturation255((Nmax -\/ Nmin)/(Cmax -\/ Cmin)$\ast$(S -\/ Cmin) + Nmin) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a8e7e4138a93e26f1912763189d407770}{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel3x3\+Divide} (unsigned char $\ast$Src, unsigned char $\ast$Dest, int rows, int columns, signed short $\ast$Kernel, unsigned char Divisor)
+\begin{DoxyCompactList}\small\item\em Filter using Convolve\+Kernel3x3\+Divide\+: Dij = saturation0and255( ... ) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_ac9a556492480ce71f54d456a0ff7e6cb}{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel5x5\+Divide} (unsigned char $\ast$Src, unsigned char $\ast$Dest, int rows, int columns, signed short $\ast$Kernel, unsigned char Divisor)
+\begin{DoxyCompactList}\small\item\em Filter using Convolve\+Kernel5x5\+Divide\+: Dij = saturation0and255( ... ) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a363f48e6843fd3f48da53688b89bca48}{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel7x7\+Divide} (unsigned char $\ast$Src, unsigned char $\ast$Dest, int rows, int columns, signed short $\ast$Kernel, unsigned char Divisor)
+\begin{DoxyCompactList}\small\item\em Filter using Convolve\+Kernel7x7\+Divide\+: Dij = saturation0and255( ... ) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_ae1e91ff193beed110a71119ec901f09d}{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel9x9\+Divide} (unsigned char $\ast$Src, unsigned char $\ast$Dest, int rows, int columns, signed short $\ast$Kernel, unsigned char Divisor)
+\begin{DoxyCompactList}\small\item\em Filter using Convolve\+Kernel9x9\+Divide\+: Dij = saturation0and255( ... ) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_ac329e5a3b60351768c96c94db9f9cf97}{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel3x3\+Shift\+Right} (unsigned char $\ast$Src, unsigned char $\ast$Dest, int rows, int columns, signed short $\ast$Kernel, unsigned char N\+Right\+Shift)
+\begin{DoxyCompactList}\small\item\em Filter using Convolve\+Kernel3x3\+Shift\+Right\+: Dij = saturation0and255( ... ) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a5253738dc4c892352b078d9a7dec2b20}{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel5x5\+Shift\+Right} (unsigned char $\ast$Src, unsigned char $\ast$Dest, int rows, int columns, signed short $\ast$Kernel, unsigned char N\+Right\+Shift)
+\begin{DoxyCompactList}\small\item\em Filter using Convolve\+Kernel5x5\+Shift\+Right\+: Dij = saturation0and255( ... ) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a48b40065652dda699875f1425b9227a6}{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel7x7\+Shift\+Right} (unsigned char $\ast$Src, unsigned char $\ast$Dest, int rows, int columns, signed short $\ast$Kernel, unsigned char N\+Right\+Shift)
+\begin{DoxyCompactList}\small\item\em Filter using Convolve\+Kernel7x7\+Shift\+Right\+: Dij = saturation0and255( ... ) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a6aaa30dc51d1e51585d02d123b0f1a7a}{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel9x9\+Shift\+Right} (unsigned char $\ast$Src, unsigned char $\ast$Dest, int rows, int columns, signed short $\ast$Kernel, unsigned char N\+Right\+Shift)
+\begin{DoxyCompactList}\small\item\em Filter using Convolve\+Kernel9x9\+Shift\+Right\+: Dij = saturation255( ... ) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a015fe05161b701162d9ecffb01413f1e}{S\+D\+L\+\_\+image\+Filter\+Sobel\+X} (unsigned char $\ast$Src, unsigned char $\ast$Dest, int rows, int columns)
+\begin{DoxyCompactList}\small\item\em Filter using Sobel\+X\+: Dij = saturation255( ... ) \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__image_filter_8c_a0d21af83f0183fcd697324cffe3ab3d7}{S\+D\+L\+\_\+image\+Filter\+Sobel\+X\+Shift\+Right} (unsigned char $\ast$Src, unsigned char $\ast$Dest, int rows, int columns, unsigned char N\+Right\+Shift)
+\begin{DoxyCompactList}\small\item\em Filter using Sobel\+X\+Shift\+Right\+: Dij = saturation255( ... ) \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{_s_d_l__image_filter_8c_afbfcc8c03e3d791ac74c955d14a135e4}{S\+D\+L\+\_\+image\+Filter\+Align\+Stack} (\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void})
+\begin{DoxyCompactList}\small\item\em Align stack to 32 byte boundary,. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{_s_d_l__image_filter_8c_a3147eb5ddd4965d65702f0e533b42974}{S\+D\+L\+\_\+image\+Filter\+Restore\+Stack} (\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void})
+\begin{DoxyCompactList}\small\item\em Restore previously aligned stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_s_d_l__image_filter_8c_a700fb30611761c46a674a45cc28ff561}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+W\+A\+P\+\_\+32@{S\+W\+A\+P\+\_\+32}}
+\index{S\+W\+A\+P\+\_\+32@{S\+W\+A\+P\+\_\+32}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+W\+A\+P\+\_\+32}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+W\+A\+P\+\_\+32(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~((({\bf x}) $>$$>$ 24) $\vert$ ((({\bf x}) \& 0x00ff0000) $>$$>$ 8)  $\vert$ (((x) \& 0x0000ff00) $<$$<$ 8)  $\vert$ ((x) $<$$<$ 24))}\label{_s_d_l__image_filter_8c_a700fb30611761c46a674a45cc28ff561}
+
+
+Swaps the byte order in a 32bit integer (L\+S\+B becomes M\+S\+B, etc.). 
+
+
+
+Definition at line 58 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_s_d_l__image_filter_8c_a472909f904274255cd6793c520172e48}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Abs\+Diff@{S\+D\+L\+\_\+image\+Filter\+Abs\+Diff}}
+\index{S\+D\+L\+\_\+image\+Filter\+Abs\+Diff@{S\+D\+L\+\_\+image\+Filter\+Abs\+Diff}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Abs\+Diff}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Abs\+Diff (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Src2, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a472909f904274255cd6793c520172e48}
+
+
+Filter using Abs\+Diff\+: D = $\vert$ S1 -\/ S2 $\vert$. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the first source byte array (S1). \\
+\hline
+{\em Src2} & Pointer to the start of the second source byte array (S2). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source arrays.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 539 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a9f06507eb0b63198dbd67495d61c9b20}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Add@{S\+D\+L\+\_\+image\+Filter\+Add}}
+\index{S\+D\+L\+\_\+image\+Filter\+Add@{S\+D\+L\+\_\+image\+Filter\+Add}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Add}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Add (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Src2, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a9f06507eb0b63198dbd67495d61c9b20}
+
+
+Filter using Add\+: D = saturation255(S1 + S2) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the first source byte array (S1). \\
+\hline
+{\em Src2} & Pointer to the start of the second source byte array (S2). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source arrays.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 170 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a812cb307cb60ef31f1ffe81a9eee6bb1}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Add\+Byte@{S\+D\+L\+\_\+image\+Filter\+Add\+Byte}}
+\index{S\+D\+L\+\_\+image\+Filter\+Add\+Byte@{S\+D\+L\+\_\+image\+Filter\+Add\+Byte}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Add\+Byte}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Add\+Byte (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length, }
+\item[{unsigned char}]{C}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a812cb307cb60ef31f1ffe81a9eee6bb1}
+
+
+Filter using Add\+Byte\+: D = saturation255(S + C) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the source byte array (S). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source array. \\
+\hline
+{\em C} & Constant value to add (C).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 1788 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_ab82db97d129c8cfc36780bcdc6286fcc}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Add\+Byte\+To\+Half@{S\+D\+L\+\_\+image\+Filter\+Add\+Byte\+To\+Half}}
+\index{S\+D\+L\+\_\+image\+Filter\+Add\+Byte\+To\+Half@{S\+D\+L\+\_\+image\+Filter\+Add\+Byte\+To\+Half}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Add\+Byte\+To\+Half}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Add\+Byte\+To\+Half (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length, }
+\item[{unsigned char}]{C}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_ab82db97d129c8cfc36780bcdc6286fcc}
+
+
+Filter using Add\+Byte\+To\+Half\+: D = saturation255(S/2 + C) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the source byte array (S). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source array. \\
+\hline
+{\em C} & Constant to add (C).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 2065 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a660543426c47dfec39a349eb3b8f905b}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Add\+Uint@{S\+D\+L\+\_\+image\+Filter\+Add\+Uint}}
+\index{S\+D\+L\+\_\+image\+Filter\+Add\+Uint@{S\+D\+L\+\_\+image\+Filter\+Add\+Uint}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Add\+Uint}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Add\+Uint (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length, }
+\item[{unsigned int}]{C}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a660543426c47dfec39a349eb3b8f905b}
+
+
+Filter using Add\+Uint\+: D = saturation255((S\mbox{[}i\mbox{]} + Cs\mbox{[}i \% 4\mbox{]}), Cs=Swap32((uint)\+C) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the source byte array (S). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source array. \\
+\hline
+{\em C} & Constant to add (C).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 1916 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_afbfcc8c03e3d791ac74c955d14a135e4}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Align\+Stack@{S\+D\+L\+\_\+image\+Filter\+Align\+Stack}}
+\index{S\+D\+L\+\_\+image\+Filter\+Align\+Stack@{S\+D\+L\+\_\+image\+Filter\+Align\+Stack}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Align\+Stack}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} S\+D\+L\+\_\+image\+Filter\+Align\+Stack (
+\begin{DoxyParamCaption}
+\item[{{\bf void}}]{}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_afbfcc8c03e3d791ac74c955d14a135e4}
+
+
+Align stack to 32 byte boundary,. 
+
+
+
+Definition at line 7323 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a951a062e15df290a137428e1e0f4d5ce}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Binarize\+Using\+Threshold@{S\+D\+L\+\_\+image\+Filter\+Binarize\+Using\+Threshold}}
+\index{S\+D\+L\+\_\+image\+Filter\+Binarize\+Using\+Threshold@{S\+D\+L\+\_\+image\+Filter\+Binarize\+Using\+Threshold}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Binarize\+Using\+Threshold}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Binarize\+Using\+Threshold (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length, }
+\item[{unsigned char}]{T}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a951a062e15df290a137428e1e0f4d5ce}
+
+
+Filter using Binarize\+Using\+Threshold\+: D = (S $>$= T) ? 255\+:0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the source byte array (S). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source array. \\
+\hline
+{\em T} & The threshold boundary (inclusive).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 3531 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a85837ce1b5de1f907b6b9053922b5cbc}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Bit\+And@{S\+D\+L\+\_\+image\+Filter\+Bit\+And}}
+\index{S\+D\+L\+\_\+image\+Filter\+Bit\+And@{S\+D\+L\+\_\+image\+Filter\+Bit\+And}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Bit\+And}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Bit\+And (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Src2, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a85837ce1b5de1f907b6b9053922b5cbc}
+
+
+Filter using Bit\+And\+: D = S1 \& S2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the first source byte array (S1). \\
+\hline
+{\em Src2} & Pointer to the start of the second source byte array (S2). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source arrays.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 1275 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_ac3abfaa8ec2e88c3c4893588c5555856}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Bit\+Negation@{S\+D\+L\+\_\+image\+Filter\+Bit\+Negation}}
+\index{S\+D\+L\+\_\+image\+Filter\+Bit\+Negation@{S\+D\+L\+\_\+image\+Filter\+Bit\+Negation}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Bit\+Negation}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Bit\+Negation (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_ac3abfaa8ec2e88c3c4893588c5555856}
+
+
+Filter using Bit\+Negation\+: D = !\+S. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the source byte array (S). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source array.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 1668 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a5cf1c477f4e32d02f74ee95d9f7b0021}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Bit\+Or@{S\+D\+L\+\_\+image\+Filter\+Bit\+Or}}
+\index{S\+D\+L\+\_\+image\+Filter\+Bit\+Or@{S\+D\+L\+\_\+image\+Filter\+Bit\+Or}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Bit\+Or}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Bit\+Or (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Src2, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a5cf1c477f4e32d02f74ee95d9f7b0021}
+
+
+Filter using Bit\+Or\+: D = S1 $\vert$ S2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the first source byte array (S1). \\
+\hline
+{\em Src2} & Pointer to the start of the second source byte array (S2). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source arrays.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 1389 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_ab7224abc4ecc1b8a6f4441ef8379515f}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Clip\+To\+Range@{S\+D\+L\+\_\+image\+Filter\+Clip\+To\+Range}}
+\index{S\+D\+L\+\_\+image\+Filter\+Clip\+To\+Range@{S\+D\+L\+\_\+image\+Filter\+Clip\+To\+Range}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Clip\+To\+Range}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Clip\+To\+Range (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length, }
+\item[{unsigned char}]{Tmin, }
+\item[{unsigned char}]{Tmax}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_ab7224abc4ecc1b8a6f4441ef8379515f}
+
+
+Filter using Clip\+To\+Range\+: D = (S $>$= Tmin) \& (S $<$= Tmax) S\+:Tmin $\vert$ Tmax. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the source byte array (S). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source array. \\
+\hline
+{\em Tmin} & Lower (inclusive) boundary of the clipping range. \\
+\hline
+{\em Tmax} & Upper (inclusive) boundary of the clipping range.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 3688 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a8e7e4138a93e26f1912763189d407770}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel3x3\+Divide@{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel3x3\+Divide}}
+\index{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel3x3\+Divide@{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel3x3\+Divide}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel3x3\+Divide}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel3x3\+Divide (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{int}]{rows, }
+\item[{int}]{columns, }
+\item[{signed short $\ast$}]{Kernel, }
+\item[{unsigned char}]{Divisor}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a8e7e4138a93e26f1912763189d407770}
+
+
+Filter using Convolve\+Kernel3x3\+Divide\+: Dij = saturation0and255( ... ) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src} & The source 2\+D byte array to convolve. Should be different from destination. \\
+\hline
+{\em Dest} & The destination 2\+D byte array to store the result in. Should be different from source. \\
+\hline
+{\em rows} & Number of rows in source/destination array. Must be $>$2. \\
+\hline
+{\em columns} & Number of columns in source/destination array. Must be $>$2. \\
+\hline
+{\em Kernel} & The 2\+D convolution kernel of size 3x3. \\
+\hline
+{\em Divisor} & The divisor of the convolution sum. Must be $>$0.\\
+\hline
+\end{DoxyParams}
+Note\+: Non-\/\+M\+M\+X implementation not available for this function.
+
+\begin{DoxyReturn}{Returns}
+Returns 1 if filter was applied, 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 3977 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_ac329e5a3b60351768c96c94db9f9cf97}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel3x3\+Shift\+Right@{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel3x3\+Shift\+Right}}
+\index{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel3x3\+Shift\+Right@{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel3x3\+Shift\+Right}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel3x3\+Shift\+Right}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel3x3\+Shift\+Right (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{int}]{rows, }
+\item[{int}]{columns, }
+\item[{signed short $\ast$}]{Kernel, }
+\item[{unsigned char}]{N\+Right\+Shift}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_ac329e5a3b60351768c96c94db9f9cf97}
+
+
+Filter using Convolve\+Kernel3x3\+Shift\+Right\+: Dij = saturation0and255( ... ) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src} & The source 2\+D byte array to convolve. Should be different from destination. \\
+\hline
+{\em Dest} & The destination 2\+D byte array to store the result in. Should be different from source. \\
+\hline
+{\em rows} & Number of rows in source/destination array. Must be $>$2. \\
+\hline
+{\em columns} & Number of columns in source/destination array. Must be $>$2. \\
+\hline
+{\em Kernel} & The 2\+D convolution kernel of size 3x3. \\
+\hline
+{\em N\+Right\+Shift} & The number of right bit shifts to apply to the convolution sum. Must be $<$7.\\
+\hline
+\end{DoxyParams}
+Note\+: Non-\/\+M\+M\+X implementation not available for this function.
+
+\begin{DoxyReturn}{Returns}
+Returns 1 if filter was applied, 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 5375 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_ac9a556492480ce71f54d456a0ff7e6cb}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel5x5\+Divide@{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel5x5\+Divide}}
+\index{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel5x5\+Divide@{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel5x5\+Divide}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel5x5\+Divide}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel5x5\+Divide (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{int}]{rows, }
+\item[{int}]{columns, }
+\item[{signed short $\ast$}]{Kernel, }
+\item[{unsigned char}]{Divisor}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_ac9a556492480ce71f54d456a0ff7e6cb}
+
+
+Filter using Convolve\+Kernel5x5\+Divide\+: Dij = saturation0and255( ... ) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src} & The source 2\+D byte array to convolve. Should be different from destination. \\
+\hline
+{\em Dest} & The destination 2\+D byte array to store the result in. Should be different from source. \\
+\hline
+{\em rows} & Number of rows in source/destination array. Must be $>$4. \\
+\hline
+{\em columns} & Number of columns in source/destination array. Must be $>$4. \\
+\hline
+{\em Kernel} & The 2\+D convolution kernel of size 5x5. \\
+\hline
+{\em Divisor} & The divisor of the convolution sum. Must be $>$0.\\
+\hline
+\end{DoxyParams}
+Note\+: Non-\/\+M\+M\+X implementation not available for this function.
+
+\begin{DoxyReturn}{Returns}
+Returns 1 if filter was applied, 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 4167 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a5253738dc4c892352b078d9a7dec2b20}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel5x5\+Shift\+Right@{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel5x5\+Shift\+Right}}
+\index{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel5x5\+Shift\+Right@{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel5x5\+Shift\+Right}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel5x5\+Shift\+Right}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel5x5\+Shift\+Right (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{int}]{rows, }
+\item[{int}]{columns, }
+\item[{signed short $\ast$}]{Kernel, }
+\item[{unsigned char}]{N\+Right\+Shift}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a5253738dc4c892352b078d9a7dec2b20}
+
+
+Filter using Convolve\+Kernel5x5\+Shift\+Right\+: Dij = saturation0and255( ... ) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src} & The source 2\+D byte array to convolve. Should be different from destination. \\
+\hline
+{\em Dest} & The destination 2\+D byte array to store the result in. Should be different from source. \\
+\hline
+{\em rows} & Number of rows in source/destination array. Must be $>$4. \\
+\hline
+{\em columns} & Number of columns in source/destination array. Must be $>$4. \\
+\hline
+{\em Kernel} & The 2\+D convolution kernel of size 5x5. \\
+\hline
+{\em N\+Right\+Shift} & The number of right bit shifts to apply to the convolution sum. Must be $<$7.\\
+\hline
+\end{DoxyParams}
+Note\+: Non-\/\+M\+M\+X implementation not available for this function.
+
+\begin{DoxyReturn}{Returns}
+Returns 1 if filter was applied, 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 5552 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a363f48e6843fd3f48da53688b89bca48}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel7x7\+Divide@{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel7x7\+Divide}}
+\index{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel7x7\+Divide@{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel7x7\+Divide}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel7x7\+Divide}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel7x7\+Divide (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{int}]{rows, }
+\item[{int}]{columns, }
+\item[{signed short $\ast$}]{Kernel, }
+\item[{unsigned char}]{Divisor}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a363f48e6843fd3f48da53688b89bca48}
+
+
+Filter using Convolve\+Kernel7x7\+Divide\+: Dij = saturation0and255( ... ) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src} & The source 2\+D byte array to convolve. Should be different from destination. \\
+\hline
+{\em Dest} & The destination 2\+D byte array to store the result in. Should be different from source. \\
+\hline
+{\em rows} & Number of rows in source/destination array. Must be $>$6. \\
+\hline
+{\em columns} & Number of columns in source/destination array. Must be $>$6. \\
+\hline
+{\em Kernel} & The 2\+D convolution kernel of size 7x7. \\
+\hline
+{\em Divisor} & The divisor of the convolution sum. Must be $>$0.\\
+\hline
+\end{DoxyParams}
+Note\+: Non-\/\+M\+M\+X implementation not available for this function.
+
+\begin{DoxyReturn}{Returns}
+Returns 1 if filter was applied, 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 4470 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a48b40065652dda699875f1425b9227a6}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel7x7\+Shift\+Right@{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel7x7\+Shift\+Right}}
+\index{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel7x7\+Shift\+Right@{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel7x7\+Shift\+Right}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel7x7\+Shift\+Right}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel7x7\+Shift\+Right (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{int}]{rows, }
+\item[{int}]{columns, }
+\item[{signed short $\ast$}]{Kernel, }
+\item[{unsigned char}]{N\+Right\+Shift}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a48b40065652dda699875f1425b9227a6}
+
+
+Filter using Convolve\+Kernel7x7\+Shift\+Right\+: Dij = saturation0and255( ... ) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src} & The source 2\+D byte array to convolve. Should be different from destination. \\
+\hline
+{\em Dest} & The destination 2\+D byte array to store the result in. Should be different from source. \\
+\hline
+{\em rows} & Number of rows in source/destination array. Must be $>$6. \\
+\hline
+{\em columns} & Number of columns in source/destination array. Must be $>$6. \\
+\hline
+{\em Kernel} & The 2\+D convolution kernel of size 7x7. \\
+\hline
+{\em N\+Right\+Shift} & The number of right bit shifts to apply to the convolution sum. Must be $<$7.\\
+\hline
+\end{DoxyParams}
+Note\+: Non-\/\+M\+M\+X implementation not available for this function.
+
+\begin{DoxyReturn}{Returns}
+Returns 1 if filter was applied, 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 5853 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_ae1e91ff193beed110a71119ec901f09d}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel9x9\+Divide@{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel9x9\+Divide}}
+\index{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel9x9\+Divide@{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel9x9\+Divide}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel9x9\+Divide}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel9x9\+Divide (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{int}]{rows, }
+\item[{int}]{columns, }
+\item[{signed short $\ast$}]{Kernel, }
+\item[{unsigned char}]{Divisor}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_ae1e91ff193beed110a71119ec901f09d}
+
+
+Filter using Convolve\+Kernel9x9\+Divide\+: Dij = saturation0and255( ... ) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src} & The source 2\+D byte array to convolve. Should be different from destination. \\
+\hline
+{\em Dest} & The destination 2\+D byte array to store the result in. Should be different from source. \\
+\hline
+{\em rows} & Number of rows in source/destination array. Must be $>$8. \\
+\hline
+{\em columns} & Number of columns in source/destination array. Must be $>$8. \\
+\hline
+{\em Kernel} & The 2\+D convolution kernel of size 9x9. \\
+\hline
+{\em Divisor} & The divisor of the convolution sum. Must be $>$0.\\
+\hline
+\end{DoxyParams}
+Note\+: Non-\/\+M\+M\+X implementation not available for this function.
+
+\begin{DoxyReturn}{Returns}
+Returns 1 if filter was applied, 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 4827 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a6aaa30dc51d1e51585d02d123b0f1a7a}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel9x9\+Shift\+Right@{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel9x9\+Shift\+Right}}
+\index{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel9x9\+Shift\+Right@{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel9x9\+Shift\+Right}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel9x9\+Shift\+Right}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Convolve\+Kernel9x9\+Shift\+Right (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{int}]{rows, }
+\item[{int}]{columns, }
+\item[{signed short $\ast$}]{Kernel, }
+\item[{unsigned char}]{N\+Right\+Shift}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a6aaa30dc51d1e51585d02d123b0f1a7a}
+
+
+Filter using Convolve\+Kernel9x9\+Shift\+Right\+: Dij = saturation255( ... ) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src} & The source 2\+D byte array to convolve. Should be different from destination. \\
+\hline
+{\em Dest} & The destination 2\+D byte array to store the result in. Should be different from source. \\
+\hline
+{\em rows} & Number of rows in source/destination array. Must be $>$8. \\
+\hline
+{\em columns} & Number of columns in source/destination array. Must be $>$8. \\
+\hline
+{\em Kernel} & The 2\+D convolution kernel of size 9x9. \\
+\hline
+{\em N\+Right\+Shift} & The number of right bit shifts to apply to the convolution sum. Must be $<$7.\\
+\hline
+\end{DoxyParams}
+Note\+: Non-\/\+M\+M\+X implementation not available for this function.
+
+\begin{DoxyReturn}{Returns}
+Returns 1 if filter was applied, 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 6216 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a0ea22f01c6a4724bac307da3e5355f58}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Div@{S\+D\+L\+\_\+image\+Filter\+Div}}
+\index{S\+D\+L\+\_\+image\+Filter\+Div@{S\+D\+L\+\_\+image\+Filter\+Div}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Div}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Div (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Src2, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a0ea22f01c6a4724bac307da3e5355f58}
+
+
+Filter using Div\+: D = S1 / S2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the first source byte array (S1). \\
+\hline
+{\em Src2} & Pointer to the start of the second source byte array (S2). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source arrays.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 1546 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_ace072118fef77973210eb04fb4bfc779}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Mean@{S\+D\+L\+\_\+image\+Filter\+Mean}}
+\index{S\+D\+L\+\_\+image\+Filter\+Mean@{S\+D\+L\+\_\+image\+Filter\+Mean}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Mean}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Mean (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Src2, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_ace072118fef77973210eb04fb4bfc779}
+
+
+Filter using Mean\+: D = S1/2 + S2/2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the first source byte array (S1). \\
+\hline
+{\em Src2} & Pointer to the start of the second source byte array (S2). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source arrays.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 305 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a798ce71024ee1a1d1b174fd60fe79917}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+M\+M\+Xdetect@{S\+D\+L\+\_\+image\+Filter\+M\+M\+Xdetect}}
+\index{S\+D\+L\+\_\+image\+Filter\+M\+M\+Xdetect@{S\+D\+L\+\_\+image\+Filter\+M\+M\+Xdetect}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+M\+M\+Xdetect}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+M\+M\+Xdetect (
+\begin{DoxyParamCaption}
+\item[{{\bf void}}]{}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a798ce71024ee1a1d1b174fd60fe79917}
+
+
+M\+M\+X detection routine (with override flag). 
+
+\begin{DoxyReturn}{Returns}
+1 of M\+M\+X was detected, 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 77 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a5dff661660755161bb4aaf6199cd1384}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+M\+M\+Xoff@{S\+D\+L\+\_\+image\+Filter\+M\+M\+Xoff}}
+\index{S\+D\+L\+\_\+image\+Filter\+M\+M\+Xoff@{S\+D\+L\+\_\+image\+Filter\+M\+M\+Xoff}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+M\+M\+Xoff}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} S\+D\+L\+\_\+image\+Filter\+M\+M\+Xoff (
+\begin{DoxyParamCaption}
+\item[{{\bf void}}]{}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a5dff661660755161bb4aaf6199cd1384}
+
+
+Disable M\+M\+X check for filter functions and and force to use non-\/\+M\+M\+X C based code. 
+
+
+
+Definition at line 90 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a353ee234c3b51b33c4c5c4b30db5832d}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+M\+M\+Xon@{S\+D\+L\+\_\+image\+Filter\+M\+M\+Xon}}
+\index{S\+D\+L\+\_\+image\+Filter\+M\+M\+Xon@{S\+D\+L\+\_\+image\+Filter\+M\+M\+Xon}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+M\+M\+Xon}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} S\+D\+L\+\_\+image\+Filter\+M\+M\+Xon (
+\begin{DoxyParamCaption}
+\item[{{\bf void}}]{}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a353ee234c3b51b33c4c5c4b30db5832d}
+
+
+Enable M\+M\+X check for filter functions and use M\+M\+X code if available. 
+
+
+
+Definition at line 98 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_af4633031d40a9ea0956a2f3c6c87a384}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Mult@{S\+D\+L\+\_\+image\+Filter\+Mult}}
+\index{S\+D\+L\+\_\+image\+Filter\+Mult@{S\+D\+L\+\_\+image\+Filter\+Mult}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Mult}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Mult (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Src2, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_af4633031d40a9ea0956a2f3c6c87a384}
+
+
+Filter using Mult\+: D = saturation255(\+S1 $\ast$ S2) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the first source byte array (S1). \\
+\hline
+{\em Src2} & Pointer to the start of the second source byte array (S2). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source arrays.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 726 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a06f7a19d6e2fc89d7b48cc45d715806d}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Mult\+By\+Byte@{S\+D\+L\+\_\+image\+Filter\+Mult\+By\+Byte}}
+\index{S\+D\+L\+\_\+image\+Filter\+Mult\+By\+Byte@{S\+D\+L\+\_\+image\+Filter\+Mult\+By\+Byte}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Mult\+By\+Byte}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Mult\+By\+Byte (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length, }
+\item[{unsigned char}]{C}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a06f7a19d6e2fc89d7b48cc45d715806d}
+
+
+Filter using Mult\+By\+Byte\+: D = saturation255(\+S $\ast$ C) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the source byte array (S). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source arrays. \\
+\hline
+{\em C} & Constant to multiply with (C).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 2787 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a80737f6427c7bdb30d39a92f6524fc14}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Mult\+Divby2@{S\+D\+L\+\_\+image\+Filter\+Mult\+Divby2}}
+\index{S\+D\+L\+\_\+image\+Filter\+Mult\+Divby2@{S\+D\+L\+\_\+image\+Filter\+Mult\+Divby2}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Mult\+Divby2}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Mult\+Divby2 (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Src2, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a80737f6427c7bdb30d39a92f6524fc14}
+
+
+Filter using Mult\+Divby2\+: D = saturation255(S1/2 $\ast$ S2) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the first source byte array (S1). \\
+\hline
+{\em Src2} & Pointer to the start of the second source byte array (S2). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source arrays.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 997 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a30e685653eb1050c7d48feaeb8f801a1}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Mult\+Divby4@{S\+D\+L\+\_\+image\+Filter\+Mult\+Divby4}}
+\index{S\+D\+L\+\_\+image\+Filter\+Mult\+Divby4@{S\+D\+L\+\_\+image\+Filter\+Mult\+Divby4}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Mult\+Divby4}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Mult\+Divby4 (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Src2, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a30e685653eb1050c7d48feaeb8f801a1}
+
+
+Filter using Mult\+Divby4\+: D = saturation255(S1/2 $\ast$ S2/2) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the first source byte array (S1). \\
+\hline
+{\em Src2} & Pointer to the start of the second source byte array (S2). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source arrays.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 1138 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a5f3c9fd40426bb46eba5ac167505dcc5}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Mult\+Nor@{S\+D\+L\+\_\+image\+Filter\+Mult\+Nor}}
+\index{S\+D\+L\+\_\+image\+Filter\+Mult\+Nor@{S\+D\+L\+\_\+image\+Filter\+Mult\+Nor}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Mult\+Nor}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Mult\+Nor (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Src2, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a5f3c9fd40426bb46eba5ac167505dcc5}
+
+
+Filter using Mult\+Nor\+: D = S1 $\ast$ S2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the first source byte array (S1). \\
+\hline
+{\em Src2} & Pointer to the start of the second source byte array (S2). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source arrays.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 859 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a346db972dff9c56e3c45c904eaa3c39a}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Mult\+Nor\+A\+S\+M@{S\+D\+L\+\_\+image\+Filter\+Mult\+Nor\+A\+S\+M}}
+\index{S\+D\+L\+\_\+image\+Filter\+Mult\+Nor\+A\+S\+M@{S\+D\+L\+\_\+image\+Filter\+Mult\+Nor\+A\+S\+M}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Mult\+Nor\+A\+S\+M}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Mult\+Nor\+A\+S\+M (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Src2, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{Src\+Length}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a346db972dff9c56e3c45c904eaa3c39a}
+
+
+Internal A\+S\+M Filter using Mult\+Nor\+: D = S1 $\ast$ S2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the first source byte array (S1). \\
+\hline
+{\em Src2} & Pointer to the start of the second source byte array (S2). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em Src\+Length} & The number of bytes in the source arrays.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 789 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_ab018ace4db884cac953b06b09c00828b}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Normalize\+Linear@{S\+D\+L\+\_\+image\+Filter\+Normalize\+Linear}}
+\index{S\+D\+L\+\_\+image\+Filter\+Normalize\+Linear@{S\+D\+L\+\_\+image\+Filter\+Normalize\+Linear}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Normalize\+Linear}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Normalize\+Linear (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length, }
+\item[{int}]{Cmin, }
+\item[{int}]{Cmax, }
+\item[{int}]{Nmin, }
+\item[{int}]{Nmax}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_ab018ace4db884cac953b06b09c00828b}
+
+
+Filter using Normalize\+Linear\+: D = saturation255((Nmax -\/ Nmin)/(Cmax -\/ Cmin)$\ast$(S -\/ Cmin) + Nmin) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src} & Pointer to the start of the source byte array (S). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source array. \\
+\hline
+{\em Cmin} & Normalization constant. \\
+\hline
+{\em Cmax} & Normalization constant. \\
+\hline
+{\em Nmin} & Normalization constant. \\
+\hline
+{\em Nmax} & Normalization constant.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 3906 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a3147eb5ddd4965d65702f0e533b42974}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Restore\+Stack@{S\+D\+L\+\_\+image\+Filter\+Restore\+Stack}}
+\index{S\+D\+L\+\_\+image\+Filter\+Restore\+Stack@{S\+D\+L\+\_\+image\+Filter\+Restore\+Stack}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Restore\+Stack}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} S\+D\+L\+\_\+image\+Filter\+Restore\+Stack (
+\begin{DoxyParamCaption}
+\item[{{\bf void}}]{}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a3147eb5ddd4965d65702f0e533b42974}
+
+
+Restore previously aligned stack. 
+
+
+
+Definition at line 7351 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a98372fea76310903abef7808db10d226}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Shift\+Left@{S\+D\+L\+\_\+image\+Filter\+Shift\+Left}}
+\index{S\+D\+L\+\_\+image\+Filter\+Shift\+Left@{S\+D\+L\+\_\+image\+Filter\+Shift\+Left}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Shift\+Left}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Shift\+Left (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length, }
+\item[{unsigned char}]{N}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a98372fea76310903abef7808db10d226}
+
+
+Filter Shift\+Left\+: D = saturation255(\+S $<$$<$ N) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the source byte array (S1). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source array. \\
+\hline
+{\em N} & Number of bit-\/positions to shift (N). Valid range is 0 to 8.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 3390 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a4561a73b249a26babc4c469ffbdae604}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Shift\+Left\+Byte@{S\+D\+L\+\_\+image\+Filter\+Shift\+Left\+Byte}}
+\index{S\+D\+L\+\_\+image\+Filter\+Shift\+Left\+Byte@{S\+D\+L\+\_\+image\+Filter\+Shift\+Left\+Byte}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Shift\+Left\+Byte}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Shift\+Left\+Byte (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length, }
+\item[{unsigned char}]{N}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a4561a73b249a26babc4c469ffbdae604}
+
+
+Filter using Shift\+Left\+Byte\+: D = (S $<$$<$ N) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the source byte array (S). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source arrays. \\
+\hline
+{\em N} & Number of bit-\/positions to shift (N). Valid range is 0 to 8.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 3090 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a250e796fb2db470da0a78b74b78114e8}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Shift\+Left\+Uint@{S\+D\+L\+\_\+image\+Filter\+Shift\+Left\+Uint}}
+\index{S\+D\+L\+\_\+image\+Filter\+Shift\+Left\+Uint@{S\+D\+L\+\_\+image\+Filter\+Shift\+Left\+Uint}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Shift\+Left\+Uint}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Shift\+Left\+Uint (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length, }
+\item[{unsigned char}]{N}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a250e796fb2db470da0a78b74b78114e8}
+
+
+Filter using Shift\+Left\+Uint\+: D = ((uint)S $<$$<$ N) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the source byte array (S). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source array. \\
+\hline
+{\em N} & Number of bit-\/positions to shift (N). Valid range is 0 to 32.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 3207 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a68851aed2dcc5dfd2f3b258236f3b88c}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Shift\+Right@{S\+D\+L\+\_\+image\+Filter\+Shift\+Right}}
+\index{S\+D\+L\+\_\+image\+Filter\+Shift\+Right@{S\+D\+L\+\_\+image\+Filter\+Shift\+Right}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Shift\+Right}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Shift\+Right (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length, }
+\item[{unsigned char}]{N}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a68851aed2dcc5dfd2f3b258236f3b88c}
+
+
+Filter using Shift\+Right\+: D = saturation0(\+S $>$$>$ N) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the source byte array (S). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source array. \\
+\hline
+{\em N} & Number of bit-\/positions to shift (N). Valid range is 0 to 8.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 2473 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a0713d6c267fba9756d6beae81e89f9e4}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Shift\+Right\+And\+Mult\+By\+Byte@{S\+D\+L\+\_\+image\+Filter\+Shift\+Right\+And\+Mult\+By\+Byte}}
+\index{S\+D\+L\+\_\+image\+Filter\+Shift\+Right\+And\+Mult\+By\+Byte@{S\+D\+L\+\_\+image\+Filter\+Shift\+Right\+And\+Mult\+By\+Byte}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Shift\+Right\+And\+Mult\+By\+Byte}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Shift\+Right\+And\+Mult\+By\+Byte (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length, }
+\item[{unsigned char}]{N, }
+\item[{unsigned char}]{C}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a0713d6c267fba9756d6beae81e89f9e4}
+
+
+Filter using Shift\+Right\+And\+Mult\+By\+Byte\+: D = saturation255((\+S $>$$>$ N) $\ast$ C) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the source byte array (S). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source array. \\
+\hline
+{\em N} & Number of bit-\/positions to shift (N). Valid range is 0 to 8. \\
+\hline
+{\em C} & Constant to multiply with (C).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 2940 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a540d4625d76bcd03318c2a59ce650fdb}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Shift\+Right\+Uint@{S\+D\+L\+\_\+image\+Filter\+Shift\+Right\+Uint}}
+\index{S\+D\+L\+\_\+image\+Filter\+Shift\+Right\+Uint@{S\+D\+L\+\_\+image\+Filter\+Shift\+Right\+Uint}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Shift\+Right\+Uint}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Shift\+Right\+Uint (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length, }
+\item[{unsigned char}]{N}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a540d4625d76bcd03318c2a59ce650fdb}
+
+
+Filter using Shift\+Right\+Uint\+: D = saturation0((uint)\+S\mbox{[}i\mbox{]} $>$$>$ N) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the source byte array (S1). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source array. \\
+\hline
+{\em N} & Number of bit-\/positions to shift (N). Valid range is 0 to 32.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 2591 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a015fe05161b701162d9ecffb01413f1e}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Sobel\+X@{S\+D\+L\+\_\+image\+Filter\+Sobel\+X}}
+\index{S\+D\+L\+\_\+image\+Filter\+Sobel\+X@{S\+D\+L\+\_\+image\+Filter\+Sobel\+X}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Sobel\+X}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Sobel\+X (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{int}]{rows, }
+\item[{int}]{columns}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a015fe05161b701162d9ecffb01413f1e}
+
+
+Filter using Sobel\+X\+: Dij = saturation255( ... ) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src} & The source 2\+D byte array to sobel-\/filter. Should be different from destination. \\
+\hline
+{\em Dest} & The destination 2\+D byte array to store the result in. Should be different from source. \\
+\hline
+{\em rows} & Number of rows in source/destination array. Must be $>$2. \\
+\hline
+{\em columns} & Number of columns in source/destination array. Must be $>$7.\\
+\hline
+\end{DoxyParams}
+Note\+: Non-\/\+M\+M\+X implementation not available for this function.
+
+\begin{DoxyReturn}{Returns}
+Returns 1 if filter was applied, 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 6796 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a0d21af83f0183fcd697324cffe3ab3d7}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Sobel\+X\+Shift\+Right@{S\+D\+L\+\_\+image\+Filter\+Sobel\+X\+Shift\+Right}}
+\index{S\+D\+L\+\_\+image\+Filter\+Sobel\+X\+Shift\+Right@{S\+D\+L\+\_\+image\+Filter\+Sobel\+X\+Shift\+Right}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Sobel\+X\+Shift\+Right}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Sobel\+X\+Shift\+Right (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{int}]{rows, }
+\item[{int}]{columns, }
+\item[{unsigned char}]{N\+Right\+Shift}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a0d21af83f0183fcd697324cffe3ab3d7}
+
+
+Filter using Sobel\+X\+Shift\+Right\+: Dij = saturation255( ... ) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src} & The source 2\+D byte array to sobel-\/filter. Should be different from destination. \\
+\hline
+{\em Dest} & The destination 2\+D byte array to store the result in. Should be different from source. \\
+\hline
+{\em rows} & Number of rows in source/destination array. Must be $>$2. \\
+\hline
+{\em columns} & Number of columns in source/destination array. Must be $>$8. \\
+\hline
+{\em N\+Right\+Shift} & The number of right bit shifts to apply to the filter sum. Must be $<$7.\\
+\hline
+\end{DoxyParams}
+Note\+: Non-\/\+M\+M\+X implementation not available for this function.
+
+\begin{DoxyReturn}{Returns}
+Returns 1 if filter was applied, 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 7049 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a3c01cf8576ea7a0dfc09dbaa953c9287}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Sub@{S\+D\+L\+\_\+image\+Filter\+Sub}}
+\index{S\+D\+L\+\_\+image\+Filter\+Sub@{S\+D\+L\+\_\+image\+Filter\+Sub}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Sub}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Sub (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Src2, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a3c01cf8576ea7a0dfc09dbaa953c9287}
+
+
+Filter using Sub\+: D = saturation0(S1 -\/ S2) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the first source byte array (S1). \\
+\hline
+{\em Src2} & Pointer to the start of the second source byte array (S2). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source arrays.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 419 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a387fb6f0d48cc5d08f37f7f9b92d14b2}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Sub\+Byte@{S\+D\+L\+\_\+image\+Filter\+Sub\+Byte}}
+\index{S\+D\+L\+\_\+image\+Filter\+Sub\+Byte@{S\+D\+L\+\_\+image\+Filter\+Sub\+Byte}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Sub\+Byte}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Sub\+Byte (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length, }
+\item[{unsigned char}]{C}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a387fb6f0d48cc5d08f37f7f9b92d14b2}
+
+
+Filter using Sub\+Byte\+: D = saturation0(S -\/ C) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the source byte array (S). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source arrays. \\
+\hline
+{\em C} & Constant to subtract (C).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 2193 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_a657e128016cc448778007d8b6475dd65}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Sub\+Byte\+M\+M\+X@{S\+D\+L\+\_\+image\+Filter\+Sub\+Byte\+M\+M\+X}}
+\index{S\+D\+L\+\_\+image\+Filter\+Sub\+Byte\+M\+M\+X@{S\+D\+L\+\_\+image\+Filter\+Sub\+Byte\+M\+M\+X}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Sub\+Byte\+M\+M\+X}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Sub\+Byte\+M\+M\+X (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{Src\+Length, }
+\item[{unsigned char}]{C}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_a657e128016cc448778007d8b6475dd65}
+
+
+Internal M\+M\+X Filter using Sub\+Byte\+: D = saturation0(S -\/ C) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the source byte array (S). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em Src\+Length} & The number of bytes in the source array. \\
+\hline
+{\em C} & Constant to subtract (C).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 2127 of file S\+D\+L\+\_\+image\+Filter.\+c.
+
+\hypertarget{_s_d_l__image_filter_8c_abb343ef95e22945e1d4d648b2e176e64}{}\index{S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}!S\+D\+L\+\_\+image\+Filter\+Sub\+Uint@{S\+D\+L\+\_\+image\+Filter\+Sub\+Uint}}
+\index{S\+D\+L\+\_\+image\+Filter\+Sub\+Uint@{S\+D\+L\+\_\+image\+Filter\+Sub\+Uint}!S\+D\+L\+\_\+image\+Filter.\+c@{S\+D\+L\+\_\+image\+Filter.\+c}}
+\subsubsection[{S\+D\+L\+\_\+image\+Filter\+Sub\+Uint}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+image\+Filter\+Sub\+Uint (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{Src1, }
+\item[{unsigned char $\ast$}]{Dest, }
+\item[{unsigned int}]{length, }
+\item[{unsigned int}]{C}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__image_filter_8c_abb343ef95e22945e1d4d648b2e176e64}
+
+
+Filter using Sub\+Uint\+: D = saturation0(S\mbox{[}i\mbox{]} -\/ Cs\mbox{[}i \% 4\mbox{]}), Cs=Swap32((uint)\+C) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Src1} & Pointer to the start of the source byte array (S1). \\
+\hline
+{\em Dest} & Pointer to the start of the destination byte array (D). \\
+\hline
+{\em length} & The number of bytes in the source array. \\
+\hline
+{\em C} & Constant to subtract (C).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 for success or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 2322 of file S\+D\+L\+\_\+image\+Filter.\+c.
+

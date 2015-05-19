@@ -1,0 +1,26 @@
+var _s_d_l__rotozoom_8c =
+[
+    [ "tColorRGBA", "structt_color_r_g_b_a.html", "structt_color_r_g_b_a" ],
+    [ "tColorY", "structt_color_y.html", "structt_color_y" ],
+    [ "GUARD_ROWS", "_s_d_l__rotozoom_8c.html#a05a2601b7ea2906858ccc31b45fdc6eb", null ],
+    [ "MAX", "_s_d_l__rotozoom_8c.html#afa99ec4acc4ecb2dc3c2d05da15d0e3f", null ],
+    [ "VALUE_LIMIT", "_s_d_l__rotozoom_8c.html#a98a929bd64d660c1860c7b60b4fe5bd9", null ],
+    [ "tColorRGBA", "_s_d_l__rotozoom_8c.html#ac91ff95383d3a6c0df046a42e23baf04", null ],
+    [ "tColorY", "_s_d_l__rotozoom_8c.html#a9db27e25d1a6e93c64eb768007dcf3da", null ],
+    [ "_colorkey", "_s_d_l__rotozoom_8c.html#afe2a2e4dc6cc462c5fc98a2110b8e1ce", null ],
+    [ "_rotozoomSurfaceSizeTrig", "_s_d_l__rotozoom_8c.html#af48638a298820d4d1dd24a13896963d8", null ],
+    [ "_shrinkSurfaceRGBA", "_s_d_l__rotozoom_8c.html#ac1bde824f44ae9a76930e9782b783512", null ],
+    [ "_shrinkSurfaceY", "_s_d_l__rotozoom_8c.html#aadb38a61ab6727e5fd621b63418399be", null ],
+    [ "_transformSurfaceRGBA", "_s_d_l__rotozoom_8c.html#aae634e7b5e6ec1622fec361ecbd0d1b7", null ],
+    [ "_zoomSurfaceRGBA", "_s_d_l__rotozoom_8c.html#a9898b12bb565c4075c2da4db4891fd81", null ],
+    [ "_zoomSurfaceY", "_s_d_l__rotozoom_8c.html#acfeb5a322cbb575f105f1762d9d21c29", null ],
+    [ "rotateSurface90Degrees", "_s_d_l__rotozoom_8c.html#a77563d68634cb2624d4f2f0bcdc19e73", null ],
+    [ "rotozoomSurface", "_s_d_l__rotozoom_8c.html#a5f64ed53eeee5f2667971c857698d1e5", null ],
+    [ "rotozoomSurfaceSize", "_s_d_l__rotozoom_8c.html#a9886c783255edfd70a4974f8f3dd5a8c", null ],
+    [ "rotozoomSurfaceSizeXY", "_s_d_l__rotozoom_8c.html#aee64992d26c818d9975610754d5c929b", null ],
+    [ "rotozoomSurfaceXY", "_s_d_l__rotozoom_8c.html#aab98b5b0da4ea468bacf47f7b85f0ee2", null ],
+    [ "shrinkSurface", "_s_d_l__rotozoom_8c.html#aad3bf0cd89cc39ff874ffa778fa1495d", null ],
+    [ "transformSurfaceY", "_s_d_l__rotozoom_8c.html#a126e3b96b22cc18e78e33cc1f8eb6c3c", null ],
+    [ "zoomSurface", "_s_d_l__rotozoom_8c.html#abdd772b2f6b1f26134e4e90cda657a21", null ],
+    [ "zoomSurfaceSize", "_s_d_l__rotozoom_8c.html#a8ba40859c1a977dae87488dd8be1bf9a", null ]
+];

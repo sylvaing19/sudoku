@@ -1,0 +1,141 @@
+\hypertarget{_s_d_l__timer_8h}{}\section{S\+D\+L-\/1.2.15/include/\+S\+D\+L\+\_\+timer.h File Reference}
+\label{_s_d_l__timer_8h}\index{S\+D\+L-\/1.\+2.\+15/include/\+S\+D\+L\+\_\+timer.\+h@{S\+D\+L-\/1.\+2.\+15/include/\+S\+D\+L\+\_\+timer.\+h}}
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+stdinc.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+error.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_s_d_l__timer_8h_a3e8390e949a1c8a7edbfb5fba353a398}{S\+D\+L\+\_\+\+T\+I\+M\+E\+S\+L\+I\+C\+E}~10
+\item 
+\#define \hyperlink{_s_d_l__timer_8h_a153b21cab235735bed3752c7735cac4e}{T\+I\+M\+E\+R\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N}~10
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32}(\hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} $\ast$ \hyperlink{_s_d_l__timer_8h_a6bfe78b1d532b2a227becdb635b1e2e5}{S\+D\+L\+\_\+\+Timer\+Callback}) (\hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} interval)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__timer_8h_a0b9bc71d6287e0ffafdc3419760fe2b3}{S\+D\+L\+\_\+\+Get\+Ticks} (\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__timer_8h_ae8050b95373b95249064467592ab4e21}{S\+D\+L\+\_\+\+Delay} (\hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} ms)
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} int \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__timer_8h_ab91f5e3e5be12a4f14b80f3648c6588e}{S\+D\+L\+\_\+\+Set\+Timer} (\hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} interval, \hyperlink{_s_d_l__timer_8h_a6bfe78b1d532b2a227becdb635b1e2e5}{S\+D\+L\+\_\+\+Timer\+Callback} callback)
+\end{DoxyCompactItemize}
+\subsection*{New timer A\+P\+I}
+\label{_amgrpbf8ca17f0b9388a4873109c00fdc6818}%
+New timer A\+P\+I, supports multiple timers Written by Stephane Peter \href{mailto:megastep@lokigames.com}{\tt megastep@lokigames.\+com} \begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32}(\hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} $\ast$ \hyperlink{_s_d_l__timer_8h_abf7c6b1f64b6f65de68ed6569771621e}{S\+D\+L\+\_\+\+New\+Timer\+Callback}) (\hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} interval, \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} $\ast$\hyperlink{_s_d_l__opengl_8h_ac7c896d55e93a6cf7ff8524005b4e7b4}{param})
+\item 
+typedef struct \+\_\+\+S\+D\+L\+\_\+\+Timer\+I\+D $\ast$ \hyperlink{_s_d_l__timer_8h_ac92c90c9c28c79541a4f1a5fa60bfc15}{S\+D\+L\+\_\+\+Timer\+I\+D}
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__timer_8h_ac92c90c9c28c79541a4f1a5fa60bfc15}{S\+D\+L\+\_\+\+Timer\+I\+D} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__timer_8h_a9e2345a01446f7aac03b193bb55010c3}{S\+D\+L\+\_\+\+Add\+Timer} (\hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} interval, \hyperlink{_s_d_l__timer_8h_abf7c6b1f64b6f65de68ed6569771621e}{S\+D\+L\+\_\+\+New\+Timer\+Callback} callback, \hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} $\ast$\hyperlink{_s_d_l__opengl_8h_ac7c896d55e93a6cf7ff8524005b4e7b4}{param})
+\item 
+\hyperlink{begin__code_8h_aa4c7a931f4a968f818b2a1b10a432185}{D\+E\+C\+L\+S\+P\+E\+C} \hyperlink{_s_d_l__stdinc_8h_a8fca68df0f976765230fe589a7c7733b}{S\+D\+L\+\_\+bool} \hyperlink{begin__code_8h_a81faf4ba0455dc75f2e0507eddb79401}{S\+D\+L\+C\+A\+L\+L} \hyperlink{_s_d_l__timer_8h_a064804016459c210a29c4e1007fb96d8}{S\+D\+L\+\_\+\+Remove\+Timer} (\hyperlink{_s_d_l__timer_8h_ac92c90c9c28c79541a4f1a5fa60bfc15}{S\+D\+L\+\_\+\+Timer\+I\+D} \hyperlink{_s_d_l__opengl_8h_a00140d6f5c548b26daf170bf16e86a6d}{t})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header for the S\+D\+L time management routines 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_s_d_l__timer_8h_a3e8390e949a1c8a7edbfb5fba353a398}{}\index{S\+D\+L\+\_\+timer.\+h@{S\+D\+L\+\_\+timer.\+h}!S\+D\+L\+\_\+\+T\+I\+M\+E\+S\+L\+I\+C\+E@{S\+D\+L\+\_\+\+T\+I\+M\+E\+S\+L\+I\+C\+E}}
+\index{S\+D\+L\+\_\+\+T\+I\+M\+E\+S\+L\+I\+C\+E@{S\+D\+L\+\_\+\+T\+I\+M\+E\+S\+L\+I\+C\+E}!S\+D\+L\+\_\+timer.\+h@{S\+D\+L\+\_\+timer.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+T\+I\+M\+E\+S\+L\+I\+C\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+L\+\_\+\+T\+I\+M\+E\+S\+L\+I\+C\+E~10}\label{_s_d_l__timer_8h_a3e8390e949a1c8a7edbfb5fba353a398}
+This is the O\+S scheduler timeslice, in milliseconds 
+
+Definition at line 40 of file S\+D\+L\+\_\+timer.\+h.
+
+\hypertarget{_s_d_l__timer_8h_a153b21cab235735bed3752c7735cac4e}{}\index{S\+D\+L\+\_\+timer.\+h@{S\+D\+L\+\_\+timer.\+h}!T\+I\+M\+E\+R\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N@{T\+I\+M\+E\+R\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N}}
+\index{T\+I\+M\+E\+R\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N@{T\+I\+M\+E\+R\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N}!S\+D\+L\+\_\+timer.\+h@{S\+D\+L\+\_\+timer.\+h}}
+\subsubsection[{T\+I\+M\+E\+R\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+I\+M\+E\+R\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N~10}\label{_s_d_l__timer_8h_a153b21cab235735bed3752c7735cac4e}
+This is the maximum resolution of the S\+D\+L timer on all platforms Experimentally determined 
+
+Definition at line 43 of file S\+D\+L\+\_\+timer.\+h.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{_s_d_l__timer_8h_abf7c6b1f64b6f65de68ed6569771621e}{}\index{S\+D\+L\+\_\+timer.\+h@{S\+D\+L\+\_\+timer.\+h}!S\+D\+L\+\_\+\+New\+Timer\+Callback@{S\+D\+L\+\_\+\+New\+Timer\+Callback}}
+\index{S\+D\+L\+\_\+\+New\+Timer\+Callback@{S\+D\+L\+\_\+\+New\+Timer\+Callback}!S\+D\+L\+\_\+timer.\+h@{S\+D\+L\+\_\+timer.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+New\+Timer\+Callback}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Uint32}({\bf S\+D\+L\+C\+A\+L\+L} $\ast$ S\+D\+L\+\_\+\+New\+Timer\+Callback) ({\bf Uint32} interval, {\bf void} $\ast${\bf param})}\label{_s_d_l__timer_8h_abf7c6b1f64b6f65de68ed6569771621e}
+Function prototype for the new timer callback function. The callback function is passed the current timer interval and returns the next timer interval. If the returned value is the same as the one passed in, the periodic alarm continues, otherwise a new alarm is scheduled. If the callback returns 0, the periodic alarm is cancelled. 
+
+Definition at line 101 of file S\+D\+L\+\_\+timer.\+h.
+
+\hypertarget{_s_d_l__timer_8h_a6bfe78b1d532b2a227becdb635b1e2e5}{}\index{S\+D\+L\+\_\+timer.\+h@{S\+D\+L\+\_\+timer.\+h}!S\+D\+L\+\_\+\+Timer\+Callback@{S\+D\+L\+\_\+\+Timer\+Callback}}
+\index{S\+D\+L\+\_\+\+Timer\+Callback@{S\+D\+L\+\_\+\+Timer\+Callback}!S\+D\+L\+\_\+timer.\+h@{S\+D\+L\+\_\+timer.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Timer\+Callback}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Uint32}({\bf S\+D\+L\+C\+A\+L\+L} $\ast$ S\+D\+L\+\_\+\+Timer\+Callback) ({\bf Uint32} interval)}\label{_s_d_l__timer_8h_a6bfe78b1d532b2a227becdb635b1e2e5}
+Function prototype for the timer callback function 
+
+Definition at line 55 of file S\+D\+L\+\_\+timer.\+h.
+
+\hypertarget{_s_d_l__timer_8h_ac92c90c9c28c79541a4f1a5fa60bfc15}{}\index{S\+D\+L\+\_\+timer.\+h@{S\+D\+L\+\_\+timer.\+h}!S\+D\+L\+\_\+\+Timer\+I\+D@{S\+D\+L\+\_\+\+Timer\+I\+D}}
+\index{S\+D\+L\+\_\+\+Timer\+I\+D@{S\+D\+L\+\_\+\+Timer\+I\+D}!S\+D\+L\+\_\+timer.\+h@{S\+D\+L\+\_\+timer.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Timer\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct \+\_\+\+S\+D\+L\+\_\+\+Timer\+I\+D$\ast$ {\bf S\+D\+L\+\_\+\+Timer\+I\+D}}\label{_s_d_l__timer_8h_ac92c90c9c28c79541a4f1a5fa60bfc15}
+Definition of the timer I\+D type 
+
+Definition at line 104 of file S\+D\+L\+\_\+timer.\+h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_s_d_l__timer_8h_a9e2345a01446f7aac03b193bb55010c3}{}\index{S\+D\+L\+\_\+timer.\+h@{S\+D\+L\+\_\+timer.\+h}!S\+D\+L\+\_\+\+Add\+Timer@{S\+D\+L\+\_\+\+Add\+Timer}}
+\index{S\+D\+L\+\_\+\+Add\+Timer@{S\+D\+L\+\_\+\+Add\+Timer}!S\+D\+L\+\_\+timer.\+h@{S\+D\+L\+\_\+timer.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Add\+Timer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf S\+D\+L\+\_\+\+Timer\+I\+D} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Add\+Timer (
+\begin{DoxyParamCaption}
+\item[{{\bf Uint32}}]{interval, }
+\item[{{\bf S\+D\+L\+\_\+\+New\+Timer\+Callback}}]{callback, }
+\item[{{\bf void} $\ast$}]{param}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__timer_8h_a9e2345a01446f7aac03b193bb55010c3}
+Add a new timer to the pool of timers already running. Returns a timer I\+D, or N\+U\+L\+L when an error occurs. \hypertarget{_s_d_l__timer_8h_ae8050b95373b95249064467592ab4e21}{}\index{S\+D\+L\+\_\+timer.\+h@{S\+D\+L\+\_\+timer.\+h}!S\+D\+L\+\_\+\+Delay@{S\+D\+L\+\_\+\+Delay}}
+\index{S\+D\+L\+\_\+\+Delay@{S\+D\+L\+\_\+\+Delay}!S\+D\+L\+\_\+timer.\+h@{S\+D\+L\+\_\+timer.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Delay}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf void} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Delay (
+\begin{DoxyParamCaption}
+\item[{{\bf Uint32}}]{ms}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__timer_8h_ae8050b95373b95249064467592ab4e21}
+Wait a specified number of milliseconds before returning \hypertarget{_s_d_l__timer_8h_a0b9bc71d6287e0ffafdc3419760fe2b3}{}\index{S\+D\+L\+\_\+timer.\+h@{S\+D\+L\+\_\+timer.\+h}!S\+D\+L\+\_\+\+Get\+Ticks@{S\+D\+L\+\_\+\+Get\+Ticks}}
+\index{S\+D\+L\+\_\+\+Get\+Ticks@{S\+D\+L\+\_\+\+Get\+Ticks}!S\+D\+L\+\_\+timer.\+h@{S\+D\+L\+\_\+timer.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Get\+Ticks}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf Uint32} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Get\+Ticks (
+\begin{DoxyParamCaption}
+\item[{{\bf void}}]{}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__timer_8h_a0b9bc71d6287e0ffafdc3419760fe2b3}
+Get the number of milliseconds since the S\+D\+L library initialization. Note that this value wraps if the program runs for more than $\sim$49 days. \hypertarget{_s_d_l__timer_8h_a064804016459c210a29c4e1007fb96d8}{}\index{S\+D\+L\+\_\+timer.\+h@{S\+D\+L\+\_\+timer.\+h}!S\+D\+L\+\_\+\+Remove\+Timer@{S\+D\+L\+\_\+\+Remove\+Timer}}
+\index{S\+D\+L\+\_\+\+Remove\+Timer@{S\+D\+L\+\_\+\+Remove\+Timer}!S\+D\+L\+\_\+timer.\+h@{S\+D\+L\+\_\+timer.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Remove\+Timer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} {\bf S\+D\+L\+\_\+bool} {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Remove\+Timer (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+D\+L\+\_\+\+Timer\+I\+D}}]{t}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__timer_8h_a064804016459c210a29c4e1007fb96d8}
+Remove one of the multiple timers knowing its I\+D. Returns a boolean value indicating success. \hypertarget{_s_d_l__timer_8h_ab91f5e3e5be12a4f14b80f3648c6588e}{}\index{S\+D\+L\+\_\+timer.\+h@{S\+D\+L\+\_\+timer.\+h}!S\+D\+L\+\_\+\+Set\+Timer@{S\+D\+L\+\_\+\+Set\+Timer}}
+\index{S\+D\+L\+\_\+\+Set\+Timer@{S\+D\+L\+\_\+\+Set\+Timer}!S\+D\+L\+\_\+timer.\+h@{S\+D\+L\+\_\+timer.\+h}}
+\subsubsection[{S\+D\+L\+\_\+\+Set\+Timer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+E\+C\+L\+S\+P\+E\+C} int {\bf S\+D\+L\+C\+A\+L\+L} S\+D\+L\+\_\+\+Set\+Timer (
+\begin{DoxyParamCaption}
+\item[{{\bf Uint32}}]{interval, }
+\item[{{\bf S\+D\+L\+\_\+\+Timer\+Callback}}]{callback}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__timer_8h_ab91f5e3e5be12a4f14b80f3648c6588e}
+Set a callback to run after the specified number of milliseconds has elapsed. The callback function is passed the current timer interval and returns the next timer interval. If the returned value is the same as the one passed in, the periodic alarm continues, otherwise a new alarm is scheduled. If the callback returns 0, the periodic alarm is cancelled.
+
+To cancel a currently running timer, call S\+D\+L\+\_\+\+Set\+Timer(0, N\+U\+L\+L);
+
+The timer callback function may run in a different thread than your main code, and so shouldn\textquotesingle{}t call any functions from within itself.
+
+The maximum resolution of this timer is 10 ms, which means that if you request a 16 ms timer, your callback will run approximately 20 ms later on an unloaded system. If you wanted to set a flag signaling a frame update at 30 frames per second (every 33 ms), you might set a timer for 30 ms\+: 
+\begin{DoxyCode}
+1 SDL\_SetTimer((33/10)*10, flag\_update); 
+\end{DoxyCode}
+
+
+If you use this function, you need to pass S\+D\+L\+\_\+\+I\+N\+I\+T\+\_\+\+T\+I\+M\+E\+R to \hyperlink{_s_d_l_8h_a8fc8d35348d7c74bad8392d776c937b8}{S\+D\+L\+\_\+\+Init()}.
+
+Under U\+N\+I\+X, you should not use raise or use S\+I\+G\+A\+L\+R\+M and this function in the same program, as it is implemented using setitimer(). You also should not use this function in multi-\/threaded applications as signals to multi-\/threaded apps have undefined behavior in some implementations.
+
+This function returns 0 if successful, or -\/1 if there was an error. 

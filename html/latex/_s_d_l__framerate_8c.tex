@@ -1,0 +1,164 @@
+\hypertarget{_s_d_l__framerate_8c}{}\section{S\+D\+L\+\_\+gfx-\/2.0.25/\+S\+D\+L\+\_\+framerate.c File Reference}
+\label{_s_d_l__framerate_8c}\index{S\+D\+L\+\_\+gfx-\/2.\+0.\+25/\+S\+D\+L\+\_\+framerate.\+c@{S\+D\+L\+\_\+gfx-\/2.\+0.\+25/\+S\+D\+L\+\_\+framerate.\+c}}
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+framerate.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} \hyperlink{_s_d_l__framerate_8c_a3bed31ab61648f7d69c8f47c90161cfe}{\+\_\+get\+Ticks} ()
+\begin{DoxyCompactList}\small\item\em Internal wrapper to S\+D\+L\+\_\+\+Get\+Ticks that ensures a non-\/zero return value. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__opengl_8h_a3db05964a3cc4410f35b7ea2b7eb850d}{void} \hyperlink{_s_d_l__framerate_8c_a444ebaaaa6b1ceeafa921562bdab1a44}{S\+D\+L\+\_\+init\+Framerate} (\hyperlink{struct_f_p_smanager}{F\+P\+Smanager} $\ast$manager)
+\begin{DoxyCompactList}\small\item\em Initialize the framerate manager. \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__framerate_8c_afad4b503cf9719daced45fa4d9653d72}{S\+D\+L\+\_\+set\+Framerate} (\hyperlink{struct_f_p_smanager}{F\+P\+Smanager} $\ast$manager, \hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} rate)
+\begin{DoxyCompactList}\small\item\em Set the framerate in Hz. \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__framerate_8c_a575bb511d6f817ad846a788cbd08ae91}{S\+D\+L\+\_\+get\+Framerate} (\hyperlink{struct_f_p_smanager}{F\+P\+Smanager} $\ast$manager)
+\begin{DoxyCompactList}\small\item\em Return the current target framerate in Hz. \end{DoxyCompactList}\item 
+int \hyperlink{_s_d_l__framerate_8c_a96b13e26f8436222e866904a592a6eec}{S\+D\+L\+\_\+get\+Framecount} (\hyperlink{struct_f_p_smanager}{F\+P\+Smanager} $\ast$manager)
+\begin{DoxyCompactList}\small\item\em Return the current framecount. \end{DoxyCompactList}\item 
+\hyperlink{_s_d_l__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}{Uint32} \hyperlink{_s_d_l__framerate_8c_afce13fa3dd37130deb4975d8b230c3ba}{S\+D\+L\+\_\+framerate\+Delay} (\hyperlink{struct_f_p_smanager}{F\+P\+Smanager} $\ast$manager)
+\begin{DoxyCompactList}\small\item\em Delay execution to maintain a constant framerate and calculate fps. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_s_d_l__framerate_8c_a3bed31ab61648f7d69c8f47c90161cfe}{}\index{S\+D\+L\+\_\+framerate.\+c@{S\+D\+L\+\_\+framerate.\+c}!\+\_\+get\+Ticks@{\+\_\+get\+Ticks}}
+\index{\+\_\+get\+Ticks@{\+\_\+get\+Ticks}!S\+D\+L\+\_\+framerate.\+c@{S\+D\+L\+\_\+framerate.\+c}}
+\subsubsection[{\+\_\+get\+Ticks}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Uint32} \+\_\+get\+Ticks (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__framerate_8c_a3bed31ab61648f7d69c8f47c90161cfe}
+
+
+Internal wrapper to S\+D\+L\+\_\+\+Get\+Ticks that ensures a non-\/zero return value. 
+
+\begin{DoxyReturn}{Returns}
+The tick count. 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file S\+D\+L\+\_\+framerate.\+c.
+
+\hypertarget{_s_d_l__framerate_8c_afce13fa3dd37130deb4975d8b230c3ba}{}\index{S\+D\+L\+\_\+framerate.\+c@{S\+D\+L\+\_\+framerate.\+c}!S\+D\+L\+\_\+framerate\+Delay@{S\+D\+L\+\_\+framerate\+Delay}}
+\index{S\+D\+L\+\_\+framerate\+Delay@{S\+D\+L\+\_\+framerate\+Delay}!S\+D\+L\+\_\+framerate.\+c@{S\+D\+L\+\_\+framerate.\+c}}
+\subsubsection[{S\+D\+L\+\_\+framerate\+Delay}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Uint32} S\+D\+L\+\_\+framerate\+Delay (
+\begin{DoxyParamCaption}
+\item[{{\bf F\+P\+Smanager} $\ast$}]{manager}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__framerate_8c_afce13fa3dd37130deb4975d8b230c3ba}
+
+
+Delay execution to maintain a constant framerate and calculate fps. 
+
+Generate a delay to accomodate currently set framerate. Call once in the graphics/rendering loop. If the computer cannot keep up with the rate (i.\+e. drawing too slow), the delay is zero and the delay interpolation is reset.
+
+
+\begin{DoxyParams}{Parameters}
+{\em manager} & Pointer to the framerate manager.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The time that passed since the last call to the function in ms. May return 0. 
+\end{DoxyReturn}
+
+
+Definition at line 146 of file S\+D\+L\+\_\+framerate.\+c.
+
+\hypertarget{_s_d_l__framerate_8c_a96b13e26f8436222e866904a592a6eec}{}\index{S\+D\+L\+\_\+framerate.\+c@{S\+D\+L\+\_\+framerate.\+c}!S\+D\+L\+\_\+get\+Framecount@{S\+D\+L\+\_\+get\+Framecount}}
+\index{S\+D\+L\+\_\+get\+Framecount@{S\+D\+L\+\_\+get\+Framecount}!S\+D\+L\+\_\+framerate.\+c@{S\+D\+L\+\_\+framerate.\+c}}
+\subsubsection[{S\+D\+L\+\_\+get\+Framecount}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+get\+Framecount (
+\begin{DoxyParamCaption}
+\item[{{\bf F\+P\+Smanager} $\ast$}]{manager}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__framerate_8c_a96b13e26f8436222e866904a592a6eec}
+
+
+Return the current framecount. 
+
+Get the current framecount from the framerate manager. A frame is counted each time S\+D\+L\+\_\+framerate\+Delay is called.
+
+
+\begin{DoxyParams}{Parameters}
+{\em manager} & Pointer to the framerate manager.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Current frame count or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 126 of file S\+D\+L\+\_\+framerate.\+c.
+
+\hypertarget{_s_d_l__framerate_8c_a575bb511d6f817ad846a788cbd08ae91}{}\index{S\+D\+L\+\_\+framerate.\+c@{S\+D\+L\+\_\+framerate.\+c}!S\+D\+L\+\_\+get\+Framerate@{S\+D\+L\+\_\+get\+Framerate}}
+\index{S\+D\+L\+\_\+get\+Framerate@{S\+D\+L\+\_\+get\+Framerate}!S\+D\+L\+\_\+framerate.\+c@{S\+D\+L\+\_\+framerate.\+c}}
+\subsubsection[{S\+D\+L\+\_\+get\+Framerate}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+get\+Framerate (
+\begin{DoxyParamCaption}
+\item[{{\bf F\+P\+Smanager} $\ast$}]{manager}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__framerate_8c_a575bb511d6f817ad846a788cbd08ae91}
+
+
+Return the current target framerate in Hz. 
+
+Get the currently set framerate of the manager.
+
+
+\begin{DoxyParams}{Parameters}
+{\em manager} & Pointer to the framerate manager.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Current framerate in Hz or -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 107 of file S\+D\+L\+\_\+framerate.\+c.
+
+\hypertarget{_s_d_l__framerate_8c_a444ebaaaa6b1ceeafa921562bdab1a44}{}\index{S\+D\+L\+\_\+framerate.\+c@{S\+D\+L\+\_\+framerate.\+c}!S\+D\+L\+\_\+init\+Framerate@{S\+D\+L\+\_\+init\+Framerate}}
+\index{S\+D\+L\+\_\+init\+Framerate@{S\+D\+L\+\_\+init\+Framerate}!S\+D\+L\+\_\+framerate.\+c@{S\+D\+L\+\_\+framerate.\+c}}
+\subsubsection[{S\+D\+L\+\_\+init\+Framerate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} S\+D\+L\+\_\+init\+Framerate (
+\begin{DoxyParamCaption}
+\item[{{\bf F\+P\+Smanager} $\ast$}]{manager}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__framerate_8c_a444ebaaaa6b1ceeafa921562bdab1a44}
+
+
+Initialize the framerate manager. 
+
+Initialize the framerate manager, set default framerate of 30\+Hz and reset delay interpolation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em manager} & Pointer to the framerate manager. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 62 of file S\+D\+L\+\_\+framerate.\+c.
+
+\hypertarget{_s_d_l__framerate_8c_afad4b503cf9719daced45fa4d9653d72}{}\index{S\+D\+L\+\_\+framerate.\+c@{S\+D\+L\+\_\+framerate.\+c}!S\+D\+L\+\_\+set\+Framerate@{S\+D\+L\+\_\+set\+Framerate}}
+\index{S\+D\+L\+\_\+set\+Framerate@{S\+D\+L\+\_\+set\+Framerate}!S\+D\+L\+\_\+framerate.\+c@{S\+D\+L\+\_\+framerate.\+c}}
+\subsubsection[{S\+D\+L\+\_\+set\+Framerate}]{\setlength{\rightskip}{0pt plus 5cm}int S\+D\+L\+\_\+set\+Framerate (
+\begin{DoxyParamCaption}
+\item[{{\bf F\+P\+Smanager} $\ast$}]{manager, }
+\item[{{\bf Uint32}}]{rate}
+\end{DoxyParamCaption}
+)}\label{_s_d_l__framerate_8c_afad4b503cf9719daced45fa4d9653d72}
+
+
+Set the framerate in Hz. 
+
+Sets a new framerate for the manager and reset delay interpolation. Rate values must be between F\+P\+S\+\_\+\+L\+O\+W\+E\+R\+\_\+\+L\+I\+M\+I\+T and F\+P\+S\+\_\+\+U\+P\+P\+E\+R\+\_\+\+L\+I\+M\+I\+T inclusive to be accepted.
+
+
+\begin{DoxyParams}{Parameters}
+{\em manager} & Pointer to the framerate manager. \\
+\hline
+{\em rate} & The new framerate in Hz (frames per second).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 for sucess and -\/1 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 86 of file S\+D\+L\+\_\+framerate.\+c.
+
