@@ -105,7 +105,7 @@ class InterfaceGraphique
         ///prototypes de fonction
 
         /**	initialise les differentes polices utilisées	*/
-        void initPolices();
+        int initPolices();
 		/**	initialise le titre affiché		*/
         void initTitre();
         /**	initialise les boutons  du menu Principal		*/
@@ -134,10 +134,10 @@ class InterfaceGraphique
         void intro();
 
         /** fonction quitter , quitte la SDL et l'application */
-        void quitter();
+        int quitter();
 
 		/** Pareil mais pour la reussite */
-		void grilleFinie();
+		int grilleFinie();
 
 
 
@@ -149,7 +149,7 @@ class InterfaceGraphique
         void chargerBoutonsMenuPrincipal();
 
 		/** affiche la grille entrée par l'utilisateur	*/
-		void afficherImageUser();
+		int afficherImageUser();
 
         /** fonction gerant les evenements du menu Principal : clics, touches... */
         void eventMenuPrincipal();
@@ -167,7 +167,7 @@ class InterfaceGraphique
         void grilleVide();
 
         /**	resoud la grille et l'affiche */
-        void resoudre();
+        int resoudre();
 	private:
 		/**	change la valeur d'une case donnée
 		*  @param le bouton a changer

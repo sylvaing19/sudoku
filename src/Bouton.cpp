@@ -61,11 +61,18 @@ void Bouton::chargerBouton()
 
 	if (nomPolice.size() != 0)
     {
+<<<<<<< HEAD
         if(modifieParUser)
 			if (!modifieErreur)
 				couleurTexteBouton=couleurB;
 		message = "Abwabwa";
         texteBouton = TTF_RenderText_Blended(policeBouton, message, couleurTexteBouton);
+=======
+        //s'il n'y a pas d'erreurs, on met en bleu
+        if(modifieParUser && !modifieErreur)
+            couleurTexteBouton=couleurB;
+        texteBouton = TTF_RenderText_Blended(policeBouton, messageBouton.c_str(), couleurTexteBouton);
+>>>>>>> 673f093ddb461711c6c8f0aa2a1b567a05e649b2
         texteBouton = rotozoomSurface (texteBouton, 0, zoomX, 0);
 
 		message = "Deuxieme bouton";

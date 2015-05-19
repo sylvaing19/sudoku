@@ -80,6 +80,10 @@ class GrilleGraphique
 		/** dis si la grille est finie */
 		bool estComplete();
 
+		/** dis si la grille est correcte, qu'elle est bien complete et correspond à sa solution */
+		bool estCorrecte(GrilleGraphique resolue);
+
+
 
 
 
