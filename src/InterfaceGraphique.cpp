@@ -24,7 +24,7 @@ InterfaceGraphique::InterfaceGraphique()
 	tailleX=infosUser->current_w;
 	tailleY=infosUser->current_h;
 
-    //Zoom : mon ecran sert de reference (1280*640), et on divise la taille de tout le reste suivant les resolutions
+    //Zoom : mon ecran sert de reference (1600*900), et on divise la taille de tout le reste suivant les resolutions
     zoomX=((double)tailleX/1600);
     zoomY=((double)tailleY/900);
 
@@ -108,7 +108,7 @@ void InterfaceGraphique::menuResoudre()
 }
 
 /// gestion graphique de la resolution, ou son echec, de la grille
-void InterfaceGraphique::resoudre()
+int InterfaceGraphique::resoudre()
 {
     bool finiSansResoudre=false;
     if(grille.estEgale(grilleResolue))
@@ -134,6 +134,9 @@ void InterfaceGraphique::resoudre()
 		SDL_Delay(2500);//laisse le temps pour voir la grille
 
 		animationFin();
+        SDL_Quit();
+        TTF_Quit();
+        return EXIT_SUCCESS;
 	}
 	else // sinon, pas solvable
 	{
@@ -141,6 +144,9 @@ void InterfaceGraphique::resoudre()
 		afficherPasSolvable();
 		SDL_Flip(fond);
 		SDL_Delay(2000);
+        SDL_Quit();
+        TTF_Quit();
+		return EXIT_SUCCESS;
 	}
 }
 
@@ -335,30 +341,34 @@ void InterfaceGraphique::chargerFond()
 }
 
 //polices avec leurs tailles
-void InterfaceGraphique::initPolices()
+int InterfaceGraphique::initPolices()
 {
 	policeTitre = policeEntrezUnChiffre = TTF_OpenFont("polices/A Simple Life.ttf", 100 * zoomX);
 	if (policeTitre == NULL || policeEntrezUnChiffre == NULL)
 	{
-		printf("Probleme avec polices / A Simple Life.ttf");
+		printf("Probleme avec polices / A Simple Life.ttf");	return EXIT_SUCCESS;
+
 		SDL_Quit();
 	}
 	policeAuRevoir = TTF_OpenFont("polices/SF_Toontime.ttf", 150 * zoomX);
 	if (policeAuRevoir == NULL)
 	{
-		printf("Probleme avec polices/SF_Toontime.ttf");
+		printf("Probleme avec polices/SF_Toontime.ttf");	return EXIT_SUCCESS;
+
 		SDL_Quit();
 	}
 	policeSudoku = TTF_OpenFont("polices/Cybernetica_Normal.ttf", 30 * zoomX);
 	if (policeSudoku == NULL)
 	{
-		printf("Probleme avec polices/Cybernetica_Normal.ttf");
+		printf("Probleme avec polices/Cybernetica_Normal.ttf");	return EXIT_SUCCESS;
+
 		SDL_Quit();
 	}
 	policePasSolvable = TTF_OpenFont("polices/Cybernetica_Normal.ttf", 50 * zoomX);
 	if (policePasSolvable == NULL)
 	{
 		printf("Probleme avec polices/Cybernetica_Normal.ttf");
+        return EXIT_SUCCESS;
 		SDL_Quit();
 	}
 }
@@ -605,7 +615,7 @@ Bouton InterfaceGraphique::eventBoutonClique(Bouton bouton)
 void InterfaceGraphique::eventMenuResoudreAleatoire()
 {
 	if (grilleGraphiqueAleatoire.estComplete())
-		animationFin();
+		resoudre();
 
 	//gestion des evenements
 	SDL_WaitEvent(&event);
@@ -974,7 +984,7 @@ void InterfaceGraphique::grilleVide()
 	}
 
 	if (grilleGraphiqueVide.estComplete())
-			animationFin();
+        resoudre();
 }
 
 
@@ -1018,13 +1028,14 @@ void InterfaceGraphique::afficherCliquezSurUneCase()
 
 /********	Photo-Doku		********/
 
-void InterfaceGraphique::afficherImageUser()
+int InterfaceGraphique::afficherImageUser()
 {
 	// affiche l'ordre que l'user doit executer
 	texteEntrezImage = TTF_RenderText_Blended(policeAuRevoir, "Choisissez l'image", couleurB);
 	if (texteEntrezImage == NULL)
 	{
 		printf("Probleme avec texteEntrezImage");
+        return EXIT_SUCCESS;
 		SDL_Quit();
 	}
 
@@ -1055,6 +1066,7 @@ void InterfaceGraphique::afficherImageUser()
 	SDL_Flip(fond);
 	SDL_Delay(1000);
 	SDL_Quit();
+    return EXIT_SUCCESS;
 }
 
 
@@ -1078,7 +1090,7 @@ void InterfaceGraphique::intro()
 }
 
 //gestion de l'event "quitter" : clic sur le bouton d'arret ou echap : coupe toute l'application directement.
-void InterfaceGraphique::quitter()
+int InterfaceGraphique::quitter()
 {
 	continuerEvent = false;
 	quitterAppli = true;
@@ -1093,26 +1105,7 @@ void InterfaceGraphique::quitter()
 	SDL_Flip(fond);
 	SDL_Delay(1000);
 	SDL_Quit();
-}
-
-
-//gestion de l'event "fini"
-void InterfaceGraphique::grilleFinie()
-{
-    score.stopTimer();
-	continuerEvent = false;
-	quitterAppli = true;
-
-	SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
-
-	texteAdieu = TTF_RenderText_Blended(policeAuRevoir, "Finie ! Bravo !", couleurB);
-	positionAuRevoir.x = (tailleX - (texteAdieu->w)) / 2;
-	positionAuRevoir.y = (tailleY - (texteAdieu->h) - 100 * zoomY) / 2;
-
-	SDL_BlitSurface(texteAdieu, NULL, fond, &positionAuRevoir);
-	SDL_Flip(fond);
-	SDL_Delay(500);
-	SDL_Quit();
+    return EXIT_SUCCESS;
 }
 
 /// gere les indices donnés à l'user : on affiche brievement l'indice
@@ -1148,14 +1141,14 @@ void InterfaceGraphique::animationFin()
     SDL_Flip(fond);
 	SDL_Delay(700);
 
-    positionArtifice.x =  (tailleX) *(rand()%10+1)/10;
-	positionArtifice.y =  (tailleY) *(rand()%10+1)/10;
-	positionArtifice2.x=  (tailleX) *(rand()%10+1)/10;
-	positionArtifice2.y=  (tailleY) *(rand()%10+1)/10;
-    positionArtifice3.x = (tailleX) *(rand()%10+1)/10;
-	positionArtifice3.y = (tailleY) *(rand()%10+1)/10;
-    positionArtifice4.x = (tailleX) *(rand()%10+1)/10;
-	positionArtifice4.y = (tailleY) *(rand()%10+1)/10;
+    positionArtifice.x =  (tailleX) *(rand()%100)/100;
+	positionArtifice.y =  (tailleY) *(rand()%100)/100;
+	positionArtifice2.x=  (tailleX) *(rand()%100)/100;
+	positionArtifice2.y=  (tailleY) *(rand()%100)/100;
+    positionArtifice3.x = (tailleX) *(rand()%100)/100;
+	positionArtifice3.y = (tailleY) *(rand()%100)/100;
+    positionArtifice4.x = (tailleX) *(rand()%100)/100;
+	positionArtifice4.y = (tailleY) *(rand()%100)/100;
 
 	for(int i=7;i<19;i++)
 	{
