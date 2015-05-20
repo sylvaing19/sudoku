@@ -276,8 +276,7 @@ void GrilleGraphique::afficherGrille()
             sudokuBouton[ligne][colonne].chargerBouton();
         }
     }
-	if(fond != NULL)
-	  SDL_Flip(fond);
+	SDL_Flip(fond);
 }
 
 /// fonction creant une grille  partir d'un fichier

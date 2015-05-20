@@ -614,6 +614,15 @@ Bouton InterfaceGraphique::eventBoutonClique(Bouton bouton)
 /// gestion des evenements dans le menu "resoudre"
 void InterfaceGraphique::eventMenuResoudreAleatoire()
 {
+	// on enleve tout pour le timer
+	SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
+	boutonAleatoire.chargerBouton();
+	boutonQuitter.chargerBouton();
+	boutonIndice.chargerBouton();
+	chargerTimer();
+	chargerCliquezSurUneCase();
+	grilleGraphiqueAleatoire.afficherGrille();
+
 	if (grilleGraphiqueAleatoire.estComplete())
 	{
 		resoudre();
@@ -622,7 +631,7 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
 	}
 
 	//gestion des evenements
-	//SDL_WaitEvent(&event);
+	SDL_PollEvent(&event);
 	switch (event.type)
 	{
 	case SDL_KEYDOWN:  //Gestion clavier
@@ -889,14 +898,6 @@ void InterfaceGraphique::grilleAleatoire()
     while(continuerEvent)
     {
         eventMenuResoudreAleatoire();
-
-		// on enleve tout pour le timer
-		SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
-		boutonAleatoire.chargerBouton();
-		boutonQuitter.chargerBouton();
-		boutonIndice.chargerBouton();
-		chargerTimer();
-		grilleGraphiqueAleatoire.afficherGrille();
 	}
 }
 
