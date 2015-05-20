@@ -42,6 +42,7 @@ InterfaceGraphique::InterfaceGraphique()
 
 	nombreVies = 3;// nombre de vie, d'indices autorisés
 	sudokuApparaitAleatoire = false, sudokuAResoudre = false; //initialisation de booleens
+	svgTimer=0;
 }
 
 
@@ -394,6 +395,8 @@ void InterfaceGraphique::eventMenuPrincipal()
 	SDL_WaitEvent(&event);
 	switch (event.type)
 	{
+   case SDL_QUIT:
+        quitter();
 	case SDL_KEYDOWN:  //Gestion clavier
 		switch (event.key.keysym.sym)
 		{
@@ -447,6 +450,8 @@ void InterfaceGraphique::eventMenuResoudre()
     SDL_WaitEvent(&event);
     switch(event.type)
     {
+   case SDL_QUIT:
+            quitter();
     case SDL_KEYDOWN:  //Gestion clavier
         switch(event.key.keysym.sym)
         {
@@ -495,6 +500,8 @@ Bouton InterfaceGraphique::eventChangerValeur(Bouton bouton)
 		SDL_WaitEvent(&event);
 		switch (event.type)
 		{
+       case SDL_QUIT:
+            quitter();
 		case SDL_KEYDOWN:  //Gestion clavier
 			switch (event.key.keysym.sym)
 			{
@@ -614,14 +621,21 @@ Bouton InterfaceGraphique::eventBoutonClique(Bouton bouton)
 /// gestion des evenements dans le menu "resoudre"
 void InterfaceGraphique::eventMenuResoudreAleatoire()
 {
-	// on enleve tout pour le timer
-	SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
-	boutonAleatoire.chargerBouton();
-	boutonQuitter.chargerBouton();
-	boutonIndice.chargerBouton();
-	chargerTimer();
-	chargerCliquezSurUneCase();
-	grilleGraphiqueAleatoire.afficherGrille();
+    if(svgTimer != score.getTimer()) // on ne change l'affichage que si le temps, en secondes, a vraiment changé
+    // ie : si moins d'une seconde est passée, on ne change rien
+    {
+        // on enleve tout pour le timer
+        SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
+
+        boutonAleatoire.chargerBouton();
+        boutonQuitter.chargerBouton();
+        boutonIndice.chargerBouton();
+        chargerTimer();
+        chargerCliquezSurUneCase();
+        grilleGraphiqueAleatoire.afficherGrille();
+
+        svgTimer=score.getTimer();
+	}
 
 	if (grilleGraphiqueAleatoire.estComplete())
 	{
@@ -634,75 +648,77 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
 	SDL_PollEvent(&event);
 	switch (event.type)
 	{
+    case SDL_QUIT:
+        quitter();
 	case SDL_KEYDOWN:  //Gestion clavier
 		switch (event.key.keysym.sym)
 		{
-		case SDLK_ESCAPE: //Appuyer sur echap : quitte
-			quitter();
-			break;
-		default:
-			;
+            case SDLK_ESCAPE: //Appuyer sur echap : quitte
+                quitter();
+                break;
+            default:
+                ;
 		}
 		break;
 
 	case SDL_MOUSEBUTTONDOWN: //Gestion souris
 		switch (event.button.button)
 		{
-		case SDL_BUTTON_LEFT:
+            case SDL_BUTTON_LEFT:
 
-			//clic gauche souris
-			if (boutonAleatoire.estClique(event))
-			{
-				boutonAleatoire=eventBoutonClique(boutonAleatoire);
-			}
-			else if (boutonQuitter.estClique(event))
-			{
-				boutonQuitter=eventBoutonClique(boutonQuitter);
-			}
-			else if (boutonIndice.estClique(event))
-			{
-				grilleGraph = grilleGraphiqueAleatoire;// on met à jour la grille temporaire
-				indice();
-				grilleGraphiqueAleatoire=grilleGraph;
-			}
-			else for (int line = 0; line < 9; line++)
-			{
-				for (int column = 0; column < 9; column++)
-				{
-					if (grilleGraphiqueAleatoire.sudokuBouton[line][column].estClique(event))//On verifie si le bouton est cliqué :
-					{
-						SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
-						chargerTimer();
-						boutonAleatoire.chargerBouton();
-						boutonQuitter.chargerBouton();
-						boutonIndice.chargerBouton();
-						grilleGraphiqueAleatoire.afficherGrille();//On enleve le "cliquez sur une case"
-						afficherEntrezUnChiffre();
+                //clic gauche souris
+                if (boutonAleatoire.estClique(event))
+                {
+                    boutonAleatoire=eventBoutonClique(boutonAleatoire);
+                }
+                else if (boutonQuitter.estClique(event))
+                {
+                    boutonQuitter=eventBoutonClique(boutonQuitter);
+                }
+                else if (boutonIndice.estClique(event))
+                {
+                    grilleGraph = grilleGraphiqueAleatoire;// on met à jour la grille temporaire
+                    indice();
+                    grilleGraphiqueAleatoire=grilleGraph;
+                }
+                else for (int line = 0; line < 9; line++)
+                {
+                    for (int column = 0; column < 9; column++)
+                    {
+                        if (grilleGraphiqueAleatoire.sudokuBouton[line][column].estClique(event))//On verifie si le bouton est cliqué :
+                        {
+                            SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
+                            chargerTimer();
+                            boutonAleatoire.chargerBouton();
+                            boutonQuitter.chargerBouton();
+                            boutonIndice.chargerBouton();
+                            grilleGraphiqueAleatoire.afficherGrille();//On enleve le "cliquez sur une case"
+                            afficherEntrezUnChiffre();
 
-						grilleGraphiqueAleatoire.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueAleatoire.sudokuBouton[line][column]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
-						int nouvelleValeur = std::atoi(grilleGraphiqueAleatoire.sudokuBouton[line][column].messageBouton.c_str());
+                            grilleGraphiqueAleatoire.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueAleatoire.sudokuBouton[line][column]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
+                            int nouvelleValeur = std::atoi(grilleGraphiqueAleatoire.sudokuBouton[line][column].messageBouton.c_str());
 
-						grille.setLC(nouvelleValeur, line, column);//on met  jour la grille
-						grilleGraphiqueAleatoire.grille = grille;//Et la grille graphique
+                            grille.setLC(nouvelleValeur, line, column);//on met  jour la grille
+                            grilleGraphiqueAleatoire.grille = grille;//Et la grille graphique
 
-                        grilleGraphiqueAleatoire.sudokuBouton[line][column].chargerBouton();
-						grilleGraph = grilleGraphiqueAleatoire;// on met à jour la grille temporaire
+                            grilleGraphiqueAleatoire.sudokuBouton[line][column].chargerBouton();
+                            grilleGraph = grilleGraphiqueAleatoire;// on met à jour la grille temporaire
 
-                        SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
-						grilleGraphiqueAleatoire.afficherGrille();//On enleve le "cliquez sur une case"
-						chargerCliquezSurUneCase();
-						boutonAleatoire.chargerBouton();
-						boutonQuitter.chargerBouton();
-						boutonIndice.chargerBouton();
-						chargerTimer();
-                        SDL_Flip(fond);
-					}
-				}
-				SDL_Flip(fond);
-			}
-			break;
-		default:
-			;
+                            SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
+                            grilleGraphiqueAleatoire.afficherGrille();//On enleve le "cliquez sur une case"
+                            chargerCliquezSurUneCase();
+                            boutonAleatoire.chargerBouton();
+                            boutonQuitter.chargerBouton();
+                            boutonIndice.chargerBouton();
+                            chargerTimer();
+                            SDL_Flip(fond);
+                        }
+                    }
+                    SDL_Flip(fond);
+                }
+                break;
+            default:
+                ;
 		}
 		break;
 	}
@@ -793,7 +809,8 @@ void InterfaceGraphique::grilleAleatoire()
         SDL_WaitEvent(&event);
         switch (event.type)
         {
-
+        case SDL_QUIT:
+                quitter();
         case SDL_KEYDOWN:  //Gestion clavier
             switch (event.key.keysym.sym)
             {
@@ -936,6 +953,8 @@ void InterfaceGraphique::grilleVide()
 		SDL_WaitEvent(&event);
 		switch (event.type)
 		{
+            case SDL_QUIT:
+                quitter();
 			case SDL_KEYDOWN:  //Gestion clavier
 				switch (event.key.keysym.sym)
 				{
@@ -1038,7 +1057,7 @@ void InterfaceGraphique::afficherEntrezUnChiffre()
 	SDL_Flip(fond);
 }
 
-/// affiche un texte 
+/// affiche un texte
 void InterfaceGraphique::afficherPasSolvable()
 {
 	textePasSolvable = TTF_RenderText_Blended(policePasSolvable, "Pas solvable  :/ ", couleurR);
@@ -1049,7 +1068,7 @@ void InterfaceGraphique::afficherPasSolvable()
 	SDL_Flip(fond);
 }
 
-/// affiche un texte 
+/// affiche un texte
 void InterfaceGraphique::chargerCliquezSurUneCase()
 {
 	texteCliquezSurUneCase = TTF_RenderText_Blended(policeEntrezUnChiffre, "Cliquez sur une case", couleurB);
@@ -1174,14 +1193,17 @@ void InterfaceGraphique::animationFin()
     SDL_Flip(fond);
 	SDL_Delay(1500);
 
-    positionArtifice.x =  (tailleX) *(rand()%100)/100;
-	positionArtifice.y =  (tailleY) *(rand()%100)/100;
-	positionArtifice2.x=  (tailleX) *(rand()%100)/100;
-	positionArtifice2.y=  (tailleY) *(rand()%100)/100;
-    positionArtifice3.x = (tailleX) *(rand()%100)/100;
-	positionArtifice3.y = (tailleY) *(rand()%100)/100;
-    positionArtifice4.x = (tailleX) *(rand()%100)/100;
-	positionArtifice4.y = (tailleY) *(rand()%100)/100;
+    positionArtifice.x =  (tailleX)/3 ;
+	positionArtifice.y =  (tailleY)/3 +(rand()%5)*(tailleY)/10;
+
+	positionArtifice2.x=  (tailleX)/3 +(rand()%5)*(tailleX)/10;
+	positionArtifice2.y=  (tailleY)/3;
+
+    positionArtifice3.x = (tailleX)/3 ;
+	positionArtifice3.y = (tailleY)/3 -(rand()%5)*(tailleY)/10;
+
+    positionArtifice4.x = (tailleX)/3 -(rand()%5)*(tailleX)/10;
+	positionArtifice4.y = (tailleY)/3;
 
 	for(int i=7;i<19;i++)
 	{

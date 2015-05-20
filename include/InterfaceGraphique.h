@@ -185,6 +185,9 @@ class InterfaceGraphique
 		/** charge le temps passé a jouer, pret à etre affiché */
 		void chargerTimer();
 
+		/** sauvegarde du temps precedent */
+		int svgTimer;
+
 		/** gere les boutons et leurrs effets au clic de l'user
 		*  @param le bouton a verifier
 		*  @return le nouveau bouton le remplacant
