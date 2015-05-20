@@ -41,6 +41,7 @@ class InterfaceGraphique
 		SDL_Rect positionArtifice,positionArtifice2,positionArtifice3,positionArtifice4;
 		SDL_Rect positionScore;
         SDL_Rect positionEasy, positionMedium, positionHard;
+		SDL_Rect positionTimer;
 
 
         ///Recupere les données d'affichage
@@ -51,11 +52,11 @@ class InterfaceGraphique
 		SDL_Surface *textePret, *textePretAussi, *texteAdieu, *imageTitre;
 		SDL_Surface *texteEntreUnChiffre, *texteCliquezSurUneCase, *textePasSolvable;
 		SDL_Surface *texteEntrezImage;
-		SDL_Surface *imageSudokuUser, *texteScore, *texteHard, *texteEasy, *texteMedium;
+		SDL_Surface *imageSudokuUser, *texteScore, *texteHard, *texteEasy, *texteMedium, *texteTimer;
 
 
         ///initialisation des polices
-		TTF_Font *policeTitre, *policeAuRevoir, *policeSudoku, *policeEntrezUnChiffre, *policePasSolvable, *policeScore;
+		TTF_Font *policeTitre, *policeAuRevoir, *policeSudoku, *policeEntrezUnChiffre, *policePasSolvable, *policeScore, *policeTimer;
 
         ///creation des evenements
         SDL_Event event;
@@ -108,9 +109,9 @@ class InterfaceGraphique
         void initPolices();
 		/**	initialise le titre affiché		*/
         void initTitre();
-        /**	initialise les boutons  du menu Principal		*/
+        /**	initialise les boutons du menu Principal		*/
         void initBoutonsMenuPrincipal();
-        /**	initialise les boutons  du menu resoudre	*/
+        /**	initialise les boutons du menu resoudre	*/
         void initBoutonsMenuResoudre();
         void initFondZoomTailleBouton(Bouton & bouton);
         void initFondZoomTailleGrilleGraph(GrilleGraphique & grilleGraphique);
@@ -178,9 +179,11 @@ class InterfaceGraphique
 		/** affiche le texte demandant à l'user de rentrer un chiffre	*/
 		void afficherEntrezUnChiffre();
 		/** affiche le texte demandant à l'user de cliquer	*/
-		void afficherCliquezSurUneCase();
+		void chargerCliquezSurUneCase();
 		/**	affiche le texte "désolé, c'est pas solvable" */
 		void afficherPasSolvable();
+		/** charge le temps passé a jouer, pret à etre affiché */
+		void chargerTimer();
 
 		/** gere les boutons et leurrs effets au clic de l'user
 		*  @param le bouton a verifier

@@ -28,7 +28,7 @@ void Bouton::loaderImage()
 
 	if (imageBouton == NULL)
 	{
-		printf("       Probleme avec %s dans loaderImage \n", nomImageBouton.c_str());
+		printf("Probleme avec %s dans loaderImage \n", nomImageBouton.c_str());
         SDL_Quit();
 	}
 

@@ -32,6 +32,9 @@ public:
 	/* Calcule et renvoie le score actuel */
 	int getScore(void);
 
+	/* Calcule et renvoie le temps passé  jouer */
+	time_t getTimer();
+
 	/* Renvoi la place du score actuel dans le classement (permet de
 	déterminer s'il s'agit ou non d'un score classé avant d'utiliser save() )
 	Supprime le fichier de sauvegarde si il est non conforme, et renvoi 1

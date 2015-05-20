@@ -35,6 +35,19 @@ void Score::initScore(Difficulte difficulte)
 	pausedTime = 0;
 }
 
+
+time_t Score::getTimer()
+{
+	time_t currentTime = time(NULL);
+	time_t playTime;
+	if (gamePaused)
+		playTime = pauseStartTime - beginTime - pausedTime;
+	else
+		playTime = currentTime - beginTime - pausedTime;
+
+	return playTime;
+}
+
 void Score::removeScore(int pointsToRemove)
 {
     initialScore-=pointsToRemove;
