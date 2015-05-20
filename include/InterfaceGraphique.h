@@ -105,7 +105,7 @@ class InterfaceGraphique
         ///prototypes de fonction
 
         /**	initialise les differentes polices utilisées	*/
-        int initPolices();
+        void initPolices();
 		/**	initialise le titre affiché		*/
         void initTitre();
         /**	initialise les boutons  du menu Principal		*/
@@ -149,7 +149,7 @@ class InterfaceGraphique
         void chargerBoutonsMenuPrincipal();
 
 		/** affiche la grille entrée par l'utilisateur	*/
-		int afficherImageUser();
+		void afficherImageUser();
 
         /** fonction gerant les evenements du menu Principal : clics, touches... */
         void eventMenuPrincipal();
@@ -167,7 +167,7 @@ class InterfaceGraphique
         void grilleVide();
 
         /**	resoud la grille et l'affiche */
-        int resoudre();
+        void resoudre();
 	private:
 		/**	change la valeur d'une case donnée
 		*  @param le bouton a changer

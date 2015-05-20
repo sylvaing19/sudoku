@@ -108,7 +108,7 @@ void InterfaceGraphique::menuResoudre()
 }
 
 /// gestion graphique de la resolution, ou son echec, de la grille
-int InterfaceGraphique::resoudre()
+void InterfaceGraphique::resoudre()
 {
     bool finiSansResoudre=false;
     if(grille.estEgale(grilleResolue))
@@ -136,7 +136,6 @@ int InterfaceGraphique::resoudre()
 		animationFin();
         SDL_Quit();
         TTF_Quit();
-        return EXIT_SUCCESS;
 	}
 	else // sinon, pas solvable
 	{
@@ -146,7 +145,6 @@ int InterfaceGraphique::resoudre()
 		SDL_Delay(2000);
         SDL_Quit();
         TTF_Quit();
-		return EXIT_SUCCESS;
 	}
 }
 
@@ -341,34 +339,30 @@ void InterfaceGraphique::chargerFond()
 }
 
 //polices avec leurs tailles
-int InterfaceGraphique::initPolices()
+void InterfaceGraphique::initPolices()
 {
 	policeTitre = policeEntrezUnChiffre = TTF_OpenFont("polices/A Simple Life.ttf", 100 * zoomX);
 	if (policeTitre == NULL || policeEntrezUnChiffre == NULL)
 	{
-		printf("Probleme avec polices / A Simple Life.ttf");	return EXIT_SUCCESS;
-
+		printf("Probleme avec polices / A Simple Life.ttf");
 		SDL_Quit();
 	}
 	policeAuRevoir = TTF_OpenFont("polices/SF_Toontime.ttf", 150 * zoomX);
 	if (policeAuRevoir == NULL)
 	{
-		printf("Probleme avec polices/SF_Toontime.ttf");	return EXIT_SUCCESS;
-
+		printf("Probleme avec polices/SF_Toontime.ttf");
 		SDL_Quit();
 	}
 	policeSudoku = TTF_OpenFont("polices/Cybernetica_Normal.ttf", 30 * zoomX);
 	if (policeSudoku == NULL)
 	{
-		printf("Probleme avec polices/Cybernetica_Normal.ttf");	return EXIT_SUCCESS;
-
+		printf("Probleme avec polices/Cybernetica_Normal.ttf");
 		SDL_Quit();
 	}
 	policePasSolvable = TTF_OpenFont("polices/Cybernetica_Normal.ttf", 50 * zoomX);
 	if (policePasSolvable == NULL)
 	{
 		printf("Probleme avec polices/Cybernetica_Normal.ttf");
-        return EXIT_SUCCESS;
 		SDL_Quit();
 	}
 }
@@ -615,7 +609,11 @@ Bouton InterfaceGraphique::eventBoutonClique(Bouton bouton)
 void InterfaceGraphique::eventMenuResoudreAleatoire()
 {
 	if (grilleGraphiqueAleatoire.estComplete())
+	{
 		resoudre();
+		continuerEvent = false;
+		return;
+	}
 
 	//gestion des evenements
 	SDL_WaitEvent(&event);
@@ -984,7 +982,10 @@ void InterfaceGraphique::grilleVide()
 	}
 
 	if (grilleGraphiqueVide.estComplete())
-        resoudre();
+	{
+		resoudre();
+		return;
+	}
 }
 
 
@@ -1028,14 +1029,13 @@ void InterfaceGraphique::afficherCliquezSurUneCase()
 
 /********	Photo-Doku		********/
 
-int InterfaceGraphique::afficherImageUser()
+void InterfaceGraphique::afficherImageUser()
 {
 	// affiche l'ordre que l'user doit executer
 	texteEntrezImage = TTF_RenderText_Blended(policeAuRevoir, "Choisissez l'image", couleurB);
 	if (texteEntrezImage == NULL)
 	{
 		printf("Probleme avec texteEntrezImage");
-        return EXIT_SUCCESS;
 		SDL_Quit();
 	}
 
@@ -1066,7 +1066,7 @@ int InterfaceGraphique::afficherImageUser()
 	SDL_Flip(fond);
 	SDL_Delay(1000);
 	SDL_Quit();
-    return EXIT_SUCCESS;
+	return;
 }
 
 
@@ -1139,7 +1139,7 @@ void InterfaceGraphique::animationFin()
 
 
     SDL_Flip(fond);
-	SDL_Delay(700);
+	SDL_Delay(1500);
 
     positionArtifice.x =  (tailleX) *(rand()%100)/100;
 	positionArtifice.y =  (tailleY) *(rand()%100)/100;
@@ -1198,4 +1198,5 @@ void InterfaceGraphique::animationFin()
             SDL_BlitSurface(imageFond, NULL, fond, &positionFond); // on enleve tout
             SDL_Delay(50);
         }
+
 }
