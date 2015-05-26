@@ -182,6 +182,9 @@ class InterfaceGraphique
 
 		/** affiche le texte demandant à l'user de rentrer un chiffre	*/
 		void afficherEntrezUnChiffre();
+		/** affiche le texte demandant à l'user de quitter	*/
+		void afficherAppuyerSurEchap();
+
 		/** affiche le texte demandant à l'user de cliquer	*/
 		void chargerCliquezSurUneCase();
 		/**	affiche le texte "désolé, c'est pas solvable" */

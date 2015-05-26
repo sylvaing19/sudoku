@@ -168,7 +168,32 @@ void InterfaceGraphique::resoudreVide()
 
 		grilleGraphiqueResolue.creerGrilleGraph();
 		SDL_Flip(fond);
-		SDL_Delay(2500);//laisse le temps pour voir la grille
+
+		afficherAppuyerSurEchap();
+
+		bool end = false;
+		while (!end)
+		{
+			SDL_WaitEvent(&event);
+			switch (event.type)
+			{
+			case SDL_QUIT:
+				end = true;
+			case SDL_KEYDOWN:  //Gestion clavier
+				switch (event.key.keysym.sym)
+				{
+				case SDLK_ESCAPE: //Appuyer sur echap : quitte
+					end = true;
+					break;
+				default:
+					;
+				}
+				break;
+			default:
+				;
+			}
+		}
+
 		SDL_Quit();
 		TTF_Quit();
 	}
@@ -379,31 +404,26 @@ void InterfaceGraphique::initPolices()
 	policeTitre = policeEntrezUnChiffre = TTF_OpenFont("polices/A Simple Life.ttf", 100 * zoomX);
 	if (policeTitre == NULL || policeEntrezUnChiffre == NULL)
 	{
-		printf("Probleme avec polices / A Simple Life.ttf");
 		SDL_Quit();
 	}
 	policeAuRevoir = TTF_OpenFont("polices/SF_Toontime.ttf", 150 * zoomX);
 	if (policeAuRevoir == NULL)
 	{
-		printf("Probleme avec polices/SF_Toontime.ttf");
 		SDL_Quit();
 	}
 	policeSudoku = TTF_OpenFont("polices/Cybernetica_Normal.ttf", 30 * zoomX);
 	if (policeSudoku == NULL)
 	{
-		printf("Probleme avec polices/Cybernetica_Normal.ttf");
 		SDL_Quit();
 	}
 	policePasSolvable = TTF_OpenFont("polices/Cybernetica_Normal.ttf", 50 * zoomX);
 	if (policePasSolvable == NULL)
 	{
-		printf("Probleme avec polices/Cybernetica_Normal.ttf");
 		SDL_Quit();
 	}
 	policeTimer = TTF_OpenFont("polices/Cybernetica_Normal.ttf", 20 * zoomX);
 	if (policeTimer == NULL)
 	{
-		printf("Probleme avec polices/Cybernetica_Normal.ttf");
 		SDL_Quit();
 	}
 }
@@ -773,6 +793,100 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
 	}
 }
 
+///genere une grille vide et lance les evenenements suivants
+void InterfaceGraphique::grilleVide()
+{
+	chargerFond();//On reset l'affichage
+	SDL_Flip(fond);
+
+	boutonIndice.chargerBouton();
+
+	boutonAleatoire.event = "ApparitionAleatoireVide";
+	boutonAleatoire = eventBoutonClique(boutonAleatoire);// on fais comme s'i lavait été cliqué, pour le transformer en bouton resoudre
+	boutonAleatoire.chargerBouton();
+
+	grilleGraphiqueVide.grille = grille;
+	initFondZoomTailleGrilleGraph(grilleGraphiqueVide);
+	grilleGraphiqueVide.creerGrilleGraph();
+
+	grilleGraph = grilleGraphiqueVide;
+
+	continuerEvent = true;
+	int valeurChangee = 0;// initialisation de la valeur : si reste à 0, n'a pas été touchée par l'user
+
+	while (continuerEvent)
+	{
+		if (grilleGraphiqueVide.estComplete())
+		{
+			resoudreVide();
+			return;
+		}
+
+		SDL_WaitEvent(&event);
+		switch (event.type)
+		{
+		case SDL_QUIT:
+			quitter();
+		case SDL_KEYDOWN:  //Gestion clavier
+			switch (event.key.keysym.sym)
+			{
+			case SDLK_ESCAPE: //Appuyer sur echap : quitte
+				quitter();
+			}
+		case SDL_MOUSEBUTTONDOWN: //Gestion souris
+			switch (event.button.button)
+			{
+			case SDL_BUTTON_LEFT://clic gauche souris
+				//clic gauche souris
+				if (boutonAleatoire.estClique(event))
+				{
+					boutonAleatoire = eventBoutonClique(boutonAleatoire);
+				}
+				else if (boutonQuitter.estClique(event))
+				{
+					boutonQuitter = eventBoutonClique(boutonQuitter);
+				}
+				else if (boutonIndice.estClique(event))
+				{
+					grilleGraph = grilleGraphiqueVide;// on met à jour la grille temporaire
+					indice();
+					grilleGraphiqueVide = grilleGraph;// on met à jour la grille temporaire
+					SDL_Delay(100);
+				}
+				else for (int line = 0; line < 9; line++)
+				{
+					for (int column = 0; column < 9; column++)
+					{
+						if (grilleGraphiqueVide.sudokuBouton[line][column].estClique(event))//On verifie si le bouton est cliqué :
+						{
+							grilleGraphiqueVide.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueVide.sudokuBouton[line][column]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
+
+
+							int nouvelleValeur = std::atoi(grilleGraphiqueVide.sudokuBouton[line][column].messageBouton.c_str());
+							grille.setLC(nouvelleValeur, line, column);//on met  jour la grille
+							grilleGraphiqueVide.grille = grille;//Et la grille graphique
+
+							grilleGraphiqueVide.sudokuBouton[line][column].chargerBouton();
+							SDL_Flip(fond);
+
+
+							grilleGraph = grilleGraphiqueVide;// on met à jour la grille temporaire
+
+						}
+					}
+
+				}
+			}
+		}
+	}
+
+	if (grilleGraphiqueVide.estComplete())
+	{
+		resoudreVide();
+		return;
+	}
+}
+
 
 
 
@@ -967,105 +1081,6 @@ void InterfaceGraphique::grilleAleatoire()
 	}
 }
 
-///genere une grille vide et lance les evenenements suivants
-void InterfaceGraphique::grilleVide()
-{
-	chargerFond();//On reset l'affichage
-	SDL_Flip(fond);
-
-	boutonIndice.chargerBouton();
-	boutonAleatoire.event = "ApparitionAleatoireVide";
-	boutonAleatoire = eventBoutonClique(boutonAleatoire);// on fais comme s'i lavait été cliqué, pour le transformer en bouton resoudre
-	boutonAleatoire.chargerBouton();
-
-	grilleGraphiqueVide.grille = grille;
-	initFondZoomTailleGrilleGraph(grilleGraphiqueVide);
-	grilleGraphiqueVide.creerGrilleGraph();
-
-	grilleGraph = grilleGraphiqueVide;
-
-	continuerEvent = true;
-	int valeurChangee = 0;// initialisation de la valeur : si reste à 0, n'a pas été touchée par l'user
-
-	while (continuerEvent)
-	{
-		SDL_PollEvent(&event);
-		switch (event.type)
-		{
-            case SDL_QUIT:
-                quitter();
-			case SDL_KEYDOWN:  //Gestion clavier
-				switch (event.key.keysym.sym)
-				{
-					case SDLK_ESCAPE: //Appuyer sur echap : quitte
-						quitter();
-				}
-			case SDL_MOUSEBUTTONDOWN: //Gestion souris
-				switch (event.button.button)
-				{
-					case SDL_BUTTON_LEFT://clic gauche souris
-						//clic gauche souris
-						if (boutonAleatoire.estClique(event))
-						{
-							boutonAleatoire = eventBoutonClique(boutonAleatoire);
-						}
-						else if (boutonQuitter.estClique(event))
-						{
-							boutonQuitter=eventBoutonClique(boutonQuitter);
-						}
-						else if (boutonIndice.estClique(event))
-						{
-							grilleGraph = grilleGraphiqueVide;// on met à jour la grille temporaire
-							indice();
-							grilleGraphiqueVide = grilleGraph;// on met à jour la grille temporaire
-							SDL_Delay(100);
-						}
-						else for (int line = 0; line < 9; line++)
-						{
-							for (int column = 0; column < 9; column++)
-							{
-								if (grilleGraphiqueVide.sudokuBouton[line][column].estClique(event))//On verifie si le bouton est cliqué :
-								{
-									SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
-									grilleGraphiqueVide.afficherGrille();//On enleve le "cliquez sur une case"
-									boutonQuitter.chargerBouton();
-									boutonIndice.chargerBouton();
-									boutonAleatoire.chargerBouton();
-									afficherEntrezUnChiffre();
-
-									grilleGraphiqueVide.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueVide.sudokuBouton[line][column]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
-
-
-									int nouvelleValeur = std::atoi(grilleGraphiqueVide.sudokuBouton[line][column].messageBouton.c_str());
-									grille.setLC(nouvelleValeur, line, column);//on met  jour la grille
-									grilleGraphiqueVide.grille = grille;//Et la grille graphique
-
-									grilleGraphiqueVide.sudokuBouton[line][column].chargerBouton();
-									grilleGraph = grilleGraphiqueVide;// on met à jour la grille temporaire
-
-
-									SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
-									grilleGraphiqueVide.afficherGrille();
-									boutonQuitter.chargerBouton();
-									boutonIndice.chargerBouton();
-									boutonAleatoire.chargerBouton();
-									chargerCliquezSurUneCase();
-                                    SDL_Flip(fond);
-								}
-							}
-
-						}
-					}
-		}
-	}
-
-	if (grilleGraphiqueVide.estComplete())
-	{
-		resoudreVide();
-		return;
-	}
-}
-
 
 
 /********	Affichage basique de texte	********/
@@ -1081,7 +1096,6 @@ void InterfaceGraphique::chargerTimer()
 	texteTimer = TTF_RenderText_Blended(policeTimer, stringTimer.c_str(), couleurB);
 	if (texteTimer == NULL)
 	{
-		printf("Probleme avec texteTimer");
 		SDL_Quit();
 	}
 	positionTimer.x = tailleX / 2 - (texteTimer->w / 2)*zoomX;
@@ -1094,7 +1108,18 @@ void InterfaceGraphique::afficherEntrezUnChiffre()
 {
 	positionEntrezUnChiffre.y = 50 * zoomY;;
 	texteEntreUnChiffre = TTF_RenderText_Blended(policeEntrezUnChiffre, "Entrez un Chiffre :", couleurB);
-	positionEntrezUnChiffre.x = (boutonAleatoire.positionBouton.x + boutonAleatoire.positionBouton.w)* zoomX;;
+	positionEntrezUnChiffre.x = (boutonAleatoire.positionBouton.x + boutonAleatoire.positionBouton.w)* zoomX;
+
+	SDL_BlitSurface(texteEntreUnChiffre, NULL, fond, &positionEntrezUnChiffre);
+	SDL_Flip(fond);
+}
+
+/// affiche un texte
+void InterfaceGraphique::afficherAppuyerSurEchap()
+{
+	positionEntrezUnChiffre.y = 50 * zoomY;;
+	texteEntreUnChiffre = TTF_RenderText_Blended(policeEntrezUnChiffre, "Appuyez sur Echap :", couleurB);
+	positionEntrezUnChiffre.x = (boutonAleatoire.positionBouton.x + boutonAleatoire.positionBouton.w)* zoomX;
 
 	SDL_BlitSurface(texteEntreUnChiffre, NULL, fond, &positionEntrezUnChiffre);
 	SDL_Flip(fond);
@@ -1130,7 +1155,6 @@ void InterfaceGraphique::afficherImageUser()
 	texteEntrezImage = TTF_RenderText_Blended(policeAuRevoir, "Choisissez l'image", couleurB);
 	if (texteEntrezImage == NULL)
 	{
-		printf("Probleme avec texteEntrezImage");
 		SDL_Quit();
 	}
 
@@ -1150,7 +1174,6 @@ void InterfaceGraphique::afficherImageUser()
 	imageSudokuUser = SDL_LoadBMP(nomImageUser.c_str());
 	if (imageSudokuUser == NULL)
 	{
-		printf("Probleme avec %s", nomImageUser.c_str());
 		SDL_Quit();
 	}
 
@@ -1262,10 +1285,6 @@ void InterfaceGraphique::animationFin()
 
 
         artifice[i-7] = SDL_LoadBMP(stringImage.c_str());
-        if( artifice[i-7]==NULL)
-        {
-            printf("Probleme avec %s", stringImage.c_str());
-        }
 
         SDL_SetColorKey(artifice[i-7], SDL_SRCCOLORKEY, SDL_MapRGB(artifice[i-7]->format, 0, 0, 0)); // met le blanc en transparent pour le bouton
         artifice[i-7] = zoomSurface(artifice[i-7], 3*zoomX, 3*zoomY, 0);

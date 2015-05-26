@@ -28,7 +28,6 @@ void Bouton::loaderImage()
 
 	if (imageBouton == NULL)
 	{
-		printf("Probleme avec %s dans loaderImage \n", nomImageBouton.c_str());
         SDL_Quit();
 	}
 
@@ -84,7 +83,6 @@ void Bouton::loaderPolice()
         policeBouton = TTF_OpenFont(stringPolice, taillePolice);
 		if (policeBouton == NULL)
 		{
-			printf("    Probleme avec %s dans chargerBouton \n", nomPolice.c_str());
 			SDL_Quit();
 		}
     }

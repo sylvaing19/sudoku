@@ -16,7 +16,6 @@ GrilleGraphique::GrilleGraphique()
     policeSudoku=TTF_OpenFont(nomPolice.c_str(), taillePolice);
 	if (policeSudoku == NULL)
 	{
-		printf("Probleme avec %s", nomPolice.c_str());
 		SDL_Quit();
 	}
 
@@ -35,7 +34,6 @@ void GrilleGraphique::creerGrilleGraph()
 	imageSudokuVierge = SDL_LoadBMP("images/SudokuVierge.bmp");
 	if (imageSudokuVierge == NULL)
 	{
-		printf("Probleme avec images/SudokuVierge.bmp");
 		SDL_Quit();
 	}
 
@@ -107,7 +105,6 @@ void GrilleGraphique::afficherGrilleGraphIndice()
 	imageSudokuVierge = SDL_LoadBMP("images/SudokuVierge.bmp");
 	if (imageSudokuVierge == NULL)
 	{
-		printf("Probleme avec images / SudokuVierge.bmp");
 		SDL_Quit();
 	}
 
@@ -246,8 +243,6 @@ bool GrilleGraphique::estComplete()
 				estComplete=false;
 		}
 	}
-	if(estComplete)
-        printf("Grille finie ! ");
 	return estComplete;
 }
 
@@ -262,8 +257,6 @@ bool GrilleGraphique::estCorrecte(GrilleGraphique resolue)
 				estCorrecte=false;
 		}
 	}
-	if(estCorrecte)
-        printf("Grille correcte ! ");
 	return estCorrecte;
 }
 
