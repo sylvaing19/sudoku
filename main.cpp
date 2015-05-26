@@ -121,10 +121,10 @@ int main ( int argc, char** argv )
                 if(menuResoudre.menuACreer=="Manuel")
                 {
                     menuResoudre.grilleVide();
-                    if(menuResoudre.menuACreer=="Resoudre")
-                    {
-						menuResoudre.resoudre();
-                    }
+					if (menuResoudre.menuACreer == "ResoudreVide")
+					{
+						menuResoudre.resoudreVide();
+					}
                 }
                 if(menuResoudre.menuACreer=="MenuPrincipal")
                 {

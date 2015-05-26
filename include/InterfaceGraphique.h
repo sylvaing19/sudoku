@@ -169,6 +169,10 @@ class InterfaceGraphique
 
         /**	resoud la grille et l'affiche */
         void resoudre();
+
+		/** resoud si la grille etait vide initiallement */
+		void resoudreVide();
+
 	private:
 		/**	change la valeur d'une case donnée
 		*  @param le bouton a changer
@@ -234,6 +238,7 @@ class InterfaceGraphique
 
 		///grille generique
 		GrilleGraphique grilleGraph;
-};
+}
 
 #endif // INTERFACEGRAPHIQUE_H
+;

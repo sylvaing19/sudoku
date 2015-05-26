@@ -224,9 +224,10 @@ void GrilleGraphique::afficherIndice()
 				sudokuBouton[ligneRand][colonneRand].positionBouton.x = svgPosX;
 				sudokuBouton[ligneRand][colonneRand].positionBouton.y = svgPosY;
 
-				sudokuBouton[ligneRand][colonneRand].couleurTexteBouton = couleurV;
 
 				indicePlace = true;
+				sudokuBouton[ligneRand][colonneRand].couleurTexteBouton = couleurV;
+
 				sudokuBouton[ligneRand][colonneRand].chargerBouton();
 			}
 		}

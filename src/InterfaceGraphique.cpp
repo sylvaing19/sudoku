@@ -6,11 +6,11 @@
 #include "InterfaceGraphique.h"
 
 //Constructeur
-InterfaceGraphique::InterfaceGraphique()
+InterfaceGraphique::InterfaceGraphique() : score()
 {
     //Initialisation du systeme SDL
     SDL_Init(SDL_INIT_VIDEO);
-
+	
     //Recuperation des informations de l'utilisateur
     infosUser = SDL_GetVideoInfo();
 
@@ -43,6 +43,7 @@ InterfaceGraphique::InterfaceGraphique()
 	nombreVies = 3;// nombre de vie, d'indices autorisés
 	sudokuApparaitAleatoire = false, sudokuAResoudre = false; //initialisation de booleens
 	svgTimer=0;
+
 }
 
 
@@ -142,10 +143,43 @@ void InterfaceGraphique::resoudre()
 	{
 		chargerFond();
 		afficherPasSolvable();
-		SDL_Flip(fond);
 		SDL_Delay(2000);
         SDL_Quit();
         TTF_Quit();
+	}
+}
+
+/// gestion graphique de la resolution, ou son echec, de la grille
+void InterfaceGraphique::resoudreVide()
+{
+	bool finiSansResoudre = false;
+	if (grille.estEgale(grilleResolue))
+		finiSansResoudre = true;
+
+	//Resolution
+	if (grille.completer()) // Si on a reussi
+	{
+		//On enleve la precedente
+		chargerFond();
+		SDL_Flip(fond);
+
+		initFondZoomTailleGrilleGraph(grilleGraphiqueResolue);
+		grilleGraphiqueResolue.grille = grille;
+
+		grilleGraphiqueResolue.creerGrilleGraph();
+		SDL_Flip(fond);
+		SDL_Delay(2500);//laisse le temps pour voir la grille
+		SDL_Quit();
+		TTF_Quit();
+	}
+	else // sinon, pas solvable
+	{
+		chargerFond();
+		afficherPasSolvable();
+	
+		SDL_Delay(2000);
+		SDL_Quit();
+		TTF_Quit();
 	}
 }
 
@@ -202,7 +236,7 @@ void InterfaceGraphique::initBoutonsMenuPrincipal()
         boutonMenu1.nomImageBouton=a;
         a="polices/Cybernetica_Normal.ttf";
         boutonMenu1.nomPolice=a;
-        a="Resolution";
+        a="Jouer";
         boutonMenu1.messageBouton=a;
         a="Resoudre";
         boutonMenu1.event=a;
@@ -444,7 +478,6 @@ void InterfaceGraphique::eventMenuPrincipal()
 /// gere l'evenement dans le menu resoudre
 void InterfaceGraphique::eventMenuResoudre()
 {
-
     ///gestion des events :
 
     SDL_WaitEvent(&event);
@@ -580,6 +613,16 @@ Bouton InterfaceGraphique::eventBoutonClique(Bouton bouton)
 		bouton.messageBouton = a;
 		bouton.event = a;
 	}
+	else if (bouton.event == "ApparitionAleatoireVide")
+	{
+		menuACreer = "Aleatoire";
+		continuerEvent = false;
+		std::string a = "ResoudreVide";
+		bouton.event = a;
+		a = "Resoudre";
+		bouton.messageBouton = a;
+
+	}
 	else if (bouton.event == "Resoudre")
 	{
 		menuACreer = "Resoudre";
@@ -613,6 +656,11 @@ Bouton InterfaceGraphique::eventBoutonClique(Bouton bouton)
 	else if (bouton.event == "Hard")
 	{
         menuACreer="Hard";
+		continuerEvent = false;
+	}
+	else if (bouton.event == "ResoudreVide")
+	{
+		menuACreer = "ResoudreVide";
 		continuerEvent = false;
 	}
 	return bouton;
@@ -680,6 +728,7 @@ void InterfaceGraphique::eventMenuResoudreAleatoire()
                     grilleGraph = grilleGraphiqueAleatoire;// on met à jour la grille temporaire
                     indice();
                     grilleGraphiqueAleatoire=grilleGraph;
+					SDL_Delay(100);
                 }
                 else for (int line = 0; line < 9; line++)
                 {
@@ -925,6 +974,7 @@ void InterfaceGraphique::grilleVide()
 	SDL_Flip(fond);
 
 	boutonIndice.chargerBouton();
+	boutonAleatoire.event = "ApparitionAleatoireVide";
 	boutonAleatoire = eventBoutonClique(boutonAleatoire);// on fais comme s'i lavait été cliqué, pour le transformer en bouton resoudre
 	boutonAleatoire.chargerBouton();
 
@@ -937,20 +987,9 @@ void InterfaceGraphique::grilleVide()
 	continuerEvent = true;
 	int valeurChangee = 0;// initialisation de la valeur : si reste à 0, n'a pas été touchée par l'user
 
-	SDL_BlitSurface(imageFond, NULL, fond, &positionFond);
-	boutonQuitter.chargerBouton();
-	boutonIndice.chargerBouton();
-	boutonAleatoire.chargerBouton();
-	chargerTimer();
-	grilleGraphiqueVide.afficherGrille();//On enleve le "cliquez sur une case"
-
-
 	while (continuerEvent)
 	{
-		chargerCliquezSurUneCase();
-		chargerTimer();
-
-		SDL_WaitEvent(&event);
+		SDL_PollEvent(&event);
 		switch (event.type)
 		{
             case SDL_QUIT:
@@ -968,7 +1007,7 @@ void InterfaceGraphique::grilleVide()
 						//clic gauche souris
 						if (boutonAleatoire.estClique(event))
 						{
-							boutonAleatoire=eventBoutonClique(boutonAleatoire);
+							boutonAleatoire = eventBoutonClique(boutonAleatoire);
 						}
 						else if (boutonQuitter.estClique(event))
 						{
@@ -979,6 +1018,7 @@ void InterfaceGraphique::grilleVide()
 							grilleGraph = grilleGraphiqueVide;// on met à jour la grille temporaire
 							indice();
 							grilleGraphiqueVide = grilleGraph;// on met à jour la grille temporaire
+							SDL_Delay(100);
 						}
 						else for (int line = 0; line < 9; line++)
 						{
@@ -991,7 +1031,6 @@ void InterfaceGraphique::grilleVide()
 									boutonQuitter.chargerBouton();
 									boutonIndice.chargerBouton();
 									boutonAleatoire.chargerBouton();
-									chargerTimer();
 									afficherEntrezUnChiffre();
 
 									grilleGraphiqueVide.sudokuBouton[line][column] = eventChangerValeur(grilleGraphiqueVide.sudokuBouton[line][column]);//Si tel est le cas, on change sa valeur par l'event dans cette fonction
@@ -1011,7 +1050,6 @@ void InterfaceGraphique::grilleVide()
 									boutonIndice.chargerBouton();
 									boutonAleatoire.chargerBouton();
 									chargerCliquezSurUneCase();
-									chargerTimer();
                                     SDL_Flip(fond);
 								}
 							}
@@ -1023,7 +1061,7 @@ void InterfaceGraphique::grilleVide()
 
 	if (grilleGraphiqueVide.estComplete())
 	{
-		resoudre();
+		resoudreVide();
 		return;
 	}
 }
@@ -1041,6 +1079,11 @@ void InterfaceGraphique::chargerTimer()
 	stringTimer += std::to_string(temps);
 
 	texteTimer = TTF_RenderText_Blended(policeTimer, stringTimer.c_str(), couleurB);
+	if (texteTimer == NULL)
+	{
+		printf("Probleme avec texteTimer");
+		SDL_Quit();
+	}
 	positionTimer.x = tailleX / 2 - (texteTimer->w / 2)*zoomX;
 	positionTimer.y = tailleY *9/10 - (texteTimer->h / 2)*zoomX;
 	SDL_BlitSurface(texteTimer, NULL, fond, &positionTimer);
